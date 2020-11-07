@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Team Furious</title>
+    <title>InstantVet</title>
     
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -46,7 +46,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Team Furious</a>
+          <a class="brand" href="#">InstantVet</a>
            <div class="btn-group pull-right">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-user"></i> Username
@@ -76,7 +76,7 @@
 						          <b class="caret"></b>
 						    </a>
 						    <ul class="dropdown-menu">
-						    	<li><a href="forms/verRegistroVacuna">Crear cita para vacunación</a></li>
+						    	<li><a href="forms/verRegistroVacuna">Crear cita para vacunaciï¿½n</a></li>
 						    	<li><a href="forms/verRegistroTarea">Crear tarea en el calendario</a></li>
 						    	<li><a href="forms/listarVacuna">Ver calendario con las vacunas programadas</a></li>
 						    	<li><a href="forms/listarTarea">Ver calendario con las tareas asignadas</a></li>
@@ -98,7 +98,7 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h2>Veterinaria Furious</h2>
+        <h2>SV Veterinaria</h2>
       
         <div id="slides">
             <div class="slides_container">

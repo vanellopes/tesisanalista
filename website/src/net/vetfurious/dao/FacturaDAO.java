@@ -332,7 +332,7 @@ public class FacturaDAO extends BaseDAO{
 
 
 	public List<Paciente> listarpacientesxcliente(int codcliente) throws DAOExcepcion {
-		String query = "SELECT Paciente_Id,'sultan' as nombre from  dbo.Paciente WHERE Dueno_Id=?";
+		String query = "SELECT Paciente_Id,'sultan' as nombre from  Paciente WHERE Dueno_Id=?";
 	List<Paciente> lista = new ArrayList<Paciente>();
 	Connection con = null;
 	PreparedStatement stmt = null;

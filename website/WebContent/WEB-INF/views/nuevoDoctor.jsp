@@ -67,7 +67,7 @@ function validar(){
 	 }
 	 
 	 if(document.getElementById("txtPassword").value=="") {
-		 msg=msg + "Ingrese la Contraseña!!! \n"; 
+		 msg=msg + "Ingrese la Contraseï¿½a!!! \n"; 
 		 bol=false;
 	 }
 	 
@@ -93,7 +93,7 @@ function validar(){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Team Furious</a>
+          <a class="brand" href="#">InstantVet</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="../index.jsp">Inicio</a></li>
@@ -157,7 +157,7 @@ function validar(){
 			</tr>
 			<tr>
 				<td>*</td>
-				<td>Contraseña</td>
+				<td>Contraseï¿½a</td>
 				<td><input id="txtPassword" name ="txtPassword" type="password"></td>
 			</tr>
 			<tr>

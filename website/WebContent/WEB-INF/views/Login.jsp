@@ -67,7 +67,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Team Furious</a>
+          <a class="brand" href="#">InstantVet</a>
           <div class="nav-collapse">
             <ul class="nav">
                <li><a href="../index.jsp">Inicio</a></li>

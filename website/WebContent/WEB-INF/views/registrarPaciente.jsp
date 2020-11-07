@@ -51,7 +51,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Team Furious</a>
+          <a class="brand" href="#">InstantVet</a>
            <div class="btn-group pull-right">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-user"></i> Username
@@ -145,7 +145,7 @@
 					</select></td>
 			</tr>
 			<tr>
-				<td>Tamaño:</td>
+				<td>Tamaï¿½o:</td>
 				<td>
 					<select name="cboTamano" id="cboTamano">
 						<c:forEach items="${sessionScope.TAMANO}" var="ta" varStatus="i">

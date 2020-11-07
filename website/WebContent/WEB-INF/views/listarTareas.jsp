@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Team Furious</a>
+          <a class="brand" href="#">InstantVet</a>
            <div class="btn-group pull-right">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-user"></i> ${sessionScope.username}
@@ -64,7 +64,7 @@
 						          <b class="caret"></b>
 						    </a>
 						    <ul class="dropdown-menu">
-						    	<li><a href="verRegistroVacuna">Crear cita para vacunación</a></li>
+						    	<li><a href="verRegistroVacuna">Crear cita para vacunaciï¿½n</a></li>
 						    	<li><a href="verRegistroTarea">Crear tarea en el calendario</a></li>
 						    	<li><a href="listarVacuna">Ver calendario con las vacunas programadas</a></li>
 						    	<li><a href="listarTarea">Ver calendario con las tareas asignadas</a></li>

@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Team Furious</title>
+    <title>InstantVet</title>
     
     <!-- Le styles -->
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -46,7 +46,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Team Furiouso</a>
+          <a class="brand" href="#">InstantVet</a>
            <div class="btn-group pull-right">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-user"></i> ${sessionScope.username}
@@ -99,7 +99,7 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h2>Veterinaria Furious</h2>
+        <h2>SV Veterinaria</h2>
       
         <div id="slides">
             <div class="slides_container">
