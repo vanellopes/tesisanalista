@@ -10,7 +10,7 @@
 
 	<context:annotation-config/>
 
-	<context:component-scan base-package="net.furious.controllers,net.furious.service,net.vetfurious.negocio"/>
+	<context:component-scan base-package="com.instantvet.app.controllers,com.instantvet.app.service,com.instantvet.app.negocio"/>
 
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:/org/springannotations/resources/messages" />

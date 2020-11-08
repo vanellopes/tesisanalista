@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
     import="java.util.*"
-    import="net.vetfurious.dao.*"
+    import="com.instantvet.app.dao.*"
     import="org.apache.commons.fileupload.*"
     import="org.apache.commons.fileupload.servlet.*"
     import="org.apache.commons.fileupload.disk.*"
     import="java.io.*"
-    import="net.vetfurious.util.FotoUploadUtil"
+    import="com.instantvet.app.FotoUploadUtil"
      %>
 <%
 
