@@ -128,7 +128,7 @@
 		</table>
 		</div>
 		 <footer>
-        <p>&copy; Furious LLC 2013</p>
+        <p>&copy; InstantVet</p>
       </footer>
       </div>
 	</body>

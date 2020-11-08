@@ -132,7 +132,7 @@
 		</table>
 		</div>
 		<footer>
-        <p>&copy; Furious LLC 2012</p>
+        <p>&copy; InstantVet </p>
       </footer>
 
     </div> 

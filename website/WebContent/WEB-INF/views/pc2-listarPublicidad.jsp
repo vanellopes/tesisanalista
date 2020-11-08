@@ -66,13 +66,13 @@
       </div>
 
       <footer>
-        <p>&copy; Furious LLC 2012</p>
+        <p>&copy; InstantVet</p>
       </footer>
       
       
       <div class="modal hide" id="myModal">
 	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal">×</button>
+	    <button type="button" class="close" data-dismiss="modal">ï¿½</button>
 	    <h3>Ingresar Nuevo</h3>
 	  </div>
 	  <div class="modal-body">

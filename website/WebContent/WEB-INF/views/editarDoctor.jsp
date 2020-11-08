@@ -186,7 +186,7 @@
 	</form>
 	</div>
 	<footer>
-        <p>&copy; Furious LLC 2012</p>
+        <p> InstantVet </p>
       </footer>
 
     </div> 
