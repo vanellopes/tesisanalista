@@ -4,8 +4,8 @@ public class Cliente {
 
 	String codigo;
 	String nombre; 
-	String apellidopaterno;
-	String apellidomaterno;
+	String apellido;
+	String numDocumento;
 	String email; 
 	String direccion;
 	String imagen; 
@@ -14,12 +14,12 @@ public class Cliente {
 	String dni;
 	String error;
 	
-	public Cliente(String codigo,String nombre, String apellidopaterno,String apellidomaterno,String email, String direccion,
+	public Cliente(String codigo,String nombre, String apellido,String numDocumento,String email, String direccion,
 			String imagen, String telefono, String celular) {
 		this.codigo=codigo;
 		this.nombre=nombre;
-		this.apellidopaterno=apellidopaterno;
-		this.apellidomaterno=apellidomaterno;
+		this.apellido=apellido;
+		this.numDocumento=numDocumento;
 		this.email=email;
 		this.direccion=direccion;
 		this.imagen=imagen;
@@ -47,20 +47,20 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
-	public String getApellidopaterno() {
-		return apellidopaterno;
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setApellidopaterno(String apellidopaterno) {
-		this.apellidopaterno = apellidopaterno;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
-	public String getApellidomaterno() {
-		return apellidomaterno;
+	public String getNumDocumento() {
+		return numDocumento;
 	}
 
-	public void setApellidomaterno(String apellidomaterno) {
-		this.apellidomaterno = apellidomaterno;
+	public void setNumDocumento(String numDocumento) {
+		this.numDocumento = numDocumento;
 	}
 	
 	public String getEmail() {

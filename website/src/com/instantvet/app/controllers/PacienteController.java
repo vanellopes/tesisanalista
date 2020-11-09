@@ -81,9 +81,7 @@ public class PacienteController {
 		oModelPaciente.setCodigoDueno(Integer.parseInt(request.getParameter("hiddencliente")));
 		oModelPaciente.setCodigoPaciente(0);
 		oModelPaciente.setespecieid(Integer.parseInt(request.getParameter("cboEspecie")));
-		oModelPaciente.setrazaid(Integer.parseInt(request.getParameter("cboRaza")));
 		oModelPaciente.setgeneroid(Integer.parseInt(request.getParameter("cboGenero")));
-		oModelPaciente.settipoSangreid(Integer.parseInt(request.getParameter("cboTipoSangre")));
 		oModelPaciente.setEsterilizado(request.getParameter("cboEsterilizado"));
 		oModelPaciente.settamanoid(Integer.parseInt(request.getParameter("cboTamano")));
 		oModelPaciente.setactividadid(Integer.parseInt(request.getParameter("cboActividad")));
@@ -156,11 +154,7 @@ public class PacienteController {
 
 		oModelPaciente.setespecieid(Integer.parseInt(request.getParameter("cboEspecie")));
 
-		oModelPaciente.setrazaid(Integer.parseInt(request.getParameter("cboRaza")));
-
 		oModelPaciente.setgeneroid(Integer.parseInt(request.getParameter("cboGenero")));
-
-		oModelPaciente.settipoSangreid(Integer.parseInt(request.getParameter("cboTipoSangre")));
 
 		oModelPaciente.setEsterilizado(request.getParameter("cboEsterilizado"));
 		oModelPaciente.settamanoid(Integer.parseInt(request.getParameter("cboTamano")));

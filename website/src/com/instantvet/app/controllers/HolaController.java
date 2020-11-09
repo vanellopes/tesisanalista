@@ -22,8 +22,8 @@ public class HolaController {
 	public String tomarApellidoMaterno(@RequestParam("apemat")String am )
 	{return am;}
 	
-	@ModelAttribute("ApellidoPaterno")
-	public String tomarApellidoPaterno(@RequestParam("apepat")String ap )
+	@ModelAttribute("Apellido")
+	public String tomarApellido(@RequestParam("apepat")String ap )
 	{return ap;}
 	
 	@ModelAttribute("Raza")

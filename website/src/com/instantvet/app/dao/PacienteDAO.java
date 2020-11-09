@@ -47,9 +47,8 @@ public class PacienteDAO extends BaseDAO {
                                 stmt = con.prepareStatement(query);
                                 stmt.setInt(1, objPaciente.getCodigoDueno());
                                 stmt.setInt(2, objPaciente.getespecieid());
-                                stmt.setInt(3, objPaciente.getrazaid());
+                                stmt.setString(3, objPaciente.getNombre());
                                 stmt.setInt(4, objPaciente.getgeneroid());
-                                stmt.setInt(5, objPaciente.gettipoSangreid());
                                 stmt.setString(6, objPaciente.getEsterilizado());
                                 stmt.setInt(7, objPaciente.gettamanoid());
                                 stmt.setInt(8, objPaciente.getactividadid());
@@ -96,25 +95,24 @@ public class PacienteDAO extends BaseDAO {
                                         objPaciente.setnombrePaciente(rs.getString(3));
                                         objPaciente.setespecieid(rs.getInt(4));
                                         objPaciente.setEspecie(rs.getString(5));
-                                        objPaciente.setrazaid(rs.getInt(6));
                                         objPaciente.setRaza(rs.getString(7));
                                         
                                         objPaciente.setgeneroid(rs.getInt(8));
                                         objPaciente.setGenero(rs.getString(9));
                                         
-                                        objPaciente.settipoSangreid(rs.getInt(10));
-                                        objPaciente.setTipoSangre(rs.getString(11));
+                                      
+                                        objPaciente.setTipoSangre(rs.getString(10));
                                         
-                                        objPaciente.setEsterilizado(rs.getString(12));
+                                        objPaciente.setEsterilizado(rs.getString(11));
                                         
-                                        objPaciente.settamanoid(rs.getInt(13));
-                                        objPaciente.setTamano(rs.getString(14));
-                                        objPaciente.setactividadid(rs.getInt(15));
-                                        objPaciente.setActividad(rs.getString(16));
-                                        objPaciente.setPeso(rs.getString(17));
-                                        objPaciente.setFechaNacimiento(rs.getString(18));
-                                        objPaciente.setNotasMedicas(rs.getString(19));
-                                        objPaciente.setCondicionesEspeciales(rs.getString(20));
+                                        objPaciente.settamanoid(rs.getInt(12));
+                                        objPaciente.setTamano(rs.getString(13));
+                                        objPaciente.setactividadid(rs.getInt(14));
+                                        objPaciente.setActividad(rs.getString(15));
+                                        objPaciente.setPeso(rs.getString(16));
+                                        objPaciente.setFechaNacimiento(rs.getString(17));
+                                        objPaciente.setNotasMedicas(rs.getString(18));
+                                        objPaciente.setCondicionesEspeciales(rs.getString(19));
                                 }
                         } catch (SQLException e) {
                                 System.err.println(e.getMessage());
@@ -159,9 +157,7 @@ public class PacienteDAO extends BaseDAO {
            
                                 stmt.setInt(1, objPaciente.getCodigoDueno());                          
                                 stmt.setInt(2, objPaciente.getespecieid());
-                                stmt.setInt(3, objPaciente.getrazaid());
                                 stmt.setInt(4, objPaciente.getgeneroid());
-                                stmt.setInt(5, objPaciente.gettipoSangreid());
                                 stmt.setString(6, objPaciente.getEsterilizado());
                                 stmt.setInt(7, objPaciente.gettamanoid());
                                 stmt.setInt(8, objPaciente.getactividadid());

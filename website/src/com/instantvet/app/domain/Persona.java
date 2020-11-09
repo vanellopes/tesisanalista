@@ -4,8 +4,7 @@ package com.instantvet.app.domain;
 public class Persona {
 	private int id;
     private String nombre;
-    private String apellidoMaterno;
-    private String apellidoPaterno;
+    private String apellido;
     private String raza;
     
   
@@ -25,20 +24,14 @@ public class Persona {
 		this.nombre = nombre;
 	}
 	
-	public String getApellidoMaterno() {
-		return apellidoMaterno;
-	}
-
-	public void setApellidoMaterno(String apellidomaterno) {
-		this.apellidoMaterno = apellidomaterno;
-	}
 	
-	public String getApellidoPaterno() {
-		return apellidoPaterno;
+	
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setApellidoPaterno(String apellidopaterno) {
-		this.apellidoPaterno = apellidopaterno;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 	
 	public String getRaza() {

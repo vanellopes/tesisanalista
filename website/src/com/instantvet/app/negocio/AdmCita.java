@@ -1,8 +1,8 @@
 package com.instantvet.app.negocio;
 
-import com.instantvet.app.dao.CitaDAO;
+import com.instantvet.app.dao.TurnoDAO;
 import com.instantvet.app.excepcion.DAOExcepcion;
-import com.instantvet.app.modelo.Cita;
+import com.instantvet.app.modelo.Turno;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class AdmCita implements ICita  {
 									String fechaCita) throws DAOExcepcion
 	{
 		
-		Cita objCita=new Cita(codigoCita,
+		Turno objCita=new Turno(codigoCita,
 				              codigoPersona,
 				              codigoPaciente,
 				              codigoDoctor,
@@ -30,14 +30,14 @@ public class AdmCita implements ICita  {
 				              descripcionCita,
 				              nombreVacuna,
 				              fechaCita);
-		CitaDAO objCitaDAO=new CitaDAO();
-		if(objCitaDAO.DAOexisteCita(codigoCita) == 0)
+		TurnoDAO objCitaDAO=new TurnoDAO();
+		if(objCitaDAO.existeTurno(codigoCita) == 0)
 		{
 			String nuevoCodigoCita=(objCitaDAO.DAOobtenerUltimoCodigo());
 			objCita.setCodigoCita(nuevoCodigoCita);
 			objCitaDAO.DAOgrabarCita(objCita);
 		}
-		if(objCitaDAO.DAOexisteCita(codigoCita) == 1)
+		if(objCitaDAO.existeTurno(codigoCita) == 1)
 		{
 			objCitaDAO.DAOmodificarCita(objCita);
 		}
@@ -47,22 +47,22 @@ public class AdmCita implements ICita  {
 	@Override
 	public void InsertarVacuna(String nombreVacuna) throws DAOExcepcion
 	{	
-		CitaDAO objCitaDAO = new CitaDAO();
+		TurnoDAO objCitaDAO = new TurnoDAO();
 		objCitaDAO.DAOinsertarVacuna(nombreVacuna);	
 	}
 	
     @Override
-	public void GrabarModificarCita(Cita objCita) throws DAOExcepcion
+	public void GrabarModificarCita(Turno objCita) throws DAOExcepcion
 	{	
-		CitaDAO objCitaDAO = new CitaDAO();
+		TurnoDAO objCitaDAO = new TurnoDAO();
 		
-		if(objCitaDAO.DAOexisteCita(objCita.getCodigoCita())==0)
+		if(objCitaDAO.existeTurno(objCita.getCodigoCita())==0)
 		{
 			String newcodigo=(objCitaDAO.DAOobtenerUltimoCodigo());
 			objCita.setCodigoCita(newcodigo);
 			objCitaDAO.DAOgrabarCita(objCita);
 		}
-		if(objCitaDAO.DAOexisteCita(objCita.getCodigoCita())==1)
+		if(objCitaDAO.existeTurno(objCita.getCodigoCita())==1)
 		{
 			objCitaDAO.DAOmodificarCita(objCita);
 		}
@@ -70,13 +70,13 @@ public class AdmCita implements ICita  {
 	}
 
 	@Override
-	public Cita ObtenerCita(String codigoCita) throws DAOExcepcion  
+	public Turno ObtenerCita(String codigoCita) throws DAOExcepcion  
 	{
-		Cita objCita=null;
-		CitaDAO objCitaDAO=new CitaDAO();
-		if(objCitaDAO.DAOexisteCita(codigoCita) == 1)
+		Turno objCita=null;
+		TurnoDAO objCitaDAO=new TurnoDAO();
+		if(objCitaDAO.existeTurno(codigoCita) == 1)
 		{
-			objCita=(Cita)objCitaDAO.DAOobtenerCita(codigoCita);
+			objCita=(Turno)objCitaDAO.DAOobtenerCita(codigoCita);
 		}
 		return objCita;
 	}
@@ -84,27 +84,27 @@ public class AdmCita implements ICita  {
 	@Override
 	public void BorrarCita(String codigoCita) throws DAOExcepcion
 	{
-		CitaDAO objCitaDAO=new CitaDAO();
-		int contadorCita= objCitaDAO.DAOexisteCita(codigoCita);
+		TurnoDAO objCitaDAO=new TurnoDAO();
+		int contadorCita= objCitaDAO.existeTurno(codigoCita);
 		
 		if(contadorCita==1)
 		{
-			objCitaDAO.DAOborrarCita(codigoCita);
+			objCitaDAO.borrarTurno(codigoCita);
 		}
 		
 	}
 
 	@Override
-	public List<Cita> ListarCitaVacunas() throws DAOExcepcion
+	public List<Turno> ListarCitaVacunas() throws DAOExcepcion
 	{
-		CitaDAO objCitaDAO=new CitaDAO();
+		TurnoDAO objCitaDAO=new TurnoDAO();
 		return objCitaDAO.DAOlistarCitaVacunas();
 	}
 
 	@Override
-	public List<Cita> ListarCitaTareas() throws DAOExcepcion
+	public List<Turno> ListarCitaTareas() throws DAOExcepcion
 	{
-		CitaDAO objCitaDAO=new CitaDAO();
+		TurnoDAO objCitaDAO=new TurnoDAO();
 		return objCitaDAO.DAOlistarCitaTareas();
 	}
 }

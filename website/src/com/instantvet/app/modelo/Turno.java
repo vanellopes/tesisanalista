@@ -1,6 +1,6 @@
 package com.instantvet.app.modelo;
 
-public class Cita {
+public class Turno {
 	
 	String codigoCita;
 	String codigoPersona; 
@@ -14,17 +14,16 @@ public class Cita {
 	String telefono;
     String direccion;
     String nombresPersona;
-    String apellidoMaterno;
-    String apellidoPaterno;
+    String apellido;
     
     String especie;
     String nombrePaciente;
     
     String nombreDoctor;
-    String doctorPaterno;
-    String doctorMaterno;
+    String doctorApellido;
+    String doctorMatricula;
     
-	public Cita(String codigoCita, String codigoPersona, String codigoPaciente,
+	public Turno(String codigoCita, String codigoPersona, String codigoPaciente,
 			String codigoDoctor, String tipoCita, String descripcionCita,
 			String nombreVacuna, String fechaCita) {
 		super();
@@ -38,7 +37,7 @@ public class Cita {
 		this.fechaCita = fechaCita;
 	}
 
-	public Cita() {
+	public Turno() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -132,20 +131,13 @@ public class Cita {
 		this.nombresPersona = nombresPersona;
 	}
 
-	public String getApellidoMaterno() {
-		return apellidoMaterno;
+
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setApellidoMaterno(String apellidoMaterno) {
-		this.apellidoMaterno = apellidoMaterno;
-	}
-
-	public String getApellidoPaterno() {
-		return apellidoPaterno;
-	}
-
-	public void setApellidoPaterno(String apellidoPaterno) {
-		this.apellidoPaterno = apellidoPaterno;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
 	public String getEspecie() {
@@ -172,20 +164,20 @@ public class Cita {
 		this.nombreDoctor = nombreDoctor;
 	}
 
-	public String getDoctorPaterno() {
-		return doctorPaterno;
+	public String getDoctorApellido() {
+		return doctorApellido;
 	}
 
-	public void setDoctorPaterno(String doctorPaterno) {
-		this.doctorPaterno = doctorPaterno;
+	public void setDoctorApellido(String doctorApellido) {
+		this.doctorApellido = doctorApellido;
 	}
 
-	public String getDoctorMaterno() {
-		return doctorMaterno;
+	public String getDoctorMatricula() {
+		return doctorMatricula;
 	}
 
-	public void setDoctorMaterno(String doctorMaterno) {
-		this.doctorMaterno = doctorMaterno;
+	public void setDoctorMatricula(String doctorMatricula) {
+		this.doctorMatricula = doctorMatricula;
 	}
     
 }

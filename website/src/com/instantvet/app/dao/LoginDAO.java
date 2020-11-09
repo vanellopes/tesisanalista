@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class LoginDAO  extends BaseDAO{
 	
 	public Login DAOobtenercredenciales(Login _login) throws DAOExcepcion{
-		String query = "select doctorID,nombre + ' ' + paterno + ' ' + materno as Nombre,grupoID from Doctor where username=? and password=?";
+		String query = "select doctorID,nombre + ' ' + apellido as Nombre,grupoID from Doctor where username=? and password=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;

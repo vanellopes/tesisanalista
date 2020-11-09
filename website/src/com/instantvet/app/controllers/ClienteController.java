@@ -66,8 +66,8 @@ public class ClienteController {
 		Cliente oModelCliente = new Cliente();
 		String[] arrayCliente = clienteReniec.split(";");
 		oModelCliente.setNombre(arrayCliente[1]);
-		oModelCliente.setApellidopaterno(arrayCliente[2]);
-		oModelCliente.setApellidomaterno(arrayCliente[3]);
+		oModelCliente.setApellido(arrayCliente[2]);
+		oModelCliente.setNumDocumento(arrayCliente[3]);
 		oModelCliente.setDni(arrayCliente[4]);
 		oModelCliente.setCodigo(arrayCliente[5]);
 		oModelCliente.setError(arrayCliente[0].toString());
@@ -92,8 +92,8 @@ public class ClienteController {
 		Cliente oModelCliente = new Cliente();
 		oModelCliente.setCodigo(request.getParameter("id"));
 		oModelCliente.setNombre(request.getParameter("txtNombre"));
-		oModelCliente.setApellidopaterno(request.getParameter("txtApellidoPaterno"));
-		oModelCliente.setApellidomaterno(request.getParameter("txtApellidoMaterno"));
+		oModelCliente.setApellido(request.getParameter("txtApellido"));
+		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
 		oModelCliente.setCelular(request.getParameter("txtCelular"));
 		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
 		oModelCliente.setEmail(request.getParameter("txtEmail"));
@@ -130,8 +130,8 @@ public class ClienteController {
 		Cliente oModelCliente = new Cliente();
 		oModelCliente.setCodigo(request.getParameter("id"));
 		oModelCliente.setNombre(request.getParameter("txtNombre"));
-		oModelCliente.setApellidopaterno(request.getParameter("txtApellidoPaterno"));
-		oModelCliente.setApellidomaterno(request.getParameter("txtApellidoMaterno"));
+		oModelCliente.setApellido(request.getParameter("txtApellido"));
+		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
 		oModelCliente.setCelular(request.getParameter("txtCelular"));
 		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
 		oModelCliente.setEmail(request.getParameter("txtEmail"));
@@ -158,8 +158,8 @@ public class ClienteController {
 		Cliente oModelCliente = new Cliente();
 		oModelCliente.setCodigo(request.getParameter("id"));
 		oModelCliente.setNombre(request.getParameter("txtNombre"));
-		oModelCliente.setApellidopaterno(request.getParameter("txtApellidoPaterno"));
-		oModelCliente.setApellidomaterno(request.getParameter("txtApellidoMaterno"));
+		oModelCliente.setApellido(request.getParameter("txtApellido"));
+		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
 		oModelCliente.setCelular(request.getParameter("txtCelular"));
 		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
 		oModelCliente.setEmail(request.getParameter("txtEmail"));
@@ -267,8 +267,8 @@ public class ClienteController {
 		Cliente oModelCliente = new Cliente();
 		oModelCliente.setCodigo(request.getParameter("id"));
 		oModelCliente.setNombre(request.getParameter("txtNombre"));
-		oModelCliente.setApellidopaterno(request.getParameter("txtApellidoPaterno"));
-		oModelCliente.setApellidomaterno(request.getParameter("txtApellidoMaterno"));
+		oModelCliente.setApellido(request.getParameter("txtApellido"));
+		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
 		oModelCliente.setCelular(request.getParameter("txtCelular"));
 		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
 		oModelCliente.setEmail(request.getParameter("txtEmail"));

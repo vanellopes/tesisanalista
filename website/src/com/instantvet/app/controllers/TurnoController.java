@@ -1,7 +1,7 @@
 package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
-import com.instantvet.app.modelo.Cita;
+import com.instantvet.app.modelo.Turno;
 import com.instantvet.app.negocio.ICita;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class CitaController 
+public class TurnoController 
 {
 
 	@Autowired
@@ -39,7 +39,7 @@ public class CitaController
 	public ModelAndView handleRequestVacunas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
-		List<Cita> vacunas = this.Cita.ListarCitaVacunas();
+		List<Turno> vacunas = this.Cita.ListarCitaVacunas();
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("vacunas",vacunas);
        
@@ -50,7 +50,7 @@ public class CitaController
 	public ModelAndView handleRequestTareas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
-		List<Cita> tareas = this.Cita.ListarCitaTareas();		
+		List<Turno> tareas = this.Cita.ListarCitaTareas();		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("tareas",tareas);
        
@@ -85,7 +85,7 @@ public class CitaController
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarTarea");
 		
-		Cita oModelCita = new Cita();
+		Turno oModelCita = new Turno();
 		oModelCita.setCodigoCita("0");
 		oModelCita.setTipoCita("T");
 		oModelCita.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
@@ -105,7 +105,7 @@ public class CitaController
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		List<Cita> tareas = this.Cita.ListarCitaTareas();		
+		List<Turno> tareas = this.Cita.ListarCitaTareas();		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("tareas",tareas);
        
@@ -118,7 +118,7 @@ public class CitaController
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarVacuna");
 		
-		Cita oModelCita = new Cita();
+		Turno oModelCita = new Turno();
 		oModelCita.setCodigoCita("0");
 		oModelCita.setTipoCita("V");
 		oModelCita.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
@@ -137,7 +137,7 @@ public class CitaController
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		List<Cita> vacunas = this.Cita.ListarCitaVacunas();
+		List<Turno> vacunas = this.Cita.ListarCitaVacunas();
 		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("vacunas",vacunas);
@@ -168,7 +168,7 @@ public class CitaController
 	{
 		System.out.println("idCita "+request.getParameter("idCita"));
 		
-		Cita oModelCita = new Cita();
+		Turno oModelCita = new Turno();
 		oModelCita = Cita.ObtenerCita(request.getParameter("idCita"));
 		return new ModelAndView("editarTarea", "model", oModelCita);
 	}
@@ -179,7 +179,7 @@ public class CitaController
 	{
 		System.out.println("idCita "+request.getParameter("idCita"));
 		
-		Cita oModelCita = new Cita();
+		Turno oModelCita = new Turno();
 		oModelCita = Cita.ObtenerCita(request.getParameter("idCita"));
 		return new ModelAndView("editarVacuna", "model", oModelCita);
 	}
@@ -190,7 +190,7 @@ public class CitaController
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarTarea");
 		
-		Cita oModelCita = new Cita();
+		Turno oModelCita = new Turno();
 		oModelCita.setCodigoCita(request.getParameter("idCita"));
 		oModelCita.setTipoCita("T");
 		oModelCita.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
@@ -208,7 +208,7 @@ public class CitaController
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		List<Cita> tareas = this.Cita.ListarCitaTareas();		
+		List<Turno> tareas = this.Cita.ListarCitaTareas();		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("tareas",tareas);
        
@@ -220,7 +220,7 @@ public class CitaController
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarVacuna");
 		
-		Cita oModelCita = new Cita();
+		Turno oModelCita = new Turno();
 		oModelCita.setCodigoCita(request.getParameter("idCita"));
 		oModelCita.setTipoCita("V");
 		oModelCita.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
@@ -239,7 +239,7 @@ public class CitaController
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-        List<Cita> vacunas = this.Cita.ListarCitaVacunas();
+        List<Turno> vacunas = this.Cita.ListarCitaVacunas();
 		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("vacunas",vacunas);
@@ -253,7 +253,7 @@ public class CitaController
 			HttpServletResponse response) throws Exception {
 		System.out.println("eliminarTarea");
 		
-		Cita oModelCita = new Cita();
+		Turno oModelCita = new Turno();
 		oModelCita.setCodigoCita(request.getParameter("idCita"));
 		
 		try 
@@ -265,7 +265,7 @@ public class CitaController
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		List<Cita> tareas = this.Cita.ListarCitaTareas();		
+		List<Turno> tareas = this.Cita.ListarCitaTareas();		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("tareas",tareas);
        
@@ -277,7 +277,7 @@ public class CitaController
 			HttpServletResponse response) throws Exception {
 		System.out.println("eliminarVacuna");
 		
-		Cita oModelCita = new Cita();
+		Turno oModelCita = new Turno();
 		oModelCita.setCodigoCita(request.getParameter("idCita"));
 		
 		try 
@@ -289,7 +289,7 @@ public class CitaController
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-        List<Cita> vacunas = this.Cita.ListarCitaVacunas();
+        List<Turno> vacunas = this.Cita.ListarCitaVacunas();
 		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("vacunas",vacunas);

@@ -6,13 +6,13 @@ public class Doctor {
 		super();
 	}
 	
-	public Doctor(Integer doctorID, String nombre, String paterno,
+	public Doctor(Integer doctorID, String nombre, String apellido,
 			String materno, String email, String telefono, String usuario, Integer grupoID, String password) {
 		super();
 		this.doctorID = doctorID;
 		this.nombre = nombre;
-		this.paterno = paterno;
-		this.materno = materno;
+		this.apellido = apellido;
+		this.matricula = materno;
 		this.email = email;
 		this.telefono = telefono;
 		this.usuario = usuario;
@@ -24,8 +24,8 @@ public class Doctor {
 
 	private Integer doctorID;
 	private String nombre;
-	private String paterno;
-	private String materno;
+	private String apellido;
+	private String matricula;
 	private String email;
 	private String telefono;
 	private String usuario;
@@ -82,20 +82,20 @@ public class Doctor {
 		this.nombre = nombre;
 	}
 
-	public String getPaterno() {
-		return paterno;
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setPaterno(String paterno) {
-		this.paterno = paterno;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
-	public String getMaterno() {
-		return materno;
+	public String getMatricula() {
+		return matricula;
 	}
 
-	public void setMaterno(String materno) {
-		this.materno = materno;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	public String getEmail() {

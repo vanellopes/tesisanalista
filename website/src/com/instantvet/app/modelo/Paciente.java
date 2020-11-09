@@ -4,9 +4,8 @@ package com.instantvet.app.modelo;
 public class Paciente {
 	
 	int especieid;
-	int razaid;
-	int generoid; 
-	int tipoSangreid; 
+	
+	int generoid;
 	int tamanoid; 
 	int actividadid;
 	String nombrePaciente;
@@ -14,7 +13,7 @@ public class Paciente {
 	int codigoDueno;
 	int codigoPaciente; 
 	String especie;
-	String raza;
+	String nombre;
 	String genero; 
 	String tipoSangre;
 	String esterilizado; 
@@ -26,13 +25,13 @@ public class Paciente {
 	String condicionesEspeciales;
 	
 	public Paciente(int codigoDueno, int codigoPaciente, String especie, 
-			String raza, String genero, String tipoSangre, String esterilizado, 
+			String nombre, String genero, String tipoSangre, String esterilizado, 
 			String tamano, String actividad, String peso, String fechaNacimiento) {
 
 		this.codigoDueno = codigoDueno;
 		this.codigoPaciente = codigoPaciente;
 		this.especie = especie;
-		this.raza = raza;
+		this.nombre = nombre;
 		this.genero = genero;
 		this.tipoSangre = tipoSangre;
 		this.esterilizado = esterilizado;
@@ -71,11 +70,11 @@ public class Paciente {
 	}
 
 	public String getRaza() {
-		return raza;
+		return nombre;
 	}
 
 	public void setRaza(String raza) {
-		this.raza= raza;
+		this.nombre= raza;
 	}
 
 	public String getGenero() {
@@ -146,13 +145,6 @@ public class Paciente {
 		this.especieid = especieid;
 	}
 	
-	public int getrazaid() {
-		return razaid;
-	}
-
-	public void setrazaid(int razaid) {
-		this.razaid = razaid;
-	}
 	
 	public int getgeneroid() {
 		return generoid;
@@ -162,13 +154,6 @@ public class Paciente {
 		this.generoid = generoid;
 	}
 	
-	public int gettipoSangreid() {
-		return tipoSangreid;
-	}
-
-	public void settipoSangreid(int tipoSangreid) {
-		this.tipoSangreid = tipoSangreid;
-	}
 	
 	public int gettamanoid() {
 		return tamanoid;
@@ -211,6 +196,14 @@ public class Paciente {
 
 	public void setnombrePaciente(String nombrePaciente) {
 		this.nombrePaciente= nombrePaciente;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	

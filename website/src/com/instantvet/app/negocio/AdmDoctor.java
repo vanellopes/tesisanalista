@@ -79,10 +79,10 @@ public class AdmDoctor implements IDoctor {
 		if(oDoctor.getNombre().equals(null) | oDoctor.getNombre().equals("")){				
 			varCount += 1;
 		}
-		if(oDoctor.getPaterno().equals(null) | oDoctor.getPaterno().equals("")){				
+		if(oDoctor.getApellido().equals(null) | oDoctor.getApellido().equals("")){				
 			varCount += 1;
 		}
-		if(oDoctor.getMaterno().equals(null) | oDoctor.getMaterno().equals("")){				
+		if(oDoctor.getMatricula().equals(null) | oDoctor.getMatricula().equals("")){				
 			varCount += 1;
 		}
 		if(oDoctor.getEmail().equals(null) | oDoctor.getEmail().equals("")){				

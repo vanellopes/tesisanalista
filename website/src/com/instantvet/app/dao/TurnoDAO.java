@@ -1,7 +1,7 @@
 package com.instantvet.app.dao;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
-import com.instantvet.app.modelo.Cita;
+import com.instantvet.app.modelo.Turno;
 import com.instantvet.app.util.ConexionBD;
 
 import java.sql.Connection;
@@ -11,9 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CitaDAO extends BaseDAO
+public class TurnoDAO extends BaseDAO
 {
-	public int DAOexisteCita(String codigoCita) throws DAOExcepcion 
+	public int existeTurno(String codigoCita) throws DAOExcepcion 
 	{
 		String query = "SELECT COUNT(*) AS CONTADOR FROM CITA WHERE cita_id=?";
 		Connection con = null;
@@ -78,7 +78,7 @@ public class CitaDAO extends BaseDAO
 		return ultimoCodigo;
 	}
 
-	public void DAOgrabarCita(Cita objCita) throws DAOExcepcion
+	public void DAOgrabarCita(Turno objCita) throws DAOExcepcion
 	{	
 		String query = "INSERT INTO Cita(cita_id,persona_id,paciente_id,doctor_id,tipo_cita,descripcion_cita, " +
 	                   "nombre_vacuna,fecha_cita) values (?,?,?,?,?,?,?,?)";
@@ -89,20 +89,20 @@ public class CitaDAO extends BaseDAO
 		{
 			if (objCita.getTipoCita() == "V")
 			{
-			  if (DAOexisteRegistro(objCita.getNombreVacuna(), "", "Vacunas") == 0)
+			  if (existeRegistro(objCita.getNombreVacuna(), "", "Vacunas") == 0)
 				  throw new SQLException("Nombre de la Vacuna no existe");
 			}
 			
-			if (DAOexisteRegistro(objCita.getCodigoPersona(), "", "Cliente") == 0)
+			if (existeRegistro(objCita.getCodigoPersona(), "", "Cliente") == 0)
 				throw new SQLException("Cliente no existe");
 			
-			if (DAOexisteRegistro(objCita.getCodigoDoctor(), "", "Doctor") == 0)
+			if (existeRegistro(objCita.getCodigoDoctor(), "", "Doctor") == 0)
 				throw new SQLException("Doctor no existe");
 
-			if (DAOexisteRegistro(objCita.getCodigoPaciente(), objCita.getCodigoPersona(), "Paciente") == 0)
+			if (existeRegistro(objCita.getCodigoPaciente(), objCita.getCodigoPersona(), "Paciente") == 0)
 				throw new SQLException("Paciente no pertenece al cliente o no existe");
 
-			if (DAOexisteCitaRegistrada(objCita.getTipoCita(), objCita.getFechaCita(), objCita.getCodigoPersona(),
+			if (existeTurnoRegistrada(objCita.getTipoCita(), objCita.getFechaCita(), objCita.getCodigoPersona(),
 					objCita.getCodigoPaciente(), objCita.getCodigoDoctor(), objCita.getNombreVacuna()) == 1)
 				throw new SQLException("El registro ya existe");
 			
@@ -141,7 +141,7 @@ public class CitaDAO extends BaseDAO
 		ResultSet rs = null;
 		try 
 		{
-			if (DAOexisteRegistro(nombreVacuna, "", "Vacunas") == 1)
+			if (existeRegistro(nombreVacuna, "", "Vacunas") == 1)
 				throw new SQLException("El nombre de la vacuna ya existe");
 						
 			con = ConexionBD.obtenerConexion();
@@ -163,7 +163,7 @@ public class CitaDAO extends BaseDAO
 		}
 	}
 	
-	public void DAOmodificarCita(Cita objCita) throws DAOExcepcion
+	public void DAOmodificarCita(Turno objCita) throws DAOExcepcion
 	{
 		String query = "UPDATE Cita SET persona_id=?,paciente_id=?,doctor_id=?,tipo_cita=?,descripcion_cita=?, " +
 	                   "nombre_vacuna=?,fecha_cita=? WHERE cita_id=?";
@@ -173,17 +173,17 @@ public class CitaDAO extends BaseDAO
 		{
 			if (objCita.getTipoCita() == "V")
 			{
-			  if (DAOexisteRegistro(objCita.getNombreVacuna(), "", "Vacunas") == 0)
+			  if (existeRegistro(objCita.getNombreVacuna(), "", "Vacunas") == 0)
 			    throw new SQLException("Nombre de la Vacuna no existe");
 			}
 			
-			if (DAOexisteRegistro(objCita.getCodigoPersona(), "", "Cliente") == 0)
+			if (existeRegistro(objCita.getCodigoPersona(), "", "Cliente") == 0)
 				throw new SQLException("Cliente no existe");
 			
-			if (DAOexisteRegistro(objCita.getCodigoDoctor(), "", "Doctor") == 0)
+			if (existeRegistro(objCita.getCodigoDoctor(), "", "Doctor") == 0)
 				throw new SQLException("Doctor no existe");
 
-			if (DAOexisteRegistro(objCita.getCodigoPaciente(), objCita.getCodigoPersona(), "Paciente") == 0)
+			if (existeRegistro(objCita.getCodigoPaciente(), objCita.getCodigoPersona(), "Paciente") == 0)
 				throw new SQLException("Paciente no pertenece al cliente o no existe");
 			
 			con = ConexionBD.obtenerConexion();
@@ -212,13 +212,13 @@ public class CitaDAO extends BaseDAO
 		}	
 	}
 
-	public Cita DAOobtenerCita(String codigoCita) throws DAOExcepcion
+	public Turno DAOobtenerCita(String codigoCita) throws DAOExcepcion
 	{
 		String query = "SELECT c.cita_id, c.persona_id, c.paciente_id, c.doctor_id, c.tipo_cita, " +
 	                   "c.descripcion_cita, c.nombre_vacuna, c.fecha_cita, " +
-                       "cl.telefono, cl.direccion, cl.Nombres, cl.apellido_materno, cl.apellido_paterno, " +
+                       "cl.telefono, cl.direccion, cl.Nombres, cl.num_documento, cl.apellido, " +
                        "'' as especie, '' as nombre_paciente, " +
-                       "d.nombre as nombre_doctor, d.paterno as doctor_paterno, d.materno as doctor_materno " +
+                       "d.nombre as nombre_doctor, d.apellido as doctor_apellido, d.matricula as doctor_matricula " +
                        "FROM Cita c " +
                        "JOIN Doctor d on (d.doctorid = c.doctor_id) " +
                        "JOIN Paciente p on (p.Paciente_id = c.paciente_id) " +
@@ -227,7 +227,7 @@ public class CitaDAO extends BaseDAO
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		Cita objCita =null;
+		Turno objCita =null;
 		try 
 		{
 			con = ConexionBD.obtenerConexion();
@@ -236,7 +236,7 @@ public class CitaDAO extends BaseDAO
 			rs = stmt.executeQuery();
 			while (rs.next()) 
 			{
-				objCita = new Cita();
+				objCita = new Turno();
 				objCita.setCodigoCita(rs.getString("cita_id"));
 				objCita.setCodigoPersona(rs.getString("persona_id"));
 				objCita.setCodigoPaciente(rs.getString("paciente_id"));
@@ -249,15 +249,14 @@ public class CitaDAO extends BaseDAO
 				objCita.setTelefono(rs.getString("telefono"));
 				objCita.setDireccion(rs.getString("direccion"));
 				objCita.setNombresPersona(rs.getString("Nombres"));
-				objCita.setApellidoPaterno(rs.getString("apellido_paterno"));
-				objCita.setApellidoMaterno(rs.getString("apellido_materno"));
+				objCita.setApellido(rs.getString("apellido"));
 				
 				objCita.setEspecie(rs.getString("especie"));
 				objCita.setNombrePaciente(rs.getString("nombre_paciente"));
 				
 				objCita.setNombreDoctor(rs.getString("nombre_doctor"));
-				objCita.setDoctorMaterno(rs.getString("apellido_paterno"));
-				objCita.setDoctorPaterno(rs.getString("doctor_paterno"));
+				objCita.setDoctorMatricula(rs.getString("doctor_matricula"));
+				objCita.setDoctorApellido(rs.getString("doctor_apellido"));
 			}
 		} 
 		catch (SQLException e) 
@@ -275,7 +274,7 @@ public class CitaDAO extends BaseDAO
 		return objCita;
 	}
 
-	public void DAOborrarCita(String codigoCita) throws DAOExcepcion 
+	public void borrarTurno(String codigoCita) throws DAOExcepcion 
 	{
 		String query = "DELETE Cita WHERE cita_id=?";
 		Connection con = null;
@@ -302,20 +301,20 @@ public class CitaDAO extends BaseDAO
 		}
 	}
 
-	public List<Cita>DAOlistarCitaVacunas() throws DAOExcepcion
+	public List<Turno>DAOlistarCitaVacunas() throws DAOExcepcion
 	{
 		String query = "SELECT c.cita_id, c.persona_id, c.paciente_id, c.doctor_id, c.tipo_cita, " +
 		               "c.descripcion_cita, c.nombre_vacuna, c.fecha_cita, " +
-		               "cl.telefono, cl.direccion, cl.Nombres, cl.apellido_materno, cl.apellido_paterno, " +
+		               "cl.telefono, cl.direccion, cl.Nombres, cl.apellido, cl.num_documento, " +
 		               "'' as especie, '' as nombre_paciente, " +
-		               "d.nombre as nombre_doctor, d.paterno as doctor_paterno, d.materno as doctor_materno " +
+		               "d.nombre as nombre_doctor, d.apellido as doctor_apellido, d.matricula as doctor_matricula " +
 		               "FROM Cita c " +
 		               "JOIN Doctor d on (d.doctorid = c.doctor_id) " +
 		               "JOIN Paciente p on (p.Paciente_id = c.paciente_id) " +
 		               "JOIN Cliente cl on (cl.persona_id = c.persona_id) " +
 		               "WHERE c.tipo_cita ='V' " +
 		               "ORDER BY c.fecha_cita";
-		List<Cita> lista = new ArrayList<Cita>();
+		List<Turno> lista = new ArrayList<Turno>();
 		try 
 		{
 			lista = DAOobtenerListCita(query);
@@ -329,20 +328,20 @@ public class CitaDAO extends BaseDAO
 		return lista;
 	}
 	
-	public List<Cita>DAOlistarCitaTareas() throws DAOExcepcion
+	public List<Turno>DAOlistarCitaTareas() throws DAOExcepcion
 	{
 		String query = "SELECT c.cita_id, c.persona_id, c.paciente_id, c.doctor_id, c.tipo_cita, " +
 		               "c.descripcion_cita, c.nombre_vacuna, c.fecha_cita, " +
-		               "cl.telefono, cl.direccion, cl.Nombres, cl.apellido_materno, cl.apellido_paterno, " +
+		               "cl.telefono, cl.direccion, cl.Nombres, cl.num_documento, cl.apellido, " +
 		               "'' as especie, '' as nombre_paciente, " +
-		               "d.nombre as nombre_doctor, d.paterno as doctor_paterno, d.materno as doctor_materno " +
+		               "d.nombre as nombre_doctor, d.apellido as doctor_apellido, d.matricula as doctor_matricula " +
 		               "FROM Cita c " +
 		               "JOIN Doctor d on (d.doctorid = c.doctor_id) " +
 		               "JOIN Paciente p on (p.Paciente_id = c.paciente_id) " +
 		               "JOIN Cliente cl on (cl.persona_id = c.persona_id) " +
 		               "WHERE c.tipo_cita ='T' " +
 		               "ORDER BY c.fecha_cita";
-		List<Cita> lista = new ArrayList<Cita>();
+		List<Turno> lista = new ArrayList<Turno>();
 		try 
 		{
 			lista = DAOobtenerListCita(query);
@@ -356,9 +355,9 @@ public class CitaDAO extends BaseDAO
 		return lista;
 	}
 
-	private List<Cita>DAOobtenerListCita(String query) throws DAOExcepcion
+	private List<Turno>DAOobtenerListCita(String query) throws DAOExcepcion
 	{
-		List<Cita> listaCitas = new ArrayList<Cita>();
+		List<Turno> listaCitas = new ArrayList<Turno>();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -369,7 +368,7 @@ public class CitaDAO extends BaseDAO
 			rs = stmt.executeQuery();
 			while (rs.next()) 
 			{
-				Cita objCita = new Cita();
+				Turno objCita = new Turno();
 				objCita.setCodigoCita(rs.getString("cita_id"));
 				objCita.setCodigoPersona(rs.getString("persona_id"));
 				objCita.setCodigoPaciente(rs.getString("paciente_id"));
@@ -382,15 +381,14 @@ public class CitaDAO extends BaseDAO
 				objCita.setTelefono(rs.getString("telefono"));
 				objCita.setDireccion(rs.getString("direccion"));
 				objCita.setNombresPersona(rs.getString("Nombres"));
-				objCita.setApellidoPaterno(rs.getString("apellido_paterno"));
-				objCita.setApellidoMaterno(rs.getString("apellido_materno"));
+				objCita.setApellido(rs.getString("apellido"));
 				
 				objCita.setEspecie(rs.getString("especie"));
 				objCita.setNombrePaciente(rs.getString("nombre_paciente"));
 				
 				objCita.setNombreDoctor(rs.getString("nombre_doctor"));
-				objCita.setDoctorMaterno(rs.getString("apellido_paterno"));
-				objCita.setDoctorPaterno(rs.getString("doctor_paterno"));
+				objCita.setDoctorMatricula(rs.getString("matricula"));
+				objCita.setDoctorApellido(rs.getString("doctor_apellido"));
 				listaCitas.add(objCita);
 			}
 		} 
@@ -408,7 +406,7 @@ public class CitaDAO extends BaseDAO
 		return listaCitas;
 	}
 
-    private int DAOexisteRegistro(String codigo1, String codigo2, String tableName) throws DAOExcepcion
+    private int existeRegistro(String codigo1, String codigo2, String tableName) throws DAOExcepcion
     {
     	String codigoString = "";
     	if (tableName == "Cliente")
@@ -457,7 +455,7 @@ public class CitaDAO extends BaseDAO
 		return contadorRegistros;
     }
     
-    private int DAOexisteCitaRegistrada(String tipoCita, String fechaCita, String personaId, String pacienteId, String doctorId, String vacuna) throws DAOExcepcion 
+    private int existeTurnoRegistrada(String tipoCita, String fechaCita, String personaId, String pacienteId, String doctorId, String vacuna) throws DAOExcepcion 
 	{
     	String query = "SELECT COUNT(*) AS CONTADOR FROM Cita " + 
 					   "WHERE fecha_cita =? " + 

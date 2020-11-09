@@ -55,8 +55,7 @@ public class AdmPersona implements IPersona{
 		objPersona1 = new Persona();
 		objPersona1.setId(2);
 		objPersona1.setNombre("Rodrigo");
-		objPersona1.setApellidoPaterno("Aguayo");
-		objPersona1.setApellidoMaterno("Seminario");
+		objPersona1.setApellido("Aguayo");
 		objPersona1.setRaza("Spiderman");
 		return objPersona1;
 	}
@@ -66,8 +65,7 @@ public class AdmPersona implements IPersona{
 		objPersona1 = new Persona();
 		objPersona1.setId(2);
 		objPersona1.setNombre(per.getNombre());
-		objPersona1.setApellidoPaterno(per.getApellidoPaterno());
-		objPersona1.setApellidoMaterno(per.getApellidoMaterno());
+		objPersona1.setApellido(per.getApellido());
 		objPersona1.setRaza(per.getRaza());
 		return objPersona1;
 	}

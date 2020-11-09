@@ -65,7 +65,7 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public List<Cliente> DAOlistarprospectos() throws DAOExcepcion{
-		String query = "select Persona_Id,Nombres,apellido_paterno,apellido_materno,email,telefono,direccion,imagen,celular from Cliente where estado not in('X') and tipo_persona='P'";
+		String query = "select Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular from Cliente where estado not in('X') and tipo_persona='P'";
 		List<Cliente> lista = new ArrayList<Cliente>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -78,8 +78,8 @@ public class ClienteDAO extends BaseDAO {
 				Cliente objCliente = new Cliente();
 				objCliente.setCodigo(rs.getString("Persona_Id"));
 				objCliente.setNombre(rs.getString("Nombres"));
-				objCliente.setApellidopaterno(rs.getString("apellido_paterno"));
-				objCliente.setApellidomaterno(rs.getString("apellido_materno"));
+				objCliente.setApellido(rs.getString("apellido"));
+				objCliente.setNumDocumento(rs.getString("num_documento"));
 				objCliente.setDireccion(rs.getString("direccion"));
 				objCliente.setEmail(rs.getString("email"));
 				objCliente.setImagen(rs.getString("imagen"));
@@ -100,7 +100,7 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public void DAOgrabarprospecto(Cliente objCliente) throws DAOExcepcion{
-		String query = "INSERT INTO Cliente(Persona_Id,Nombres,apellido_paterno,apellido_materno,email,direccion,telefono,celular,tipo_persona,estado) values (?,?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO Cliente(Persona_Id,Nombres,apellido,num_documento,email,direccion,telefono,celular,tipo_persona,estado) values (?,?,?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -109,8 +109,8 @@ public class ClienteDAO extends BaseDAO {
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, objCliente.getCodigo());
 			stmt.setString(2, objCliente.getNombre());
-			stmt.setString(3, objCliente.getApellidopaterno());
-			stmt.setString(4, objCliente.getApellidomaterno());
+			stmt.setString(3, objCliente.getApellido());
+			stmt.setString(4, objCliente.getNumDocumento());
 			stmt.setString(5, objCliente.getEmail());
 			stmt.setString(6, objCliente.getDireccion());
 			stmt.setString(7, objCliente.getTelefono());
@@ -134,15 +134,15 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public void DAOmodificarprospecto(Cliente objCliente) throws DAOExcepcion{
-		String query = "update Cliente set Nombres=?,apellido_paterno=?,apellido_materno=?,email=?,direccion=?,telefono=?,celular=? where Persona_Id=?";
+		String query = "update Cliente set Nombres=?,apellido=?,num_documento=?,email=?,direccion=?,telefono=?,celular=? where Persona_Id=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, objCliente.getNombre());
-			stmt.setString(2, objCliente.getApellidopaterno());
-			stmt.setString(3, objCliente.getApellidomaterno());
+			stmt.setString(2, objCliente.getApellido());
+			stmt.setString(3, objCliente.getNumDocumento());
 			stmt.setString(4, objCliente.getEmail());
 			stmt.setString(5, objCliente.getDireccion());
 			stmt.setString(6, objCliente.getTelefono());
@@ -163,7 +163,7 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public Cliente DAOobtenerprospecto(String codigo) throws DAOExcepcion{
-		String query = "select Persona_Id,Nombres,apellido_paterno,apellido_materno,email,telefono,direccion,imagen,celular from Cliente where estado not in('X') and Persona_Id=?";
+		String query = "select Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular from Cliente where estado not in('X') and Persona_Id=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -177,8 +177,8 @@ public class ClienteDAO extends BaseDAO {
 				objCliente = new Cliente();
 				objCliente.setCodigo(rs.getString("Persona_Id"));
 				objCliente.setNombre(rs.getString("Nombres"));
-				objCliente.setApellidopaterno(rs.getString("apellido_paterno"));
-				objCliente.setApellidomaterno(rs.getString("apellido_materno"));
+				objCliente.setApellido(rs.getString("apellido"));
+				objCliente.setNumDocumento(rs.getString("num_documento"));
 				objCliente.setDireccion(rs.getString("direccion"));
 				objCliente.setEmail(rs.getString("email"));
 				objCliente.setImagen(rs.getString("imagen"));
@@ -261,7 +261,7 @@ public class ClienteDAO extends BaseDAO {
 	
 	public List<Cliente> DAOlistClientes() throws DAOExcepcion
 	{
-		String query = "SELECT Persona_Id,Nombres,apellido_paterno,apellido_materno,email,telefono,direccion,imagen,celular FROM Cliente WHERE estado <> 'X' AND tipo_persona='C'";
+		String query = "SELECT Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular FROM Cliente WHERE estado <> 'X' AND tipo_persona='C'";
 		List<Cliente> list = new ArrayList<Cliente>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -274,8 +274,8 @@ public class ClienteDAO extends BaseDAO {
 				Cliente objCliente = new Cliente();
 				objCliente.setCodigo(rs.getString("Persona_Id"));
 				objCliente.setNombre(rs.getString("Nombres"));
-				objCliente.setApellidopaterno(rs.getString("apellido_paterno"));
-				objCliente.setApellidomaterno(rs.getString("apellido_materno"));
+				objCliente.setApellido(rs.getString("apellido"));
+				objCliente.setNumDocumento(rs.getString("num_documento"));
 				objCliente.setDireccion(rs.getString("direccion"));
 				objCliente.setEmail(rs.getString("email"));
 				objCliente.setImagen(rs.getString("imagen"));

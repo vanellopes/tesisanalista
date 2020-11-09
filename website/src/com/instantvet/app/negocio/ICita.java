@@ -1,7 +1,7 @@
 package com.instantvet.app.negocio;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
-import com.instantvet.app.modelo.Cita;
+import com.instantvet.app.modelo.Turno;
 
 import java.util.List;
 
@@ -14,19 +14,19 @@ public interface ICita {
 			String fechaCita) throws DAOExcepcion;
 
 	//@Override
-	public abstract void GrabarModificarCita(Cita objCita) throws DAOExcepcion;
+	public abstract void GrabarModificarCita(Turno objCita) throws DAOExcepcion;
 
 	//@Override
-	public abstract Cita ObtenerCita(String codigoCita) throws DAOExcepcion;
+	public abstract Turno ObtenerCita(String codigoCita) throws DAOExcepcion;
 
 	//@Override
 	public abstract void BorrarCita(String codigoCita) throws DAOExcepcion;
 
 	//@Override
-	public abstract List<Cita> ListarCitaVacunas() throws DAOExcepcion;
+	public abstract List<Turno> ListarCitaVacunas() throws DAOExcepcion;
 
 	//@Override
-	public abstract List<Cita> ListarCitaTareas() throws DAOExcepcion;
+	public abstract List<Turno> ListarCitaTareas() throws DAOExcepcion;
 
 	//@Override
 	public void InsertarVacuna(String nombreVacuna) throws DAOExcepcion;

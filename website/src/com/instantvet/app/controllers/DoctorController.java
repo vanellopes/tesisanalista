@@ -53,8 +53,8 @@ public class DoctorController {
 		Doctor oModelPersona = new Doctor();
 		oModelPersona.setDoctorID(0);
 		oModelPersona.setNombre(request.getParameter("txtnombre"));
-		oModelPersona.setPaterno(request.getParameter("txtApellidoPaterno"));
-		oModelPersona.setMaterno(request.getParameter("txtApellidoMaterno"));
+		oModelPersona.setApellido(request.getParameter("txtApellido"));
+		oModelPersona.setMatricula(request.getParameter("txtMatricula"));
 		oModelPersona.setEmail(request.getParameter("txtEmail"));
 		oModelPersona.setTelefono(request.getParameter("txtTelefono"));
 		oModelPersona.setUsuario(request.getParameter("txtUsuario"));
@@ -95,8 +95,8 @@ public class DoctorController {
 		Doctor oModelPersona = new Doctor();
 		oModelPersona.setDoctorID(Integer.parseInt(request.getParameter("id")));
 		oModelPersona.setNombre(request.getParameter("txtNombre"));
-		oModelPersona.setPaterno(request.getParameter("txtApellidoPaterno"));
-		oModelPersona.setMaterno(request.getParameter("txtApellidoMaterno"));
+		oModelPersona.setApellido(request.getParameter("txtApellido"));
+		oModelPersona.setMatricula(request.getParameter("txtMatricula"));
 		oModelPersona.setEmail(request.getParameter("txtEmail"));
 		oModelPersona.setTelefono(request.getParameter("txtTelefono"));
 		oModelPersona.setUsuario(request.getParameter("txtUsuario"));
