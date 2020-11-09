@@ -28,7 +28,7 @@ function validar(){
 			 bol=false;
 		 }
 		 
-		 if(document.getElementById("txtApellidoPaterno").value=="") {
+		 if(document.getElementById("txtApellido").value=="") {
 			 msg=msg + "Ingrese Apellido Paterno del Prospecto!!! \n"; 
 			 bol=false;
 		 }
@@ -100,7 +100,7 @@ function validar(){
 	<form action="guardarModificacionCliente.jsp" method="post">
 		<table>
 			<tr>
-				<td>Código Prospecto:</td>
+				<td>Cï¿½digo Prospecto:</td>
 				<td><input id="id" name="id" value="${requestScope.model.codigo}" readonly="readonly"/></td>
 			</tr>
 			<tr>
@@ -109,8 +109,8 @@ function validar(){
 			</tr>
 			<tr>
 				<td>Apellido Paterno:</td>
-				<td><input name="txtApellidoPaterno"
-						id="txtApellidoPaterno" value="${requestScope.model.apellidopaterno}" maxlength="50"/></td>
+				<td><input name="txtApellido"
+						id="txtApellido" value="${requestScope.model.apellidopaterno}" maxlength="50"/></td>
 
 			</tr>
 			
@@ -121,7 +121,7 @@ function validar(){
 
 			</tr>
 			<tr>
-				<td>Dirección:</td>
+				<td>Direcciï¿½n:</td>
 				<td><textarea rows="3" cols="20" name="txtDireccion"
 						id="txtDireccion"  maxlength="150">${requestScope.model.direccion}</textarea></td>
 			</tr>
@@ -131,7 +131,7 @@ function validar(){
 						id="txtEmail" value="${requestScope.model.email}" maxlength="30" /></td>
 			</tr>
 			<tr>
-				<td>Teléfono:</td>
+				<td>Telï¿½fono:</td>
 				<td><input name="txtTelefono"
 						id="txtTelefono" value="${requestScope.model.telefono}" maxlength="15" onkeypress="javascript:return solonumbers(event);"/></td>
 			</tr>

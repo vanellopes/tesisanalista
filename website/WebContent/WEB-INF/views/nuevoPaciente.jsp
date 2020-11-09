@@ -18,7 +18,7 @@
 		 bol=false;
 	 }
 	 
-	 if(document.getElementById("txtApellidoPaterno").value=="") {
+	 if(document.getElementById("txtApellido").value=="") {
 		 msg=msg + "Ingrese Apellido Paterno del Prospecto!!! \n"; 
 		 bol=false;
 	 }
@@ -75,7 +75,7 @@
 			</tr>
 			<tr>
 				<td>Ap. Paterno</td>
-				<td><input name ="txtApellidoPaterno"></td>
+				<td><input name ="txtApellido"></td>
 			</tr>
 			<tr>
 				<td>Ap. Materno</td>

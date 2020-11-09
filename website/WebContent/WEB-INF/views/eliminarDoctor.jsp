@@ -40,8 +40,8 @@
 				
 			</tr>
 			<tr>
-				<td>Ap. Paterno</td>
-				<td>${model.paterno}</td>
+				<td>Apellido</td>
+				<td>${model.apellido}</td>
 				
 			</tr>
 			<tr>

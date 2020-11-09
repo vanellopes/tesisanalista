@@ -60,8 +60,8 @@
 				<td width="100">${prod.fechaCita}</td>
 				<td>${prod.codigoCita}</td>
 				<td>${prod.nombreVacuna}</td>
-				<td>${prod.doctorPaterno},${prod.nombreDoctor}</td>
-				<td>${prod.apellidoPaterno},${prod.nombresPersona}</td>
+				<td>${prod.doctor},${prod.nombreDoctor}</td>
+				<td>${prod.apellido},${prod.nombresPersona}</td>
 				<td>${prod.direccion}</td>
 				<td>${prod.telefono}</td>
 				<td>${prod.codigoPaciente}</td>

@@ -85,7 +85,7 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Ap. Paterno</label>
 		          <div class="controls">
-		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellidopaterno}" name="txtApellidoPaterno" id="txtApellidoPaterno">
+		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellido}" name="txtApellido" id="txtApellido">
 		          </div>
 		    </div>
 		    

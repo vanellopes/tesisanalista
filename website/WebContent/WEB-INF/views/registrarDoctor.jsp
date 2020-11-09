@@ -35,7 +35,7 @@
 			</tr>
 			<tr>
 				<td>Ap. Paterno</td>
-				<td><input name ="txtApellidoPaterno"></td>
+				<td><input name ="txtApellido"></td>
 			</tr>
 			<tr>
 				<td>Ap. Materno</td>
@@ -54,7 +54,7 @@
 				<td><input name ="txtUsuario"></td>
 			</tr>
 			<tr>
-			<td>Contraseña</td>
+			<td>Contraseï¿½a</td>
 				<td><input name ="txtPassword" type="password"></td>
 			</tr>
 		</table>

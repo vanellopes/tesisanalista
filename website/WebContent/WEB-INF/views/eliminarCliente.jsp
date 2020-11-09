@@ -40,13 +40,13 @@
 				
 			</tr>
 			<tr>
-				<td>Ap. Paterno</td>
-				<td>${model.paterno}</td>
+				<td>Apellido</td>
+				<td>${model.apellido}</td>
 				
 			</tr>
 			<tr>
-				<td>Ap. Materno</td>
-				<td>${model.materno}</td>
+				<td>Ap. documento</td>
+				<td>${model.numDocumento}</td>
 				
 			</tr>
 

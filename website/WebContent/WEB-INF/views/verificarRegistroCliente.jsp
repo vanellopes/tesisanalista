@@ -42,7 +42,7 @@
 		
 		parent.document.getElementById("id").value = document.getElementById("id").value;
 		parent.document.getElementById("txtNombre").value = document.getElementById("txtNombre").value;
-		parent.document.getElementById("txtApellidoPaterno").value = document.getElementById("txtApellidoPaterno").value;
+		parent.document.getElementById("txtApellido").value = document.getElementById("txtApellido").value;
 		parent.document.getElementById("txtApellidoMaterno").value = document.getElementById("txtApellidoMaterno").value;
 		
 	}
@@ -51,7 +51,7 @@
 		
 		parent.document.getElementById("id").value = "";
 		parent.document.getElementById("txtNombre").value = "";
-		parent.document.getElementById("txtApellidoPaterno").value = "";
+		parent.document.getElementById("txtApellido").value = "";
 		parent.document.getElementById("txtApellidoMaterno").value = "";
 		
 	}
@@ -88,7 +88,7 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Ap. Paterno</label>
 		          <div class="controls">
-		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellidopaterno}" name="txtApellidoPaterno" id="txtApellidoPaterno">
+		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellido}" name="txtApellido" id="txtApellido">
 		          </div>
 		    </div>
 		    
@@ -96,7 +96,7 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Ap. Materno</label>
 		          <div class="controls">
-		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellidomaterno}" name="txtApellidoMaterno" id="txtApellidoMaterno">
+		            <input type="text"  class="input-xlarge" value="${requestScope.model.numDocumento}" name="txtApellidoMaterno" id="txtApellidoMaterno">
 		          </div>
 		    </div>	  
 		    

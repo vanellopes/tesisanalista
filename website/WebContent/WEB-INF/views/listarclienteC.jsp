@@ -25,7 +25,7 @@
 	<title>Lista de Clientes</title>
 <script type="text/javascript" >
 	function confirmar(){
-		if(confirm("Desea realizar esta acci�n?")){
+		if(confirm("Desea realizar esta acción?")){
 			return true;
 		}else{
 			return false;
@@ -97,9 +97,9 @@
 		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 		<thead>
 		    	<tr>
-		        	<th>Nombre</th>
-		            <th>Apellido Paterno</th>
-		            <th>Apellido Materno</th>
+		        	<th>Nombres</th>
+		            <th>Apellidos</th>
+		            <th>Num Documento</th>
 		            <th>Direccion</th>
 					<th>Telefono</th>
 					<th>Editar</th>
@@ -110,8 +110,8 @@
 			<c:forEach items="${model.clientes}" var="prod" varStatus="i">
 			<tr>
 				<td width="100">${prod.nombre}</td>
-				<td>${prod.apellidopaterno}</td>
-				<td>${prod.apellidomaterno}</td>
+				<td>${prod.apellido}</td>
+				<td>${prod.numDocumento}</td>
 				<td>${prod.direccion}</td>
 				<td>${prod.telefono}</td>
 				<td align="center"><a
@@ -136,7 +136,7 @@
 	<div class="modal hide" id="myModal">
 	  <div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal">�</button>
-	    <h3>Ingresar Nuevo Prospecto</h3>
+	    <h3>Modificar cliente/h3>
 	  </div>
 	  <div class="modal-body">
 	    <p>Loading...</p>

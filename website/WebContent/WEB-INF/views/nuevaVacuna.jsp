@@ -93,7 +93,7 @@
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
 	      <div class="hero-unit">
-	      	<h3>Registro de Vacunas</h3>
+	      	<h3>Registro de Turno</h3>
 			<form name="input" action="registrarVacuna" method="post">
 			    
 			    <div style="width:200px">&nbsp;</div>

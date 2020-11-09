@@ -1,21 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<!DOCTYPE html >
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- <link href="css/style.css" rel="stylesheet" />
-<script src="js/jquery-1.7.2.min.js" type="text/javascript"
-	charset="utf-8"></script>
-<link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
-<script src="js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"
-	charset="utf-8"></script>
-	<title>Veterinaria - Citas de vacunas y tareas</title>
-</head>
-<body>
-  <div class="center_content">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>InstantVet</title>
+    
+    <!-- Le styles -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    
+    <style type="text/css" media="screen">
+            .slides_container {
+                width:950px;
+                height:463px;
+            }
+            .slides_container div {
+                width:950px;
+                height:463px;
+                display:block;
+            }
+        </style>
+    
+  </head>
+  <body>
+    <div><jsp:include page="menu.jsp"></jsp:include> </div>
+       
+    
+    <div class="container" style="width: 1076px;">
     <h1>Veterinaria - Citas de vacunas y tareas</h1> <p>
   </div>
    <div>
@@ -23,7 +48,7 @@
                 <tr>
 					<td>
 					  <form action="verRegistroVacuna" method="get">
-			          <input type="submit" name="btnCrearCita" id="btnCrearCita" value="Crear cita para vacunación" />
+			          <input type="submit" name="btnCrearCita" id="btnCrearCita" value="Crear cita para vacunaciï¿½n" />
 		              </form>
 					</td>
 				</tr>

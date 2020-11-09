@@ -16,9 +16,9 @@
     </style>
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <script type="text/javascript" language="javascript">
-	function seleccionarcliente(codigo,nombre,paterno,materno){
+	function seleccionarcliente(codigo,nombre,apellido,materno){
 		window.opener.document.getElementById("hiddencliente").value=codigo;
-		window.opener.document.getElementById("txtCliente").value=paterno + ' ' + materno + ',' + nombre;
+		window.opener.document.getElementById("txtCliente").value=apellido + ' ' + materno + ',' + nombre;
 		window.close();
 	}
 </script>
@@ -33,7 +33,7 @@
 		    	<tr>
 		        	<th scope="col">Codigo</th>
 		            <th scope="col">Nombre</th>
-		            <th scope="col">Apellido Paterno</th>
+		            <th scope="col">Apellido</th>
 		            <th scope="col">Apellido Materno</th>
 		            <th scope="col">Seleccionar</th>
 		        </tr>
@@ -43,9 +43,9 @@
 			<tr>
 				<td>${prod.codigo}</td>
 				<td width="100">${prod.nombre}</td>
-				<td>${prod.apellidopaterno}</td>
-				<td>${prod.apellidomaterno}</td>
-				<td><a href="#" onclick='seleccionarcliente("${prod.codigo}","${prod.nombre}","${prod.apellidopaterno}","${prod.apellidomaterno}");'>Seleccionar</a></td>
+				<td>${prod.apellido}</td>
+				<td>${prod.numDocumento}</td>
+				<td><a href="#" onclick='seleccionarcliente("${prod.codigo}","${prod.nombre}","${prod.apellido}","${prod.numDocumento}");'>Seleccionar</a></td>
 			</tr>
 			</c:forEach>
 			</tbody>

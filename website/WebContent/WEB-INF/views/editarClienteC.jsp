@@ -10,7 +10,7 @@
 <SCRIPT type="text/javascript">
 function validar(){
 	 
-	 if(confirm("Desea registrar el siguiente Prospecto?")){
+	 if(confirm("Desea registrar el siguiente modificacion?")){
 	 	 var msg="";
 		 var bol=true;
 		 if(document.getElementById("txtNombre").value=="") {
@@ -18,8 +18,8 @@ function validar(){
 			 bol=false;
 		 }
 		 
-		 if(document.getElementById("txtApellidoPaterno").value=="") {
-			 msg=msg + "Ingrese Apellido Paterno del Prospecto!!! \n"; 
+		 if(document.getElementById("txtApellido").value=="") {
+			 msg=msg + "Ingrese Apellido cliente!!! \n"; 
 			 bol=false;
 		 }
 		 
@@ -85,11 +85,11 @@ function validar(){
 <body>
 
 	<div class="center_content">
-	<h3>Mantenimiento de Clientes</h3>
+	<h3>Modificar CLiente </h3>
 	<form action="guardarModificacionClienteC.jsp" method="post">
 		<table>
 			<tr>
-				<td>Código Cliente:</td>
+				<td>Cï¿½digo Cliente:</td>
 				<td><input id="id" name="id" value="${requestScope.model.codigo}" readonly="readonly"/></td>
 			</tr>
 			<tr>
@@ -98,19 +98,19 @@ function validar(){
 			</tr>
 			<tr>
 				<td>Apellido Paterno:</td>
-				<td><input name="txtApellidoPaterno"
-						id="txtApellidoPaterno" value="${requestScope.model.apellidopaterno}" maxlength="50"/></td>
+				<td><input name="txtApellido"
+						id="txtApellido" value="${requestScope.model.apellido}" maxlength="50"/></td>
 
 			</tr>
 			
 			<tr>
 				<td>Apellido Materno:</td>
 				<td><input name="txtApellidoMaterno"
-						id="txtApellidoMaterno" value="${requestScope.model.apellidomaterno}" maxlength="50"/></td>
+						id="txtApellidoMaterno" value="${requestScope.model.numDocumento}" maxlength="50"/></td>
 
 			</tr>
 			<tr>
-				<td>Dirección:</td>
+				<td>Direcciï¿½n:</td>
 				<td><textarea rows="3" cols="20" name="txtDireccion"
 						id="txtDireccion" maxlength="150">${requestScope.model.direccion}</textarea></td>
 			</tr>
@@ -120,7 +120,7 @@ function validar(){
 						id="txtEmail" value="${requestScope.model.email}" maxlength="30"/></td>
 			</tr>
 			<tr>
-				<td>Teléfono:</td>
+				<td>Telï¿½fono:</td>
 				<td><input name="txtTelefono"
 						id="txtTelefono" value="${requestScope.model.telefono}" maxlength="15" onkeypress="javascript:return solonumbers(event);"/></td>
 			</tr>

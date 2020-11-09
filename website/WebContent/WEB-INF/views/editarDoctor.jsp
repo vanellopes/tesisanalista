@@ -32,7 +32,7 @@
 		 bol=false;
 	 }
 	 
-	 if(document.getElementById("txtApellidoPaterno").value=="") {
+	 if(document.getElementById("txtApellido").value=="") {
 		 msg=msg + "Ingrese Apellido Paterno!!! \n"; 
 		 bol=false;
 	 }
@@ -139,7 +139,7 @@
 			</tr>
 			<tr>
 				<td>Apellido Paterno:</td>
-				<td><input name="txtApellidoPaterno" id="txtApellidoPaterno" value="${requestScope.model.paterno}"/></td>
+				<td><input name="txtApellido" id="txtApellido" value="${requestScope.model.paterno}"/></td>
 
 			</tr>
 			

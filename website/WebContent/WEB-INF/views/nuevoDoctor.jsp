@@ -35,7 +35,7 @@ function validar(){
 		 bol=false;
 	 }
 	 
-	 if(document.getElementById("txtApellidoPaterno").value=="") {
+	 if(document.getElementById("txtApellido").value=="") {
 		 msg=msg + "Ingrese Apellido Paterno!!! \n"; 
 		 bol=false;
 	 }
@@ -133,7 +133,7 @@ function validar(){
 			<tr>
 				<td>*</td>
 				<td>Ap. Paterno</td>
-				<td><input id="txtApellidoPaterno" name ="txtApellidoPaterno"></td>
+				<td><input id="txtApellido" name ="txtApellido"></td>
 			</tr>
 			<tr>
 				<td>*</td>

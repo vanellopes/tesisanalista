@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<td>Apellido Paterno:</td>
-				<td><textarea rows="3" cols="20" name="txtApellidoPaterno"
+				<td><textarea rows="3" cols="20" name="txtApellido"
 						id="txtDescripcion"></textarea></td>
 
 			</tr>

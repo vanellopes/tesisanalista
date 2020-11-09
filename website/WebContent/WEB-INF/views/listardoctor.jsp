@@ -58,8 +58,8 @@
 				<c:forEach items="${model.doctores}" var="prod" varStatus="i">
 				<tr>
 					<td width="100">${prod.nombre}</td>	
-					<td>${prod.paterno}</td>
-					<td>${prod.materno}</td>
+					<td>${prod.apellido}</td>
+					<td>${prod.matricula}</td>
 					<td>${prod.email}</td>
 					<td>${prod.telefono}</td>
 					<td>${prod.usuario}</td>
