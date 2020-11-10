@@ -2,7 +2,7 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.*;
-import com.instantvet.app.negocio.ICliente;
+import com.instantvet.app.negocio.GestionCliente;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ClienteController {
 
 	@Autowired
-	private ICliente Cliente;
+	private GestionCliente Cliente;
 	
 	@RequestMapping(value="/listarcliente.jsp")
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)

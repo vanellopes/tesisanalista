@@ -69,12 +69,12 @@
 <body>
 
 	<div class="center_content">
-	<h3>Mantenimiento de Citas para vacunacion</h3>
+	<h3>Mantenimiento de Turnos para vacunacion</h3>
 	<form action="guardarTarea" method="post">
 		<table>
 			<tr>
-				<td>Código Cita:</td>
-				<td><input id="idCita" name="idCita" value="${requestScope.model.codigoCita}" readonly="true"/></td>
+				<td>Cï¿½digo Turno:</td>
+				<td><input id="idTurno" name="idTurno" value="${requestScope.model.codigoTurno}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td>Codigo Doctor:</td>
@@ -90,18 +90,18 @@
 			</tr>
 			<tr>
 				<td>Decripcion de Tarea:</td>
-				<td><textarea rows="3" cols="20" name="txtDescripcion" id="txtDescripcion">${requestScope.model.descripcionCita}</textarea></td>
+				<td><textarea rows="3" cols="20" name="txtDescripcion" id="txtDescripcion">${requestScope.model.descripcionTurno}</textarea></td>
 			</tr>
 			<tr>
 				<td>Fecha Vacuna (dd/mm/yyyy):</td>
-				<td><input name ="txtFecha" id="txtFecha" value="${requestScope.model.fechaCita}"></td>
+				<td><input name ="txtFecha" id="txtFecha" value="${requestScope.model.fechaTurno}"></td>
 			</tr>
 			
 			
 			<tr>
 				<td colspan="2">
 				  <input type="submit" value="Guardar Tarea" name="btnRegistrar" onclick="return validar();" /></td>
-				  <td><a href="menuCita">Cancelar</a></td>
+				  <td><a href="menuTurno">Cancelar</a></td>
 			</tr>
 			
 		</table>

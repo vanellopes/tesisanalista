@@ -2,7 +2,7 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Doctor;
-import com.instantvet.app.negocio.IDoctor;
+import com.instantvet.app.negocio.GestionVeterinario;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Controller;
 public class DoctorController {
 
 	@Autowired
-	private IDoctor Doctor;
+	private GestionVeterinario Doctor;
 	
 	@RequestMapping(value="/listardoctor.jsp") 
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DAOExcepcion {

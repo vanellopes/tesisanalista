@@ -31,7 +31,7 @@
 function verificarRegistroCliente(){	
 	document.getElementById("frmValidar").src = "consultarServicioReniec?txtDNI=" + document.getElementById("txtDNI").value;
 	document.getElementById("frmValidar").reload();
-	//document.getElementById("frmValidar").contentWindow.navigate("consultarServicioReniec");	
+	document.getElementById("frmValidar").contentWindow.navigate("consultarServicioReniec");	
 	
 }
 

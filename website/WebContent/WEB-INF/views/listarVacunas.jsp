@@ -37,12 +37,12 @@
 		<h2>Lista de Vacunas Programada</h2> <br />
 		<form action="verRegistroVacuna" method="get"> 
 			<input type="submit" name="btnNuevo" id="btnNuevo" value="Nueva Vacuna" class="btn btn-success"/>
-			<a href="menuCita.jsp" class="btn btn-success">Regresar al Menu</a>
+			<a href="menuTurno.jsp" class="btn btn-success">Regresar al Menu</a>
 		</form>
 		<table cellpadding="0" cellspacing="0" border="0"  class="table table-striped table-bordered">
 			<tr>
 				<th>Programacion de la Vacuna</th>
-				<th>Codigo Cita</th>
+				<th>Codigo Turno</th>
 				<th>Nombre Vacuna</th>
 				<th>Doctor</th>
 				<th>Cliente</th>
@@ -57,20 +57,20 @@
 			
 			<c:forEach items="${model.vacunas}" var="prod" varStatus="i">
 			<tr>
-				<td width="100">${prod.fechaCita}</td>
-				<td>${prod.codigoCita}</td>
+				<td width="100">${prod.fechaTurno}</td>
+				<td>${prod.codigoTurno}</td>
 				<td>${prod.nombreVacuna}</td>
 				<td>${prod.doctor},${prod.nombreDoctor}</td>
 				<td>${prod.apellido},${prod.nombresPersona}</td>
 				<td>${prod.direccion}</td>
 				<td>${prod.telefono}</td>
 				<td>${prod.codigoPaciente}</td>
-				<td>${prod.descripcionCita}</td>
+				<td>${prod.descripcionTurno}</td>
 				<td align="center"><a
-						href="editarVacuna.jsp?idCita=${prod.codigoCita}"> <img
+						href="editarVacuna.jsp?idTurno=${prod.codigoTurno}"> <img
 							src="<%=request.getContextPath() %>/images/editar.jpg" alt="" title="" border="0" /></a></td>
 				<td align="center"><a
-						href="eliminarVacuna?idCita=${prod.codigoCita}"><img
+						href="eliminarVacuna?idTurno=${prod.codigoTurno}"><img
 							src="<%=request.getContextPath() %>/images/delete.gif" alt="" title="" border="0" /></a></td>
 			</tr>
 			</c:forEach>

@@ -23,7 +23,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<title>Veterinaria - Citas para Vacunas</title>
+<title>Veterinaria - Turnos para Vacunas</title>
 
 <SCRIPT type="text/javascript">
  function validar()
@@ -157,7 +157,7 @@
     			<div class="control-group">
 					  <!-- Button -->
 			          <div class="controls">
-			            <input type="submit" value="Crear Cita" class="btn btn-success" onclick="return validar();" >
+			            <input type="submit" value="Crear Turno" class="btn btn-success" onclick="return validar();" >
 			          </div>
         		</div>
 				

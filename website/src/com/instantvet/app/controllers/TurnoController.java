@@ -2,7 +2,7 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Turno;
-import com.instantvet.app.negocio.ICita;
+import com.instantvet.app.negocio.GestionTurnos;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,13 +24,13 @@ public class TurnoController
 {
 
 	@Autowired
-	private ICita Cita;
+	private GestionTurnos turno;
 
-	@RequestMapping(value = "/menuCita", method = RequestMethod.GET)
-	public ModelAndView ingresarMenuCita(HttpServletRequest request,
+	@RequestMapping(value = "/menuTurno", method = RequestMethod.GET)
+	public ModelAndView ingresarMenuTurno(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		return new ModelAndView("menuCita");
+		return new ModelAndView("menuTurno");
 	}
 
 
@@ -39,7 +39,7 @@ public class TurnoController
 	public ModelAndView handleRequestVacunas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
-		List<Turno> vacunas = this.Cita.ListarCitaVacunas();
+		List<Turno> vacunas = this.turno.ListarTurnoVacunas();
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("vacunas",vacunas);
        
@@ -50,7 +50,7 @@ public class TurnoController
 	public ModelAndView handleRequestTareas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
-		List<Turno> tareas = this.Cita.ListarCitaTareas();		
+		List<Turno> tareas = this.turno.ListarTurnoTareas();		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("tareas",tareas);
        
@@ -85,18 +85,18 @@ public class TurnoController
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarTarea");
 		
-		Turno oModelCita = new Turno();
-		oModelCita.setCodigoCita("0");
-		oModelCita.setTipoCita("T");
-		oModelCita.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
-		oModelCita.setCodigoPersona(request.getParameter("hiddencliente"));
-		oModelCita.setCodigoPaciente(request.getParameter("hiddenpaciente"));
-		oModelCita.setDescripcionCita(request.getParameter("txtDescripcion"));
-		oModelCita.setFechaCita(request.getParameter("txtFecha"));
+		Turno oModelTurno = new Turno();
+		oModelTurno.setCodigoTurno("0");
+		oModelTurno.setTipoTurno("T");
+		oModelTurno.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
+		oModelTurno.setCodigoPersona(request.getParameter("hiddencliente"));
+		oModelTurno.setCodigoPaciente(request.getParameter("hiddenpaciente"));
+		oModelTurno.setDescripcionTurno(request.getParameter("txtDescripcion"));
+		oModelTurno.setFechaTurno(request.getParameter("txtFecha"));
 		
 		try 
 		{
-			Cita.GrabarModificarCita(oModelCita);
+			turno.GrabarModificarTurno(oModelTurno);
 		} 
 		catch (Exception e) 
 		{
@@ -105,7 +105,7 @@ public class TurnoController
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		List<Turno> tareas = this.Cita.ListarCitaTareas();		
+		List<Turno> tareas = this.turno.ListarTurnoTareas();		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("tareas",tareas);
        
@@ -118,26 +118,26 @@ public class TurnoController
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarVacuna");
 		
-		Turno oModelCita = new Turno();
-		oModelCita.setCodigoCita("0");
-		oModelCita.setTipoCita("V");
-		oModelCita.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
-		oModelCita.setCodigoPersona(request.getParameter("hiddencliente"));
-		oModelCita.setCodigoPaciente(request.getParameter("hiddenpaciente"));
-		oModelCita.setNombreVacuna(request.getParameter("txtVacuna"));
-		oModelCita.setDescripcionCita(request.getParameter("txtDescripcion"));
-		oModelCita.setFechaCita(request.getParameter("txtFecha"));
+		Turno oModelTurno = new Turno();
+		oModelTurno.setCodigoTurno("0");
+		oModelTurno.setTipoTurno("V");
+		oModelTurno.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
+		oModelTurno.setCodigoPersona(request.getParameter("hiddencliente"));
+		oModelTurno.setCodigoPaciente(request.getParameter("hiddenpaciente"));
+		oModelTurno.setNombreVacuna(request.getParameter("txtVacuna"));
+		oModelTurno.setDescripcionTurno(request.getParameter("txtDescripcion"));
+		oModelTurno.setFechaTurno(request.getParameter("txtFecha"));
 		
 		try 
 		{
-			Cita.GrabarModificarCita(oModelCita);
+			turno.GrabarModificarTurno(oModelTurno);
 		} 
 		catch (Exception e) 
 		{
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		List<Turno> vacunas = this.Cita.ListarCitaVacunas();
+		List<Turno> vacunas = this.turno.ListarTurnoVacunas();
 		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("vacunas",vacunas);
@@ -152,36 +152,36 @@ public class TurnoController
 		
 		try 
 		{
-			Cita.InsertarVacuna(request.getParameter("txtNombreVacuna"));
+			turno.InsertarVacuna(request.getParameter("txtNombreVacuna"));
 		} 
 		catch (Exception e) 
 		{
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		return new ModelAndView("menuCita");
+		return new ModelAndView("menuTurno");
 	}
 	
 	@RequestMapping(value = "/editarTarea", method = RequestMethod.GET)
 	public ModelAndView editarTarea(HttpServletRequest request,
 			HttpServletResponse response) throws Exception 
 	{
-		System.out.println("idCita "+request.getParameter("idCita"));
+		System.out.println("idTurno "+request.getParameter("idTurno"));
 		
-		Turno oModelCita = new Turno();
-		oModelCita = Cita.ObtenerCita(request.getParameter("idCita"));
-		return new ModelAndView("editarTarea", "model", oModelCita);
+		Turno oModelTurno = new Turno();
+		oModelTurno = turno.ObtenerTurno(request.getParameter("idTurno"));
+		return new ModelAndView("editarTarea", "model", oModelTurno);
 	}
 
 	@RequestMapping(value = "/editarVacuna", method = RequestMethod.GET)
 	public ModelAndView editarVacuna(HttpServletRequest request,
 			HttpServletResponse response) throws Exception 
 	{
-		System.out.println("idCita "+request.getParameter("idCita"));
+		System.out.println("idTurno "+request.getParameter("idTurno"));
 		
-		Turno oModelCita = new Turno();
-		oModelCita = Cita.ObtenerCita(request.getParameter("idCita"));
-		return new ModelAndView("editarVacuna", "model", oModelCita);
+		Turno oModelTurno = new Turno();
+		oModelTurno = turno.ObtenerTurno(request.getParameter("idTurno"));
+		return new ModelAndView("editarVacuna", "model", oModelTurno);
 	}
 
 	
@@ -190,25 +190,25 @@ public class TurnoController
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarTarea");
 		
-		Turno oModelCita = new Turno();
-		oModelCita.setCodigoCita(request.getParameter("idCita"));
-		oModelCita.setTipoCita("T");
-		oModelCita.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
-		oModelCita.setCodigoPersona(request.getParameter("txtCodigoCliente"));
-		oModelCita.setCodigoPaciente(request.getParameter("txtCodigoPaciente"));
-		oModelCita.setDescripcionCita(request.getParameter("txtDescripcion"));
-		oModelCita.setFechaCita(request.getParameter("txtFecha"));
+		Turno oModelTurno = new Turno();
+		oModelTurno.setCodigoTurno(request.getParameter("idTurno"));
+		oModelTurno.setTipoTurno("T");
+		oModelTurno.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
+		oModelTurno.setCodigoPersona(request.getParameter("txtCodigoCliente"));
+		oModelTurno.setCodigoPaciente(request.getParameter("txtCodigoPaciente"));
+		oModelTurno.setDescripcionTurno(request.getParameter("txtDescripcion"));
+		oModelTurno.setFechaTurno(request.getParameter("txtFecha"));
 		
 		try 
 		{
-			Cita.GrabarModificarCita(oModelCita);
+			turno.GrabarModificarTurno(oModelTurno);
 		} 
 		catch (Exception e) 
 		{
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		List<Turno> tareas = this.Cita.ListarCitaTareas();		
+		List<Turno> tareas = this.turno.ListarTurnoTareas();		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("tareas",tareas);
        
@@ -220,26 +220,26 @@ public class TurnoController
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarVacuna");
 		
-		Turno oModelCita = new Turno();
-		oModelCita.setCodigoCita(request.getParameter("idCita"));
-		oModelCita.setTipoCita("V");
-		oModelCita.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
-		oModelCita.setCodigoPersona(request.getParameter("txtCodigoCliente"));
-		oModelCita.setCodigoPaciente(request.getParameter("txtCodigoPaciente"));
-		oModelCita.setNombreVacuna(request.getParameter("txtVacuna"));
-		oModelCita.setDescripcionCita(request.getParameter("txtDescripcion"));
-		oModelCita.setFechaCita(request.getParameter("txtFecha"));
+		Turno oModelTurno = new Turno();
+		oModelTurno.setCodigoTurno(request.getParameter("idTurno"));
+		oModelTurno.setTipoTurno("V");
+		oModelTurno.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
+		oModelTurno.setCodigoPersona(request.getParameter("txtCodigoCliente"));
+		oModelTurno.setCodigoPaciente(request.getParameter("txtCodigoPaciente"));
+		oModelTurno.setNombreVacuna(request.getParameter("txtVacuna"));
+		oModelTurno.setDescripcionTurno(request.getParameter("txtDescripcion"));
+		oModelTurno.setFechaTurno(request.getParameter("txtFecha"));
 		
 		try 
 		{
-			Cita.GrabarModificarCita(oModelCita);
+			turno.GrabarModificarTurno(oModelTurno);
 		} 
 		catch (Exception e) 
 		{
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-        List<Turno> vacunas = this.Cita.ListarCitaVacunas();
+        List<Turno> vacunas = this.turno.ListarTurnoVacunas();
 		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("vacunas",vacunas);
@@ -253,19 +253,19 @@ public class TurnoController
 			HttpServletResponse response) throws Exception {
 		System.out.println("eliminarTarea");
 		
-		Turno oModelCita = new Turno();
-		oModelCita.setCodigoCita(request.getParameter("idCita"));
+		Turno oModelTurno = new Turno();
+		oModelTurno.setCodigoTurno(request.getParameter("idTurno"));
 		
 		try 
 		{
-			Cita.BorrarCita(oModelCita.getCodigoCita());
+			turno.BorrarTurno(oModelTurno.getCodigoTurno());
 		} 
 		catch (Exception e) 
 		{
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		List<Turno> tareas = this.Cita.ListarCitaTareas();		
+		List<Turno> tareas = this.turno.ListarTurnoTareas();		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("tareas",tareas);
        
@@ -277,19 +277,19 @@ public class TurnoController
 			HttpServletResponse response) throws Exception {
 		System.out.println("eliminarVacuna");
 		
-		Turno oModelCita = new Turno();
-		oModelCita.setCodigoCita(request.getParameter("idCita"));
+		Turno oModelTurno = new Turno();
+		oModelTurno.setCodigoTurno(request.getParameter("idTurno"));
 		
 		try 
 		{
-			Cita.BorrarCita(oModelCita.getCodigoCita());
+			turno.BorrarTurno(oModelTurno.getCodigoTurno());
 		} 
 		catch (Exception e) 
 		{
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-        List<Turno> vacunas = this.Cita.ListarCitaVacunas();
+        List<Turno> vacunas = this.turno.ListarTurnoVacunas();
 		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("vacunas",vacunas);

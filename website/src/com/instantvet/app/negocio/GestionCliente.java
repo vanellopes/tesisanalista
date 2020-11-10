@@ -5,7 +5,7 @@ import com.instantvet.app.modelo.Cliente;
 
 import java.util.List;
 
-public interface ICliente {
+public interface GestionCliente {
 
 	public abstract Cliente ObtenerProspecto(String codigo) throws DAOExcepcion;
 	public abstract void deleteprospecto(String codigo) throws DAOExcepcion;

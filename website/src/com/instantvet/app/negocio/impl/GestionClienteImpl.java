@@ -1,15 +1,16 @@
-package com.instantvet.app.negocio;
+package com.instantvet.app.negocio.impl;
 
 import com.instantvet.app.dao.*;
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.*;
+import com.instantvet.app.negocio.GestionCliente;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 @Service 
-public class AdmCliente implements ICliente {
+public class GestionClienteImpl implements GestionCliente {
 
 	
 	@Override

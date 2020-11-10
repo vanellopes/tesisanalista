@@ -5,7 +5,7 @@ import com.instantvet.app.modelo.Paciente;
 
 import java.util.List;
 
-public interface IPaciente {
+public interface GestionPaciente {
 
 	public abstract void insertarPaciente(Paciente pac)
 			throws DAOExcepcion;

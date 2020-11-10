@@ -2,7 +2,7 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Login;
-import com.instantvet.app.negocio.ILogin;
+import com.instantvet.app.negocio.GestionLogin;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 	
 	@Autowired
-	private ILogin iLogin;
+	private GestionLogin gestionLogin;
 
 	
 	@RequestMapping(value = "/Login", method = RequestMethod.GET)
@@ -61,7 +61,7 @@ public class LoginController {
 		oModelLogin.setPassword(request.getParameter("Password"));
 		
 		try {
-			oModelLogin = iLogin.ObtenerCredenciales(oModelLogin);
+			oModelLogin = gestionLogin.ObtenerCredenciales(oModelLogin);
 					
 			if(oModelLogin.getAdministrador()==null)
 			{

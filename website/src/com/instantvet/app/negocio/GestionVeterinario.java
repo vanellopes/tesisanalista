@@ -5,7 +5,7 @@ import com.instantvet.app.modelo.Doctor;
 
 import java.util.List;
 
-public interface IDoctor {
+public interface GestionVeterinario {
 
 	
 	public abstract Doctor insertar(Doctor oDoctor) throws DAOExcepcion;

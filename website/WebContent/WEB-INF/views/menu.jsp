@@ -33,7 +33,7 @@
                           <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a href="verRegistroVacuna">Crear cita para vacunación</a></li>
+                      <li><a href="listarcliente2.jsp">Listar Clientes</a></li>
                       <li><a href="verRegistroTarea">Crear tarea en el calendario</a></li>
                       <li><a href="listarVacuna">Ver calendario con las vacunas programadas</a></li>
                       <li><a href="listarTarea">Ver calendario con las tareas asignadas</a></li>
@@ -45,7 +45,7 @@
               <li><a href="listarpaciente.jsp">Pacientes</a></li>
       		  <li><a href="listardoctor.jsp">Veterinarios</a></li>
             <li><a href="listarfacturas.jsp">Facturacion</a></li>
-            <li><a href="menuCita.jsp">Turnos menu</a></li>
+            <li><a href="menuTurno.jsp">Turnos menu</a></li>
 	                		   <li>
 					<ul class="nav">
 					  <li class="dropdown">
@@ -56,7 +56,7 @@
 						          <b class="caret"></b>
 						    </a>
 						    <ul class="dropdown-menu">
-						    	<li><a href="verRegistroVacuna">Crear cita para vacunación</a></li>
+						    	<li><a href="verRegistroVacuna">Crear Turno para vacunación</a></li>
 						    	<li><a href="verRegistroTarea">Crear tarea en el calendario</a></li>
 						    	<li><a href="listarVacuna">Ver calendario con las vacunas programadas</a></li>
 						    	<li><a href="listarTarea">Ver calendario con las tareas asignadas</a></li>

@@ -2,8 +2,8 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.*;
-import com.instantvet.app.negocio.ICombo;
-import com.instantvet.app.negocio.IPaciente;
+import com.instantvet.app.negocio.GestionCombo;
+import com.instantvet.app.negocio.GestionPaciente;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,16 +28,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class PacienteController {
 
 	@Autowired
-	private IPaciente iPaciente;
+	private GestionPaciente gestionPaciente;
 	@Autowired
-	private ICombo iCombo;
+	private GestionCombo gestionCombo;
 	
 	
 	@RequestMapping(value="/listarpaciente.jsp")
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
-		List<Paciente> pacientes = iPaciente.listarPacientes();
+		List<Paciente> pacientes = gestionPaciente.listarPacientes();
 				
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("pacientes",pacientes);
@@ -52,12 +52,12 @@ public class PacienteController {
 
 		//return new ModelAndView("nuevoPaciente");
 		
-		List<Control> ListaEspecie = iCombo.GetDataCombo("ESPECIE");
-		List<Control> ListaRaza = iCombo.GetDataCombo("RAZA");
-		List<Control> ListaGenero = iCombo.GetDataCombo("GENERO");
-		List<Control> ListaTipoSangre = iCombo.GetDataCombo("TIPOSANGRE");
-		List<Control> ListaTamano = iCombo.GetDataCombo("TAMANO");
-		List<Control> ListaActividad = iCombo.GetDataCombo("ACTIVIDAD");
+		List<Control> ListaEspecie = gestionCombo.GetDataCombo("ESPECIE");
+		List<Control> ListaRaza = gestionCombo.GetDataCombo("RAZA");
+		List<Control> ListaGenero = gestionCombo.GetDataCombo("GENERO");
+		List<Control> ListaTipoSangre = gestionCombo.GetDataCombo("TIPOSANGRE");
+		List<Control> ListaTamano = gestionCombo.GetDataCombo("TAMANO");
+		List<Control> ListaActividad = gestionCombo.GetDataCombo("ACTIVIDAD");
 		
 		
 		HttpSession session = request.getSession();
@@ -91,7 +91,7 @@ public class PacienteController {
 		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
 		
 		try {
-			iPaciente.insertarPaciente(oModelPaciente);
+			gestionPaciente.insertarPaciente(oModelPaciente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -104,12 +104,12 @@ public class PacienteController {
 			HttpServletResponse response) throws Exception {
 		
 		Paciente oModelPaciente = new Paciente();
-		List<Control> ListaEspecie = iCombo.GetDataCombo("ESPECIE");
-		List<Control> ListaRaza = iCombo.GetDataCombo("RAZA");
-		List<Control> ListaGenero = iCombo.GetDataCombo("GENERO");
-		List<Control> ListaTipoSangre = iCombo.GetDataCombo("TIPOSANGRE");
-		List<Control> ListaTamano = iCombo.GetDataCombo("TAMANO");
-		List<Control> ListaActividad = iCombo.GetDataCombo("ACTIVIDAD");
+		List<Control> ListaEspecie = gestionCombo.GetDataCombo("ESPECIE");
+		List<Control> ListaRaza = gestionCombo.GetDataCombo("RAZA");
+		List<Control> ListaGenero = gestionCombo.GetDataCombo("GENERO");
+		List<Control> ListaTipoSangre = gestionCombo.GetDataCombo("TIPOSANGRE");
+		List<Control> ListaTamano = gestionCombo.GetDataCombo("TAMANO");
+		List<Control> ListaActividad = gestionCombo.GetDataCombo("ACTIVIDAD");
 		
 		
 		HttpSession session = request.getSession();
@@ -125,7 +125,7 @@ public class PacienteController {
 		//System.out.println("idPaciente "+request.getParameter("codigoPaciente"));
 		System.out.println("idPaciente "+request.getParameter("id"));
 		
-		oModelPaciente = iPaciente.obtenerPaciente(Integer.parseInt(request.getParameter("id")));
+		oModelPaciente = gestionPaciente.obtenerPaciente(Integer.parseInt(request.getParameter("id")));
 		System.out.println("id "+oModelPaciente.getCondicionesEspeciales());
 	
 		return new ModelAndView("editarPaciente", "modelo", oModelPaciente);
@@ -167,7 +167,7 @@ public class PacienteController {
 		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
 		
 		try {
-			iPaciente.GrabarModificarPaciente(oModelPaciente);
+			gestionPaciente.GrabarModificarPaciente(oModelPaciente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -181,7 +181,7 @@ public class PacienteController {
 		System.out.println("eliminarPaciente");
 		
 		try {
-			iPaciente.deletepaciente(Integer.parseInt(request.getParameter("id")));
+			gestionPaciente.deletepaciente(Integer.parseInt(request.getParameter("id")));
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}

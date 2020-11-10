@@ -41,14 +41,14 @@
        
     
     <div class="container" style="width: 1076px;">
-    <h1>Veterinaria - Citas de vacunas y tareas</h1> <p>
+    <h1>Veterinaria - Turnos de vacunas y tareas</h1> <p>
   </div>
    <div>
      <table>
                 <tr>
 					<td>
 					  <form action="verRegistroVacuna" method="get">
-			          <input type="submit" name="btnCrearCita" id="btnCrearCita" value="Crear cita para vacunaci�n" />
+			          <input type="submit" name="btnCrearTurno" id="btnCrearTurno" value="Crear Turno para vacunaci�n" />
 		              </form>
 					</td>
 				</tr>

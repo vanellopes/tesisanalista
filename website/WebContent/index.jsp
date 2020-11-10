@@ -72,11 +72,11 @@
 						    <a href="#"
 						          class="dropdown-toggle"
 						          data-toggle="dropdown">
-						          Citas
+						          Turnos
 						          <b class="caret"></b>
 						    </a>
 						    <ul class="dropdown-menu">
-						    	<li><a href="forms/verRegistroVacuna">Crear cita para vacunaci�n</a></li>
+						    	<li><a href="forms/verRegistroVacuna">Crear Turno para vacunaci�n</a></li>
 						    	<li><a href="forms/verRegistroTarea">Crear tarea en el calendario</a></li>
 						    	<li><a href="forms/listarVacuna">Ver calendario con las vacunas programadas</a></li>
 						    	<li><a href="forms/listarTarea">Ver calendario con las tareas asignadas</a></li>

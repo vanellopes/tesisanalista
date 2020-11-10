@@ -1,15 +1,16 @@
-package com.instantvet.app.negocio;
+package com.instantvet.app.negocio.impl;
 
 import com.instantvet.app.dao.DoctorDAO;
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Doctor;
+import com.instantvet.app.negocio.GestionVeterinario;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 @Service 
-public class AdmDoctor implements IDoctor {
+public class GestionVeterinarioImpl implements GestionVeterinario {
 
 
 	@Override

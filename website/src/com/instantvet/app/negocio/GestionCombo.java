@@ -5,7 +5,7 @@ import com.instantvet.app.modelo.*;
 
 import java.util.List;
 
-public interface ICombo{
+public interface GestionCombo{
 	public abstract List<Control> GetDataCombo(String Entidad) throws DAOExcepcion;
 	
 }

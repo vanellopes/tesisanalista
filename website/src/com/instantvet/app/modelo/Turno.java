@@ -2,14 +2,14 @@ package com.instantvet.app.modelo;
 
 public class Turno {
 	
-	String codigoCita;
+	String codigoTurno;
 	String codigoPersona; 
 	String codigoPaciente;
 	String codigoDoctor;
-	String tipoCita;
-	String descripcionCita;
+	String tipoTurno;
+	String descripcionTurno;
 	String nombreVacuna;
-	String fechaCita;
+	String fechaTurno;
 	
 	String telefono;
     String direccion;
@@ -23,18 +23,18 @@ public class Turno {
     String doctorApellido;
     String doctorMatricula;
     
-	public Turno(String codigoCita, String codigoPersona, String codigoPaciente,
-			String codigoDoctor, String tipoCita, String descripcionCita,
-			String nombreVacuna, String fechaCita) {
+	public Turno(String codigoTurno, String codigoPersona, String codigoPaciente,
+			String codigoDoctor, String tipoTurno, String descripcionTurno,
+			String nombreVacuna, String fechaTurno) {
 		super();
-		this.codigoCita = codigoCita;
+		this.codigoTurno = codigoTurno;
 		this.codigoPersona = codigoPersona;
 		this.codigoPaciente = codigoPaciente;
 		this.codigoDoctor = codigoDoctor;
-		this.tipoCita = tipoCita;
-		this.descripcionCita = descripcionCita;
+		this.tipoTurno = tipoTurno;
+		this.descripcionTurno = descripcionTurno;
 		this.nombreVacuna = nombreVacuna;
-		this.fechaCita = fechaCita;
+		this.fechaTurno = fechaTurno;
 	}
 
 	public Turno() {
@@ -43,12 +43,12 @@ public class Turno {
 	}
 
 	
-	public String getCodigoCita() {
-		return codigoCita;
+	public String getCodigoTurno() {
+		return codigoTurno;
 	}
 
-	public void setCodigoCita(String codigoCita) {
-		this.codigoCita = codigoCita;
+	public void setCodigoTurno(String codigoTurno) {
+		this.codigoTurno = codigoTurno;
 	}
 
 	public String getCodigoPersona() {
@@ -75,20 +75,20 @@ public class Turno {
 		this.codigoDoctor = codigoDoctor;
 	}
 
-	public String getTipoCita() {
-		return tipoCita;
+	public String getTipoTurno() {
+		return tipoTurno;
 	}
 
-	public void setTipoCita(String tipoCita) {
-		this.tipoCita = tipoCita;
+	public void setTipoTurno(String tipoTurno) {
+		this.tipoTurno = tipoTurno;
 	}
 
-	public String getDescripcionCita() {
-		return descripcionCita;
+	public String getDescripcionTurno() {
+		return descripcionTurno;
 	}
 
-	public void setDescripcionCita(String descripcionCita) {
-		this.descripcionCita = descripcionCita;
+	public void setDescripcionTurno(String descripcionTurno) {
+		this.descripcionTurno = descripcionTurno;
 	}
 
 	public String getNombreVacuna() {
@@ -99,12 +99,12 @@ public class Turno {
 		this.nombreVacuna = nombreVacuna;
 	}
 
-	public String getFechaCita() {
-		return fechaCita;
+	public String getFechaTurno() {
+		return fechaTurno;
 	}
 
-	public void setFechaCita(String fechaCita) {
-		this.fechaCita = fechaCita;
+	public void setFechaTurno(String fechaTurno) {
+		this.fechaTurno = fechaTurno;
 	}
 
 	public String getTelefono() {
