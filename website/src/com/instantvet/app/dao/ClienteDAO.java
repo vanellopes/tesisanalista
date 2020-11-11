@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 public class ClienteDAO extends BaseDAO {
 
-	public int DAOexisteprospecto(String codigo) throws DAOExcepcion {
+	public int DAOexisteCliente(String codigo) throws DAOExcepcion {
 		String query = "select count(*) as contador from Cliente where estado not in('X') and Persona_Id=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -41,7 +41,7 @@ public class ClienteDAO extends BaseDAO {
 		return contadorCliente;
 	}
 
-	public void DAOdeleteprospecto(String codigo) throws DAOExcepcion {
+	public void DAOdeleteCliente(String codigo) throws DAOExcepcion {
 		String query = "UPDATE Cliente SET estado='X' where Persona_Id=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -64,7 +64,7 @@ public class ClienteDAO extends BaseDAO {
 		
 	}
 
-	public List<Cliente> DAOlistarprospectos() throws DAOExcepcion{
+	public List<Cliente> DAOlistarClientes() throws DAOExcepcion{
 		String query = "select Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular from Cliente where estado not in('X') and tipo_persona='P'";
 		List<Cliente> lista = new ArrayList<Cliente>();
 		Connection con = null;
@@ -99,7 +99,7 @@ public class ClienteDAO extends BaseDAO {
 		return lista;
 	}
 
-	public void DAOgrabarprospecto(Cliente objCliente) throws DAOExcepcion{
+	public void DAOgrabarCliente(Cliente objCliente) throws DAOExcepcion{
 		String query = "INSERT INTO Cliente(Persona_Id,Nombres,apellido,num_documento,email,direccion,telefono,celular,tipo_persona,estado) values (?,?,?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -133,7 +133,7 @@ public class ClienteDAO extends BaseDAO {
 				
 	}
 
-	public void DAOmodificarprospecto(Cliente objCliente) throws DAOExcepcion{
+	public void DAOmodificarCliente(Cliente objCliente) throws DAOExcepcion{
 		String query = "update Cliente set Nombres=?,apellido=?,num_documento=?,email=?,direccion=?,telefono=?,celular=? where Persona_Id=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -162,7 +162,7 @@ public class ClienteDAO extends BaseDAO {
 				
 	}
 
-	public Cliente DAOobtenerprospecto(String codigo) throws DAOExcepcion{
+	public Cliente DAOobtenerCliente(String codigo) throws DAOExcepcion{
 		String query = "select Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular from Cliente where estado not in('X') and Persona_Id=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -227,7 +227,7 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	
-	public Boolean DAOchangeProspectoToCliente(String codigo) throws DAOExcepcion
+	public Boolean DAOchangeClienteToCliente(String codigo) throws DAOExcepcion
 	{
 		Boolean answer = false;
 		

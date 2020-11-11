@@ -14,80 +14,80 @@ public class GestionClienteImpl implements GestionCliente {
 
 	
 	@Override
-	public Cliente ObtenerProspecto(String codigo) throws DAOExcepcion  {
+	public Cliente ObtenerCliente(String codigo) throws DAOExcepcion  {
 		Cliente objCliente=null;
 		ClienteDAO objClienteDAO=new ClienteDAO();
-		if(objClienteDAO.DAOexisteprospecto(codigo)==1){
-			objCliente=(Cliente)objClienteDAO.DAOobtenerprospecto(codigo);
+		if(objClienteDAO.DAOexisteCliente(codigo)==1){
+			objCliente=(Cliente)objClienteDAO.DAOobtenerCliente(codigo);
 		}
 		return objCliente;
 	}
 
 	
 	@Override
-	public void deleteprospecto(String codigo) throws DAOExcepcion{
+	public void deleteCliente(String codigo) throws DAOExcepcion{
 		ClienteDAO objClienteDAO=new ClienteDAO();
-		int countcliente= objClienteDAO.DAOexisteprospecto(codigo);
+		int countcliente= objClienteDAO.DAOexisteCliente(codigo);
 		
 		if(countcliente==1){
-			objClienteDAO.DAOdeleteprospecto(codigo);
+			objClienteDAO.DAOdeleteCliente(codigo);
 		}
 		
 	}
 
 	@Override
-	public List<Cliente> listarprospectos() throws DAOExcepcion{
+	public List<Cliente> listarClientes() throws DAOExcepcion{
 		ClienteDAO objClienteDAO=new ClienteDAO();
-		return objClienteDAO.DAOlistarprospectos();
+		return objClienteDAO.DAOlistarClientes();
 	}
 
 
 	@Override
-	public void GrabarModificarProspecto(String codigo, String nombre,
+	public void GrabarModificarCliente(String codigo, String nombre,
 			String apellidopaterno, String apellidomaterno, String email,
 			String direccion, String imagen, String telefono, String celular) throws DAOExcepcion{
 		
 		Cliente objCliente=new Cliente(codigo,nombre,apellidopaterno,apellidomaterno,email,direccion,imagen, telefono, celular);
 		ClienteDAO objClienteDAO=new ClienteDAO();
-		if(objClienteDAO.DAOexisteprospecto(codigo)==0){
+		if(objClienteDAO.DAOexisteCliente(codigo)==0){
 			String newcodigo=(objClienteDAO.DAOgetlastcodigo());
 			objCliente.setCodigo(newcodigo);
-			objClienteDAO.DAOgrabarprospecto(objCliente);
+			objClienteDAO.DAOgrabarCliente(objCliente);
 		}
-		if(objClienteDAO.DAOexisteprospecto(codigo)==1){
-			objClienteDAO.DAOmodificarprospecto(objCliente);
+		if(objClienteDAO.DAOexisteCliente(codigo)==1){
+			objClienteDAO.DAOmodificarCliente(objCliente);
 		}
 		
 	}
 	
-	public void GrabarModificarProspecto(Cliente cli) throws DAOExcepcion{
+	public void GrabarModificarCliente(Cliente cli) throws DAOExcepcion{
 		
 		ClienteDAO objClienteDAO=new ClienteDAO();
-		if(objClienteDAO.DAOexisteprospecto(cli.getCodigo())==0){
+		if(objClienteDAO.DAOexisteCliente(cli.getCodigo())==0){
 			String newcodigo=(objClienteDAO.DAOgetlastcodigo());
 			//objCliente.setCodigo(newcodigo);
-			//objClienteDAO.DAOgrabarprospecto(objCliente);
+			//objClienteDAO.DAOgrabarCliente(objCliente);
 			cli.setCodigo(newcodigo);
-			objClienteDAO.DAOgrabarprospecto(cli);
+			objClienteDAO.DAOgrabarCliente(cli);
 		}
-		if(objClienteDAO.DAOexisteprospecto(cli.getCodigo())==1){
-			//objClienteDAO.DAOmodificarprospecto(objCliente);
-			objClienteDAO.DAOmodificarprospecto(cli);
+		if(objClienteDAO.DAOexisteCliente(cli.getCodigo())==1){
+			//objClienteDAO.DAOmodificarCliente(objCliente);
+			objClienteDAO.DAOmodificarCliente(cli);
 		}
 		
 	}
 
 	@Override
-	public Boolean changeProspectoToCliente(String codigo) throws DAOExcepcion
+	public Boolean changeClienteToCliente(String codigo) throws DAOExcepcion
 	{
 		Boolean answer = false;
 		
 		ClienteDAO objClienteDAO =  new ClienteDAO();
-		int clienteExists = objClienteDAO.DAOexisteprospecto(codigo);
+		int clienteExists = objClienteDAO.DAOexisteCliente(codigo);
 		
 		if(clienteExists == 1)
 		{
-			if(objClienteDAO.DAOchangeProspectoToCliente(codigo)) answer = true;
+			if(objClienteDAO.DAOchangeClienteToCliente(codigo)) answer = true;
 		}
 		
 		return answer; 

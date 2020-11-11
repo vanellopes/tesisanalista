@@ -32,7 +32,7 @@ public class ClienteController {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
-		List<Cliente> clientes = this.Cliente.listarprospectos();
+		List<Cliente> clientes = this.Cliente.listarClientes();
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("clientes",clientes);
        
@@ -80,7 +80,7 @@ public class ClienteController {
 	@RequestMapping(value = "/registrarCliente", method = RequestMethod.POST)
 	public ModelAndView registroCliente(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		System.out.println("registrarProspecto");
+		System.out.println("registrarCliente");
 		try{
 			System.out.println(new ReniecLocator().getReniecSoap().GETPERSONA("41203195"));
 		}catch(Exception e){
@@ -101,13 +101,13 @@ public class ClienteController {
 		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		
 		try {
-			Cliente.GrabarModificarProspecto(oModelCliente);
+			Cliente.GrabarModificarCliente(oModelCliente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 		
 		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
-        mav.addObject("mensaje",new String ("Prospecto registrado!!!"));
+        mav.addObject("mensaje",new String ("Cliente registrado!!!"));
         return mav;
 		//return new ModelAndView("redirect:listarcliente.jsp");
 	}
@@ -116,7 +116,7 @@ public class ClienteController {
 	public ModelAndView editar(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Cliente oModelCliente = new Cliente();
-		oModelCliente = Cliente.ObtenerProspecto(request.getParameter("id"));
+		oModelCliente = Cliente.ObtenerCliente(request.getParameter("id"));
 		
 		System.out.println("idCliente "+request.getParameter("id"));
 		return new ModelAndView("editarCliente", "model", oModelCliente);
@@ -139,13 +139,13 @@ public class ClienteController {
 		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		
 		try {
-			Cliente.GrabarModificarProspecto(oModelCliente);
+			Cliente.GrabarModificarCliente(oModelCliente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
 		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
-        mav.addObject("mensaje",new String ("Prospecto modificado!!!"));
+        mav.addObject("mensaje",new String ("Cliente modificado!!!"));
         return mav;
 		//return new ModelAndView("redirect:listarcliente.jsp");
 	}
@@ -167,13 +167,13 @@ public class ClienteController {
 		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		
 		try {
-			Cliente.deleteprospecto(oModelCliente.getCodigo());
+			Cliente.deleteCliente(oModelCliente.getCodigo());
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
 		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
-        mav.addObject("mensaje",new String ("Prospecto eliminado!!!"));
+        mav.addObject("mensaje",new String ("Cliente eliminado!!!"));
         return mav;
 		//return new ModelAndView("redirect:listarcliente.jsp");
 	}
@@ -197,7 +197,7 @@ public class ClienteController {
 		oModelCliente.setCodigo(request.getParameter("id"));
 		
 		try {
-			Cliente.changeProspectoToCliente(oModelCliente.getCodigo());
+			Cliente.changeClienteToCliente(oModelCliente.getCodigo());
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -237,7 +237,7 @@ public class ClienteController {
 		oModelCliente.setCodigo(request.getParameter("id"));
 	
 		try {
-			Cliente.deleteprospecto(oModelCliente.getCodigo());
+			Cliente.deleteCliente(oModelCliente.getCodigo());
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -253,7 +253,7 @@ public class ClienteController {
 	public ModelAndView editarClienteC(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Cliente oModelCliente = new Cliente();
-		oModelCliente = Cliente.ObtenerProspecto(request.getParameter("id"));
+		oModelCliente = Cliente.ObtenerCliente(request.getParameter("id"));
 		
 		System.out.println("idCliente "+request.getParameter("id"));
 		return new ModelAndView("editarClienteC", "model", oModelCliente);
@@ -276,7 +276,7 @@ public class ClienteController {
 		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		
 		try {
-			Cliente.GrabarModificarProspecto(oModelCliente);
+			Cliente.GrabarModificarCliente(oModelCliente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -286,4 +286,17 @@ public class ClienteController {
         return mav;
 		
 	}
+	
+	@RequestMapping(value="/buscacliente")
+	public ModelAndView BuscaCliente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, DAOExcepcion {
+       
+		List<Cliente> clientes = this.Cliente.listClientes();
+		
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("clientes",clientes);
+		
+        return new ModelAndView("buscacliente","model", myModel);
+
+    }
 }

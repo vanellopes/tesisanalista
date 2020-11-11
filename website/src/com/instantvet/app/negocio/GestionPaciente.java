@@ -19,5 +19,7 @@ public interface GestionPaciente {
 			throws DAOExcepcion;
 
 	public abstract List<Paciente> listarPacientes() throws DAOExcepcion;
+	
+	public abstract List<Paciente> listarpacientesxcliente(int codcliente) throws DAOExcepcion;
 
 }

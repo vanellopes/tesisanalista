@@ -72,6 +72,13 @@ public class GestionPacienteImpl implements GestionPaciente  {
                 PacienteDAO objPacienteDAO = new PacienteDAO();
                 return objPacienteDAO.listarPacientes();
         }
+		
+		@Override
+		public List<Paciente> listarpacientesxcliente(int codcliente)
+				throws DAOExcepcion {
+			PacienteDAO objPacienteDAO = new PacienteDAO();
+			return objPacienteDAO.listarpacientesxcliente(codcliente);
+		}
 
 
 }

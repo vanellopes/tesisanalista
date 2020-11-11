@@ -30,7 +30,7 @@ public class PacienteDAO extends BaseDAO {
 	Sangre
 	Esterilizado
 	Tamano_Id
-	Tamaño
+	Tamaï¿½o
 	Actividad_Id
 	Actividad
 	Peso
@@ -272,4 +272,33 @@ public class PacienteDAO extends BaseDAO {
                         }
                         return lista;
                 }
-        }
+                
+            public List<Paciente> listarpacientesxcliente(int codcliente) throws DAOExcepcion {
+        		String query = "SELECT Paciente_Id, instantvet.nombre as nombre from  instantvet.Paciente WHERE Dueno_Id=?";
+        	List<Paciente> lista = new ArrayList<Paciente>();
+        	Connection con = null;
+        	PreparedStatement stmt = null;
+        	ResultSet rs = null;
+        	try {
+        		con = ConexionBD.obtenerConexion();
+        		stmt = con.prepareStatement(query);
+        		stmt.setInt(1, codcliente);
+        		rs = stmt.executeQuery();
+        		while (rs.next()) {
+        			Paciente objPaciente = new Paciente();
+        			objPaciente.setCodigoPaciente(rs.getInt("Paciente_Id"));
+        			objPaciente.setEspecie(rs.getString("nombre"));
+        			lista.add(objPaciente);
+        		}
+        	} catch (SQLException e) {
+        		System.err.println(e.getMessage());
+        		throw new DAOExcepcion(e.getMessage());
+        	} finally {
+        		this.cerrarResultSet(rs);
+        		this.cerrarStatement(stmt);
+        		this.cerrarConexion(con);
+        	}
+        	System.out.println(lista.size());
+        	return lista;
+        	}
+}

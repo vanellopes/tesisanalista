@@ -28,7 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class PacienteController {
 
 	@Autowired
-	private GestionPaciente gestionPaciente;
+	private GestionPaciente paciente;
 	@Autowired
 	private GestionCombo gestionCombo;
 	
@@ -37,7 +37,7 @@ public class PacienteController {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
-		List<Paciente> pacientes = gestionPaciente.listarPacientes();
+		List<Paciente> pacientes = paciente.listarPacientes();
 				
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("pacientes",pacientes);
@@ -91,7 +91,7 @@ public class PacienteController {
 		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
 		
 		try {
-			gestionPaciente.insertarPaciente(oModelPaciente);
+			paciente.insertarPaciente(oModelPaciente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -125,7 +125,7 @@ public class PacienteController {
 		//System.out.println("idPaciente "+request.getParameter("codigoPaciente"));
 		System.out.println("idPaciente "+request.getParameter("id"));
 		
-		oModelPaciente = gestionPaciente.obtenerPaciente(Integer.parseInt(request.getParameter("id")));
+		oModelPaciente = paciente.obtenerPaciente(Integer.parseInt(request.getParameter("id")));
 		System.out.println("id "+oModelPaciente.getCondicionesEspeciales());
 	
 		return new ModelAndView("editarPaciente", "modelo", oModelPaciente);
@@ -167,7 +167,7 @@ public class PacienteController {
 		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
 		
 		try {
-			gestionPaciente.GrabarModificarPaciente(oModelPaciente);
+			paciente.GrabarModificarPaciente(oModelPaciente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -181,13 +181,26 @@ public class PacienteController {
 		System.out.println("eliminarPaciente");
 		
 		try {
-			gestionPaciente.deletepaciente(Integer.parseInt(request.getParameter("id")));
+			paciente.deletepaciente(Integer.parseInt(request.getParameter("id")));
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
 		return new ModelAndView("redirect:listarpaciente.jsp");
 	}
+	
+	@RequestMapping(value="/buscapaciente")
+	public ModelAndView BuscaPaciente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, DAOExcepcion {
+       
+		List<Paciente> pacientes = this.paciente.listarpacientesxcliente(Integer.parseInt(request.getParameter("idcliente")));
+		
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("pacientes",pacientes);
+       
+        return new ModelAndView("buscapaciente","model", myModel);
+
+    }
 
 	
 	/*@RequestMapping(value = "/Menu", method = RequestMethod.GET)
