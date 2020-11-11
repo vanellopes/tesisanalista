@@ -80,7 +80,7 @@ public class TurnoDAO extends BaseDAO
 
 	public void DAOgrabarTurno(Turno objTurno) throws DAOExcepcion
 	{	
-		String query = "INSERT INTO Turno(Turno_id,persona_id,paciente_id,doctor_id,tipo_Turno,descripcion, " +
+		String query = "INSERT INTO Turno(Turno_id,persona_id,paciente_id,Personal_id,tipo_Turno,descripcion, " +
 	                   "nombre_vacuna,fecha_Turno) values (?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -96,14 +96,14 @@ public class TurnoDAO extends BaseDAO
 			if (existeRegistro(objTurno.getCodigoPersona(), "", "Cliente") == 0)
 				throw new SQLException("Cliente no existe");
 			
-			if (existeRegistro(objTurno.getCodigoDoctor(), "", "Doctor") == 0)
-				throw new SQLException("Doctor no existe");
+			if (existeRegistro(objTurno.getCodigoPersonal(), "", "Personal") == 0)
+				throw new SQLException("Personal no existe");
 
 			if (existeRegistro(objTurno.getCodigoPaciente(), objTurno.getCodigoPersona(), "Paciente") == 0)
 				throw new SQLException("Paciente no pertenece al cliente o no existe");
 
 			if (existeTurnoRegistrada(objTurno.getTipoTurno(), objTurno.getFechaTurno(), objTurno.getCodigoPersona(),
-					objTurno.getCodigoPaciente(), objTurno.getCodigoDoctor(), objTurno.getNombreVacuna()) == 1)
+					objTurno.getCodigoPaciente(), objTurno.getCodigoPersonal(), objTurno.getNombreVacuna()) == 1)
 				throw new SQLException("El registro ya existe");
 			
 			con = ConexionBD.obtenerConexion();
@@ -111,7 +111,7 @@ public class TurnoDAO extends BaseDAO
 			stmt.setString(1, objTurno.getCodigoTurno());
 			stmt.setString(2, objTurno.getCodigoPersona());
 			stmt.setString(3, objTurno.getCodigoPaciente());
-			stmt.setString(4, objTurno.getCodigoDoctor());
+			stmt.setString(4, objTurno.getCodigoPersonal());
 			stmt.setString(5, objTurno.getTipoTurno());
 			stmt.setString(6, objTurno.getDescripcionTurno());
 			stmt.setString(7, objTurno.getNombreVacuna());
@@ -165,7 +165,7 @@ public class TurnoDAO extends BaseDAO
 	
 	public void DAOmodificarTurno(Turno objTurno) throws DAOExcepcion
 	{
-		String query = "UPDATE Turno SET persona_id=?,paciente_id=?,doctor_id=?,tipo_Turno=?,descripcion=?, " +
+		String query = "UPDATE Turno SET persona_id=?,paciente_id=?,Personal_id=?,tipo_Turno=?,descripcion=?, " +
 	                   "nombre_vacuna=?,fecha_Turno=? WHERE Turno_id=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -180,8 +180,8 @@ public class TurnoDAO extends BaseDAO
 			if (existeRegistro(objTurno.getCodigoPersona(), "", "Cliente") == 0)
 				throw new SQLException("Cliente no existe");
 			
-			if (existeRegistro(objTurno.getCodigoDoctor(), "", "Doctor") == 0)
-				throw new SQLException("Doctor no existe");
+			if (existeRegistro(objTurno.getCodigoPersonal(), "", "Personal") == 0)
+				throw new SQLException("Personal no existe");
 
 			if (existeRegistro(objTurno.getCodigoPaciente(), objTurno.getCodigoPersona(), "Paciente") == 0)
 				throw new SQLException("Paciente no pertenece al cliente o no existe");
@@ -190,7 +190,7 @@ public class TurnoDAO extends BaseDAO
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, objTurno.getCodigoPersona());
 			stmt.setString(2, objTurno.getCodigoPaciente());
-			stmt.setString(3, objTurno.getCodigoDoctor());
+			stmt.setString(3, objTurno.getCodigoPersonal());
 			stmt.setString(4, objTurno.getTipoTurno());
 			stmt.setString(5, objTurno.getDescripcionTurno());
 			stmt.setString(6, objTurno.getNombreVacuna());
@@ -214,13 +214,13 @@ public class TurnoDAO extends BaseDAO
 
 	public Turno DAOobtenerTurno(String codigoTurno) throws DAOExcepcion
 	{
-		String query = "SELECT c.Turno_id, c.persona_id, c.paciente_id, c.doctor_id, c.tipo_Turno, " +
+		String query = "SELECT c.Turno_id, c.persona_id, c.paciente_id, c.Personal_id, c.tipo_Turno, " +
 	                   "c.descripcion, c.nombre_vacuna, c.fecha_Turno, " +
                        "cl.telefono, cl.direccion, cl.Nombres, cl.num_documento, cl.apellido, " +
                        "'' as especie, '' as nombre_paciente, " +
-                       "d.nombre as nombre_doctor, d.apellido as doctor_apellido, d.matricula as doctor_matricula " +
+                       "d.nombre as nombre_Personal, d.apellido as Personal_apellido, d.matricula as Personal_matricula " +
                        "FROM Turno c " +
-                       "JOIN Doctor d on (d.doctorid = c.doctor_id) " +
+                       "JOIN Personal d on (d.Personalid = c.Personal_id) " +
                        "JOIN Paciente p on (p.Paciente_id = c.paciente_id) " +
                        "JOIN Cliente cl on (cl.persona_id = c.persona_id) " +
                        "WHERE c.Turno_id =?";
@@ -240,7 +240,7 @@ public class TurnoDAO extends BaseDAO
 				objTurno.setCodigoTurno(rs.getString("Turno_id"));
 				objTurno.setCodigoPersona(rs.getString("persona_id"));
 				objTurno.setCodigoPaciente(rs.getString("paciente_id"));
-				objTurno.setCodigoDoctor(rs.getString("doctor_id"));
+				objTurno.setCodigoPersonal(rs.getString("Personal_id"));
 				objTurno.setTipoTurno(rs.getString("tipo_Turno"));
 				objTurno.setDescripcionTurno(rs.getString("descripcion"));
 				objTurno.setNombreVacuna(rs.getString("nombre_vacuna"));
@@ -254,9 +254,9 @@ public class TurnoDAO extends BaseDAO
 				objTurno.setEspecie(rs.getString("especie"));
 				objTurno.setNombrePaciente(rs.getString("nombre_paciente"));
 				
-				objTurno.setNombreDoctor(rs.getString("nombre_doctor"));
-				objTurno.setDoctorMatricula(rs.getString("doctor_matricula"));
-				objTurno.setDoctorApellido(rs.getString("doctor_apellido"));
+				objTurno.setNombrePersonal(rs.getString("nombre_Personal"));
+				objTurno.setPersonalMatricula(rs.getString("Personal_matricula"));
+				objTurno.setPersonalApellido(rs.getString("Personal_apellido"));
 			}
 		} 
 		catch (SQLException e) 
@@ -303,13 +303,13 @@ public class TurnoDAO extends BaseDAO
 
 	public List<Turno>DAOlistarTurnoVacunas() throws DAOExcepcion
 	{
-		String query = "SELECT c.Turno_id, c.persona_id, c.paciente_id, c.doctor_id, c.tipo_Turno, " +
+		String query = "SELECT c.Turno_id, c.persona_id, c.paciente_id, c.Personal_id, c.tipo_Turno, " +
 		               "c.descripcion, c.nombre_vacuna, c.fecha_Turno, " +
 		               "cl.telefono, cl.direccion, cl.Nombres, cl.apellido, cl.num_documento, " +
 		               "'' as especie, '' as nombre_paciente, " +
-		               "d.nombre as nombre_doctor, d.apellido as doctor_apellido, d.matricula as doctor_matricula " +
+		               "d.nombre as nombre_Personal, d.apellido as Personal_apellido, d.matricula as Personal_matricula " +
 		               "FROM Turno c " +
-		               "JOIN Doctor d on (d.doctorid = c.doctor_id) " +
+		               "JOIN Personal d on (d.Personalid = c.Personal_id) " +
 		               "JOIN Paciente p on (p.Paciente_id = c.paciente_id) " +
 		               "JOIN Cliente cl on (cl.persona_id = c.persona_id) " +
 		               "WHERE c.tipo_Turno ='V' " +
@@ -330,13 +330,13 @@ public class TurnoDAO extends BaseDAO
 	
 	public List<Turno>DAOlistarTurnoTareas() throws DAOExcepcion
 	{
-		String query = "SELECT c.Turno_id, c.persona_id, c.paciente_id, c.doctor_id, c.tipo_Turno, " +
+		String query = "SELECT c.Turno_id, c.persona_id, c.paciente_id, c.Personal_id, c.tipo_Turno, " +
 		               "c.descripcion, c.nombre_vacuna, c.fecha_Turno, " +
 		               "cl.telefono, cl.direccion, cl.Nombres, cl.num_documento, cl.apellido, " +
 		               "'' as especie, '' as nombre_paciente, " +
-		               "d.nombre as nombre_doctor, d.apellido as doctor_apellido, d.matricula as doctor_matricula " +
+		               "d.nombre as nombre_Personal, d.apellido as Personal_apellido, d.matricula as Personal_matricula " +
 		               "FROM Turno c " +
-		               "JOIN Doctor d on (d.doctorid = c.doctor_id) " +
+		               "JOIN Personal d on (d.Personalid = c.Personal_id) " +
 		               "JOIN Paciente p on (p.Paciente_id = c.paciente_id) " +
 		               "JOIN Cliente cl on (cl.persona_id = c.persona_id) " +
 		               "WHERE c.tipo_Turno ='T' " +
@@ -372,7 +372,7 @@ public class TurnoDAO extends BaseDAO
 				objTurno.setCodigoTurno(rs.getString("Turno_id"));
 				objTurno.setCodigoPersona(rs.getString("persona_id"));
 				objTurno.setCodigoPaciente(rs.getString("paciente_id"));
-				objTurno.setCodigoDoctor(rs.getString("doctor_id"));
+				objTurno.setCodigoPersonal(rs.getString("Personal_id"));
 				objTurno.setTipoTurno(rs.getString("tipo_Turno"));
 				objTurno.setDescripcionTurno(rs.getString("descripcion"));
 				objTurno.setNombreVacuna(rs.getString("nombre_vacuna"));
@@ -386,9 +386,9 @@ public class TurnoDAO extends BaseDAO
 				objTurno.setEspecie(rs.getString("especie"));
 				objTurno.setNombrePaciente(rs.getString("nombre_paciente"));
 				
-				objTurno.setNombreDoctor(rs.getString("nombre_doctor"));
-				objTurno.setDoctorMatricula(rs.getString("matricula"));
-				objTurno.setDoctorApellido(rs.getString("doctor_apellido"));
+				objTurno.setNombrePersonal(rs.getString("nombre_Personal"));
+				objTurno.setPersonalMatricula(rs.getString("matricula"));
+				objTurno.setPersonalApellido(rs.getString("Personal_apellido"));
 				listaTurnos.add(objTurno);
 			}
 		} 
@@ -411,8 +411,8 @@ public class TurnoDAO extends BaseDAO
     	String codigoString = "";
     	if (tableName == "Cliente")
     		codigoString = "Persona_Id";
-    	if (tableName == "Doctor")
-    		codigoString = "DoctorId";
+    	if (tableName == "Personal")
+    		codigoString = "PersonalId";
     	if (tableName == "Vacunas")
     		codigoString = "nombre_vacuna";
     	
@@ -455,13 +455,13 @@ public class TurnoDAO extends BaseDAO
 		return contadorRegistros;
     }
     
-    private int existeTurnoRegistrada(String tipoTurno, String fechaTurno, String personaId, String pacienteId, String doctorId, String vacuna) throws DAOExcepcion 
+    private int existeTurnoRegistrada(String tipoTurno, String fechaTurno, String personaId, String pacienteId, String PersonalId, String vacuna) throws DAOExcepcion 
 	{
     	String query = "SELECT COUNT(*) AS CONTADOR FROM Turno " + 
 					   "WHERE fecha_Turno =? " + 
 					   "  AND persona_id =? " + 
 					   "  AND paciente_id =? " + 
-					   "  AND doctor_id =? " + 
+					   "  AND Personal_id =? " + 
 					   "  AND tipo_Turno=? ";
     	
     	if (tipoTurno == "V")
@@ -478,7 +478,7 @@ public class TurnoDAO extends BaseDAO
 			stmt.setString(1, fechaTurno);
 			stmt.setString(2, personaId);
 			stmt.setString(3, pacienteId);
-			stmt.setString(4, doctorId);
+			stmt.setString(4, PersonalId);
 			stmt.setString(5, tipoTurno);
 			if (tipoTurno == "V")
 				stmt.setString(6, vacuna);	

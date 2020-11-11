@@ -1,7 +1,7 @@
 package com.instantvet.app.dao;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
-import com.instantvet.app.modelo.Doctor;
+import com.instantvet.app.modelo.Personal;
 import com.instantvet.app.util.ConexionBD;
 
 import java.sql.Connection;
@@ -11,11 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoctorDAO extends BaseDAO {
+public class PersonalDAO extends BaseDAO {
 
 
-	public Doctor insertar(Doctor vo) throws DAOExcepcion {
-		String query = "insert into Doctor(nombre,apellido,matricula,email,telefono,username,password,grupoID) values (?,?,?,?,?,?,?,?)";
+	public Personal insertar(Personal vo) throws DAOExcepcion {
+		String query = "insert into Personal(nombre,apellido,matricula,email,telefono,username,password,grupoID) values (?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -43,7 +43,7 @@ public class DoctorDAO extends BaseDAO {
 			if (rs.next()) {
 				id = rs.getInt(1);
 			}
-			vo.setDoctorID(id);
+			vo.setPersonalID(id);
 
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -56,19 +56,19 @@ public class DoctorDAO extends BaseDAO {
 		return vo;
 	}
 
-	public Doctor obtener(int doctorID) throws DAOExcepcion {
-		Doctor vo = new Doctor();
+	public Personal obtener(int PersonalID) throws DAOExcepcion {
+		Personal vo = new Personal();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select doctorID,rtrim(ltrim(nombre)) nombre,rtrim(ltrim(apellido)) apellido, rtrim(ltrim(matricula)) matricula,rtrim(ltrim(email)) email,rtrim(ltrim(telefono)) telefono, rtrim(ltrim(username)) username,rtrim(ltrim(password)) password,grupoID from Doctor where doctorID=?";
+			String query = "select PersonalID,rtrim(ltrim(nombre)) nombre,rtrim(ltrim(apellido)) apellido, rtrim(ltrim(matricula)) matricula,rtrim(ltrim(email)) email,rtrim(ltrim(telefono)) telefono, rtrim(ltrim(username)) username,rtrim(ltrim(password)) password,grupoID from Personal where PersonalID=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, doctorID);
+			stmt.setInt(1, PersonalID);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				vo.setDoctorID(rs.getInt(1));
+				vo.setPersonalID(rs.getInt(1));
 				vo.setNombre(rs.getString(2).trim());
 				vo.setApellido(rs.getString(3).trim());
 				vo.setMatricula(rs.getString(4).trim());
@@ -89,17 +89,17 @@ public class DoctorDAO extends BaseDAO {
 		return vo;
 	}
 	
-	public Integer validarUsuario(Doctor objDoctor) throws DAOExcepcion {
+	public Integer validarUsuario(Personal objPersonal) throws DAOExcepcion {
 		Integer contador = 0;
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select count(*) contador from Doctor where username=? and doctorID<>?";
+			String query = "select count(*) contador from Personal where username=? and PersonalID<>?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, objDoctor.getUsuario().trim());
-			stmt.setInt(2, objDoctor.getDoctorID());
+			stmt.setString(1, objPersonal.getUsuario().trim());
+			stmt.setInt(2, objPersonal.getPersonalID());
 			rs = stmt.executeQuery();
 			if (rs.next()) {				
 				contador = rs.getInt("contador");				
@@ -115,8 +115,8 @@ public class DoctorDAO extends BaseDAO {
 		return contador;
 	}
 
-	public Doctor actualizar(Doctor vo) throws DAOExcepcion {
-		String query = "update doctor set nombre=?,apellido=?,matricula=?,email=?,telefono=?,username=?,password=?,grupoID=? where doctorID=?";
+	public Personal actualizar(Personal vo) throws DAOExcepcion {
+		String query = "update Personal set nombre=?,apellido=?,matricula=?,email=?,telefono=?,username=?,password=?,grupoID=? where PersonalID=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -130,7 +130,7 @@ public class DoctorDAO extends BaseDAO {
 			stmt.setString(6, vo.getUsuario().trim());			
 			stmt.setString(7, vo.getPassword().trim());
 			stmt.setInt(8, vo.getGrupoID());
-			stmt.setInt(9, vo.getDoctorID());
+			stmt.setInt(9, vo.getPersonalID());
 			
 			int i = stmt.executeUpdate();
 			if (i != 1) {
@@ -146,9 +146,9 @@ public class DoctorDAO extends BaseDAO {
 		return vo;
 	}
 	
-	public List<Doctor> DAOlistDoctores() throws DAOExcepcion{
-		String query = "select doctorID,nombre,apellido,matricula,email,telefono,username,(case when grupoID = 1 then 'Usuario' else 'Administrador' end) grupo from Doctor";
-		List<Doctor> lista = new ArrayList<Doctor>();
+	public List<Personal> DAOlistPersonales() throws DAOExcepcion{
+		String query = "select PersonalID,nombre,apellido,matricula,email,telefono,username,(case when grupoID = 1 then 'Usuario' else 'Administrador' end) grupo from Personal";
+		List<Personal> lista = new ArrayList<Personal>();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -158,16 +158,16 @@ public class DoctorDAO extends BaseDAO {
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				
-				Doctor objDoctor = new Doctor();
-				objDoctor.setDoctorID(rs.getInt("doctorID"));
-				objDoctor.setNombre(rs.getString("nombre").trim());
-				objDoctor.setApellido(rs.getString("apellido").trim());
-				objDoctor.setMatricula(rs.getString("matricula").trim());
-				objDoctor.setEmail(rs.getString("email").trim());
-				objDoctor.setTelefono(rs.getString("telefono").trim());
-				objDoctor.setUsuario(rs.getString("username").trim());
-				objDoctor.setGrupo(rs.getString("grupo"));
-				lista.add(objDoctor);
+				Personal objPersonal = new Personal();
+				objPersonal.setPersonalID(rs.getInt("PersonalID"));
+				objPersonal.setNombre(rs.getString("nombre").trim());
+				objPersonal.setApellido(rs.getString("apellido").trim());
+				objPersonal.setMatricula(rs.getString("matricula").trim());
+				objPersonal.setEmail(rs.getString("email").trim());
+				objPersonal.setTelefono(rs.getString("telefono").trim());
+				objPersonal.setUsuario(rs.getString("username").trim());
+				objPersonal.setGrupo(rs.getString("grupo"));
+				lista.add(objPersonal);
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -181,8 +181,8 @@ public class DoctorDAO extends BaseDAO {
 		return lista;
 	}
 
-	public Integer elimnar(Doctor vo) throws DAOExcepcion {
-		String query = "delete from Doctor where doctorID=?";
+	public Integer elimnar(Personal vo) throws DAOExcepcion {
+		String query = "delete from Personal where PersonalID=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -190,7 +190,7 @@ public class DoctorDAO extends BaseDAO {
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, vo.getDoctorID());
+			stmt.setInt(1, vo.getPersonalID());
 			
 			i = stmt.executeUpdate();
 			if (i != 1) {
@@ -204,7 +204,7 @@ public class DoctorDAO extends BaseDAO {
 			if (rs.next()) {
 				id = rs.getInt(1);
 			}
-			vo.setDoctorID(id);
+			vo.setPersonalID(id);
 			*/
 
 		} catch (SQLException e) {

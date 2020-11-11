@@ -88,7 +88,7 @@ public class TurnoController
 		Turno oModelTurno = new Turno();
 		oModelTurno.setCodigoTurno("0");
 		oModelTurno.setTipoTurno("T");
-		oModelTurno.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
+		oModelTurno.setCodigoPersonal(request.getParameter("txtCodigoPersonal"));
 		oModelTurno.setCodigoPersona(request.getParameter("hiddencliente"));
 		oModelTurno.setCodigoPaciente(request.getParameter("hiddenpaciente"));
 		oModelTurno.setDescripcionTurno(request.getParameter("txtDescripcion"));
@@ -121,7 +121,7 @@ public class TurnoController
 		Turno oModelTurno = new Turno();
 		oModelTurno.setCodigoTurno("0");
 		oModelTurno.setTipoTurno("V");
-		oModelTurno.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
+		oModelTurno.setCodigoPersonal(request.getParameter("txtCodigoPersonal"));
 		oModelTurno.setCodigoPersona(request.getParameter("hiddencliente"));
 		oModelTurno.setCodigoPaciente(request.getParameter("hiddenpaciente"));
 		oModelTurno.setNombreVacuna(request.getParameter("txtVacuna"));
@@ -193,7 +193,7 @@ public class TurnoController
 		Turno oModelTurno = new Turno();
 		oModelTurno.setCodigoTurno(request.getParameter("idTurno"));
 		oModelTurno.setTipoTurno("T");
-		oModelTurno.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
+		oModelTurno.setCodigoPersonal(request.getParameter("txtCodigoPersonal"));
 		oModelTurno.setCodigoPersona(request.getParameter("txtCodigoCliente"));
 		oModelTurno.setCodigoPaciente(request.getParameter("txtCodigoPaciente"));
 		oModelTurno.setDescripcionTurno(request.getParameter("txtDescripcion"));
@@ -223,7 +223,7 @@ public class TurnoController
 		Turno oModelTurno = new Turno();
 		oModelTurno.setCodigoTurno(request.getParameter("idTurno"));
 		oModelTurno.setTipoTurno("V");
-		oModelTurno.setCodigoDoctor(request.getParameter("txtCodigoDoctor"));
+		oModelTurno.setCodigoPersonal(request.getParameter("txtCodigoPersonal"));
 		oModelTurno.setCodigoPersona(request.getParameter("txtCodigoCliente"));
 		oModelTurno.setCodigoPaciente(request.getParameter("txtCodigoPaciente"));
 		oModelTurno.setNombreVacuna(request.getParameter("txtVacuna"));

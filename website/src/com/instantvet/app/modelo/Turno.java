@@ -5,7 +5,7 @@ public class Turno {
 	String codigoTurno;
 	String codigoPersona; 
 	String codigoPaciente;
-	String codigoDoctor;
+	String codigoPersonal;
 	String tipoTurno;
 	String descripcionTurno;
 	String nombreVacuna;
@@ -19,18 +19,18 @@ public class Turno {
     String especie;
     String nombrePaciente;
     
-    String nombreDoctor;
-    String doctorApellido;
-    String doctorMatricula;
+    String nombrePersonal;
+    String PersonalApellido;
+    String PersonalMatricula;
     
 	public Turno(String codigoTurno, String codigoPersona, String codigoPaciente,
-			String codigoDoctor, String tipoTurno, String descripcionTurno,
+			String codigoPersonal, String tipoTurno, String descripcionTurno,
 			String nombreVacuna, String fechaTurno) {
 		super();
 		this.codigoTurno = codigoTurno;
 		this.codigoPersona = codigoPersona;
 		this.codigoPaciente = codigoPaciente;
-		this.codigoDoctor = codigoDoctor;
+		this.codigoPersonal = codigoPersonal;
 		this.tipoTurno = tipoTurno;
 		this.descripcionTurno = descripcionTurno;
 		this.nombreVacuna = nombreVacuna;
@@ -67,12 +67,12 @@ public class Turno {
 		this.codigoPaciente = codigoPaciente;
 	}
 
-	public String getCodigoDoctor() {
-		return codigoDoctor;
+	public String getCodigoPersonal() {
+		return codigoPersonal;
 	}
 
-	public void setCodigoDoctor(String codigoDoctor) {
-		this.codigoDoctor = codigoDoctor;
+	public void setCodigoPersonal(String codigoPersonal) {
+		this.codigoPersonal = codigoPersonal;
 	}
 
 	public String getTipoTurno() {
@@ -156,28 +156,28 @@ public class Turno {
 		this.nombrePaciente = nombrePaciente;
 	}
 
-	public String getNombreDoctor() {
-		return nombreDoctor;
+	public String getNombrePersonal() {
+		return nombrePersonal;
 	}
 
-	public void setNombreDoctor(String nombreDoctor) {
-		this.nombreDoctor = nombreDoctor;
+	public void setNombrePersonal(String nombrePersonal) {
+		this.nombrePersonal = nombrePersonal;
 	}
 
-	public String getDoctorApellido() {
-		return doctorApellido;
+	public String getPersonalApellido() {
+		return PersonalApellido;
 	}
 
-	public void setDoctorApellido(String doctorApellido) {
-		this.doctorApellido = doctorApellido;
+	public void setPersonalApellido(String PersonalApellido) {
+		this.PersonalApellido = PersonalApellido;
 	}
 
-	public String getDoctorMatricula() {
-		return doctorMatricula;
+	public String getPersonalMatricula() {
+		return PersonalMatricula;
 	}
 
-	public void setDoctorMatricula(String doctorMatricula) {
-		this.doctorMatricula = doctorMatricula;
+	public void setPersonalMatricula(String PersonalMatricula) {
+		this.PersonalMatricula = PersonalMatricula;
 	}
     
 }

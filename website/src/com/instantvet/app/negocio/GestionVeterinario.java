@@ -1,21 +1,21 @@
 package com.instantvet.app.negocio;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
-import com.instantvet.app.modelo.Doctor;
+import com.instantvet.app.modelo.Personal;
 
 import java.util.List;
 
 public interface GestionVeterinario {
 
 	
-	public abstract Doctor insertar(Doctor oDoctor) throws DAOExcepcion;
+	public abstract Personal insertar(Personal oPersonal) throws DAOExcepcion;
 /**/
-	public abstract Doctor obtener(int doctorID) throws DAOExcepcion;
+	public abstract Personal obtener(int PersonalID) throws DAOExcepcion;
 	
-	public abstract Doctor actualizar(Doctor oDoctor) throws DAOExcepcion;
+	public abstract Personal actualizar(Personal oPersonal) throws DAOExcepcion;
 			
-	public abstract List<Doctor> listDoctores() throws DAOExcepcion;
+	public abstract List<Personal> listPersonales() throws DAOExcepcion;
 	
-	public abstract Integer eliminar(Doctor oDoctor) throws DAOExcepcion;	
+	public abstract Integer eliminar(Personal oPersonal) throws DAOExcepcion;	
 
 }

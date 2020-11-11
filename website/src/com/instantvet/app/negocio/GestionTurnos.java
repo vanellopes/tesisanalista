@@ -9,7 +9,7 @@ public interface GestionTurnos {
 
 	//@Override
 	public abstract void GrabarModificarTurno(String codigoTurno,
-			String codigoPersona, String codigoPaciente, String codigoDoctor,
+			String codigoPersona, String codigoPaciente, String codigoPersonal,
 			String tipoTurno, String descripcionTurno, String nombreVacuna,
 			String fechaTurno) throws DAOExcepcion;
 

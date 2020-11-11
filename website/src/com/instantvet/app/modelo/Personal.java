@@ -1,15 +1,15 @@
 package com.instantvet.app.modelo;
 
-public class Doctor {
+public class Personal {
 	
-	public Doctor() {
+	public Personal() {
 		super();
 	}
 	
-	public Doctor(Integer doctorID, String nombre, String apellido,
+	public Personal(Integer PersonalID, String nombre, String apellido,
 			String materno, String email, String telefono, String usuario, Integer grupoID, String password) {
 		super();
-		this.doctorID = doctorID;
+		this.PersonalID = PersonalID;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.matricula = materno;
@@ -22,7 +22,7 @@ public class Doctor {
 
 
 
-	private Integer doctorID;
+	private Integer PersonalID;
 	private String nombre;
 	private String apellido;
 	private String matricula;
@@ -58,12 +58,12 @@ public class Doctor {
 		this.password = password;
 	}
 
-	public Integer getDoctorID() {
-		return doctorID;
+	public Integer getPersonalID() {
+		return PersonalID;
 	}
 
-	public void setDoctorID(Integer doctorID) {
-		this.doctorID = doctorID;
+	public void setPersonalID(Integer PersonalID) {
+		this.PersonalID = PersonalID;
 	}
 
 	public Integer getGrupoID() {

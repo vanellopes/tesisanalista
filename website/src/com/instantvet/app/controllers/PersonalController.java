@@ -1,7 +1,7 @@
 package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
-import com.instantvet.app.modelo.Doctor;
+import com.instantvet.app.modelo.Personal;
 import com.instantvet.app.negocio.GestionVeterinario;
 
 import java.io.IOException;
@@ -19,20 +19,20 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class DoctorController {
+public class PersonalController {
 
 	@Autowired
-	private GestionVeterinario Doctor;
+	private GestionVeterinario Personal;
 	
-	@RequestMapping(value="/listardoctor.jsp") 
+	@RequestMapping(value="/listarPersonal.jsp") 
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DAOExcepcion {
 					
 		try {
 			
-			List<Doctor> personas = this.Doctor.listDoctores();
+			List<Personal> personas = this.Personal.listPersonales();
 			Map<String, Object> myModel = new HashMap<String, Object>();
-			myModel.put("doctores",personas);
-			return new ModelAndView("listardoctor", "model", myModel);
+			myModel.put("Personales",personas);
+			return new ModelAndView("listarPersonal", "model", myModel);
 			//Persona.insertarPersona(oModelPersona);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
@@ -40,18 +40,18 @@ public class DoctorController {
 
     }
 	
-	@RequestMapping(value = "/verRegistroDoctor", method = RequestMethod.GET) 
+	@RequestMapping(value = "/verRegistroPersonal", method = RequestMethod.GET) 
 	public ModelAndView ingresar(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		return new ModelAndView("nuevoDoctor");
+		return new ModelAndView("nuevoPersonal");
 	}
 	
-	@RequestMapping(value = "/registrarDoctor", method = RequestMethod.GET)
-	public ModelAndView registroDoctor(HttpServletRequest request, HttpServletResponse response){
-		System.out.println("registrarDoctor");
+	@RequestMapping(value = "/registrarPersonal", method = RequestMethod.GET)
+	public ModelAndView registroPersonal(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("registrarPersonal");
 		
-		Doctor oModelPersona = new Doctor();
-		oModelPersona.setDoctorID(0);
+		Personal oModelPersona = new Personal();
+		oModelPersona.setPersonalID(0);
 		oModelPersona.setNombre(request.getParameter("txtnombre"));
 		oModelPersona.setApellido(request.getParameter("txtApellido"));
 		oModelPersona.setMatricula(request.getParameter("txtMatricula"));
@@ -62,38 +62,38 @@ public class DoctorController {
 		oModelPersona.setGrupoID(Integer.parseInt(request.getParameter("cboGrupo")));
 		oModelPersona.setErrMensaje("");
 		
-		Doctor oDoctor = new Doctor();
+		Personal oPersonal = new Personal();
 		try {
-			oDoctor = Doctor.insertar(oModelPersona);			
-			if(!oDoctor.getErrMensaje().equals("")){				
-				return new ModelAndView("/error", "mensaje", oDoctor.getErrMensaje());
+			oPersonal = Personal.insertar(oModelPersona);			
+			if(!oPersonal.getErrMensaje().equals("")){				
+				return new ModelAndView("/error", "mensaje", oPersonal.getErrMensaje());
 			}
 			
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		return new ModelAndView("redirect:listardoctor.jsp");
+		return new ModelAndView("redirect:listarPersonal.jsp");
 	}
 	/*
 */
-	@RequestMapping(value = "/editarDoctor", method = RequestMethod.GET)
+	@RequestMapping(value = "/editarPersonal", method = RequestMethod.GET)
 	public ModelAndView editar(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		Doctor oModelPersona = new Doctor();
-		oModelPersona = Doctor.obtener(Integer.parseInt(request.getParameter("doctorID")));
+		Personal oModelPersona = new Personal();
+		oModelPersona = Personal.obtener(Integer.parseInt(request.getParameter("PersonalID")));
 		
-		System.out.println("idPersona " + request.getParameter("doctorID"));
-		return new ModelAndView("editarDoctor", "model", oModelPersona);
+		System.out.println("idPersona " + request.getParameter("PersonalID"));
+		return new ModelAndView("editarPersonal", "model", oModelPersona);
 	}
 	
-	@RequestMapping(value = "/guardarModificacionDoctor", method = RequestMethod.GET)
-	public ModelAndView modificarDoctor(HttpServletRequest request,
+	@RequestMapping(value = "/guardarModificacionPersonal", method = RequestMethod.GET)
+	public ModelAndView modificarPersonal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		System.out.println("registarDoctor");
+		System.out.println("registarPersonal");
 		
-		Doctor oModelPersona = new Doctor();
-		oModelPersona.setDoctorID(Integer.parseInt(request.getParameter("id")));
+		Personal oModelPersona = new Personal();
+		oModelPersona.setPersonalID(Integer.parseInt(request.getParameter("id")));
 		oModelPersona.setNombre(request.getParameter("txtNombre"));
 		oModelPersona.setApellido(request.getParameter("txtApellido"));
 		oModelPersona.setMatricula(request.getParameter("txtMatricula"));
@@ -104,36 +104,36 @@ public class DoctorController {
 		oModelPersona.setGrupoID(Integer.parseInt(request.getParameter("cboGrupo")));
 		oModelPersona.setErrMensaje("");
 		
-		Doctor oDoctor = new Doctor();
+		Personal oPersonal = new Personal();
 		try {
-			oDoctor = Doctor.actualizar(oModelPersona);
-			System.out.println("Mensaje = " + oDoctor.getErrMensaje());
-			if(!oDoctor.getErrMensaje().equals("")){				
-				return new ModelAndView("/error", "mensaje", oDoctor.getErrMensaje());
+			oPersonal = Personal.actualizar(oModelPersona);
+			System.out.println("Mensaje = " + oPersonal.getErrMensaje());
+			if(!oPersonal.getErrMensaje().equals("")){				
+				return new ModelAndView("/error", "mensaje", oPersonal.getErrMensaje());
 			}
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		return new ModelAndView("redirect:listardoctor.jsp");
+		return new ModelAndView("redirect:listarPersonal.jsp");
 	}
 	
 	
-	@RequestMapping(value = "/eliminarDoctor", method = RequestMethod.GET)
-	public ModelAndView eliminarDoctor(HttpServletRequest request,
+	@RequestMapping(value = "/eliminarPersonal", method = RequestMethod.GET)
+	public ModelAndView eliminarPersonal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		System.out.println("eliminarDoctor");
+		System.out.println("eliminarPersonal");
 		
-		Doctor oModelPersona = new Doctor();
-		oModelPersona.setDoctorID(Integer.parseInt(request.getParameter("doctorID")));
+		Personal oModelPersona = new Personal();
+		oModelPersona.setPersonalID(Integer.parseInt(request.getParameter("PersonalID")));
 		
 		try {
-			Doctor.eliminar(oModelPersona);
+			Personal.eliminar(oModelPersona);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		return new ModelAndView("redirect:listardoctor.jsp");
+		return new ModelAndView("redirect:listarPersonal.jsp");
 	}
 /*
 */

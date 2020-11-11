@@ -1,8 +1,8 @@
 package com.instantvet.app.negocio.impl;
 
-import com.instantvet.app.dao.DoctorDAO;
+import com.instantvet.app.dao.PersonalDAO;
 import com.instantvet.app.excepcion.DAOExcepcion;
-import com.instantvet.app.modelo.Doctor;
+import com.instantvet.app.modelo.Personal;
 import com.instantvet.app.negocio.GestionVeterinario;
 
 import java.util.List;
@@ -14,88 +14,88 @@ public class GestionVeterinarioImpl implements GestionVeterinario {
 
 
 	@Override
-	public Doctor insertar(Doctor oDoctor) throws DAOExcepcion {
-		DoctorDAO dao = new DoctorDAO();
-		Doctor objDoctor = new Doctor();		
-		String errMensaje = validarCamposObligatorios(oDoctor);
+	public Personal insertar(Personal oPersonal) throws DAOExcepcion {
+		PersonalDAO dao = new PersonalDAO();
+		Personal objPersonal = new Personal();		
+		String errMensaje = validarCamposObligatorios(oPersonal);
 		if(errMensaje.equals("")){
-			if(dao.validarUsuario(oDoctor) > 0){
+			if(dao.validarUsuario(oPersonal) > 0){
 				errMensaje = "El usuario ya existe"; 				
 			}
 		}
 		if(errMensaje.equals("")){
-			objDoctor = dao.insertar(oDoctor);
+			objPersonal = dao.insertar(oPersonal);
 		}else{
-			objDoctor.setErrMensaje(errMensaje);			
+			objPersonal.setErrMensaje(errMensaje);			
 		}
-		return objDoctor;
+		return objPersonal;
 	}
 
 
 	@Override
-	public Doctor obtener(int idCategoria) throws DAOExcepcion {
-		DoctorDAO dao = new DoctorDAO();
+	public Personal obtener(int idCategoria) throws DAOExcepcion {
+		PersonalDAO dao = new PersonalDAO();
 		return dao.obtener(idCategoria);
 	}
 /**/
 	@Override
-	public Doctor actualizar(Doctor oDoctor) throws DAOExcepcion {
-		DoctorDAO dao = new DoctorDAO();
-		Doctor objDoctor = new Doctor();
-		String errMensaje = validarCamposObligatorios(oDoctor);
+	public Personal actualizar(Personal oPersonal) throws DAOExcepcion {
+		PersonalDAO dao = new PersonalDAO();
+		Personal objPersonal = new Personal();
+		String errMensaje = validarCamposObligatorios(oPersonal);
 		if(errMensaje.equals("")){
-			if(dao.validarUsuario(oDoctor) > 0){
+			if(dao.validarUsuario(oPersonal) > 0){
 				errMensaje = "El usuario ya existe"; 				
 			}
 		}			
 		
 		if(errMensaje.equals("")){
-			objDoctor = dao.actualizar(oDoctor);
+			objPersonal = dao.actualizar(oPersonal);
 		}else{
-			objDoctor.setErrMensaje(errMensaje);			
+			objPersonal.setErrMensaje(errMensaje);			
 		}
-		return objDoctor;		
+		return objPersonal;		
 	}
 	
 	
 	//@Override
 	/* (non-Javadoc)
-	 * @see com.instantvet.app.negocio.IDoctor#listDoctores()
+	 * @see com.instantvet.app.negocio.IPersonal#listPersonales()
 	 */
 	@Override
-	public List<Doctor> listDoctores() throws DAOExcepcion{
-		DoctorDAO objDoctorDAO=new DoctorDAO();
-		return objDoctorDAO.DAOlistDoctores();
+	public List<Personal> listPersonales() throws DAOExcepcion{
+		PersonalDAO objPersonalDAO=new PersonalDAO();
+		return objPersonalDAO.DAOlistPersonales();
 	}
 	
 	@Override
-	public Integer eliminar(Doctor oDoctor) throws DAOExcepcion {
-		DoctorDAO dao = new DoctorDAO();
-		return dao.elimnar(oDoctor);
+	public Integer eliminar(Personal oPersonal) throws DAOExcepcion {
+		PersonalDAO dao = new PersonalDAO();
+		return dao.elimnar(oPersonal);
 	}
 	
-	public String validarCamposObligatorios(Doctor oDoctor) {
+	public String validarCamposObligatorios(Personal oPersonal) {
 		Integer varCount = 0;
 		String errMensaje = "";
-		if(oDoctor.getNombre().equals(null) | oDoctor.getNombre().equals("")){				
+		if(oPersonal.getNombre().equals(null) | oPersonal.getNombre().equals("")){				
 			varCount += 1;
 		}
-		if(oDoctor.getApellido().equals(null) | oDoctor.getApellido().equals("")){				
+		if(oPersonal.getApellido().equals(null) | oPersonal.getApellido().equals("")){				
 			varCount += 1;
 		}
-		if(oDoctor.getMatricula().equals(null) | oDoctor.getMatricula().equals("")){				
+		if(oPersonal.getMatricula().equals(null) | oPersonal.getMatricula().equals("")){				
 			varCount += 1;
 		}
-		if(oDoctor.getEmail().equals(null) | oDoctor.getEmail().equals("")){				
+		if(oPersonal.getEmail().equals(null) | oPersonal.getEmail().equals("")){				
 			varCount += 1;
 		}
-		if(oDoctor.getUsuario().equals(null) | oDoctor.getUsuario().equals("")){				
+		if(oPersonal.getUsuario().equals(null) | oPersonal.getUsuario().equals("")){				
 			varCount += 1;
 		}
-		if(oDoctor.getPassword().equals(null) | oDoctor.getPassword().equals("")){				
+		if(oPersonal.getPassword().equals(null) | oPersonal.getPassword().equals("")){				
 			varCount += 1;
 		}		
-		if(oDoctor.getGrupoID().equals(null) | oDoctor.getGrupoID().equals(0)){				
+		if(oPersonal.getGrupoID().equals(null) | oPersonal.getGrupoID().equals(0)){				
 			varCount += 1;
 		}
 		
