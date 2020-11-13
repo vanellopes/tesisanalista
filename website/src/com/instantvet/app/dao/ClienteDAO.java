@@ -65,7 +65,7 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public List<Cliente> DAOlistarClientes() throws DAOExcepcion{
-		String query = "select Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular from Cliente where estado not in('X') and tipo_persona='P'";
+		String query = "select Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular from Cliente where estado not in('X')";
 		List<Cliente> lista = new ArrayList<Cliente>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -100,7 +100,7 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public void DAOgrabarCliente(Cliente objCliente) throws DAOExcepcion{
-		String query = "INSERT INTO Cliente(Persona_Id,Nombres,apellido,num_documento,email,direccion,telefono,celular,tipo_persona,estado) values (?,?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO Cliente(Persona_Id,Nombres,apellido,num_documento,email,direccion,telefono,estado) values (?,?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -199,7 +199,7 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public String DAOgetlastcodigo() throws DAOExcepcion{
-		String query = "SELECT ISNULL((SELECT MAX(Persona_Id) FROM CLIENTE),'0') AS CODIGO";
+		String query = "SELECT IFNULL((SELECT MAX(Persona_Id) FROM CLIENTE),'0') AS CODIGO";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -261,7 +261,7 @@ public class ClienteDAO extends BaseDAO {
 	
 	public List<Cliente> DAOlistClientes() throws DAOExcepcion
 	{
-		String query = "SELECT Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular FROM Cliente WHERE estado <> 'X' AND tipo_persona='C'";
+		String query = "SELECT Persona_Id,Nombres,apellido,num_documento,email,telefono,direccion,imagen,celular FROM Cliente WHERE estado <> 'X'";
 		List<Cliente> list = new ArrayList<Cliente>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -294,29 +294,6 @@ public class ClienteDAO extends BaseDAO {
 		System.out.println(list.size());
 		return list;
 
-	}
-	
-	public void UpdateFoto(String codigo,String foto) throws DAOExcepcion{
-		String query = "update Cliente set imagen=? where Persona_Id=?";
-		Connection con = null;
-		PreparedStatement stmt = null;
-		try {
-			con = ConexionBD.obtenerConexion();
-			stmt = con.prepareStatement(query);
-			stmt.setString(1,foto);
-			stmt.setString(2,codigo);
-			int i = stmt.executeUpdate();
-			if (i != 1) {
-				throw new SQLException("No se pudo actualizar");
-			}
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			throw new DAOExcepcion(e.getMessage());
-		} finally {
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
-		}
-				
 	}
 	
 }

@@ -2,13 +2,11 @@ package com.instantvet.app.modelo;
 
 public class Turno {
 	
-	String codigoTurno;
+	Integer codigoTurno;
 	String codigoPersona; 
 	String codigoPaciente;
-	String codigoPersonal;
 	String tipoTurno;
 	String descripcionTurno;
-	String nombreVacuna;
 	String fechaTurno;
 	
 	String telefono;
@@ -23,17 +21,15 @@ public class Turno {
     String PersonalApellido;
     String PersonalMatricula;
     
-	public Turno(String codigoTurno, String codigoPersona, String codigoPaciente,
-			String codigoPersonal, String tipoTurno, String descripcionTurno,
-			String nombreVacuna, String fechaTurno) {
+	public Turno(Integer codigoTurno, String codigoPersona, String codigoPaciente,
+			 String tipoTurno, String descripcionTurno,
+			 String fechaTurno) {
 		super();
 		this.codigoTurno = codigoTurno;
 		this.codigoPersona = codigoPersona;
 		this.codigoPaciente = codigoPaciente;
-		this.codigoPersonal = codigoPersonal;
 		this.tipoTurno = tipoTurno;
 		this.descripcionTurno = descripcionTurno;
-		this.nombreVacuna = nombreVacuna;
 		this.fechaTurno = fechaTurno;
 	}
 
@@ -43,11 +39,11 @@ public class Turno {
 	}
 
 	
-	public String getCodigoTurno() {
+	public Integer getCodigoTurno() {
 		return codigoTurno;
 	}
 
-	public void setCodigoTurno(String codigoTurno) {
+	public void setCodigoTurno(Integer codigoTurno) {
 		this.codigoTurno = codigoTurno;
 	}
 
@@ -67,13 +63,6 @@ public class Turno {
 		this.codigoPaciente = codigoPaciente;
 	}
 
-	public String getCodigoPersonal() {
-		return codigoPersonal;
-	}
-
-	public void setCodigoPersonal(String codigoPersonal) {
-		this.codigoPersonal = codigoPersonal;
-	}
 
 	public String getTipoTurno() {
 		return tipoTurno;
@@ -91,13 +80,7 @@ public class Turno {
 		this.descripcionTurno = descripcionTurno;
 	}
 
-	public String getNombreVacuna() {
-		return nombreVacuna;
-	}
-
-	public void setNombreVacuna(String nombreVacuna) {
-		this.nombreVacuna = nombreVacuna;
-	}
+	
 
 	public String getFechaTurno() {
 		return fechaTurno;

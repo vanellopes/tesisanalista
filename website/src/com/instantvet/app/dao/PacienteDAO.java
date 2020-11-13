@@ -274,7 +274,7 @@ public class PacienteDAO extends BaseDAO {
                 }
                 
             public List<Paciente> listarpacientesxcliente(int codcliente) throws DAOExcepcion {
-        		String query = "SELECT Paciente_Id, instantvet.nombre as nombre from  instantvet.Paciente WHERE Dueno_Id=?";
+        		String query = "SELECT Paciente_Id, nombre as nombre from  instantvet.Paciente WHERE Dueno_Id=?";
         	List<Paciente> lista = new ArrayList<Paciente>();
         	Connection con = null;
         	PreparedStatement stmt = null;
