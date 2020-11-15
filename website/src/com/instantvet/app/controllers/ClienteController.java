@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.tempuri.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -54,54 +53,32 @@ public class ClienteController {
 
 		return new ModelAndView("nuevoCliente");
 	}
-
-
-	@RequestMapping(value="/consultarServicioReniec", method = RequestMethod.GET)
-	public ModelAndView verificarRegistroCli(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-		System.out.println(request.getParameter("txtDNI"));
-		String clienteReniec ="";
-		ReniecLocator rl = new ReniecLocator();
-		clienteReniec = rl.getReniecSoap().GETPERSONA(request.getParameter("txtDNI"));
-		Cliente oModelCliente = new Cliente();
-		String[] arrayCliente = clienteReniec.split(";");
-		oModelCliente.setNombre(arrayCliente[1]);
-		oModelCliente.setApellido(arrayCliente[2]);
-		oModelCliente.setNumDocumento(arrayCliente[3]);
-		oModelCliente.setDni(arrayCliente[4]);
-		oModelCliente.setCodigo(arrayCliente[5]);
-		oModelCliente.setError(arrayCliente[0].toString());
-		ModelAndView mav = new ModelAndView("verificarRegistroCliente", "model", oModelCliente);        
-		
-        return mav;
-
-    }
 	
 	@RequestMapping(value = "/registrarCliente", method = RequestMethod.POST)
 	public ModelAndView registroCliente(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		System.out.println("registrarCliente");
 		try{
-			System.out.println(new ReniecLocator().getReniecSoap().GETPERSONA("41203195"));
+			//System.out.println(new ReniecLocator().getReniecSoap().GETPERSONA("41203195"));
 		}catch(Exception e){
 			System.out.println("Servicio no disponible");
 		}
 		
 		
 			    
-		Cliente oModelCliente = new Cliente();
-		oModelCliente.setCodigo(request.getParameter("id"));
-		oModelCliente.setNombre(request.getParameter("txtNombre"));
-		oModelCliente.setApellido(request.getParameter("txtApellido"));
-		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
-		oModelCliente.setCelular(request.getParameter("txtCelular"));
-		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
-		oModelCliente.setEmail(request.getParameter("txtEmail"));
-		oModelCliente.setImagen(request.getParameter("txtImagen"));
-		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
+		//Cliente oModelCliente = new Cliente();
+//		oModelCliente.setCodigo(request.getParameter("id"));
+//		oModelCliente.setNombre(request.getParameter("txtNombre"));
+//		oModelCliente.setApellido(request.getParameter("txtApellido"));
+//		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
+//		oModelCliente.setCelular(request.getParameter("txtCelular"));
+//		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
+//		oModelCliente.setEmail(request.getParameter("txtEmail"));
+//		oModelCliente.setImagen(request.getParameter("txtImagen"));
+//		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		
 		try {
-			Cliente.GrabarModificarCliente(oModelCliente);
+			//Cliente.GrabarModificarCliente(oModelCliente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -131,11 +108,11 @@ public class ClienteController {
 		oModelCliente.setCodigo(request.getParameter("id"));
 		oModelCliente.setNombre(request.getParameter("txtNombre"));
 		oModelCliente.setApellido(request.getParameter("txtApellido"));
-		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
-		oModelCliente.setCelular(request.getParameter("txtCelular"));
+		//oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
+		
 		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
 		oModelCliente.setEmail(request.getParameter("txtEmail"));
-		oModelCliente.setImagen(request.getParameter("txtImagen"));
+	
 		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		
 		try {
@@ -159,11 +136,11 @@ public class ClienteController {
 		oModelCliente.setCodigo(request.getParameter("id"));
 		oModelCliente.setNombre(request.getParameter("txtNombre"));
 		oModelCliente.setApellido(request.getParameter("txtApellido"));
-		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
-		oModelCliente.setCelular(request.getParameter("txtCelular"));
+		//oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
+		
 		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
 		oModelCliente.setEmail(request.getParameter("txtEmail"));
-		oModelCliente.setImagen(request.getParameter("txtImagen"));
+		
 		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		
 		try {
@@ -268,11 +245,11 @@ public class ClienteController {
 		oModelCliente.setCodigo(request.getParameter("id"));
 		oModelCliente.setNombre(request.getParameter("txtNombre"));
 		oModelCliente.setApellido(request.getParameter("txtApellido"));
-		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
-		oModelCliente.setCelular(request.getParameter("txtCelular"));
+		//oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
+		
 		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
 		oModelCliente.setEmail(request.getParameter("txtEmail"));
-		oModelCliente.setImagen(request.getParameter("txtImagen"));
+		
 		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		
 		try {

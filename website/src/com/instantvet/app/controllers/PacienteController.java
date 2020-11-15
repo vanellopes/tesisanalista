@@ -78,17 +78,17 @@ public class PacienteController {
 		System.out.println("registrarPaciente");
 		
 		Paciente oModelPaciente = new Paciente();
-		oModelPaciente.setCodigoDueno(Integer.parseInt(request.getParameter("hiddencliente")));
-		oModelPaciente.setCodigoPaciente(0);
-		oModelPaciente.setespecieid(Integer.parseInt(request.getParameter("cboEspecie")));
-		oModelPaciente.setgeneroid(Integer.parseInt(request.getParameter("cboGenero")));
-		oModelPaciente.setEsterilizado(request.getParameter("cboEsterilizado"));
-		oModelPaciente.settamanoid(Integer.parseInt(request.getParameter("cboTamano")));
-		oModelPaciente.setactividadid(Integer.parseInt(request.getParameter("cboActividad")));
-		oModelPaciente.setPeso(request.getParameter("txtPeso"));
-		oModelPaciente.setFechaNacimiento(request.getParameter("txtFechaNacimiento"));
-		oModelPaciente.setNotasMedicas(request.getParameter("txtNotasMedicas"));
-		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
+//		//oModelPaciente.setCodigoDueno(Integer.parseInt(request.getParameter("hiddencliente")));
+//		oModelPaciente.setCodigoPaciente(0);
+//		oModelPaciente.setespecieid(Integer.parseInt(request.getParameter("cboEspecie")));
+//		oModelPaciente.setgeneroid(Integer.parseInt(request.getParameter("cboGenero")));
+//		oModelPaciente.setEsterilizado(request.getParameter("cboEsterilizado"));
+//		oModelPaciente.settamanoid(Integer.parseInt(request.getParameter("cboTamano")));
+//		oModelPaciente.setactividadid(Integer.parseInt(request.getParameter("cboActividad")));
+//		oModelPaciente.setPeso(request.getParameter("txtPeso"));
+//		oModelPaciente.setFechaNacimiento(request.getParameter("txtFechaNacimiento"));
+//		oModelPaciente.setNotasMedicas(request.getParameter("txtNotasMedicas"));
+//		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
 		
 		try {
 			paciente.insertarPaciente(oModelPaciente);
@@ -126,7 +126,7 @@ public class PacienteController {
 		System.out.println("idPaciente "+request.getParameter("id"));
 		
 		oModelPaciente = paciente.obtenerPaciente(Integer.parseInt(request.getParameter("id")));
-		System.out.println("id "+oModelPaciente.getCondicionesEspeciales());
+		//System.out.println("id "+oModelPaciente.getCondicionesEspeciales());
 	
 		return new ModelAndView("editarPaciente", "modelo", oModelPaciente);
 	}
@@ -148,23 +148,23 @@ public class PacienteController {
 		
 		
 		Paciente oModelPaciente = new Paciente();
-		oModelPaciente.setCodigoDueno(Integer.parseInt(request.getParameter("txtDueno")));
-
-		oModelPaciente.setCodigoPaciente(Integer.parseInt(request.getParameter("txtPaciente")));
-
-		oModelPaciente.setespecieid(Integer.parseInt(request.getParameter("cboEspecie")));
-
-		oModelPaciente.setgeneroid(Integer.parseInt(request.getParameter("cboGenero")));
-
-		oModelPaciente.setEsterilizado(request.getParameter("cboEsterilizado"));
-		oModelPaciente.settamanoid(Integer.parseInt(request.getParameter("cboTamano")));
-
-		oModelPaciente.setactividadid(Integer.parseInt(request.getParameter("cboActividad")));
-
-		oModelPaciente.setPeso(request.getParameter("txtPeso"));
-		oModelPaciente.setFechaNacimiento(request.getParameter("txtFechaNacimiento"));
-		oModelPaciente.setNotasMedicas(request.getParameter("txtNotasMedicas"));
-		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
+//		oModelPaciente.setCodigoDueno(Integer.parseInt(request.getParameter("txtDueno")));
+//
+//		oModelPaciente.setCodigoPaciente(Integer.parseInt(request.getParameter("txtPaciente")));
+//
+//		oModelPaciente.setespecieid(Integer.parseInt(request.getParameter("cboEspecie")));
+//
+//		oModelPaciente.setgeneroid(Integer.parseInt(request.getParameter("cboGenero")));
+//
+//		oModelPaciente.setEsterilizado(request.getParameter("cboEsterilizado"));
+//		oModelPaciente.settamanoid(Integer.parseInt(request.getParameter("cboTamano")));
+//
+//		oModelPaciente.setactividadid(Integer.parseInt(request.getParameter("cboActividad")));
+//
+//		oModelPaciente.setPeso(request.getParameter("txtPeso"));
+//		oModelPaciente.setFechaNacimiento(request.getParameter("txtFechaNacimiento"));
+//		oModelPaciente.setNotasMedicas(request.getParameter("txtNotasMedicas"));
+//		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
 		
 		try {
 			paciente.GrabarModificarPaciente(oModelPaciente);

@@ -12,15 +12,15 @@ public interface GestionTurnos {
 	
 	void modificarTurno(Turno objTurno) throws DAOExcepcion;
 
-	Turno ObtenerTurno(Integer codigoTurno) throws DAOExcepcion;
-
-	void cancelarTurno(Integer codigoTurno) throws DAOExcepcion;
-
 	List<Turno> ListarTurnoVeterinaria() throws DAOExcepcion;
 
 	List<Turno> ListarTurnoPeluqueria() throws DAOExcepcion;
 	
 	List<Turno> ListarTurnos() throws DAOExcepcion;
+
+	void cambiarEstadoTurno(Integer codigoTurno, int estado) throws DAOExcepcion;
+
+	Turno obtenerTurno(Integer parameter) throws DAOExcepcion;
 	
-	void confirmarTurno(Turno objTurno) throws DAOExcepcion;
+	
 }

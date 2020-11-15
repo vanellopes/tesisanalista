@@ -5,119 +5,107 @@ public class Cliente {
 	String codigo;
 	String nombre; 
 	String apellido;
-	String numDocumento;
+    Integer numDocumento;
 	String email; 
 	String direccion;
-	String imagen; 
-	String telefono; 
-	String celular;
-	String dni;
-	String error;
-	
-	public Cliente(String codigo,String nombre, String apellido,String numDocumento,String email, String direccion,
-			String imagen, String telefono, String celular) {
-		this.codigo=codigo;
-		this.nombre=nombre;
-		this.apellido=apellido;
-		this.numDocumento=numDocumento;
-		this.email=email;
-		this.direccion=direccion;
-		this.imagen=imagen;
-		this.telefono= telefono;
-		this.celular=celular;
-	}
+	String telefono;
+	String estado;
 	
 	public Cliente() {
 		super();
 	}
+	
+	public Cliente(String codigo, String nombre, String apellido, Integer numDocumento, String email, String direccion,
+			String telefono, String estado) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.numDocumento = numDocumento;
+		this.email = email;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.estado = estado;
+	}
+
 
 	public String getCodigo() {
 		return codigo;
 	}
 
+
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-	
+
+
 	public String getNombre() {
 		return nombre;
 	}
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+
 	public String getApellido() {
 		return apellido;
 	}
+
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
 
-	public String getNumDocumento() {
+
+	public Integer getNumDocumento() {
 		return numDocumento;
 	}
 
-	public void setNumDocumento(String numDocumento) {
+
+	public void setNumDocumento(Integer numDocumento) {
 		this.numDocumento = numDocumento;
 	}
-	
+
+
 	public String getEmail() {
 		return email;
 	}
+
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+
 	public String getDireccion() {
 		return direccion;
 	}
+
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
-	public String getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
-	}
 
 	public String getTelefono() {
 		return telefono;
 	}
 
+
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
-	public String getCelular() {
-		return celular;
+
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setCelular(String celular) {
-		this.celular = celular;
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
-	
-	public String getDni() {
-		return dni;
-	}
-	
-	public void setDni(String dni){
-		this.dni = dni;		
-	}
-	
-	public String getError(){
-		return error;
-	}
-	
-	public void setError(String error) {
-		this.error = error;
-	}
-	
 	
 }

@@ -54,12 +54,12 @@ public class GestionPacienteImpl implements GestionPaciente  {
                 PacienteDAO dao = new PacienteDAO();
                 
                 PacienteDAO objPacienteDAO=new PacienteDAO();
-        		if(objPacienteDAO.DAOexistepaciente(pac.getCodigoPaciente())==0){
-        			objPacienteDAO.DAOinsertarPacientes(pac);
-        		}
-        		if(objPacienteDAO.DAOexistepaciente(pac.getCodigoPaciente())==1){
-        			objPacienteDAO.modificarPaciente(pac);
-        		}
+//        		if(objPacienteDAO.DAOexistepaciente(pac.getCodigoPaciente())==0){
+//        			objPacienteDAO.DAOinsertarPacientes(pac);
+//        		}
+//        		if(objPacienteDAO.DAOexistepaciente(pac.getCodigoPaciente())==1){
+//        			objPacienteDAO.modificarPaciente(pac);
+//        		}
         }
 
       

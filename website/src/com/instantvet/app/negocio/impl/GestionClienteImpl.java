@@ -47,7 +47,7 @@ public class GestionClienteImpl implements GestionCliente {
 			String apellidopaterno, String apellidomaterno, String email,
 			String direccion, String imagen, String telefono, String celular) throws DAOExcepcion{
 		
-		Cliente objCliente=new Cliente(codigo,nombre,apellidopaterno,apellidomaterno,email,direccion,imagen, telefono, celular);
+		Cliente objCliente=new Cliente();
 		ClienteDAO objClienteDAO=new ClienteDAO();
 		if(objClienteDAO.DAOexisteCliente(codigo)==0){
 			String newcodigo=(objClienteDAO.DAOgetlastcodigo());

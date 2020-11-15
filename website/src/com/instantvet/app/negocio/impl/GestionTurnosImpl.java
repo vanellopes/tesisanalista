@@ -21,7 +21,7 @@ public class GestionTurnosImpl implements GestionTurnos  {
 		//if(objTurnoDAO.existeTurno(objTurno.getCodigoTurno())==0) if (objTurno.getTipoTurno() == "V")
 		//{
 			
-			objTurnoDAO.DAOgrabarTurno(objTurno);
+			objTurnoDAO.registrarTurno(objTurno);
 		//}
 			
 	}
@@ -32,31 +32,19 @@ public class GestionTurnosImpl implements GestionTurnos  {
 			
 		TurnoDAO objTurnoDAO=new TurnoDAO();
 		
-			objTurnoDAO.DAOmodificarTurno(objTurno);
+			objTurnoDAO.modificarTurno(objTurno);
 		
 	}
-
+	
 	@Override
-	public Turno ObtenerTurno(Integer codigoTurno) throws DAOExcepcion  
-	{
-		Turno objTurno=null;
-		TurnoDAO objTurnoDAO=new TurnoDAO();
-		if(objTurnoDAO.existeTurno(codigoTurno) == 1)
-		{
-			objTurno=(Turno)objTurnoDAO.DAOobtenerTurno(codigoTurno);
-		}
-		return objTurno;
-	}
-
-	@Override
-	public void cancelarTurno(Integer codigoTurno) throws DAOExcepcion
+	public void cambiarEstadoTurno(Integer codigoTurno, int estado) throws DAOExcepcion
 	{
 		TurnoDAO objTurnoDAO=new TurnoDAO();
 		int contadorTurno= objTurnoDAO.existeTurno(codigoTurno);
 		
 		if(contadorTurno==1)
 		{
-			objTurnoDAO.cancelarTurno(codigoTurno);
+			objTurnoDAO.cambiarEstadoTurno(codigoTurno, estado);
 		}
 		
 	}
@@ -65,26 +53,29 @@ public class GestionTurnosImpl implements GestionTurnos  {
 	public List<Turno> ListarTurnoVeterinaria() throws DAOExcepcion
 	{
 		TurnoDAO objTurnoDAO=new TurnoDAO();
-		return objTurnoDAO.DAOlistarTurnoVacunas();
+		return objTurnoDAO.listarTurnoVeterinaria();
 	}
 
 	@Override
 	public List<Turno> ListarTurnoPeluqueria() throws DAOExcepcion
 	{
 		TurnoDAO objTurnoDAO=new TurnoDAO();
-		return objTurnoDAO.DAOlistarTurnoTareas();
+		return objTurnoDAO.listarTurnos();
 	}
 	
 	@Override
 	public List<Turno> ListarTurnos() throws DAOExcepcion
 	{
 		TurnoDAO objTurnoDAO=new TurnoDAO();
-		return objTurnoDAO.DAOlistarTurnoTareas();
+		return objTurnoDAO.listarTurnos();
 	}
 
 	@Override
-	public void confirmarTurno(Turno objTurno) throws DAOExcepcion {
-		// TODO Auto-generated method stub
+	public Turno obtenerTurno(Integer codigoTurno) throws DAOExcepcion {
+		TurnoDAO objTurnoDAO=new TurnoDAO();
+		
+		
+		return objTurnoDAO.obtenerTurno(codigoTurno);
 		
 	}
 }

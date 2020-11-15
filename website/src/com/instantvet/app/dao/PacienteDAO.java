@@ -45,17 +45,17 @@ public class PacienteDAO extends BaseDAO {
                         try {
                                 con = ConexionBD.obtenerConexion();
                                 stmt = con.prepareStatement(query);
-                                stmt.setInt(1, objPaciente.getCodigoDueno());
-                                stmt.setInt(2, objPaciente.getespecieid());
-                                stmt.setString(3, objPaciente.getNombre());
-                                stmt.setInt(4, objPaciente.getgeneroid());
-                                stmt.setString(6, objPaciente.getEsterilizado());
-                                stmt.setInt(7, objPaciente.gettamanoid());
-                                stmt.setInt(8, objPaciente.getactividadid());
-                                stmt.setString(9, objPaciente.getPeso());
-                                stmt.setString(10, objPaciente.getFechaNacimiento());
-                                stmt.setString(11, objPaciente.getNotasMedicas());
-                                stmt.setString(12, objPaciente.getCondicionesEspeciales());
+//                                stmt.setInt(1, objPaciente.getCodigoDueno());
+//                                stmt.setInt(2, objPaciente.getespecieid());
+//                                stmt.setString(3, objPaciente.getNombre());
+//                                stmt.setInt(4, objPaciente.getgeneroid());
+//                                stmt.setString(6, objPaciente.getEsterilizado());
+//                                stmt.setInt(7, objPaciente.gettamanoid());
+//                                stmt.setInt(8, objPaciente.getactividadid());
+//                                stmt.setString(9, objPaciente.getPeso());
+//                                stmt.setString(10, objPaciente.getFechaNacimiento());
+//                                stmt.setString(11, objPaciente.getNotasMedicas());
+//                                stmt.setString(12, objPaciente.getCondicionesEspeciales());
 
 
                                 int i = stmt.executeUpdate();
@@ -90,29 +90,29 @@ public class PacienteDAO extends BaseDAO {
                        			rs = cstm.executeQuery();
 
                                 if (rs.next()) {
-                                        objPaciente.setCodigoPaciente(rs.getInt(1));
-                                        objPaciente.setCodigoDueno(rs.getInt(2));
-                                        objPaciente.setnombrePaciente(rs.getString(3));
-                                        objPaciente.setespecieid(rs.getInt(4));
-                                        objPaciente.setEspecie(rs.getString(5));
-                                        objPaciente.setRaza(rs.getString(7));
-                                        
-                                        objPaciente.setgeneroid(rs.getInt(8));
-                                        objPaciente.setGenero(rs.getString(9));
-                                        
-                                      
-                                        objPaciente.setTipoSangre(rs.getString(10));
-                                        
-                                        objPaciente.setEsterilizado(rs.getString(11));
-                                        
-                                        objPaciente.settamanoid(rs.getInt(12));
-                                        objPaciente.setTamano(rs.getString(13));
-                                        objPaciente.setactividadid(rs.getInt(14));
-                                        objPaciente.setActividad(rs.getString(15));
-                                        objPaciente.setPeso(rs.getString(16));
-                                        objPaciente.setFechaNacimiento(rs.getString(17));
-                                        objPaciente.setNotasMedicas(rs.getString(18));
-                                        objPaciente.setCondicionesEspeciales(rs.getString(19));
+//                                        objPaciente.setCodigoPaciente(rs.getInt(1));
+//                                        objPaciente.setCodigoDueno(rs.getInt(2));
+//                                        objPaciente.setnombrePaciente(rs.getString(3));
+//                                        objPaciente.setespecieid(rs.getInt(4));
+//                                        objPaciente.setEspecie(rs.getString(5));
+//                                        objPaciente.setRaza(rs.getString(7));
+//                                        
+//                                        objPaciente.setgeneroid(rs.getInt(8));
+//                                        objPaciente.setGenero(rs.getString(9));
+//                                        
+//                                      
+//                                        objPaciente.setTipoSangre(rs.getString(10));
+//                                        
+//                                        objPaciente.setEsterilizado(rs.getString(11));
+//                                        
+//                                        objPaciente.settamanoid(rs.getInt(12));
+//                                        objPaciente.setTamano(rs.getString(13));
+//                                        objPaciente.setactividadid(rs.getInt(14));
+//                                        objPaciente.setActividad(rs.getString(15));
+//                                        objPaciente.setPeso(rs.getString(16));
+//                                        objPaciente.setFechaNacimiento(rs.getString(17));
+//                                        objPaciente.setNotasMedicas(rs.getString(18));
+//                                        objPaciente.setCondicionesEspeciales(rs.getString(19));
                                 }
                         } catch (SQLException e) {
                                 System.err.println(e.getMessage());
@@ -155,17 +155,17 @@ public class PacienteDAO extends BaseDAO {
                                 con = ConexionBD.obtenerConexion();
                                 stmt = con.prepareStatement(query);
            
-                                stmt.setInt(1, objPaciente.getCodigoDueno());                          
-                                stmt.setInt(2, objPaciente.getespecieid());
-                                stmt.setInt(4, objPaciente.getgeneroid());
-                                stmt.setString(6, objPaciente.getEsterilizado());
-                                stmt.setInt(7, objPaciente.gettamanoid());
-                                stmt.setInt(8, objPaciente.getactividadid());
-                                stmt.setString(9, objPaciente.getPeso());
-                                stmt.setString(10, objPaciente.getFechaNacimiento());
-                                stmt.setString(11, objPaciente.getNotasMedicas());
-                                stmt.setString(12, objPaciente.getCondicionesEspeciales());
-                                stmt.setInt(13, objPaciente.getCodigoPaciente());
+//                                stmt.setInt(1, objPaciente.getCodigoDueno());                          
+//                                stmt.setInt(2, objPaciente.getespecieid());
+//                                stmt.setInt(4, objPaciente.getgeneroid());
+//                                stmt.setString(6, objPaciente.getEsterilizado());
+//                                stmt.setInt(7, objPaciente.gettamanoid());
+//                                stmt.setInt(8, objPaciente.getactividadid());
+//                                stmt.setString(9, objPaciente.getPeso());
+//                                stmt.setString(10, objPaciente.getFechaNacimiento());
+//                                stmt.setString(11, objPaciente.getNotasMedicas());
+//                                stmt.setString(12, objPaciente.getCondicionesEspeciales());
+//                                stmt.setInt(13, objPaciente.getCodigoPaciente());
                                 int i = stmt.executeUpdate();
                                 if (i != 1) {
                                         throw new SQLException("No se pudo actualizar");
@@ -195,12 +195,12 @@ public class PacienteDAO extends BaseDAO {
 
                                 while (rs.next()) {
                                         Paciente oPaciente = new Paciente();
-                                        oPaciente.setnombrePaciente(rs.getString("Dueno"));
-                                        oPaciente.setCodigoPaciente(rs.getInt("Paciente_Id"));
-                                        oPaciente.setEspecie(rs.getString("Especie"));
-                                        oPaciente.setRaza(rs.getString("Raza"));
-                                        oPaciente.setGenero(rs.getString("Genero"));
-                                        oPaciente.setTipoSangre(rs.getString("TipoSangre"));
+//                                        oPaciente.setnombrePaciente(rs.getString("Dueno"));
+//                                        oPaciente.setCodigoPaciente(rs.getInt("Paciente_Id"));
+//                                        oPaciente.setEspecie(rs.getString("Especie"));
+//                                        oPaciente.setRaza(rs.getString("Raza"));
+//                                        oPaciente.setGenero(rs.getString("Genero"));
+//                                        oPaciente.setTipoSangre(rs.getString("TipoSangre"));
                                         lista.add(oPaciente);
                                 }
 
@@ -274,7 +274,7 @@ public class PacienteDAO extends BaseDAO {
                 }
                 
             public List<Paciente> listarpacientesxcliente(int codcliente) throws DAOExcepcion {
-        		String query = "SELECT Paciente_Id, nombre as nombre from  instantvet.Paciente WHERE Dueno_Id=?";
+        		String query = "SELECT * from  instantvet.Paciente WHERE clienteId=?";
         	List<Paciente> lista = new ArrayList<Paciente>();
         	Connection con = null;
         	PreparedStatement stmt = null;
@@ -285,9 +285,10 @@ public class PacienteDAO extends BaseDAO {
         		stmt.setInt(1, codcliente);
         		rs = stmt.executeQuery();
         		while (rs.next()) {
-        			Paciente objPaciente = new Paciente();
-        			objPaciente.setCodigoPaciente(rs.getInt("Paciente_Id"));
+        			Paciente objPaciente = new Paciente();        			
+        			objPaciente.setCodigoPaciente(rs.getInt("PacienteId"));
         			objPaciente.setEspecie(rs.getString("nombre"));
+        			
         			lista.add(objPaciente);
         		}
         	} catch (SQLException e) {

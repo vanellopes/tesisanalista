@@ -1,66 +1,76 @@
 package com.instantvet.app.modelo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Turno {
 	
-	Integer codigoTurno;
-	String codigoPersona; 
-	String codigoPaciente;
-	String tipoTurno;
-	String descripcionTurno;
-	String fechaTurno;
+	private Integer codigoTurno;
+	private Date fechaTurno;
+	private String cliente; 
+	private String paciente;
+	private String tipoTurno;
+	private int estadoTurnoId;
+	private String observaciones;
+	private String nombreCliente;
+	private String nombrePaciente;
+	private String estadoTurno;
+	private String telefono;
 	
-	String telefono;
-    String direccion;
-    String nombresPersona;
-    String apellido;
-    
-    String especie;
-    String nombrePaciente;
-    
-    String nombrePersonal;
-    String PersonalApellido;
-    String PersonalMatricula;
-    
-	public Turno(Integer codigoTurno, String codigoPersona, String codigoPaciente,
-			 String tipoTurno, String descripcionTurno,
-			 String fechaTurno) {
-		super();
-		this.codigoTurno = codigoTurno;
-		this.codigoPersona = codigoPersona;
-		this.codigoPaciente = codigoPaciente;
-		this.tipoTurno = tipoTurno;
-		this.descripcionTurno = descripcionTurno;
-		this.fechaTurno = fechaTurno;
-	}
 
 	public Turno() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+	
+	public String getFechaHora() { 
+         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");  
+         String strDate = dateFormat.format(fechaTurno);  
+         System.out.println("Converted String: " + strDate);  
+         
+         return strDate;
+		
 	}
 
-	
+
 	public Integer getCodigoTurno() {
 		return codigoTurno;
 	}
+
 
 	public void setCodigoTurno(Integer codigoTurno) {
 		this.codigoTurno = codigoTurno;
 	}
 
-	public String getCodigoPersona() {
-		return codigoPersona;
+
+	public Date getFechaTurno() {
+		return fechaTurno;
 	}
 
-	public void setCodigoPersona(String codigoPersona) {
-		this.codigoPersona = codigoPersona;
+
+	public void setFechaTurno(Date fecha) {
+		this.fechaTurno = fecha;
 	}
 
-	public String getCodigoPaciente() {
-		return codigoPaciente;
+
+	public String getCliente() {
+		return cliente;
 	}
 
-	public void setCodigoPaciente(String codigoPaciente) {
-		this.codigoPaciente = codigoPaciente;
+
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
+
+
+	public String getPaciente() {
+		return paciente;
+	}
+
+
+	public void setPaciente(String paciente) {
+		this.paciente = paciente;
 	}
 
 
@@ -68,68 +78,31 @@ public class Turno {
 		return tipoTurno;
 	}
 
+
 	public void setTipoTurno(String tipoTurno) {
 		this.tipoTurno = tipoTurno;
 	}
 
-	public String getDescripcionTurno() {
-		return descripcionTurno;
-	}
 
-	public void setDescripcionTurno(String descripcionTurno) {
-		this.descripcionTurno = descripcionTurno;
-	}
-
-	
-
-	public String getFechaTurno() {
-		return fechaTurno;
-	}
-
-	public void setFechaTurno(String fechaTurno) {
-		this.fechaTurno = fechaTurno;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getNombresPersona() {
-		return nombresPersona;
-	}
-
-	public void setNombresPersona(String nombresPersona) {
-		this.nombresPersona = nombresPersona;
+	public String getObservaciones() {
+		return observaciones;
 	}
 
 
-	public String getApellido() {
-		return apellido;
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+
+	public String getNombreCliente() {
+		return nombreCliente;
 	}
 
-	public String getEspecie() {
-		return especie;
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
 	}
 
-	public void setEspecie(String especie) {
-		this.especie = especie;
-	}
 
 	public String getNombrePaciente() {
 		return nombrePaciente;
@@ -139,28 +112,33 @@ public class Turno {
 		this.nombrePaciente = nombrePaciente;
 	}
 
-	public String getNombrePersonal() {
-		return nombrePersonal;
+	public String getTelefono() {
+		return telefono;
 	}
 
-	public void setNombrePersonal(String nombrePersonal) {
-		this.nombrePersonal = nombrePersonal;
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
-	public String getPersonalApellido() {
-		return PersonalApellido;
+
+	public int getEstadoTurnoId() {
+		return estadoTurnoId;
 	}
 
-	public void setPersonalApellido(String PersonalApellido) {
-		this.PersonalApellido = PersonalApellido;
+
+	public void setEstadoTurnoId(int estadoTurnoId) {
+		this.estadoTurnoId = estadoTurnoId;
 	}
 
-	public String getPersonalMatricula() {
-		return PersonalMatricula;
+
+	public String getEstadoTurno() {
+		return estadoTurno;
 	}
 
-	public void setPersonalMatricula(String PersonalMatricula) {
-		this.PersonalMatricula = PersonalMatricula;
+
+	public void setEstadoTurno(String estadoTurno) {
+		this.estadoTurno = estadoTurno;
 	}
-    
+
 }
