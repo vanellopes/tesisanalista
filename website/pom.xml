@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 	<name>VeterinariaMio</name>
 	<properties>
-		<spring.version>5.0.6.RELEASE</spring.version>
+		<spring.version>5.2.11.RELEASE</spring.version>
 	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
