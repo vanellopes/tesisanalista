@@ -29,7 +29,7 @@ SELECT Paciente_Id,
 		inner join Tamano ta
 			on pa.Tamano_Id = ta.Id 
 		inner join Cliente cl
-			on pa.Dueno_Id = cl.Persona_Id 
+			on pa.Dueno_Id = cl.cliente_id 
 		where Paciente_Id = Paciente_Id;
 END$$
 
