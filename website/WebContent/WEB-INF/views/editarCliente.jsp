@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Veterinaria - Mantenimiento de Prospectos::.. Editar un Prospecto</title>
+<title>Veterinaria - Mantenimiento de Clientes::.. Editar un Cliente</title>
 <link href="css/style.css" rel="stylesheet" />
 <script src="js/jquery-1.7.2.min.js" type="text/javascript"
 	charset="utf-8"></script>
@@ -20,21 +20,21 @@
 <SCRIPT type="text/javascript">
 function validar(){
 	 
-	 if(confirm("Desea registrar el siguiente Prospecto?")){
+	 if(confirm("Desea registrar el siguiente Cliente?")){
 	 	 var msg="";
 		 var bol=true;
 		 if(document.getElementById("txtNombre").value=="") {
-			 msg="Ingrese Nombre del Prospecto!!! \n"; 
+			 msg="Ingrese Nombre del Cliente!!! \n"; 
 			 bol=false;
 		 }
 		 
 		 if(document.getElementById("txtApellido").value=="") {
-			 msg=msg + "Ingrese Apellido Paterno del Prospecto!!! \n"; 
+			 msg=msg + "Ingrese Apellido Paterno del Cliente!!! \n"; 
 			 bol=false;
 		 }
 		 
 		 if(document.getElementById("txtApellidoMaterno").value=="") {
-			 msg=msg + "Ingrese Apellido Materno del Prospecto!!! \n"; 
+			 msg=msg + "Ingrese Apellido Materno del Cliente!!! \n"; 
 			 bol=false;
 		 }
 		 
@@ -96,11 +96,11 @@ function validar(){
 <body>
 
 	<div class="center_content">
-	<h3>Mantenimiento de Prospectos</h3>
+	<h3>Mantenimiento de Clientes</h3>
 	<form action="guardarModificacionCliente.jsp" method="post">
 		<table>
 			<tr>
-				<td>C�digo Prospecto:</td>
+				<td>C�digo Cliente:</td>
 				<td><input id="id" name="id" value="${requestScope.model.codigo}" readonly="readonly"/></td>
 			</tr>
 			<tr>

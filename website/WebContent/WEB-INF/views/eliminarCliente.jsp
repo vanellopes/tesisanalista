@@ -30,7 +30,7 @@
 				</tr>
 			</tfoot>
 			<tr>
-				<td>Id Doctor</td>
+				<td>Id Personal</td>
 				<td>${model.id}</td>
 				
 			</tr>

@@ -14,17 +14,17 @@
 	 var msg="";
 	 var bol=true;
 	 if(document.getElementById("txtNombre").value=="") {
-		 msg="Ingrese Nombre del Prospecto!!! \n"; 
+		 msg="Ingrese Nombre del Cliente!!! \n"; 
 		 bol=false;
 	 }
 	 
 	 if(document.getElementById("txtApellido").value=="") {
-		 msg=msg + "Ingrese Apellido Paterno del Prospecto!!! \n"; 
+		 msg=msg + "Ingrese Apellido Paterno del Cliente!!! \n"; 
 		 bol=false;
 	 }
 	 
 	 if(document.getElementById("txtApellidoMaterno").value=="") {
-		 msg=msg + "Ingrese Apellido Materno del Prospecto!!! \n"; 
+		 msg=msg + "Ingrese Apellido Materno del Cliente!!! \n"; 
 		 bol=false;
 	 }
 	 
@@ -40,7 +40,7 @@
 
 	 
 	 if(document.getElementById("txtUsuario").value=="") {
-		 msg=msg + "Ingrese usuario del doctor!!! \n"; 
+		 msg=msg + "Ingrese usuario del Personal!!! \n"; 
 		 bol=false;
 	 }
 	 
@@ -55,7 +55,7 @@
 
 	<div class="center_content">
 		<h3>Ingresar nuevo Paciente</h3>
-			<form name="input" action="registrarDoctor.html" method="get">
+			<form name="input" action="registrarPersonal.html" method="get">
 		<table border="1">
 			<thead>
 				<tr>

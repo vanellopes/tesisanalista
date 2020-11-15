@@ -8,12 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/style.css" rel="stylesheet" />
-<title>Veterinaria - Doctor</title>
+<title>Veterinaria - Personal</title>
 </head>
 <body>
 	<div class="center_content">
-		<h3>Eliminar Doctor</h3>
-		<form name="input" action="eliminarDoctor.html" method="POST">
+		<h3>Eliminar Personal</h3>
+		<form name="input" action="eliminarPersonal.html" method="POST">
 		<input type ="hidden" name ="id" value="${USUARIOMOD.id}">
 		<table border = "1">
 			<thead>
@@ -30,8 +30,8 @@
 				</tr>
 			</tfoot>
 			<tr>
-				<td>Id Doctor</td>
-				<td>${model.doctorID}</td>
+				<td>Id Personal</td>
+				<td>${model.PersonalID}</td>
 				
 			</tr>
 			<tr>

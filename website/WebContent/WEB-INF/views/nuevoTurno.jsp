@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
   
   <!DOCTYPE html >
  <html>
@@ -23,7 +24,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<title>Veterinaria - Tareas</title>
+<title>Veterinaria - Turnos</title>
 
 <SCRIPT type="text/javascript">
  function validar()
@@ -89,15 +90,14 @@
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
 	      <div class="hero-unit">
-			<h3>Registro de Tareas</h3>
-			<form name="input" action="registrarTarea" method="post">
-			
+			<h3>Registro de Turnos</h3>
+			<form name="input" action="registrarTurno" method="post">			
 			
 				<div style="width:200px">&nbsp;</div>
     			
     			<div class="control-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Codigo Cliente</label>
+		          <label class="control-label" for="input01" style="float:left;width:100px">Cliente</label>
 		          <div class="controls">
 		            <input type="text" class="input-xlarge" name =txtCliente id="txtCliente" readonly="readonly" >
 		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarcliente();" >
@@ -107,7 +107,7 @@
     			
     			<div class="control-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Codigo Paciente</label>
+		          <label class="control-label" for="input01" style="float:left;width:100px">Paciente</label>
 		          <div class="controls">
 		              <input type="text" class="input-xlarge" name ="txtpaciente" id="txtpaciente" readonly="readonly">
 		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarpaciente();" >
@@ -115,9 +115,18 @@
 		          </div>
     			</div>
     			
+    			
     			<div class="control-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Decripcion de Tarea</label>
+		          <label class="control-label" for="input01" style="float:left;width:100px">Tipo Turno</label>
+		          <div class="controls">
+						<input type="radio" name="rbTipoTurno" value="V" checked> Veterinaria<br>
+						<input type="radio" name="rbTipoTurno" value="P"> Peluqueria<br>
+		          </div>
+    			</div>
+    			<div class="control-group">
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:100px">Observaciones</label>
 		          <div class="controls">
 		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion"></textarea>
 		      
@@ -126,9 +135,10 @@
 			
 				<div class="control-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Tarea</label>
-		          <div class="controls">
-		            <input type="text" class="input-xlarge" name ="txtFecha" id="txtFecha">
+		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno</label>
+		          <div class="controls">	
+		          	<input type="dateTime-local" class="input-xlarge" name ="fecha" id="fecha">	            
+		            <input type="time" class="input-xlarge" name ="hora" id="hora">
 		      
 		          </div>
     			</div>
@@ -136,7 +146,8 @@
     			<div class="control-group">
 					  <!-- Button -->
 			          <div class="controls">
-			            <input type="submit" value="Crear Tarea" class="btn btn-success" onclick="return validar();" >
+			            <input type="submit" value="Crear Turno" class="btn btn-success" onclick="return validar();" >
+			            <input type="submit" value="Cancelar" class="btn btn-danger" onclick="return validar();" >
 			          </div>
         		</div>
 			

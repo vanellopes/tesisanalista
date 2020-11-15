@@ -1,12 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- <link href="../css/bootstrap.css" rel="stylesheet">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.css" rel="stylesheet"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
+	 <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/DT_bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
@@ -27,47 +35,55 @@
 
       <jsp:include page="menu.jsp"></jsp:include>
     
-	 <div class="container" style="width: 1076px;">
+	 <div class="container" style="width: 1150px;">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
       
-		<h2>Lista de Tareas asignadas</h2> <br />
-		<form action="verRegistroTarea" method="get">
-			<input type="submit" name="btnNuevo" id="btnNuevo" value="Nueva Tarea"   class="btn btn-success" />
-			<a href="menuTurno.jsp" class="btn btn-success">Regresar al Menu</a>
+		<h2>Lista de Turnos</h2> <br />
+		<form action="registroTurno" method="get">
+			<input type="submit" name="btnNuevo" id="btnNuevo" value="Nuevo Turno"   class="btn btn-success" />
+			<a href="main.jsp" class="btn btn-success">Regresar al Inicio</a>
 		</form>
 		<table cellpadding="0" cellspacing="0" border="0"  class="table table-striped table-bordered">
 			<tr>
-				<th>Fecha de la Tarea</th>
-				<th>Codigo Turno</th>
-				<th>Descripcion de la Tarea</th>
-				<th>Doctor</th>
+				<th>Fecha y hora </th>
+				<th>Area</th>
 				<th>Cliente</th>
-				<th>Direccion</th>
-				<th>Telefono</th>
 				<th>Paciente</th>
+				<th>Telefono de contacto</th>	
+				<th>Estado</th>			
+				<th>Observaciones</th>
+				<td>Confirmar</td>
+				<td>Finalizar Atencion</td>
+				<td>Cancelar</td>
 				<td>Editar</td>
-				<td>Eliminar</td>
-
 			</tr>
 			
-			<c:forEach items="${model.tareas}" var="prod" varStatus="i">
+			<c:forEach items="${model.turnos}" var="tur" varStatus="i">
 			<tr>
-				<td width="100">${prod.fechaTurno}</td>
-				<td>${prod.codigoTurno}</td>
-				<td>${prod.descripcionTurno}</td>
-				<td>${prod.doctorPaterno},${prod.nombreDoctor}</td>
-				<td>${prod.apellidoPaterno},${prod.nombresPersona}</td>
-				<td>${prod.direccion}</td>
-				<td>${prod.telefono}</td>
-				<td>${prod.codigoPaciente}</td>
+			<td width="120">
+			<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${tur.fechaTurno}" /></td>
+				<td>${tur.tipoTurno=='V' ? 'Veterinaria' : 'Peluqueria'}</td>
+				<td>${tur.nombreCliente}</td>
+				<td>${tur.nombrePaciente}</td>
+				<td>${tur.telefono}</td>
+				<td>${tur.estadoTurno}</td>
+				<td>${tur.observaciones}</td>	
 				<td align="center"><a
-						href="editarTarea.jsp?idTurno=${prod.codigoTurno}"> <img
-							src="images/editar.jpg" alt="" title="" border="0" /></a></td>
+						href="confirmarTurno?idTurno=${tur.codigoTurno}">
+						<img src="../images/bootstrapIcons/check-circle-fill.svg" onclick="return confirmar();" alt="" title="" border="0" />
+						</a></td>
 				<td align="center"><a
-						href="eliminarTarea.jsp?idTurno=${prod.codigoTurno}"><img
-							src="images/delete.gif" alt="" title="" border="0" /></a></td>
+						href="finalizarAtencionTurno?idTurno=${tur.codigoTurno}">
+						<img src="../images/bootstrapIcons/check-circle-fill.svg" onclick="return confirmar();" alt="" title="" border="0" />
+						</a></td>
+				<td align="center"><a
+						href="cancelarTurno?idTurno=${tur.codigoTurno}">
+						<img src="../images/bootstrapIcons/x-circle-fill.svg" onclick="return confirmar();" alt="" title="" border="0" /></a></td>
+				<td align="center"><a
+						href="editarTurno?idTurno=${tur.codigoTurno}"> 
+						<img src="../images/bootstrapIcons/pencil-fill.svg" alt="" title="" border="0" /></a></td>						
 			</tr>
 			</c:forEach>
 			
@@ -77,5 +93,15 @@
         <p>&copy; InstantVet</p>
       </footer>
       </div>
+
+	<script type="text/javascript" >
+			function confirmar(){
+				if(confirm("Esta Seguro que quiere ralizar la accion seleccionada ?")){
+					return true;
+				}else{
+					return false;
+				}
+			}
+	 </script>
 	</body>
 </html>

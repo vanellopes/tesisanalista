@@ -52,9 +52,9 @@
           <div class="nav-collapse">
             <ul class="nav">
                <li class="active"><a href="../index.jsp">Inicio</a></li>
-               <li><a href="listarcliente.jsp">Prospectos</a></li>
+               <li><a href="listarcliente.jsp">Clientes</a></li>
                <li><a href="listarcliente2.jsp">Clientes</a></li>
-      		   <li><a href="listardoctor.jsp">Doctores</a></li>
+      		   <li><a href="listarPersonal.jsp">Personales</a></li>
 	           <li><a href="listarfacturas.jsp">Facturacion</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -68,7 +68,7 @@
       <div class="hero-unit">
         <h2>Clientes</h2> <p>
 		<form action="verRegistroCliente.jsp" method="get">
-			<a class="btn btn-primary btn-larg" data-toggle="modal" href="#myModal" id="btnNew" flag="Prospecto">Nuevo</a>
+			<a class="btn btn-primary btn-larg" data-toggle="modal" href="#myModal" id="btnNew" flag="Cliente">Nuevo</a>
 		</form>
 		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 			<thead>	
@@ -113,7 +113,7 @@
       <div class="modal hide" id="myModal">
 	  <div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal">�</button>
-	    <h3>Ingresar Nuevo Prospecto</h3>
+	    <h3>Ingresar Nuevo Cliente</h3>
 	  </div>
 	  <div class="modal-body">
 	    <p>One fine body...</p>

@@ -5,35 +5,37 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>InstantVet</title>
+    <jsp:include page="include.jsp" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+<!--     Le styles -->
+   <link href="../css/bootstrap.css" rel="stylesheet">
+    <style type="text/css"> 
+      body { 
+         padding-top: 60px; 
+       padding-bottom: 40px; 
+     } 
+     </style> 
+<    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<!--     Le HTML5 shim, for IE6-8 support of HTML5 elements --> 
+<!--      [if lt IE 9]> -->
+<!-- <      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> --> 
+<!--      <![endif] --> 
     
     
     
-    <style type="text/css" media="screen">
+    <style type="text/css" media="screen"> 
             .slides_container {
-                width:950px;
+                width:950px; 
                 height:463px;
-            }
-            .slides_container div {
-                width:950px;
-                height:463px;
-                display:block;
-            }
-        </style>
+           }
+           .slides_container div                 
+           width:950px; 
+               height:463px; 
+                display:block; 
+           } 
+       </style>
     
   </head>
   <body>

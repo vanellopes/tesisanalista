@@ -4,57 +4,23 @@
   
   <!DOCTYPE html >
  <html>
- <head>
- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- 
-  <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | Log in</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-    
-    <style type="text/css">
-      /* Override some defaults */
-      html, body {
-        background-color: #eee;
-      }
-      body {
-        padding-top: 40px; 
-      }
-      .container {
-        width: 300px;
-      }
-
-      /* The white background content wrapper */
-      .container > .content {
-        background-color: #fff;
-        padding: 20px;
-        margin: 0 -20px; 
-        -webkit-border-radius: 10px 10px 10px 10px;
-           -moz-border-radius: 10px 10px 10px 10px;
-                border-radius: 10px 10px 10px 10px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                box-shadow: 0 1px 2px rgba(0,0,0,.15);
-      }
-
-    .login-form {
-      margin-left: 65px;
-    }
-  
-    legend {
-      margin-right: -50px;
-      font-weight: bold;
-      color: #404040;
-    }
-
-    </style>	
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-<title>Login: Veterinaria</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
 <body onload='document.loginForm.Usuario.focus();'>
@@ -77,40 +43,67 @@
       </div>
     </div>
 
- <div class="container">
-      <div class="content">
-          <div class="row">
-              <div class="login-form">
-                  <h2>Login</h2>
-                  <form id="loginForm" name="loginForm" action="editarLogin" method="post">
-                      <fieldset>
-                          <div class="clearfix">
-                              <input type="text" placeholder="Username" id="usernameField" type="text" name="Usuario">
-                          </div>
-                          <div class="clearfix">
-                              <input type="password" placeholder="Password" id="passwordField" name="Password" >
-                          </div>
-                          <button class="btn btn-primary" type="submit">Login</button>
-                      </fieldset>
-                  </form>
-              </div>
+ <div class="login-box">
+  <div class="login-logo">
+    <a href="#"><b>Admin</b>LTE</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <form action="editarLogin" method="post">
+        <div class="input-group mb-3">
+          <input type="text" placeholder="Username" id="usernameField" type="text" name="Usuario">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
           </div>
-          <footer>
-        <p>&copy; InstantVet</p>
-   		</footer>
-      </div>
-      
-  </div> <!-- /container -->
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
+      <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.html" class="text-center">Register a new membership</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/jas-script.js"></script>
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
 
 </body>
 

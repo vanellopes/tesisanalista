@@ -14,7 +14,7 @@ function validar(){
 	 	 var msg="";
 		 var bol=true;
 		 if(document.getElementById("txtNombre").value=="") {
-			 msg="Ingrese Nombre del Prospecto!!! \n"; 
+			 msg="Ingrese Nombre del Cliente!!! \n"; 
 			 bol=false;
 		 }
 		 
@@ -24,7 +24,7 @@ function validar(){
 		 }
 		 
 		 if(document.getElementById("txtApellidoMaterno").value=="") {
-			 msg=msg + "Ingrese Apellido Materno del Prospecto!!! \n"; 
+			 msg=msg + "Ingrese Apellido Materno del Cliente!!! \n"; 
 			 bol=false;
 		 }
 		 

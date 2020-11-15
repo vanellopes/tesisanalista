@@ -49,10 +49,10 @@
 	</div>
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h2>Prospectos</h2>
+        <h2>Clientes</h2>
               
 		<form action="verRegistroCliente.jsp" method="get">
-			<a class="btn btn-primary btn-larg" data-toggle="modal" href="#myModal" id="btnNew" flag="Prospecto">Nuevo</a>
+			<a class="btn btn-primary btn-larg" data-toggle="modal" href="#myModal" id="btnNew" flag="Cliente">Nuevo</a>
 		</form>
 		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 			<thead>	
@@ -100,7 +100,7 @@
       <div class="modal hide" id="myModal">
 	  <div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal">�</button>
-	    <h3>Ingresar Nuevo Prospecto</h3>
+	    <h3>Ingresar Nuevo Cliente</h3>
 	  </div>
 	  <div class="modal-body">
 	    <p>Loading...</p>

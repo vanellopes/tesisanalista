@@ -24,7 +24,7 @@
     <![endif]-->
 
 <link href="css/style.css" rel="stylesheet" />
-<title>Veterinaria - Doctores</title>
+<title>Veterinaria - Personales</title>
 <SCRIPT type="text/javascript">
 function validar(){
 	 var msg="";
@@ -98,7 +98,7 @@ function validar(){
             <ul class="nav">
               <li class="active"><a href="../index.jsp">Inicio</a></li>
               <li><a href="listarcliente.jsp">Clientes</a></li>
-              <li><a href="listardoctor.jsp">Doctores</a></li>
+              <li><a href="listarPersonal.jsp">Personales</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -109,8 +109,8 @@ function validar(){
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-		<h3>Ingresar nuevo Doctor</h3>
-			<form name="input" action="registrarDoctor.html" method="get">
+		<h3>Ingresar nuevo Personal</h3>
+			<form name="input" action="registrarPersonal.html" method="get">
 		<table>
 			<thead>
 				<tr>

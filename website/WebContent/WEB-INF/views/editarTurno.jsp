@@ -6,21 +6,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Veterinaria - Editar una Tarea</title>
-<link href="css/style.css" rel="stylesheet" />
-<script src="js/jquery-1.7.2.min.js" type="text/javascript"
-	charset="utf-8"></script>
-<link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
-<script src="js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"
-	charset="utf-8"></script>
+<title>Veterinaria - Editar un Turno</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>InstantVet</title>
+    
+    <!-- Le styles -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    
+    <style type="text/css" media="screen">
+            .slides_container {
+                width:950px;
+                height:463px;
+            }
+            .slides_container div {
+                width:950px;
+                height:463px;
+                display:block;
+            }
+        </style>
+    
 
 <SCRIPT type="text/javascript">
  function validar()
  {
 	 var msg="";
 	 var bol=true;
-	 if(document.getElementById("txtCodigoDoctor").value=="") {
-		 msg=msg +"Ingrese Codigo del Doctor!!! \n"; 
+	 if(document.getElementById("txtCodigoPersonal").value=="") {
+		 msg=msg +"Ingrese Codigo del Personal!!! \n"; 
 		 bol=false;
 	 }
 	 
@@ -63,51 +89,104 @@
 	 try{ var fecha = fecha.split("/"); var dia = fecha[0]; var mes = fecha[1]; var ano = fecha[2]; var estado = true; if ((dia.length == 2) && (mes.length == 2) && (ano.length == 4)) { switch (parseInt(mes)) { case 1:dmax = 31;break; case 2: if (ano % 4 == 0) dmax = 29; else dmax = 28; break; case 3:dmax = 31;break; case 4:dmax = 30;break; case 5:dmax = 31;break; case 6:dmax = 30;break; case 7:dmax = 31;break; case 8:dmax = 31;break; case 9:dmax = 30;break; case 10:dmax = 31;break; case 11:dmax = 30;break; case 12:dmax = 31;break; } dmax!=""?dmax:dmax=-1; if ((dia >= 1) && (dia <= dmax) && (mes >= 1) && (mes <= 12)) { for (var i = 0; i < fecha[0].length; i++) { diaC = fecha[0].charAt(i).charCodeAt(0); (!((diaC > 47) && (diaC < 58)))?estado = false:''; mesC = fecha[1].charAt(i).charCodeAt(0); (!((mesC > 47) && (mesC < 58)))?estado = false:''; } } for (var i = 0; i < fecha[2].length; i++) { anoC = fecha[2].charAt(i).charCodeAt(0); (!((anoC > 47) && (anoC < 58)))?estado = false:''; } }else estado = false; return estado; }catch(err){ alert("Error fecha"); 
  }
  }
+
+ function buscarpaciente(){
+		window.open("buscapaciente?idcliente="+ document.getElementById("hiddencliente").value,"","width=600,height=400");
+	}
 </SCRIPT>
 
 </head>
 <body>
+	  <jsp:include page="menu.jsp"></jsp:include>
 
-	<div class="center_content">
-	<h3>Mantenimiento de Turnos para vacunacion</h3>
-	<form action="guardarTarea" method="post">
-		<table>
-			<tr>
-				<td>C�digo Turno:</td>
-				<td><input id="idTurno" name="idTurno" value="${requestScope.model.codigoTurno}" readonly="true"/></td>
-			</tr>
-			<tr>
-				<td>Codigo Doctor:</td>
-				<td><input name = "txtCodigoDoctor" id="txtCodigoDoctor" value="${requestScope.model.codigoDoctor}"></td>
-			</tr>
-			<tr>
-				<td>Codigo Cliente:</td>
-				<td><input name ="txtCodigoCliente" id="txtCodigoCliente" value="${requestScope.model.codigoPersona}"></td>
-			</tr>
-			<tr>
-				<td>Codigo Paciente:</td>
-				<td><input name ="txtCodigoPaciente" id="txtCodigoPaciente" value="${requestScope.model.codigoPaciente}"></td>
-			</tr>
-			<tr>
-				<td>Decripcion de Tarea:</td>
-				<td><textarea rows="3" cols="20" name="txtDescripcion" id="txtDescripcion">${requestScope.model.descripcionTurno}</textarea></td>
-			</tr>
-			<tr>
-				<td>Fecha Vacuna (dd/mm/yyyy):</td>
-				<td><input name ="txtFecha" id="txtFecha" value="${requestScope.model.fechaTurno}"></td>
-			</tr>
-			
-			
-			<tr>
-				<td colspan="2">
-				  <input type="submit" value="Guardar Tarea" name="btnRegistrar" onclick="return validar();" /></td>
-				  <td><a href="menuTurno">Cancelar</a></td>
-			</tr>
-			
-		</table>
-	</form>
-	</div>
-
+    <div class="container" style="width: 1076px;">
 	
+	      <!-- Main hero unit for a primary marketing message or call to action -->
+	      <div class="hero-unit">
+			<h3>Modificacion de Turno</h3>
+			<form name="input" action="registrarTurno" method="post">			
+			
+				<div style="width:200px">&nbsp;</div>
+    			
+    			<div class="control-group">
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:100px">Cliente</label>
+		          <div class="controls">
+		            <input name ="txtCodigoCliente" id="txtCodigoCliente" value="${requestScope.model.nombreCliente}"readonly="readonly" >
+		          </div>
+    			</div>
+    			
+    			<div class="control-group">
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:100px">Paciente</label>
+		          <div class="controls">
+		              <input type="text" class="input-xlarge" name ="txtpaciente" id="txtpaciente" readonly="readonly">
+		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarpaciente();" >
+		            <input type="hidden" id="hiddenpaciente" name="hiddenpaciente">
+		          </div>
+    			</div>
+    			
+    			
+    			<div class="control-group">
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:100px">Tipo Turno</label>
+		          <div class="controls">
+						<input type="radio" name="rbTipoTurno" value="V" checked> Veterinaria<br>
+						<input type="radio" name="rbTipoTurno" value="P"> Peluqueria<br>
+		          </div>
+    			</div>
+    			<div class="control-group">
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:100px">Observaciones</label>
+		          <div class="controls">
+		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion"></textarea>
+		      
+		          </div>
+    			</div>
+			
+				<div class="control-group">
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno (dd/mm/yyyy)</label>
+		          <div class="controls">	
+		          	<input name ="txtFecha" id="txtFecha" value="${requestScope.model.fechaTurno}">
+		          </div>
+    			</div>
+    			
+    			<div class="control-group">
+		          <label class="control-label" for="input01" style="float:left;width:100px">Hora Turno (HH:mm)</label>
+		          <div class="controls">	
+		          	<input name ="txtHora" id="txtHora" value="">
+		          </div>
+    			</div>
+    			
+    			
+    			<div class="control-group">
+					  <!-- Button -->
+			          <div class="controls">
+			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >
+			            <input type="submit" value="Cancelar" class="btn btn-danger" onclick="return validar();" >
+			          </div>
+        		</div>			
+			
+			</form>
+		 </div>
+		 
+		 <footer>
+        		<p>&copy; InstantVet</p>
+      	  </footer>
+		 
+    </div>
+    
+    	    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/jas-script.js"></script>
+
+
 </body>
+
 </html>

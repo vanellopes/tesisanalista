@@ -71,7 +71,7 @@
             <ul class="nav">
               <li class="active"><a href="#">Inicio</a></li>
               <li><a href="forms/listarcliente.jsp">Clientes</a></li>
-              <li><a href="forms/listardoctor.jsp">Doctores</a></li>
+              <li><a href="forms/listarPersonal.jsp">Personales</a></li>
               <li><a href="forms/listarpaciente.jsp">Pacientes</a></li>
             </ul>
           </div><!--/.nav-collapse -->

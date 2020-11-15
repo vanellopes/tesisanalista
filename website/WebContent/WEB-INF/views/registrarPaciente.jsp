@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Veterinaria - Mantenimiento de Doctores ::.. Agregar nuevo Doctor</title>
+<title>Veterinaria - Mantenimiento de Personales ::.. Agregar nuevo Personal</title>
 <link href="css/style.css" rel="stylesheet" />
 <script src="js/jquery-1.7.2.min.js" type="text/javascript"
 	charset="utf-8"></script>
@@ -68,7 +68,7 @@
             <ul class="nav">
               <li class="active"><a href="#">Inicio</a></li>
               <li><a href="forms/listarcliente.jsp">Clientes</a></li>
-              <li><a href="forms/listardoctor.jsp">Doctores</a></li>
+              <li><a href="forms/listarPersonal.jsp">Personales</a></li>
               <li><a href="forms/listarpaciente.jsp">Pacientes</a></li>
             </ul>
           </div><!--/.nav-collapse -->

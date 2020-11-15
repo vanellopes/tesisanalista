@@ -54,7 +54,7 @@
 				</tr>
 				<tr>
 					<td>
-					  <form action="verRegistroTarea" method="get">
+					  <form action="registroTurno" method="get">
 			          <input type="submit" name="btnCrearTarea" id="btnCrearTarea" value="Crear tarea en el calendario" />
 		              </form>
 					</td>
@@ -68,7 +68,7 @@
 				</tr>
 				<tr>
 					<td>
-					  <form action="listarTarea" method="get">
+					  <form action="listarTurnos" method="get">
 			          <input type="submit" name="btnListarTareas" id="btnListarTareas" value="Ver calendario con las tareas asignadas" />
 		              </form>
 					</td>

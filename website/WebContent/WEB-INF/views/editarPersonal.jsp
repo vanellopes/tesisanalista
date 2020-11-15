@@ -22,7 +22,7 @@
     <![endif]-->
 
 <link href="css/style.css" rel="stylesheet" />
-<title>Veterinaria - Mantenimiento de Doctores::.. Editar un Doctor</title>
+<title>Veterinaria - Mantenimiento de Personales::.. Editar un Personal</title>
 <SCRIPT type="text/javascript">
  function validar(){
 	 var msg="";
@@ -115,7 +115,7 @@
             <ul class="nav">
               <li class="active"><a href="../index.jsp">Inicio</a></li>
               <li><a href="listarcliente.jsp">Clientes</a></li>
-              <li><a href="listardoctor.jsp">Doctores</a></li>
+              <li><a href="listarPersonal.jsp">Personales</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -126,12 +126,12 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-	<h3>Mantenimiento de Doctores</h3>
-	<form action="guardarModificacionDoctor.jsp" method="get">
+	<h3>Mantenimiento de Personales</h3>
+	<form action="guardarModificacionPersonal.jsp" method="get">
 		<table>
 			<tr style="display: none;">
-				<td>Id Doctor:</td>
-				<td><input id="id" name="id" value="${requestScope.model.doctorID}"/></td>
+				<td>Id Personal:</td>
+				<td><input id="id" name="id" value="${requestScope.model.PersonalID}"/></td>
 			</tr>
 			<tr>
 				<td>Nombre:</td>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Veterinaria - Mantenimiento de Doctores ::.. Agregar nuevo Doctor</title>
+<title>Veterinaria - Mantenimiento de Personales ::.. Agregar nuevo Personal</title>
 <link href="css/style.css" rel="stylesheet" />
 <script src="js/jquery-1.7.2.min.js" type="text/javascript"
 	charset="utf-8"></script>
@@ -25,8 +25,8 @@
 <body>
 
 	<div class="center_content">
-	<h3>Mantenimiento de Doctores</h3>
-	<form action="registrarDoctor.html" method="post">
+	<h3>Mantenimiento de Personales</h3>
+	<form action="registrarPersonal.html" method="post">
 		<table>
 		
 			<tr>

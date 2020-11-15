@@ -24,7 +24,7 @@
 <link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
 <script src="js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"
 	charset="utf-8"></script>
-	<title>Lista de Doctores</title>
+	<title>Lista de Personales</title>
 
 </head>
 	<body> 
@@ -35,8 +35,8 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-		<h2>Doctores</h2> <p>
-		<form action="verRegistroDoctor.jsp" method="get">
+		<h2>Personales</h2> <p>
+		<form action="verRegistroPersonal.jsp" method="get">
 			<input type="submit" name="btnNuevo" id="btnNuevo" value="Nuevo" class="btn btn-primary btn-larg"/>
 		</form>
 		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
@@ -55,7 +55,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${model.doctores}" var="prod" varStatus="i">
+				<c:forEach items="${model.Personales}" var="prod" varStatus="i">
 				<tr>
 					<td width="100">${prod.nombre}</td>	
 					<td>${prod.apellido}</td>
@@ -65,11 +65,11 @@
 					<td>${prod.usuario}</td>
 					<td>${prod.grupo}</td>			
 					<td align="center"><a
-							href="editarDoctor.jsp?doctorID=${prod.doctorID}"> <img
+							href="editarPersonal.jsp?PersonalID=${prod.PersonalID}"> <img
 								src="/HelloWorldSpring3/images/editar.jpg" alt="" title="" border="0" />
 						</a></td>
 					<td align="center"><a
-							href="eliminarDoctor.jsp?doctorID=${prod.doctorID}"><img
+							href="eliminarPersonal.jsp?PersonalID=${prod.PersonalID}"><img
 								src="/HelloWorldSpring3/images/delete.gif" alt="" title="" border="0" /></a>
 					</td>
 				</tr>
