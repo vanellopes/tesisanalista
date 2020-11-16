@@ -1,8 +1,5 @@
 package com.instantvet.app.modelo;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Turno {
@@ -23,16 +20,12 @@ public class Turno {
 	public Turno() {
 		super();
 	}
-	
-	public String getFechaHora() { 
-         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");  
-         String strDate = dateFormat.format(fechaTurno);  
-         System.out.println("Converted String: " + strDate);  
-         
-         return strDate;
-		
-	}
-
+//	
+//	public void getFechaHora() {
+//		 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
+//		 Date date = new Date();
+//		  System.out.println("Hora actual: " + dateFormat.format(date));
+//	}
 
 	public Integer getCodigoTurno() {
 		return codigoTurno;
@@ -45,12 +38,12 @@ public class Turno {
 
 
 	public Date getFechaTurno() {
-		return fechaTurno;
+		return  fechaTurno;
 	}
 
 
-	public void setFechaTurno(Date fecha) {
-		this.fechaTurno = fecha;
+	public void setFechaTurno(Date fechaDate) {
+		this.fechaTurno = fechaDate;
 	}
 
 
