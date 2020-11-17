@@ -137,7 +137,7 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno</label>
 		          <div class="controls">	
-		          	<input type="dateTime-local" class="input-xlarge" name ="fecha" id="fecha">	            
+		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha">	            
 		            <input type="time" class="input-xlarge" name ="hora" id="hora">
 		      
 		          </div>
@@ -147,7 +147,7 @@
 					  <!-- Button -->
 			          <div class="controls">
 			            <input type="submit" value="Crear Turno" class="btn btn-success" onclick="return validar();" >
-			            <input type="submit" value="Cancelar" class="btn btn-danger" onclick="return validar();" >
+			            <a href="main.jsp" class="btn btn-danger">Cancelar</a>
 			          </div>
         		</div>
 			

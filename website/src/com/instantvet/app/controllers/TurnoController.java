@@ -2,10 +2,13 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Turno;
-import com.instantvet.app.negocio.GestionTurnos;
+import com.instantvet.app.service.GestionTurnos;
 
 import java.io.IOException;
-import java.sql.Date;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,8 +57,8 @@ public class TurnoController
 		oModelTurno.setPaciente(request.getParameter("hiddenpaciente"));
 		oModelTurno.setObservaciones(request.getParameter("txtDescripcion"));
 		oModelTurno.setEstadoTurnoId(1);
-		Date fecha = Date.valueOf(request.getParameter("fecha"));
-		oModelTurno.setFechaTurno(fecha);
+		String fecha = (request.getParameter("fecha")+" "+request.getParameter("hora"));
+		oModelTurno.convertFechaTurno(fecha);
 		
 		try 
 		{
@@ -79,8 +82,29 @@ public class TurnoController
 	public ModelAndView handleRequestTareas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
-		List<Turno> turnos = this.turno.ListarTurnos();		
-		System.out.println(turnos.get(1).getFechaHora());
+		List<Turno> turnos = this.turno.ListarTurnos();
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("turnos",turnos);
+       
+        return new ModelAndView("listarTurnos", "model", myModel);
+    }
+	
+	@RequestMapping(value="/listarTurnosVeterinaria")
+	public ModelAndView listarTurnosVeterinaria(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, DAOExcepcion {
+		
+		List<Turno> turnos = this.turno.listarTurnoxArea("V");
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("turnos",turnos);
+       
+        return new ModelAndView("listarTurnos", "model", myModel);
+    }
+	
+	@RequestMapping(value="/listarTurnosPeluqueria")
+	public ModelAndView listarTurnosPeluqueria(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, DAOExcepcion {
+		
+		List<Turno> turnos = this.turno.listarTurnoxArea("P");
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("turnos",turnos);
        
@@ -110,8 +134,8 @@ public class TurnoController
 		//oModelTurno.setCodigoCliente(request.getParameter("txtCodigoCliente"));
 		//oModelTurno.setCodigoPaciente(request.getParameter("txtCodigoPaciente"));
 		oModelTurno.setObservaciones(request.getParameter("txtDescripcion"));
-		Date fechaTurno = Date.valueOf(request.getParameter("txtFecha"));
-		oModelTurno.setFechaTurno(fechaTurno);
+		//Date fechaTurno = Date.valueOf(request.getParameter("txtFecha"));
+		//oModelTurno.setFechaTurno(fechaTurno);
 		
 		try 
 		{

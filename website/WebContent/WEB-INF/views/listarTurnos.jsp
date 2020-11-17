@@ -29,13 +29,13 @@
 <link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
 <script src="js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"
 	charset="utf-8"></script>
-<title>Veterinaria - Lista de Tareas asignadas</title>
+<title>Veterinaria - Lista de Turnos</title>
 </head>
 <body> 
 
       <jsp:include page="menu.jsp"></jsp:include>
     
-	 <div class="container" style="width: 1150px;">
+	 <div class="container" style="width: 1300px;">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
@@ -55,15 +55,15 @@
 				<th>Estado</th>			
 				<th>Observaciones</th>
 				<td>Confirmar</td>
-				<td>Finalizar Atencion</td>
+				<td>Finalizar</td>
 				<td>Cancelar</td>
-				<td>Editar</td>
+				<td>Modificar</td>
 			</tr>
 			
 			<c:forEach items="${model.turnos}" var="tur" varStatus="i">
 			<tr>
-			<td width="120">
-			<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${tur.fechaTurno}" /></td>
+			<td width="150">
+			 <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${tur.fechaTurno}" pattern="dd/MM/yyyy, HH:mm"/></td>
 				<td>${tur.tipoTurno=='V' ? 'Veterinaria' : 'Peluqueria'}</td>
 				<td>${tur.nombreCliente}</td>
 				<td>${tur.nombrePaciente}</td>
@@ -76,7 +76,7 @@
 						</a></td>
 				<td align="center"><a
 						href="finalizarAtencionTurno?idTurno=${tur.codigoTurno}">
-						<img src="../images/bootstrapIcons/check-circle-fill.svg" onclick="return confirmar();" alt="" title="" border="0" />
+						<img src="../images/bootstrapIcons/check-circle-fill.svg" onclick="return confirmar();" alt="" title="" border="0"/>
 						</a></td>
 				<td align="center"><a
 						href="cancelarTurno?idTurno=${tur.codigoTurno}">
@@ -96,7 +96,7 @@
 
 	<script type="text/javascript" >
 			function confirmar(){
-				if(confirm("Esta Seguro que quiere ralizar la accion seleccionada ?")){
+				if(confirm("Esta Seguro que quiere realizar la accion seleccionada ?")){
 					return true;
 				}else{
 					return false;

@@ -1,9 +1,9 @@
-package com.instantvet.app.negocio.impl;
+package com.instantvet.app.service.impl;
 
 import com.instantvet.app.dao.TurnoDAO;
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Turno;
-import com.instantvet.app.negocio.GestionTurnos;
+import com.instantvet.app.service.GestionTurnos;
 
 import java.util.List;
 
@@ -49,18 +49,13 @@ public class GestionTurnosImpl implements GestionTurnos  {
 		
 	}
 
-	@Override
-	public List<Turno> ListarTurnoVeterinaria() throws DAOExcepcion
-	{
-		TurnoDAO objTurnoDAO=new TurnoDAO();
-		return objTurnoDAO.listarTurnoVeterinaria();
-	}
+	
 
 	@Override
-	public List<Turno> ListarTurnoPeluqueria() throws DAOExcepcion
+	public List<Turno> listarTurnoxArea(String area) throws DAOExcepcion
 	{
 		TurnoDAO objTurnoDAO=new TurnoDAO();
-		return objTurnoDAO.listarTurnos();
+		return objTurnoDAO.listarTurnoxArea(area);
 	}
 	
 	@Override

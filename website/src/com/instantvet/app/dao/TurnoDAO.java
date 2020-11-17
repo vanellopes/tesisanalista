@@ -59,7 +59,8 @@ public class TurnoDAO extends BaseDAO
 		{
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setDate(1, (Date)objTurno.getFechaTurno());
+			java.sql.Timestamp sqlDate =new java.sql.Timestamp(objTurno.getFechaTurno().getTime());
+			stmt.setTimestamp(1, sqlDate);
 			stmt.setString(2, objTurno.getCliente());
 			stmt.setString(3, objTurno.getPaciente());
 			stmt.setString(4, objTurno.getTipoTurno());
@@ -109,7 +110,7 @@ public class TurnoDAO extends BaseDAO
 			//stmt.setString(2, objTurno.getCodigoPaciente());
 			stmt.setString(4, objTurno.getTipoTurno());
 			stmt.setString(5, objTurno.getObservaciones());
-			stmt.setDate(1, (Date)objTurno.getFechaTurno());
+			//stmt.setDate(1, (Date)objTurno.getFechaTurno());
 			stmt.setInt(1, objTurno.getCodigoTurno());
 			int i = stmt.executeUpdate();
 			if (i != 1) 
@@ -154,51 +155,21 @@ public class TurnoDAO extends BaseDAO
 			this.cerrarConexion(con);
 		}
 	}
-
-	public List<Turno>listarTurnoVeterinaria() throws DAOExcepcion////CAMBIAR QUERY
-	{
-		String query = "SELECT c.TurnoId, c.clienteId, c.pacienteId, c.PersonalId, c.tipo_Turno, " +
-		               "c.descripcion, c.nombre_vacuna, c.fecha_Turno, " +
-		               "cl.telefono, cl.direccion, cl.Nombres, cl.apellido, cl.num_documento, " +
-		               "'' as especie, '' as nombre_paciente, " +
-		               "d.nombre as nombre_Personal, d.apellido as Personal_apellido, d.matricula as Personal_matricula " +
-		               "FROM Turno c " +
-		               "JOIN Personal d on (d.Personalid = c.PersonalId) " +
-		               "JOIN Paciente p on (p.PacienteId = c.pacienteId) " +
-		               "JOIN Cliente cl on (cl.clienteId = c.clienteId) " +
-		               "WHERE c.tipo_Turno ='V' " +
-		               "ORDER BY c.fecha_Turno";
-		List<Turno> lista = new ArrayList<Turno>();
-		try 
-		{
-			lista = obtenerListTurno(query);
-		} 
-		catch(Exception e) 
-		{
-			System.err.println(e.getMessage());
-			throw new DAOExcepcion(e.getMessage());
-		} 
-		System.out.println(lista.size());
-		return lista;
-	}
 	
-	public List<Turno>listarTurnoPeluqueria() throws DAOExcepcion////CAMBIAR QUERY
+	public List<Turno>listarTurnoxArea(String area) throws DAOExcepcion////CAMBIAR QUERY
 	{
-		String query = "SELECT c.TurnoId, c.clienteId, c.pacienteId, c.PersonalId, c.tipo_Turno, " +
-		               "c.descripcion, c.nombre_vacuna, c.fecha_Turno, " +
-		               "cl.telefono, cl.direccion, cl.Nombres, cl.apellido, cl.num_documento, " +
-		               "'' as especie, '' as nombre_paciente, " +
-		               "d.nombre as nombre_Personal, d.apellido as Personal_apellido, d.matricula as Personal_matricula " +
-		               "FROM Turno c " +
-		               "JOIN Personal d on (d.Personalid = c.PersonalId) " +
-		               "JOIN Paciente p on (p.PacienteId = c.pacienteId) " +
-		               "JOIN Cliente cl on (cl.clienteId = c.clienteId) " +
-		               "WHERE c.tipo_Turno ='P' " +
-		               "ORDER BY c.fecha_Turno";
+		String query = "SELECT t.turnoId, t.fecha_turno, t.clienteId, t.pacienteId, t.tipo_turno , et.nombre as estadoTurno, t.observaciones, " +		               
+			            "CONCAT(cl.nombres ,' ', cl.apellido) as nombreCliente, cl.telefono, p.nombre nombrePaciente " + 
+			            "FROM Turno t " +
+			            "JOIN Paciente p on (p.pacienteId = t.pacienteId) " +
+			            "JOIN Cliente cl on (cl.clienteId = t.clienteId) " +
+			            "join estadoturno et on (et.estadoTurnoId = t.estadoTurnoId) " + 
+			            "WHERE t.tipo_Turno = ? " +
+			            "ORDER BY t.fecha_Turno";
 		List<Turno> lista = new ArrayList<Turno>();
 		try 
 		{
-			lista = obtenerListTurno(query);
+			lista = obtenerListTurno(query, area);
 		} 
 		catch(Exception e) 
 		{
@@ -222,7 +193,7 @@ public class TurnoDAO extends BaseDAO
 		List<Turno> lista = new ArrayList<Turno>();
 		try 
 		{
-			lista = obtenerListTurno(query);
+			lista = obtenerListTurno(query, null);
 		} 
 		catch(Exception e) 
 		{
@@ -233,7 +204,7 @@ public class TurnoDAO extends BaseDAO
 		return lista;
 	}
 
-	private List<Turno>obtenerListTurno(String query) throws DAOExcepcion
+	private List<Turno>obtenerListTurno(String query, String tipoTurno) throws DAOExcepcion
 	{
 		List<Turno> listaTurnos = new ArrayList<Turno>();
 		Connection con = null;
@@ -243,6 +214,9 @@ public class TurnoDAO extends BaseDAO
 		{
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
+			if (tipoTurno != null) {
+				stmt.setString(1, tipoTurno);
+			}
 			rs = stmt.executeQuery();
 			while (rs.next()) 
 			{
@@ -253,7 +227,7 @@ public class TurnoDAO extends BaseDAO
 				objTurno.setTipoTurno(rs.getString("tipo_Turno"));
 				objTurno.setEstadoTurno(rs.getString("estadoTurno"));
 				objTurno.setObservaciones(rs.getString("observaciones"));
-				objTurno.setFechaTurno(rs.getDate("fecha_turno"));
+				objTurno.setFechaTurno(rs.getTimestamp("fecha_turno"));
 				objTurno.setNombreCliente(rs.getString("nombreCliente"));
 				objTurno.setNombrePaciente(rs.getString("nombrePaciente"));
 				objTurno.setTelefono(rs.getString("telefono"));
@@ -304,7 +278,7 @@ public class TurnoDAO extends BaseDAO
 				objTurno.setTipoTurno(rs.getString("tipo_Turno"));
 				objTurno.setEstadoTurno(rs.getString("estadoTurno"));
 				objTurno.setObservaciones(rs.getString("observaciones"));
-				objTurno.setFechaTurno(rs.getDate("fecha_turno"));
+				//objTurno.setFechaTurno(rs.getDate("fecha_turno"));
 				objTurno.setNombreCliente(rs.getString("nombreCliente"));
 				objTurno.setNombrePaciente(rs.getString("nombrePaciente"));
 				objTurno.setTelefono(rs.getString("telefono"));

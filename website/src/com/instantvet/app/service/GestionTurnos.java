@@ -1,4 +1,4 @@
-package com.instantvet.app.negocio;
+package com.instantvet.app.service;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Turno;
@@ -12,9 +12,7 @@ public interface GestionTurnos {
 	
 	void modificarTurno(Turno objTurno) throws DAOExcepcion;
 
-	List<Turno> ListarTurnoVeterinaria() throws DAOExcepcion;
-
-	List<Turno> ListarTurnoPeluqueria() throws DAOExcepcion;
+	List<Turno> listarTurnoxArea(String area) throws DAOExcepcion;
 	
 	List<Turno> ListarTurnos() throws DAOExcepcion;
 
