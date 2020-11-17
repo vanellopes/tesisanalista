@@ -31,20 +31,18 @@
 		<table  cellpadding="0" cellspacing="0" border="0"  class="table table-striped table-bordered">
 			<thead>
 		    	<tr>
-		        	<th scope="col">Codigo</th>
 		            <th scope="col">Nombre</th>
 		            <th scope="col">Apellido</th>
-		            <th scope="col">Apellido Materno</th>
+		            <th scope="col">Telefono</th>
 		            <th scope="col">Seleccionar</th>
 		        </tr>
 	    	</thead>
 	    	<tbody>
 			<c:forEach items="${model.clientes}" var="prod" varStatus="i">
 			<tr>
-				<td>${prod.codigo}</td>
 				<td width="100">${prod.nombre}</td>
 				<td>${prod.apellido}</td>
-				<td>${prod.numDocumento}</td>
+				<td>${prod.telefono}</td>
 				<td><a href="#" onclick='seleccionarcliente("${prod.codigo}","${prod.nombre}","${prod.apellido}","${prod.numDocumento}");'>Seleccionar</a></td>
 			</tr>
 			</c:forEach>

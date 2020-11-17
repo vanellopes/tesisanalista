@@ -7,62 +7,32 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Log in</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <title>InstantVet | Iniciar sesion</title>
+  <jsp:include page="head.jsp"></jsp:include>
 </head>
+<body class="hold-transition login-page">
 
-<body onload='document.loginForm.Usuario.focus();'>
-
-<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">InstantVet</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-               <li><a href="../index.jsp">Inicio</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
- <div class="login-box">
+<div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Admin</b>LTE</a>
+    <a href="#"><b>Instant</b>Vet</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Iniciar sesion</p>
 
-      <form action="editarLogin" method="post">
+      <form id="loginForm" name="loginForm" action="editarLogin" method="post">
+      <img class="mb-4" src="../images/SV/logo.png" alt="" width="72" height="72">
         <div class="input-group mb-3">
-          <input type="text" placeholder="Username" id="usernameField" type="text" name="Usuario">
+          <input type="text" class="form-control" placeholder="Usuario" id="usernameField" type="text" name="Usuario">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fa fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" id="passwordField" name="Password" >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -72,31 +42,25 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
               <label for="remember">
-                Remember Me
               </label>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
     </div>
     <!-- /.login-card-body -->
   </div>
 </div>
 <!-- /.login-box -->
+      <footer>
+        <p>&copy; InstantVet</p>
+   		</footer>
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>

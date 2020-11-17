@@ -51,7 +51,7 @@
           
           <div class="nav-collapse">
             <ul class="nav">
-               <li class="active"><a href="../index.jsp">Inicio</a></li>
+               <li class="active"><a href="main.jsp">Inicio</a></li>
                <li><a href="listarcliente.jsp">Clientes</a></li>
                <li><a href="listarcliente2.jsp">Clientes</a></li>
       		   <li><a href="listarPersonal.jsp">Personales</a></li>

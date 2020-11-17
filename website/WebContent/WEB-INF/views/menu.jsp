@@ -49,9 +49,8 @@
 					    <ul class="dropdown-menu">
 					    	<li><a href="registroTurno">Registrar Turno</a></li>					    	
 					    	<li><a href="listarTurnos">Ver Todos los Turnos</a></li>	
-					    	<li><a href="listarTurnosVet">Ver Turnos Veterinaria</a></li>					    	
-					    	<li><a href="listarTurnosPel">Ver Turnos Peluqueria</a></li>	
-					      
+					    	<li><a href="listarTurnosVeterinaria">Ver Turnos Veterinaria</a></li>					    	
+					    	<li><a href="listarTurnosPeluqueria">Ver Turnos Peluqueria</a></li>						      
 						</ul>
 				 </li>
 				</ul>
@@ -65,10 +64,10 @@
                           <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">                     
-                      <li><a href="registroTurno">Nuevo Cliente</a></li>
+                      <li><a href="nuevoCliente">Nuevo Cliente</a></li>
                        <li><a href="listarcliente2.jsp">Listar Clientes</a></li>
-                       <li><a href="registroTurno">Nueva Mascota</a></li>
-                       <li><a href="listarcliente2.jsp">Listar Mascotas</a></li>
+                       <li><a href="nuevoPaciente">Nueva Mascota</a></li>
+                       <li><a href="listarpaciente.jsp">Listar Mascotas</a></li>
                        </ul>
                   </li>
               </ul>
@@ -81,8 +80,8 @@
 					          <b class="caret"></b>
 					    </a>
 					    <ul class="dropdown-menu">
-					    	<li><a href="registroTurno">Nuevo Personal</a></li>
-                      		 <li><a href="listarcliente2.jsp">Listar Personal</a></li>					      
+					    	<li><a href="#">Nuevo Personal</a></li>
+                      		 <li><a href="#">Listar Personal</a></li>					      
 						</ul>
 				 </li>
 				</ul> 

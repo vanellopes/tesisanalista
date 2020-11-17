@@ -146,14 +146,14 @@
 			
 				<div class="control-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno (dd/mm/yyyy)</label>
+		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno</label>
 		          <div class="controls">	
 		          	<input name ="txtFecha" id="txtFecha" value="${requestScope.model.fechaTurno}">
 		          </div>
     			</div>
     			
     			<div class="control-group">
-		          <label class="control-label" for="input01" style="float:left;width:100px">Hora Turno (HH:mm)</label>
+		          <label class="control-label" for="input01" style="float:left;width:100px">Hora Turno</label>
 		          <div class="controls">	
 		          	<input name ="txtHora" id="txtHora" value="">
 		          </div>
@@ -164,7 +164,7 @@
 					  <!-- Button -->
 			          <div class="controls">
 			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >
-			            <input type="submit" value="Cancelar" class="btn btn-danger" onclick="return validar();" >
+			            <a href="main.jsp"><input type="submit" value="Cancelar" class="btn btn-danger"  ></a>
 			          </div>
         		</div>			
 			

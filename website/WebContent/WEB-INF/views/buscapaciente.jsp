@@ -62,17 +62,17 @@
 		<table id="gradient-style" summary="Meeting Results">
 			<thead>
 		    	<tr>
-		        	<th scope="col">Codigo</th>
-		            <th scope="col">Nombre</th>
+		            <th scope="col">Nombre</th>		            
+		        	<th scope="col">Especie</th>
 		            <th scope="col">Seleccionar</th>
 		        </tr>
 	    	</thead>
 			<tbody>
 			<c:forEach items="${model.pacientes}" var="prod" varStatus="i">
 			<tr>
-				<td>${prod.codigoPaciente}</td>
+				<td>${prod.nombre}</td>
 				<td width="100">${prod.especie}</td>
-				<td><a href="#" onclick='seleccionarpaciente("${prod.codigoPaciente}","${prod.especie}");'>Seleccionar</a></td>
+				<td><a href="#" onclick='seleccionarpaciente("${prod.codigoPaciente}","${prod.nombre}");'>Seleccionar</a></td>
 			</tr>
 			</c:forEach>
 			</tbody>
