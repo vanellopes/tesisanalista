@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS Paciente(
 	Esterilizado char(1) NOT NULL,
 	Peso numeric(5, 2) NOT NULL,
 	FechaNacimiento date NOT NULL,
+    estado int,
 	observaciones varchar(1000) NULL,
  CONSTRAINT PK_Paciente PRIMARY KEY CLUSTERED 
 (
@@ -46,9 +47,34 @@ CREATE TABLE IF NOT EXISTS Paciente(
 )
 );
 
-INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, observaciones) VALUES (1, 'terry',5, 1, 'H', 'S', (15.20 ), ('2010-05-16'), 'No hay notas');
-INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, observaciones) VALUES (2, 'sam',1,  2, 'H', 'S',  (30.00 ), ('2010-05-19'), 'eeeeeeeeeeeeeeeeeeee');
-INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, observaciones) VALUES (3, 'tom',14, 1, 'M', 'N',  (80.00 ), ('2010-05-18'), 'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (1, 'Terry',1, 1, 'M', 'S', (15.20 ), ('2010-05-16'), 1,'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (2, 'Sam',1,  2, 'H', 'S',  (30.00 ), ('2010-05-19'), 1, 'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (3, 'Tom',2, 3, 'M', 'N',  (80.00 ), ('2010-05-18'), 1,'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (4, 'Coco',3, 4, 'H', 'S', (15.20 ), ('2010-05-16'), 0,'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (5, 'Pancha', 3, 1, 'H', 'S',  (30.00 ), ('2010-05-19'),1, 'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (6, 'Niebla',5, 2, 'H', 'N',  (80.00 ), ('2010-05-18'), 1,'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (7, 'Beethoven',5, 1, 'M', 'S', (15.20 ), ('2010-05-16'), 1,'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (8, 'Dama',4,  4, 'H', 'S',  (30.00 ), ('2010-05-19'), 1,'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (9, 'Goofy',6, 1, 'M', 'N',  (80.00 ), ('2010-05-18'),1, 'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (10, 'Laika',7, 2, 'H', 'S', (15.20 ), ('2010-05-16'),1, 'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (11, 'Seymour',8,  3, 'H', 'S',  (30.00 ), ('2010-05-19'), 1,'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (12, 'Frodo',8, 1, 'M', 'N',  (80.00 ), ('2010-05-18'), 1,'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (13, 'Franny',9, 1, 'H', 'S', (15.20 ), ('2010-05-16'), 1,'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (14, 'Gala',10,  2, 'H', 'S',  (30.00 ), ('2010-05-19'), 1,'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (15, 'Anubis',14, 3, 'M', 'N',  (80.00 ), ('2010-05-18'),1, 'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (16, 'Hali',11, 2, 'H', 'S', (15.20 ), ('2010-05-16'), 1,'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (17, 'Harry',12,  1, 'H', 'S',  (30.00 ), ('2010-05-19'),1, 'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (18, 'Lambert',13, 2, 'M', 'N',  (80.00 ), ('2010-05-18'), 1,'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (19, 'Cora',15, 3, 'H', 'S', (15.20 ), ('2010-05-16'), 1,'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (20, 'Aura',16,  4, 'H', 'S',  (30.00 ), ('2010-05-19'), 1,'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (21, 'Hermes',17, 1, 'M', 'N',  (80.00 ), ('2010-05-18'), 1,'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (22, 'Mateo',18, 2, 'M', 'S', (15.20 ), ('2010-05-16'), 1,'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (23, 'Surya',18,  1, 'H', 'S',  (30.00 ), ('2010-05-19'), 0,'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (24, 'Ulises',19, 1, 'M', 'N',  (80.00 ), ('2010-05-18'), 1,'Nota');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (25, 'Lady',20, 1, 'H', 'S', (15.20 ), ('2010-05-16'), 1,'No hay notas');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (26, 'Venus',20,  2, 'H', 'S',  (30.00 ), ('2010-05-19'),1, 'sin observaciones');
+INSERT Paciente (PacienteId, nombre, clienteId, EspecieId, Genero,  Esterilizado, Peso, FechaNacimiento, estado, observaciones) VALUES (27, 'Osiris',21, 1, 'M', 'N',  (80.00 ), ('2010-05-18'), 1,'Nota');
+
 
 
 CREATE TABLE IF NOT EXISTS Especie(
