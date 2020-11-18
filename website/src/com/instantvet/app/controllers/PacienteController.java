@@ -2,8 +2,8 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.*;
-import com.instantvet.app.negocio.GestionCombo;
-import com.instantvet.app.negocio.GestionPaciente;
+import com.instantvet.app.service.GestionCombo;
+import com.instantvet.app.service.GestionPaciente;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -167,21 +167,7 @@ public class PacienteController {
 //		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
 		
 		try {
-			paciente.GrabarModificarPaciente(oModelPaciente);
-		} catch (Exception e) {
-			return new ModelAndView("/error", "mensaje", e.getMessage());
-		}
-
-		return new ModelAndView("redirect:listarpaciente.jsp");
-	}
-	
-	@RequestMapping(value = "/eliminarPaciente", method = RequestMethod.GET)
-	public ModelAndView eliminarPaciente(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		System.out.println("eliminarPaciente");
-		
-		try {
-			paciente.deletepaciente(Integer.parseInt(request.getParameter("id")));
+			paciente.modificarPaciente(oModelPaciente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -193,7 +179,12 @@ public class PacienteController {
 	public ModelAndView BuscaPaciente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
        
-		List<Paciente> pacientes = this.paciente.listarpacientesxcliente(Integer.parseInt(request.getParameter("idcliente")));
+		List<Paciente> pacientes = null;
+		try {
+			pacientes = this.paciente.listarpacientesxcliente(Integer.parseInt(request.getParameter("idcliente")));
+		} catch (Exception e) {
+			return new ModelAndView("/error", "mensaje", e.getMessage());
+		}
 		
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("pacientes",pacientes);
@@ -201,13 +192,21 @@ public class PacienteController {
         return new ModelAndView("buscapaciente","model", myModel);
 
     }
-
 	
-	/*@RequestMapping(value = "/Menu", method = RequestMethod.GET)
-	public ModelAndView IrMenu(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		System.out.println("Menu");
-		return new ModelAndView("index");
-	}*/
+	@RequestMapping(value="/verpaciente")
+	public ModelAndView verPaciente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, DAOExcepcion {
+		List<Paciente> pacientes = null;
+		try {
+			pacientes = this.paciente.listarpacientesxcliente(Integer.parseInt(request.getParameter("idcliente")));
+		} catch (Exception e) {
+			return new ModelAndView("/error", "mensaje", e.getMessage());
+		}
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("pacientes",pacientes);
+       
+        return new ModelAndView("verpaciente","model", myModel);
+
+    }
 
 }

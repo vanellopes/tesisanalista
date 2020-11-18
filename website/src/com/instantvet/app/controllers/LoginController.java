@@ -2,7 +2,7 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Login;
-import com.instantvet.app.negocio.GestionLogin;
+import com.instantvet.app.service.GestionLogin;
 
 import java.io.IOException;
 import java.util.HashMap;

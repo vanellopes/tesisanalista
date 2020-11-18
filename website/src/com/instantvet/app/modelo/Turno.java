@@ -1,6 +1,10 @@
 package com.instantvet.app.modelo;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class Turno {
 	
@@ -19,13 +23,23 @@ public class Turno {
 
 	public Turno() {
 		super();
+	}	
+	public void getFechaHora() {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+    String dateInString = "2014-10-05T15:23:01Z";
+
+    try {
+
+        Date date = formatter.parse(dateInString.replaceAll("Z$", "+0000"));
+        System.out.println(date);
+
+        System.out.println("time zone : " + TimeZone.getDefault().getID());
+        System.out.println(formatter.format(date));
+
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
 	}
-//	
-//	public void getFechaHora() {
-//		 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
-//		 Date date = new Date();
-//		  System.out.println("Hora actual: " + dateFormat.format(date));
-//	}
 
 	public Integer getCodigoTurno() {
 		return codigoTurno;
@@ -42,8 +56,23 @@ public class Turno {
 	}
 
 
-	public void setFechaTurno(Date fechaDate) {
-		this.fechaTurno = fechaDate;
+	public void setFechaTurno(Date fechaTurno) {
+		this.fechaTurno = fechaTurno;
+	}
+	
+	public void convertFechaTurno(String fechaHora) {
+		Date date = null;
+		try {
+			DateFormat fechaHoraFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			date = fechaHoraFormat.parse(fechaHora);
+			System.out.println(date); 
+			
+		} catch (ParseException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		
+		this.fechaTurno = date;
 	}
 
 

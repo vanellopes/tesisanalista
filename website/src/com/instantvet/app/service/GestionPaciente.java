@@ -1,4 +1,4 @@
-package com.instantvet.app.negocio;
+package com.instantvet.app.service;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Paciente;
@@ -13,9 +13,7 @@ public interface GestionPaciente {
 	public abstract Paciente obtenerPaciente(int codigoPaciente)
 			throws DAOExcepcion;
 
-	public abstract void deletepaciente(int codigoDueno) throws DAOExcepcion;
-
-	public abstract void GrabarModificarPaciente(Paciente pac)
+	public abstract void modificarPaciente(Paciente pac)
 			throws DAOExcepcion;
 
 	public abstract List<Paciente> listarPacientes() throws DAOExcepcion;

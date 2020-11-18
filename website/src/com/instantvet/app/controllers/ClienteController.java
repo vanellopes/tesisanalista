@@ -2,7 +2,7 @@ package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.*;
-import com.instantvet.app.negocio.GestionCliente;
+import com.instantvet.app.service.GestionCliente;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -27,27 +27,7 @@ public class ClienteController {
 	@Autowired
 	private GestionCliente Cliente;
 	
-	@RequestMapping(value="/listarcliente.jsp")
-	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, DAOExcepcion {
-		
-		List<Cliente> clientes = this.Cliente.listarClientes();
-		Map<String, Object> myModel = new HashMap<String, Object>();
-		myModel.put("clientes",clientes);
-       
-		String mensaje="";
-		if(request.getParameter("mensaje")!=null){
-			mensaje=request.getParameter("mensaje");
-		}
-		
-		ModelAndView mav = new ModelAndView("listarcliente");
-        mav.addObject("model",myModel);
-        mav.addObject("mensaje", mensaje);
-        return mav;
-
-    }
-	
-	@RequestMapping(value = "/verRegistroCliente", method = RequestMethod.GET)
+	@RequestMapping(value = "/registroCliente", method = RequestMethod.GET)
 	public ModelAndView ingresar(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
@@ -57,28 +37,18 @@ public class ClienteController {
 	@RequestMapping(value = "/registrarCliente", method = RequestMethod.POST)
 	public ModelAndView registroCliente(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		System.out.println("registrarCliente");
-		try{
-			//System.out.println(new ReniecLocator().getReniecSoap().GETPERSONA("41203195"));
-		}catch(Exception e){
-			System.out.println("Servicio no disponible");
-		}
-		
-		
+		System.out.println("registrarCliente");			
 			    
-		//Cliente oModelCliente = new Cliente();
-//		oModelCliente.setCodigo(request.getParameter("id"));
-//		oModelCliente.setNombre(request.getParameter("txtNombre"));
-//		oModelCliente.setApellido(request.getParameter("txtApellido"));
-//		oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
-//		oModelCliente.setCelular(request.getParameter("txtCelular"));
-//		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
-//		oModelCliente.setEmail(request.getParameter("txtEmail"));
-//		oModelCliente.setImagen(request.getParameter("txtImagen"));
-//		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
+		Cliente oModelCliente = new Cliente();
+		oModelCliente.setNombre(request.getParameter("txtNombre"));
+		oModelCliente.setNumDocumento(Integer.parseInt(request.getParameter("txtDNI")));
+		oModelCliente.setApellido(request.getParameter("txtApellido"));
+		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
+		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
+		oModelCliente.setEmail(request.getParameter("txtEmail"));
 		
 		try {
-			//Cliente.GrabarModificarCliente(oModelCliente);
+			Cliente.registrarCliente(oModelCliente);
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
@@ -88,104 +58,8 @@ public class ClienteController {
         return mav;
 		//return new ModelAndView("redirect:listarcliente.jsp");
 	}
-	
-	@RequestMapping(value = "/editarCliente", method = RequestMethod.GET)
-	public ModelAndView editar(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		Cliente oModelCliente = new Cliente();
-		oModelCliente = Cliente.ObtenerCliente(request.getParameter("id"));
-		
-		System.out.println("idCliente "+request.getParameter("id"));
-		return new ModelAndView("editarCliente", "model", oModelCliente);
-	}
-	
-	@RequestMapping(value = "/guardarModificacionCliente", method = RequestMethod.POST)
-	public ModelAndView modificarCliente(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		System.out.println("registrarCliente");
-		
-		Cliente oModelCliente = new Cliente();
-		oModelCliente.setCodigo(request.getParameter("id"));
-		oModelCliente.setNombre(request.getParameter("txtNombre"));
-		oModelCliente.setApellido(request.getParameter("txtApellido"));
-		//oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
-		
-		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
-		oModelCliente.setEmail(request.getParameter("txtEmail"));
-	
-		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
-		
-		try {
-			Cliente.GrabarModificarCliente(oModelCliente);
-		} catch (Exception e) {
-			return new ModelAndView("/error", "mensaje", e.getMessage());
-		}
 
-		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
-        mav.addObject("mensaje",new String ("Cliente modificado!!!"));
-        return mav;
-		//return new ModelAndView("redirect:listarcliente.jsp");
-	}
-	
-	@RequestMapping(value = "/eliminarCliente", method = RequestMethod.GET)
-	public ModelAndView eliminarCliente(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		System.out.println("eliminarCliente");
-		
-		Cliente oModelCliente = new Cliente();
-		oModelCliente.setCodigo(request.getParameter("id"));
-		oModelCliente.setNombre(request.getParameter("txtNombre"));
-		oModelCliente.setApellido(request.getParameter("txtApellido"));
-		//oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
-		
-		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
-		oModelCliente.setEmail(request.getParameter("txtEmail"));
-		
-		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
-		
-		try {
-			Cliente.deleteCliente(oModelCliente.getCodigo());
-		} catch (Exception e) {
-			return new ModelAndView("/error", "mensaje", e.getMessage());
-		}
-
-		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
-        mav.addObject("mensaje",new String ("Cliente eliminado!!!"));
-        return mav;
-		//return new ModelAndView("redirect:listarcliente.jsp");
-	}
-
-	
-	@RequestMapping(value = "/Menu", method = RequestMethod.GET)
-	public ModelAndView IrMenu(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		System.out.println("Menu");
-		//String RutaFile=request.getContextPath();
-		//return new ModelAndView(RutaFile + "/index");
-		return new ModelAndView("index");
-	}
-	
-	@RequestMapping(value = "/CambiarCliente", method = RequestMethod.GET)
-	public ModelAndView CambiarCliente(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		System.out.println("CambiarCliente");
-		
-		Cliente oModelCliente = new Cliente();
-		oModelCliente.setCodigo(request.getParameter("id"));
-		
-		try {
-			Cliente.changeClienteToCliente(oModelCliente.getCodigo());
-		} catch (Exception e) {
-			return new ModelAndView("/error", "mensaje", e.getMessage());
-		}
-
-		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
-        mav.addObject("mensaje",new String ("Cambio realizado!!!"));
-        return mav;
-	
-	}
-
-	@RequestMapping(value="/listarcliente2.jsp")
+	@RequestMapping(value="/listarcliente")
 	public ModelAndView ListarClientes(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
 		
@@ -205,65 +79,6 @@ public class ClienteController {
         
     }
 	
-	@RequestMapping(value = "/eliminarClienteC", method = RequestMethod.GET)
-	public ModelAndView eliminarClienteC(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		System.out.println("eliminarClienteC");
-		
-		Cliente oModelCliente = new Cliente();
-		oModelCliente.setCodigo(request.getParameter("id"));
-	
-		try {
-			Cliente.deleteCliente(oModelCliente.getCodigo());
-		} catch (Exception e) {
-			return new ModelAndView("/error", "mensaje", e.getMessage());
-		}
-
-		ModelAndView mav = new ModelAndView("redirect:listarcliente2.jsp");
-        mav.addObject("mensaje",new String ("Cliente eliminado!!!"));
-        return mav;
-        
-	}
-	
-	
-	@RequestMapping(value = "/editarClienteC", method = RequestMethod.GET)
-	public ModelAndView editarClienteC(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		Cliente oModelCliente = new Cliente();
-		oModelCliente = Cliente.ObtenerCliente(request.getParameter("id"));
-		
-		System.out.println("idCliente "+request.getParameter("id"));
-		return new ModelAndView("editarClienteC", "model", oModelCliente);
-	}
-	
-	@RequestMapping(value = "/guardarModificacionClienteC", method = RequestMethod.POST)
-	public ModelAndView modificarClienteC(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		System.out.println("guardarModificacionClienteC");
-		
-		Cliente oModelCliente = new Cliente();
-		oModelCliente.setCodigo(request.getParameter("id"));
-		oModelCliente.setNombre(request.getParameter("txtNombre"));
-		oModelCliente.setApellido(request.getParameter("txtApellido"));
-		//oModelCliente.setNumDocumento(request.getParameter("txtApellidoMaterno"));
-		
-		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
-		oModelCliente.setEmail(request.getParameter("txtEmail"));
-		
-		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
-		
-		try {
-			Cliente.GrabarModificarCliente(oModelCliente);
-		} catch (Exception e) {
-			return new ModelAndView("/error", "mensaje", e.getMessage());
-		}
-
-		ModelAndView mav = new ModelAndView("redirect:listarcliente2.jsp");
-        mav.addObject("mensaje",new String ("Cliente modificado!!!"));
-        return mav;
-		
-	}
-	
 	@RequestMapping(value="/buscacliente")
 	public ModelAndView BuscaCliente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, DAOExcepcion {
@@ -276,4 +91,27 @@ public class ClienteController {
         return new ModelAndView("buscacliente","model", myModel);
 
     }
+	
+	
+//	@RequestMapping(value="/vercliente")
+//	public ModelAndView vercliente(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException, DAOExcepcion {
+//		Cliente cliente = null;
+//       
+//		String codigo= (request.getParameter("idCliente"));
+//		try 
+//		{
+//			this.Cliente.ObtenerCliente(codigo);
+//		} 
+//		catch (Exception e) 
+//		{
+//			return new ModelAndView("/error", "mensaje", e.getMessage());
+//		}
+//		
+//		Map<String, Object> myModel = new HashMap<String, Object>();
+//		myModel.put("clientes",cliente);
+//		
+//        return new ModelAndView("vercliente","model", myModel);
+//
+//    }
 }

@@ -12,15 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HolaController {
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String darNombre(){return "Victor";}
+	public String darNombre(){return "vane";}
 
 	@ModelAttribute("Nombre")
 	public String tomarNombre(@RequestParam("nombre")String nom )
 	{return nom;}
 	
-	@ModelAttribute("ApellidoMaterno")
-	public String tomarApellidoMaterno(@RequestParam("apemat")String am )
-	{return am;}
 	
 	@ModelAttribute("Apellido")
 	public String tomarApellido(@RequestParam("apepat")String ap )

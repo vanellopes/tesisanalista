@@ -1,5 +1,6 @@
 package com.instantvet.app.modelo;
 
+import java.util.Date;
 
 public class Paciente {
 	
@@ -10,7 +11,7 @@ public class Paciente {
 	String genero;
 	String esterilizado; 
 	String peso;
-	String fechaNacimiento;
+	Date fechaNacimiento;
 	String observaciones;
 	
 	
@@ -20,7 +21,7 @@ public class Paciente {
 
 
 	public Paciente(int codigoPaciente, int codigoCliente, String especie, String nombre, String genero, String esterilizado,
-			String peso, String fechaNacimiento, String observaciones) {
+			String peso, Date fechaNacimiento, String observaciones) {
 		super();
 		this.codigoPaciente = codigoPaciente;
 		this.codigoCliente = codigoCliente;
@@ -104,12 +105,12 @@ public class Paciente {
 	}
 
 
-	public String getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
 
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

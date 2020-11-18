@@ -1,4 +1,4 @@
-package com.instantvet.app.negocio;
+package com.instantvet.app.service;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.*;

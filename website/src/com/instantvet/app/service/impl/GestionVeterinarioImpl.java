@@ -1,9 +1,9 @@
-package com.instantvet.app.negocio.impl;
+package com.instantvet.app.service.impl;
 
 import com.instantvet.app.dao.PersonalDAO;
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.Personal;
-import com.instantvet.app.negocio.GestionVeterinario;
+import com.instantvet.app.service.GestionVeterinario;
 
 import java.util.List;
 

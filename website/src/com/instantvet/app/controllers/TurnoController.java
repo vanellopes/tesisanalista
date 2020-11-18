@@ -6,9 +6,6 @@ import com.instantvet.app.service.GestionTurnos;
 
 import java.io.IOException;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,15 +26,6 @@ public class TurnoController
 
 	@Autowired
 	private GestionTurnos turno;
-
-	
-//	///no lo usare VER
-//	@RequestMapping(value = "/menuTurno", method = RequestMethod.GET)
-//	public ModelAndView ingresarMenuTurno(HttpServletRequest request,
-//			HttpServletResponse response) throws Exception {
-//
-//		return new ModelAndView("menuTurno");
-//	}
 
 	@RequestMapping(value = "/registroTurno", method = RequestMethod.GET)
 	public ModelAndView ingresarTarea(HttpServletRequest request,
@@ -115,7 +103,7 @@ public class TurnoController
 	public ModelAndView editarTarea(HttpServletRequest request,
 			HttpServletResponse response) throws Exception 
 	{
-		System.out.println("idCita "+request.getParameter("idTurno"));
+		System.out.println("trno "+request.getParameter("idTurno"));
 		
 		Turno oModelTurno = new Turno();
 		Integer codigo = Integer.parseInt(request.getParameter("idTurno"));

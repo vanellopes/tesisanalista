@@ -1,9 +1,9 @@
-package com.instantvet.app.negocio.impl;
+package com.instantvet.app.service.impl;
 
 import com.instantvet.app.dao.*;
 import com.instantvet.app.excepcion.DAOExcepcion;
 import com.instantvet.app.modelo.*;
-import com.instantvet.app.negocio.GestionLogin;
+import com.instantvet.app.service.GestionLogin;
 
 import org.springframework.stereotype.Service;
 

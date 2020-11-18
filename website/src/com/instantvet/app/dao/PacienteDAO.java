@@ -274,7 +274,11 @@ public class PacienteDAO extends BaseDAO {
                 }
                 
             public List<Paciente> listarpacientesxcliente(int codcliente) throws DAOExcepcion {
-        		String query = "SELECT * from  instantvet.Paciente WHERE clienteId=?";
+        		String query = "Select p.pacienteId, p.nombre, e.Nombre as especie, p.genero, p.clienteId, " +
+        				       "p.peso, p.fechaNacimiento, p.Esterilizado, p.observaciones " +
+		        			   "from paciente p " +
+		        			   "join especie e on (p.especieId = e.especieId ) " +
+		        			   "where p.clienteId =? and p.estado =1 ";
         	List<Paciente> lista = new ArrayList<Paciente>();
         	Connection con = null;
         	PreparedStatement stmt = null;
@@ -287,8 +291,14 @@ public class PacienteDAO extends BaseDAO {
         		while (rs.next()) {
         			Paciente objPaciente = new Paciente();        			
         			objPaciente.setCodigoPaciente(rs.getInt("PacienteId"));
-        			objPaciente.setEspecie(rs.getString("nombre"));
-        			
+        			objPaciente.setNombre(rs.getString("nombre"));
+        			objPaciente.setEspecie(rs.getString("especie"));
+        			objPaciente.setGenero(rs.getString("genero"));
+        			objPaciente.setPeso(rs.getString("peso"));
+        			objPaciente.setFechaNacimiento(rs.getTimestamp("fechaNacimiento"));
+        			objPaciente.setEsterilizado(rs.getString("Esterilizado")); 
+        			objPaciente.setObservaciones(rs.getString("observaciones")); 
+        			objPaciente.setCodigoCliente(rs.getInt("clienteId")); 
         			lista.add(objPaciente);
         		}
         	} catch (SQLException e) {
