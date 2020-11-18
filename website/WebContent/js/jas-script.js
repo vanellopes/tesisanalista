@@ -39,11 +39,11 @@ $(document).ready(function () {
             	
             	switch($(this).attr('flag'))
             	{
-            		case 'Prospecto':
+            		case 'Cliente':
             			urlRegister = 'verRegistroCliente.jsp';
             			break;
-            		case 'Doctor':
-            			urlRegister = 'verRegistroDoctor.jsp';
+            		case 'Personal':
+            			urlRegister = 'verRegistroPersonal.jsp';
             			break;
             		
             	}
