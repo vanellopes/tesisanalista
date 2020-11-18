@@ -6,24 +6,14 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
- <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+<jsp:include page="head.jsp"></jsp:include>
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
     </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-<link href="css/style.css" rel="stylesheet" />
+   
 <title>Veterinaria - Personales</title>
 <SCRIPT type="text/javascript">
 function validar(){
@@ -181,5 +171,6 @@ function validar(){
 	<div class="center_content">
 		
 	</div>
+	<jsp:include page="script.jsp"></jsp:include>
 </body>
 </html>

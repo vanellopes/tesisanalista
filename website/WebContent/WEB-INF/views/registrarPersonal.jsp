@@ -4,14 +4,9 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta charset="utf-8">
+<jsp:include page="head.jsp"></jsp:include>
 <title>Veterinaria - Mantenimiento de Personales ::.. Agregar nuevo Personal</title>
-<link href="css/style.css" rel="stylesheet" />
-<script src="js/jquery-1.7.2.min.js" type="text/javascript"
-	charset="utf-8"></script>
-<link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
-<script src="js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"
-	charset="utf-8"></script>
+
 
 <script>
 	/*$(function() {
@@ -61,6 +56,6 @@
 	</form>
 	</div>
 	<!-- end of center content -->
-	
+	<jsp:include page="script.jsp"></jsp:include>
 </body>
 </html>

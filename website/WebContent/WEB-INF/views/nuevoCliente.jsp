@@ -6,24 +6,15 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
- <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-<link href="css/style.css" rel="stylesheet" />
+<jsp:include page="head.jsp"></jsp:include>
+<<!-- Le styles -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/DT_bootstrap.css" rel="stylesheet">
+  
+  <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet">
+ 
+    
 <title>InstantVet | Nuevo Cliente</title>
 
 <SCRIPT type="text/javascript">
@@ -47,7 +38,7 @@ function window_onload(){
 
 </head>
 <body onload="window_onload()">
- 	<jsp:include page="menu.jsp"></jsp:include>
+ 	<jsp:include page="menu2.jsp"></jsp:include>
      <div class="container" style="width: 1076px;"> 
 
       <!-- Main hero unit for a primary marketing message or call to action -->
@@ -82,7 +73,7 @@ function window_onload(){
 		    
 		    <div class="control-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Naciemiento</label>
+		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Nac</label>
 		          <div class="controls">	
 		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha" required>		      
 		          </div>
@@ -125,5 +116,6 @@ function window_onload(){
 		<iframe id="frmValidar" style="display: none;">	
 		</iframe>
 	</div>
+	<jsp:include page="script.jsp"></jsp:include>
 </body>
 </html>

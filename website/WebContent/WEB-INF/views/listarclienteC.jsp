@@ -7,21 +7,17 @@
  <head>
  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  
+  <jsp:include page="head.jsp"></jsp:include>
   <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/DT_bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/DT_bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+	body {
+	  padding-top: 60px;
+	  padding-bottom: 40px;
+	}
+  </style>
+  <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 	<title>InstantVet | Lista de Clientes</title>
 <script type="text/javascript" >
 	function confirmar(){
@@ -75,7 +71,7 @@
 </head>
 	<body>
 		   
-      <jsp:include page="menu.jsp"></jsp:include>
+      <jsp:include page="menu2.jsp"></jsp:include>
 	
 	<div>
 			<H1><% if(request.getAttribute("mensaje")!=null){ %>
@@ -153,7 +149,7 @@
 		
 		</div>
 		
-		
+		<jsp:include page="script.jsp"></jsp:include>
 		
 		    <!-- Le javascript
     ================================================== -->

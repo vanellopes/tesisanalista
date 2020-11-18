@@ -4,7 +4,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta charset="utf-8">
+<jsp:include page="head.jsp"></jsp:include>
 <title>Veterinaria - Mantenimiento de Clientes ::.. Agregar nuevo Cliente</title>
 <link href="css/style.css" rel="stylesheet" />
 <script src="js/jquery-1.7.2.min.js" type="text/javascript"
@@ -12,7 +12,6 @@
 <link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
 <script src="js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"
 	charset="utf-8"></script>
-
 <script>
 	$(function() {
 		$( "#datepicker" ).datepicker({ autoSize: true });
@@ -22,7 +21,7 @@
 
 </head>
 <body>
-    <jsp:include page="menu.jsp"></jsp:include>
+    <jsp:include page="menu2.jsp"></jsp:include>
 	<div class="center_content">
 	<h3>Mantenimiento de Clientes</h3>
 	<form action="registrarCliente" method="post">
@@ -61,6 +60,6 @@
 	</form>
 	</div>
 	
-	
+	<jsp:include page="script.jsp"></jsp:include>
 </body>
 </html>

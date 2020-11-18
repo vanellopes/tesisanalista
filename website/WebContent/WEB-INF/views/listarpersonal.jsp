@@ -29,7 +29,7 @@
 </head>
 	<body> 
 
-      <jsp:include page="menu.jsp"></jsp:include>
+      <jsp:include page="menu2.jsp"></jsp:include>
 	
 	   <div class="container" style="width: 1076px;">
 
@@ -82,7 +82,7 @@
       </footer>
 
     </div> 
-    
+    <jsp:include page="script.jsp"></jsp:include>
     
     <!-- Le javascript
     ================================================== -->

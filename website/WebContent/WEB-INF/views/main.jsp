@@ -4,42 +4,23 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <jsp:include page="head.jsp"></jsp:include>
     <title>InstantVet</title>
-    <jsp:include page="include.jsp" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-<!--     Le styles -->
-   <link href="../css/bootstrap.css" rel="stylesheet">
-    <style type="text/css"> 
-      body { 
-         padding-top: 60px; 
-       padding-bottom: 40px; 
-     } 
-     </style> 
-<    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
-<!--     Le HTML5 shim, for IE6-8 support of HTML5 elements --> 
-<!--      [if lt IE 9]> -->
-<!-- <      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> --> 
-<!--      <![endif] --> 
-    
-    
-    
     <style type="text/css" media="screen"> 
             .slides_container {
                 width:950px; 
                 height:463px;
            }
-           .slides_container div                 
+           .slides_container div{                 
            width:950px; 
                height:463px; 
                 display:block; 
            } 
        </style>
-    
   </head>
   <body>
-    <div><jsp:include page="menu.jsp"/> </div>
+    <div><jsp:include page="menu2.jsp"/> </div>
+  
        
     
     <div class="container" style="width: 1076px;">
@@ -70,12 +51,14 @@
       <footer>
         <p>&copy; InstantVet</p>
       </footer>
-
+	 <!-- Control Sidebar -->
+	  <aside class="control-sidebar control-sidebar-dark">
+	    <!-- Control sidebar content goes here -->
+	  </aside>
+	  <!-- /.control-sidebar -->
     </div> 
-    
+    <jsp:include page="script.jsp"></jsp:include>
 
-    
-    
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

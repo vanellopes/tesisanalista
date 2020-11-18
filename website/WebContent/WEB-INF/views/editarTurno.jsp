@@ -8,8 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>InstantVet | Modificar Turno</title>
     
-    <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+    <jsp:include page="head.jsp"></jsp:include>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -95,7 +94,7 @@
 
 </head>
 <body>
-	  <jsp:include page="menu.jsp"></jsp:include>
+	  <jsp:include page="menu2.jsp"></jsp:include>
 
     <div class="container" style="width: 1076px;">
 	
@@ -176,7 +175,7 @@
       	  </footer>
 		 
     </div>
-    
+    <jsp:include page="script.jsp"></jsp:include>
     	    <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

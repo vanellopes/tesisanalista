@@ -6,7 +6,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<jsp:include page="head.jsp"></jsp:include>
 <link href="css/style.css" rel="stylesheet" />
 <title>InstantVet | Nuevo Paciente</title>
 <SCRIPT type="text/javascript">
@@ -52,7 +52,7 @@
 </SCRIPT>
 </head>
 <body>
-    <jsp:include page="menu.jsp"></jsp:include>
+    <jsp:include page="menu2.jsp"></jsp:include>
 	<div class="center_content">
 		<h3>Ingresar nuevo Paciente</h3>
 			<form name="input" action="registrarPersonal.html" method="get">

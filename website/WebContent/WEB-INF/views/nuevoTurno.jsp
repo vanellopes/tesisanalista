@@ -1,29 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
-  
-  <!DOCTYPE html >
+<!DOCTYPE html >
  <html>
  <head>
- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  
+  <jsp:include page="head.jsp"></jsp:include>
   <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/DT_bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet">
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/DT_bootstrap.css" rel="stylesheet">
+  
+  <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+ 
 <title>InstantVet | Nuevo Turno</title>
 
 <SCRIPT type="text/javascript">
@@ -84,7 +71,7 @@
 
 </head>
 <body>
-	<jsp:include page="menu.jsp"></jsp:include>
+	<jsp:include page="menu2.jsp"></jsp:include>
 
     <div class="container" style="width: 1076px;">
 	
@@ -165,7 +152,7 @@
       	  </footer>
 		 
     </div>
-    
+    <jsp:include page="script.jsp"></jsp:include>
     	    <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
