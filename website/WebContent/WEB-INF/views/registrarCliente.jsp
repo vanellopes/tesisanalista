@@ -22,7 +22,7 @@
 
 </head>
 <body>
-
+    <jsp:include page="menu.jsp"></jsp:include>
 	<div class="center_content">
 	<h3>Mantenimiento de Clientes</h3>
 	<form action="registrarCliente" method="post">

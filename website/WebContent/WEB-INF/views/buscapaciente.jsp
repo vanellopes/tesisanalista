@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Busqueda de Pacientes</title>
+<title>InstantVet | Busqueda de Pacientes</title>
 <script type="text/javascript" language="javascript">
 	function seleccionarpaciente(codigo,nombre){
 		window.opener.document.getElementById("hiddenpaciente").value=codigo;
@@ -56,7 +56,7 @@
 </head>
 <body>
 <div class="center_content">
-		<h1>Buscador de Pacientes</h1> <p>
+		<h1>Lista de Pacientes</h1> <p>
 		<form action="" method="get">
 		</form>
 		<table id="gradient-style" summary="Meeting Results">

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Error</title>
+<title>InstantVet | Error</title>
 </head>
 <body>
 <H1>Hay un error</H1>${requestScope.mensaje}

@@ -24,7 +24,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<title>Veterinaria - Turnos</title>
+<title>InstantVet | Nuevo Turno</title>
 
 <SCRIPT type="text/javascript">
  function validar()
@@ -84,7 +84,7 @@
 
 </head>
 <body>
-	  <jsp:include page="menu.jsp"></jsp:include>
+	<jsp:include page="menu.jsp"></jsp:include>
 
     <div class="container" style="width: 1076px;">
 	
@@ -137,9 +137,14 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno</label>
 		          <div class="controls">	
-		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha">	            
-		            <input type="time" class="input-xlarge" name ="hora" id="hora">
-		      
+		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha">	
+		          </div>
+    			</div>
+    			
+    			<div class="control-group">
+		          <label class="control-label" for="input01" style="float:left;width:100px">Hora Turno</label>
+		          <div class="controls">	
+		          	<input type="time" class="input-xlarge" name ="hora" id="hora">
 		          </div>
     			</div>
     			

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>salida</title>
+<title>InstantVet | salida</title>
 </head>
 <body>
 <h1>Nombre:  ${Nombre}</h1>

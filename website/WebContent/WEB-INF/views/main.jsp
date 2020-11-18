@@ -51,13 +51,13 @@
         <div id="slides">
             <div class="slides_container">
                 <div>
-                    <img src="../images/slides/01.jpg">
+                    <img src="../images/nuevas/1.jpg">
                 </div>
                 <div>
-                    <img src="../images/slides/02.jpg">
+                    <img src="../images/nuevas/2.jpg">
                 </div>
                 <div>
-                    <img src="../images/slides/03.jpg">
+                    <img src="../images/nuevas/3.jpg">
                 </div>
             </div>
         </div>

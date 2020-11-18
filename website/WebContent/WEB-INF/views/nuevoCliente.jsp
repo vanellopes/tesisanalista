@@ -24,7 +24,7 @@
     <![endif]-->
 
 <link href="css/style.css" rel="stylesheet" />
-<title>Veterinaria - Clientes</title>
+<title>InstantVet | Nuevo Cliente</title>
 
 <SCRIPT type="text/javascript">
 
@@ -47,69 +47,52 @@ function window_onload(){
 
 </head>
 <body onload="window_onload()">
-
-     
+ 	<jsp:include page="menu.jsp"></jsp:include>
+     <div class="container" style="width: 1076px;"> 
 
       <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="">
-			<form id="frmIngreso" name="input" action="registrarCliente.html" method="post">
-			
-			<div class="control-group">
-	          <!-- Text input-->
-	          <label class="control-label" for="input01" style="float:left;width:100px">Id Cliente</label>
-	          <div class="controls">
-	            <input type="text" class="input-xlarge" value="${requestScope.model.codigo}" name="id" id="id">
-	          </div>
-    		</div>
+      <div class="hero-unit">
+      <h3>Registro de Cliente</h3>
+			<form id="frmIngreso" name="input" action="registrarCliente" method="post">
+			<div style="width:200px">&nbsp;</div>
     		
     		<div class="control-group">
 	          <!-- Text input-->
 	          <label class="control-label" for="input01" style="float:left;width:100px">DNI</label>	          
 	          <div class="controls">
-	            <input type="text" class="input-xlarge" value="${requestScope.model.dni}" id="txtDNI" name="txtDNI">
-	            
-	            <input type="button" class="btn btn-success" value="..." onclick="verificarRegistroCliente();">
-	            
-	          </div>
+	            <input type="number" class="input-xlarge" id="txtDNI" name="txtDNI"  max="99999999" required>
+	           </div>
     		</div>
     
 		    <div class="control-group">
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Nombre</label>
 		          <div class="controls">
-		            <input type="text" class="input-xlarge" value="${requestScope.model.nombre}" name="txtNombre" id="txtNombre">
+		            <input type="text" class="input-xlarge" name="txtNombre" id="txtNombre" required>
 		          </div>
 		    </div>
 		    
 		    <div class="control-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Ap. Paterno</label>
+		          <label class="control-label" for="input01" style="float:left;width:100px">Apellido</label>
 		          <div class="controls">
-		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellido}" name="txtApellido" id="txtApellido">
+		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellido}" name="txtApellido" id="txtApellido" required>
 		          </div>
 		    </div>
 		    
 		    <div class="control-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Ap. Materno</label>
-		          <div class="controls">
-		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellidomaterno}" name="txtApellidoMaterno" id="txtApellidoMaterno">
+		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Naciemiento</label>
+		          <div class="controls">	
+		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha" required>		      
 		          </div>
-		    </div>
-		    
-		    <div class="control-group">
-		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Celular</label>
-		          <div class="controls">
-		            <input type="text" class="input-xlarge" name ="txtCelular">
-		          </div>
-		    </div>
+    		</div>
 		    
 		    <div class="control-group">
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Telefono</label>
 		          <div class="controls">
-		            <input type="text" class="input-xlarge" name ="txtTelefono">
+		            <input type="number" class="input-xlarge" name ="txtTelefono" required>
 		          </div>
 		    </div>
 		    
@@ -125,7 +108,7 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Email</label>
 		          <div class="controls">
-		            <input type="text" class="input-xlarge" name ="txtEmail">
+		            <input type="email" class="input-xlarge" name ="txtEmail">
 		          </div>
 		    </div>
 		    
@@ -136,11 +119,11 @@ function window_onload(){
 		            <input type="hidden" id="_error" value="${requestScope.model.error}" />
 		          </div>
         	</div>
-			
 		
-	</form>
-      </div>
-	<iframe id="frmValidar" style="display: none;">	
-	</iframe>
+		</form>
+	      </div>
+		<iframe id="frmValidar" style="display: none;">	
+		</iframe>
+	</div>
 </body>
 </html>

@@ -6,9 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Veterinaria - Editar un Turno</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>InstantVet</title>
+    <title>InstantVet | Modificar Turno</title>
     
     <!-- Le styles -->
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -103,8 +101,8 @@
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
 	      <div class="hero-unit">
-			<h3>Modificacion de Turno</h3>
-			<form name="input" action="registrarTurno" method="post">			
+			<h3>Modificar Turno</h3>
+			<form name="input" action="modificarTurno" method="post">			
 			
 				<div style="width:200px">&nbsp;</div>
     			
@@ -112,9 +110,20 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Cliente</label>
 		          <div class="controls">
-		            <input name ="txtCodigoCliente" id="txtCodigoCliente" value="${requestScope.model.nombreCliente}"readonly="readonly" >
+		            <input name ="txtCodigoCliente" id="txtCodigoCliente" value="${requestScope.model.nombreCliente}" readonly="readonly" >
+		            <input type="hidden" id="hiddencliente" name="hiddencliente" value="${requestScope.model.cliente}">
 		          </div>
     			</div>
+    			
+<!--     			<div class="control-group"> -->
+<!-- 		          Text input -->
+<!-- 		          <label class="control-label" for="input01" style="float:left;width:100px">Cliente</label> -->
+<!-- 		          <div class="controls"> -->
+<!-- 		            <input type="text" class="input-xlarge" name =txtCliente id="txtCliente" readonly="readonly" > -->
+<!-- 		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarcliente();" > -->
+<!-- 		            <input type="hidden" id="hiddencliente" name="hiddencliente" value="0"> -->
+<!-- 		          </div> -->
+<!--     			</div> -->
     			
     			<div class="control-group">
 		          <!-- Text input-->
@@ -126,15 +135,6 @@
 		          </div>
     			</div>
     			
-    			
-    			<div class="control-group">
-		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Tipo Turno</label>
-		          <div class="controls">
-						<input type="radio" name="rbTipoTurno" value="V" checked> Veterinaria<br>
-						<input type="radio" name="rbTipoTurno" value="P"> Peluqueria<br>
-		          </div>
-    			</div>
     			<div class="control-group">
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Observaciones</label>
@@ -148,14 +148,14 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno</label>
 		          <div class="controls">	
-		          	<input name ="txtFecha" id="txtFecha" value="${requestScope.model.fechaTurno}">
+		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha">	
 		          </div>
     			</div>
     			
     			<div class="control-group">
 		          <label class="control-label" for="input01" style="float:left;width:100px">Hora Turno</label>
 		          <div class="controls">	
-		          	<input name ="txtHora" id="txtHora" value="">
+		          	<input type="time" class="input-xlarge" name ="hora" id="hora">
 		          </div>
     			</div>
     			

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Busqueda de Clientes</title>
+<title>InstantVet | Busqueda de Clientes</title>
 <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/DT_bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -18,21 +18,21 @@
 <script type="text/javascript" language="javascript">
 	function seleccionarcliente(codigo,nombre,apellido,materno){
 		window.opener.document.getElementById("hiddencliente").value=codigo;
-		window.opener.document.getElementById("txtCliente").value=apellido + ' ' + materno + ',' + nombre;
+		window.opener.document.getElementById("txtCliente").value=apellido + ',' + ' ' + nombre;
 		window.close();
 	}
 </script>
 </head>
 <body>
 	<div >
-		<h1>Buscador de Clientes</h1> <p>
+		<h1>Listado de Clientes</h1> <p>
 		<form action="" method="get">
 		</form>
 		<table  cellpadding="0" cellspacing="0" border="0"  class="table table-striped table-bordered">
 			<thead>
 		    	<tr>
-		            <th scope="col">Nombre</th>
-		            <th scope="col">Apellido</th>
+		            <th scope="col">Nombre y Apellido</th>
+		            <th scope="col">Num Documento</th>
 		            <th scope="col">Telefono</th>
 		            <th scope="col">Seleccionar</th>
 		        </tr>
@@ -40,8 +40,8 @@
 	    	<tbody>
 			<c:forEach items="${model.clientes}" var="prod" varStatus="i">
 			<tr>
-				<td width="100">${prod.nombre}</td>
-				<td>${prod.apellido}</td>
+				<td width="150">${prod.apellido}, ${prod.nombre}</td>
+				<td>${prod.numDocumento}</td>
 				<td>${prod.telefono}</td>
 				<td><a href="#" onclick='seleccionarcliente("${prod.codigo}","${prod.nombre}","${prod.apellido}","${prod.numDocumento}");'>Seleccionar</a></td>
 			</tr>

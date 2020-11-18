@@ -22,7 +22,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-	<title>Lista de Clientes</title>
+	<title>InstantVet | Lista de Clientes</title>
 <script type="text/javascript" >
 	function confirmar(){
 		if(confirm("Desea realizar esta acción?")){
@@ -97,31 +97,32 @@
 		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 		<thead>
 		    	<tr>
-		        	<th>Nombres</th>
-		            <th>Apellidos</th>
+		        	<th>Nombres y Apellido</th>		            
 		            <th>Num Documento</th>
 		            <th>Direccion</th>
 					<th>Telefono</th>
-					<th>Editar</th>
-					<th>Eliminar</th>
+					<th>Email</th>
+					<th>Ver Mascotas</th>
+<!-- 					<th>Editar</th> -->
 		        </tr>
 	    	</thead>
 	    	<tbody>
 			<c:forEach items="${model.clientes}" var="prod" varStatus="i">
 			<tr>
-				<td width="100">${prod.nombre}</td>
-				<td>${prod.apellido}</td>
+				<td width="150">${prod.apellido}, ${prod.nombre}</td>				
 				<td>${prod.numDocumento}</td>
 				<td>${prod.direccion}</td>
 				<td>${prod.telefono}</td>
+				<td>${prod.email}</td>
 				<td align="center"><a
-						href="editarClienteC.jsp?id=${prod.codigo}"> <img
-							src="<%=request.getContextPath()%>/images/editar.jpg" alt="" title="" border="0" onclick="return confirmar();" />
-					</a></td>
-				<td align="center"><a
-						href="eliminarClienteC.jsp?id=${prod.codigo}"><img
+						href="verpaciente?idcliente=${prod.codigo}"><img
 							src="<%=request.getContextPath()%>/images/delete.gif" alt="" title="" border="0" onclick="return confirmar();" /></a>
 				</td>
+<!-- 				<td align="center"><a -->
+<%-- 						href="editarClienteC.jsp?id=${prod.codigo}"> <img --%>
+<%-- 							src="<%=request.getContextPath()%>/images/editar.jpg" alt="" title="" border="0" onclick="return confirmar();" /> --%>
+<!-- 					</a></td> -->
+				
 			</tr>
 			</c:forEach>
 			</tbody>

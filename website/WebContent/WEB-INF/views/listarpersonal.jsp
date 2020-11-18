@@ -24,7 +24,7 @@
 <link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
 <script src="js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"
 	charset="utf-8"></script>
-	<title>Lista de Personales</title>
+	<title>InstantVet | Lista de Personal</title>
 
 </head>
 	<body> 
