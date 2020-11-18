@@ -62,9 +62,8 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="#">Inicio</a></li>
-              <li><a href="forms/listarcliente.jsp">Prospectos</a></li>
               <li><a href="forms/listarcliente2.jsp">Clientes</a></li>
-      		  <li><a href="forms/listardoctor.jsp">Doctores</a></li>
+      		  <li><a href="forms/listarPersonal.jsp">Personales</a></li>
 	          <li><a href="forms/listarfacturas.jsp">Facturacion</a></li>
 	                		   <li>
 					<ul class="nav">
@@ -77,9 +76,9 @@
 						    </a>
 						    <ul class="dropdown-menu">
 						    	<li><a href="forms/verRegistroVacuna">Crear Turno para vacunaci�n</a></li>
-						    	<li><a href="forms/verRegistroTarea">Crear tarea en el calendario</a></li>
+						    	<li><a href="forms/registroTurno">Crear tarea en el calendario</a></li>
 						    	<li><a href="forms/listarVacuna">Ver calendario con las vacunas programadas</a></li>
-						    	<li><a href="forms/listarTarea">Ver calendario con las tareas asignadas</a></li>
+						    	<li><a href="forms/listarTurnos">Ver calendario con las tareas asignadas</a></li>
 						    	<li><a href="forms/verRegistroNombreVacuna">Registrar Nombre de Vacuna</a></li>
 						      
 							</ul>
