@@ -4,20 +4,16 @@ DELIMITER $$
 USE `instantvet`$$
 CREATE PROCEDURE `UP_ListarPaciente` ()
 BEGIN
-select Paciente_Id,
-		concat_ws(', ', cl.Nombres, cl.apellido) as Dueno,
+select pa.PacienteId,
+       pa.nombre,
+		concat_ws(', ', cl.Nombres, cl.apellido) as nombreCliente,
 		es.Nombre as Especie, 
-		ge.Nombre as Genero
+		pa.genero
 		from   Paciente pa 
-	inner join Actividad ac
-		on pa.Actividad_Id = ac.Id
 	inner join Especie es
-		on pa.Especie_Id = es.Id
-	inner join Genero ge
-		on pa.Genero_Id = ge.Id
+		on pa.EspecieId = es.especieId
 	inner join Cliente cl
-		on pa.Dueno_Id = cl.Persona_Id ;
+		on pa.clienteId = cl.clienteId ;
 END$$
 
 DELIMITER ;
-

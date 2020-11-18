@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS Especie(
 INSERT Especie (especieId, Nombre) VALUES (1, 'Perro');
 INSERT Especie (especieId, Nombre) VALUES (2, 'Gato');
 INSERT Especie (especieId, Nombre) VALUES (3, 'Ave');
-INSERT Especie (especieId, Nombre) VALUES (4, 'Reptil');
+INSERT Especie (especieId, Nombre) VALUES (4, 'Otro');
 
 CREATE TABLE IF NOT EXISTS Personal(
 	PersonalId INT(4) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -103,11 +103,11 @@ CREATE TABLE IF NOT EXISTS Personal(
 	grupoID int NOT NULL
 );
 
-INSERT Personal (PersonalId, nombre, apellido, matricula, email, telefono, tipo_personal, username, password, grupoID) VALUES (1, 'Samuel', 'Salazar', 'mat123456', 'samuel.salazar@gmail.com', '1234567', 'V', 'sam', '123456', 2);
-INSERT Personal (PersonalId, nombre, apellido, matricula, email, telefono, tipo_personal, username, password, grupoID) VALUES (7, 'Rocio', 'Miranda', 'mat456789', 'rocio@gmail.com', '', 'R','rociom', '123456', 1);
+INSERT Personal (PersonalId, nombre, apellido, matricula, email, telefono, tipo_personal, username, password, grupoID) VALUES (1, 'Samuel', 'Salazar', 'mat123456', 'samuel.salazar@gmail.com', '1234567', 'V', 'szalazar', '123456', 2);
+INSERT Personal (PersonalId, nombre, apellido, matricula, email, telefono, tipo_personal, username, password, grupoID) VALUES (7, 'Rocio', 'Miranda', 'mat456789', 'rocio@gmail.com', '', 'R','rmiranda', '123456', 1);
 
 CREATE TABLE IF NOT EXISTS Cliente(
-	clienteId int NOT NULL,
+	clienteId int NOT NULL AUTO_INCREMENT,
     num_documento int(50) NULL,
 	Nombres varchar(60) NOT NULL,
 	apellido varchar(50) NOT NULL,	
@@ -122,27 +122,27 @@ CREATE TABLE IF NOT EXISTS Cliente(
 
 
 
-INSERT Cliente (clienteId, num_documento, Nombres, apellido,  email, telefono,  direccion,  estado) VALUES (1, 123,'jose', 'zamudio',  'libra5100@hotmail.com', '5342031',  'SMP', 'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (2, 1235, 'jose3', 'zamudio3', 'libra2033@hotmail.com', '5342031',  'SMP',  'X');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (3, 12356, 'jose3', 'zamudio3',  'libra2033@hotmail.com', '5342031',  'SMP', 'X');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (4, 25896, 'Melissa', 'Almora B',  '', '',  '',  'X');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (5, 258963, 'Cinthya', 'Ferreyra',  '', '',  '',  'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (6, 857485,'Angel', 'Ruiz', 'm',  '',  '',  'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (7, 854714, 'Camila', 'Rios',  'camila@gmail.com', '',  'Lima', 'X');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (8, 456789,'Priscilla ', 'Salome',  '', '',  '', 'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (9, 5648791, 'Jhosep', 'laines ',  '', '',  '','A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (10, 52841, 'Nilda', 'Panduro',  '', '',  '',  'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (11, 2252556,'James', 'Villacorta',  '', '',  '', 'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (12, 123365,'Leonidas', 'Piza',  '', '',  '',  'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (13, 85236,'Lucia', 'Luja',  '', '',  '',  'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (14, 58485,'Jessica', 'Ferbandez ',  '', '',  '',  'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (15, 369695,'Rosa ', 'Valderrama',  '', '',  '',  'X');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (16, 554448,'Luis', 'Vargas',  '', '123455555',  'Lima',  'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (17, 55252255,'Erika', 'Peve',  '', '77821122',  '',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido,  email, telefono,  direccion,  estado) VALUES (1, 123,'Jose', 'Zamudio',  'libra5100@hotmail.com', '5342031',  'SMP', 'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (2, 1235, 'Jose', 'Ferreyra', 'libra2033@hotmail.com', '5342031',  'SMP',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (3, 12356, 'Marta', 'Amudio',  'libra2033@hotmail.com', '5342031',  'SMP', 'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (4, 25896, 'Melissa', 'Almora B',  'Melissa@hotmail.com', '45654369',  'Diercc 1588',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (5, 258963, 'Cinthya', 'Ferreyra',  '@hotmail.com', '5468778242',  'Salta 514 ',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (6, 857485,'Angel', 'Ruiz', '@hotmail.com',  '7565345',  'NYFR 1232',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (7, 854714, 'Camila', 'Rios',  'camila@gmail.com', '546543453',  'Lima', 'X');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (8, 456789,'Priscilla ', 'Salome',  '@hotmail.com', '58792453',  'Maste', 'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (9, 5648791, 'Jhosep', 'laines ',  '@hotmail.com', '5464534568',  'TYU 365','A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (10, 52841, 'Nilda', 'Panduro',  '@hotmail.com', '565435694',  'PG 22',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (11, 2252556,'James', 'Villacorta',  '@hotmail.com', '546543565',  'P', 'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (12, 123365,'Leonidas', 'Piza',  '@hotmail.com', '12345674',  'Turcuman 111',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (13, 85236,'Lucia', 'Luja',  '@hotmail.com', '1565422',  'La Rioja',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (14, 58485,'Jessica', 'Ferbandez ',  '@hotmail.com', '546453645',  'Montevideo',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (15, 369695,'Rosa ', 'Valderrama',  '@hotmail.com', '45645645',  'Derqui',  'X');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (16, 554448,'Luis', 'Vargas',  '@hotmail.com', '123455555',  'Lima',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (17, 55252255,'Erika', 'Peve',  '@hotmail.com', '77821122',  '',  'A');
 INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (18, 626655,'eduardo', 'zamudio',  'libra5100@hotmail.com', '5342031',  'SMP', 'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (19, 5588962,'jose', 'manue',  '', '1234567', '', 'A');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (20, 32562559,'fgdg', 'fgdfg',  '', '5646',  'fdgdg ',  'X');
-INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (21, 528564,'rtet', 'ertert',  '', '',  'fgdgfdgdfg',  'X');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (19, 5588962,'jose', 'manue',  '@hotmail.com', '1234567', '', 'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (20, 32562559,'fgdg', 'fgdfg',  '@hotmail.com', '5646',  'fdgdg ',  'A');
+INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (21, 528564,'rtet', 'ertert',  '@hotmail.com', '456456456',  'fgdgfdgdfg',  'A');
 INSERT Cliente (clienteId, num_documento, Nombres, apellido, email, telefono,  direccion, estado) VALUES (22, 632595,'Luis', 'Salazar',  'luis.salazar@gmail.com', '123456',  'Surco', 'A');
 
 
@@ -172,7 +172,6 @@ CREATE TABLE IF NOT EXISTS usuario(
 (
 	Id ASC
 ));
-
 
 INSERT usuario (Id, Nombre) VALUES (1, 'uno');
 INSERT usuario (Id, Nombre) VALUES (2, 'dos');
