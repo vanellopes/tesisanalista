@@ -6,6 +6,7 @@ public class Paciente {
 	
 	int codigoPaciente;	
 	int codigoCliente; 
+	String nombreCliente;
 	String especie;
 	String nombre;
 	String genero;
@@ -122,6 +123,16 @@ public class Paciente {
 
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
+	}
+
+
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
 	}
 	
 	

@@ -195,12 +195,11 @@ public class PacienteDAO extends BaseDAO {
 
                                 while (rs.next()) {
                                         Paciente oPaciente = new Paciente();
-//                                        oPaciente.setnombrePaciente(rs.getString("Dueno"));
-//                                        oPaciente.setCodigoPaciente(rs.getInt("Paciente_Id"));
-//                                        oPaciente.setEspecie(rs.getString("Especie"));
-//                                        oPaciente.setRaza(rs.getString("Raza"));
-//                                        oPaciente.setGenero(rs.getString("Genero"));
-//                                        oPaciente.setTipoSangre(rs.getString("TipoSangre"));
+                                        oPaciente.setNombre(rs.getString("nombre"));
+                                        oPaciente.setCodigoPaciente(rs.getInt("PacienteId"));
+                                        oPaciente.setEspecie(rs.getString("Especie"));
+                                        oPaciente.setGenero(rs.getString("Genero"));
+                                        oPaciente.setNombreCliente(rs.getString("nombreCliente"));
                                         lista.add(oPaciente);
                                 }
 

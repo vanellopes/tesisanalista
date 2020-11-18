@@ -118,12 +118,12 @@ public class TurnoController
 		
 		Turno oModelTurno = new Turno();
 		oModelTurno.setCodigoTurno( Integer.parseInt(request.getParameter("idTurno")));
-		oModelTurno.setTipoTurno("T");
-		//oModelTurno.setCodigoCliente(request.getParameter("txtCodigoCliente"));
-		//oModelTurno.setCodigoPaciente(request.getParameter("txtCodigoPaciente"));
+		oModelTurno.setTipoTurno(request.getParameter("rbTipoTurno"));
+		oModelTurno.setPaciente(request.getParameter("hiddenpaciente"));
 		oModelTurno.setObservaciones(request.getParameter("txtDescripcion"));
-		//Date fechaTurno = Date.valueOf(request.getParameter("txtFecha"));
-		//oModelTurno.setFechaTurno(fechaTurno);
+		oModelTurno.setEstadoTurnoId(1);
+		String fecha = (request.getParameter("fecha")+" "+request.getParameter("hora"));
+		oModelTurno.convertFechaTurno(fecha);
 		
 		try 
 		{

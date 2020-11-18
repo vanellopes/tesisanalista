@@ -86,32 +86,20 @@ public class TurnoDAO extends BaseDAO
 	
 	public void modificarTurno(Turno objTurno) throws DAOExcepcion
 	{
-		String query = "UPDATE Turno SET clienteId=?,pacienteId=?,PersonalId=?,tipo_Turno=?,descripcion=?, " +
-	                   "nombre_vacuna=?,fecha_Turno=? WHERE TurnoId=?";
+		String query = "UPDATE Turno SET pacienteId=?,tipo_Turno=?,observaciones=?, " +
+	                   "estadoTurnoId=?,fecha_Turno=? WHERE TurnoId=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try 
-		{
-			if (objTurno.getTipoTurno() == "V")
-			{
-//			  if (existeRegistro(objTurno.getNombreVacuna(), "", "Vacunas") == 0)
-//			    throw new SQLException("Nombre de la Vacuna no existe");
-			}
-			
-//			if (existeRegistro(objTurno.getCodigoCliente() , "", "Cliente") == 0)
-//				throw new SQLException("Cliente no existe");
-//
-//			if (existeRegistro(objTurno.getCodigoPaciente(), objTurno.getCodigoCliente(), "Paciente") == 0)
-//				throw new SQLException("Paciente no pertenece al cliente o no existe");
-			
+		{	
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			//stmt.setString(1, objTurno.getCodigoCliente());
-			//stmt.setString(2, objTurno.getCodigoPaciente());
-			stmt.setString(4, objTurno.getTipoTurno());
-			stmt.setString(5, objTurno.getObservaciones());
-			//stmt.setDate(1, (Date)objTurno.getFechaTurno());
-			stmt.setInt(1, objTurno.getCodigoTurno());
+			stmt.setString(1, objTurno.getPaciente());
+			stmt.setString(2, objTurno.getTipoTurno());
+			stmt.setString(3, objTurno.getObservaciones());
+			stmt.setInt(4, objTurno.getEstadoTurnoId());			
+			java.sql.Timestamp sqlDate =new java.sql.Timestamp(objTurno.getFechaTurno().getTime());
+			stmt.setTimestamp(1, sqlDate);
 			int i = stmt.executeUpdate();
 			if (i != 1) 
 			  throw new SQLException("No se pudo actualizar la Turno");
