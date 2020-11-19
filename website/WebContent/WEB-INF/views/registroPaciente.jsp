@@ -78,16 +78,7 @@
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
 	  <div class="hero-unit" >
-		<div class="card card-primary">
-		 <div class="card-header">
-              <h3 class="card-title">Registro Mascota</h3>
-
-              <div class="card-tools">
-<!--                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"> -->
-<!--                   <i class="fas fa-minus"></i></button> -->
-              </div>
-            </div>
-            <div class="card-body">
+		<h3>Registro de Mascota</h3>
 			<form id="frmIngreso" name="input" action="registrarPaciente.html"  method="post">
 			<div style="width:200px">&nbsp;</div>
 			<div class="form-group">
@@ -122,12 +113,12 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Especie</label>
 		          <div class="controls">
-		            <select  id="cboEsterilizado" name="cboEsterilizado" required>
-	                  <option selected disabled>Seleccione  </option>
-	                  <option value=1>Perro</option>
-	                  <option value=2>Gato</option>
-	                  <option value=3>Ave</option>
-	                  <option value=4>Otro</option>
+		            <select class="form-control custom-select" required>
+	                  <option selected disabled>Seleccione </option>
+	                  <option>Perro</option>
+	                  <option>Gato</option>
+	                  <option>Ave</option>
+	                  <option>Otro</option>
 	                </select>
 		          </div>
 		    </div>
@@ -136,8 +127,8 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Genero</label>
 		          <div class="controls">
-		            <input type="radio" name="rbGenero" value="H" checked> Hembra<br>
-						<input type="radio" name="rbGenero" value="M"> Macho<br>
+		            <input type="radio" name="rbTipoTurno" value="H" checked> Hembra<br>
+						<input type="radio" name="rbTipoTurno" value="M"> Macho<br>
 		          </div>
 		    </div>
 		    
@@ -145,8 +136,8 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Esterilizado</label>
 		          <div class="controls">
-		            <input type="radio" name="rbEsterilizado" value="S" checked> Si<br>
-						<input type="radio" name="rbEsterilizado" value="N"> No<br>
+		            <input type="radio" name="rbTipoTurno" value="S" checked> Si<br>
+						<input type="radio" name="rbTipoTurno" value="N"> No<br>
 		          </div>
 		    </div>
 		    
@@ -184,9 +175,6 @@
 <!--         	</div> -->
 		
 		</form>
-		 </div>
-          <!-- /.card -->
-        </div>
  			</div>
 		 </div>
 		 </div>

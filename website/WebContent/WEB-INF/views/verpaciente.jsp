@@ -5,13 +5,13 @@
 <html>
 <head>
 <jsp:include page="head.jsp"></jsp:include>
-<title>InstantVet | Pacientes</title>
+<title>InstantVet | Mascotas</title>
     
 </head>
 <body>
 	<div >
 	<div class="container" style="width: 1300px;">
-		<h1>Pacientes</h1> <p>
+		<h1>Mascotas</h1> <p>
 		<form action="" method="get">
 		</form>
 		<table  cellpadding="0" cellspacing="0" border="0"  class="table table-striped table-bordered">

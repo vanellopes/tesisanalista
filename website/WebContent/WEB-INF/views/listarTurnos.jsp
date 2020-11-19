@@ -46,7 +46,7 @@
                     <th>Fecha y hora </th>
 					<th>Area</th>
 					<th>Cliente</th>
-					<th>Paciente</th>
+					<th>Mascota</th>
 					<th>Telefono de contacto</th>	
 					<th>Estado</th>			
 					<th>Observaciones</th>

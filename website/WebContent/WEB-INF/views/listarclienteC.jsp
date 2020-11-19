@@ -8,11 +8,7 @@
  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  
   <jsp:include page="head.jsp"></jsp:include>
-  <!-- Le styles -->
-  <link href="../css/bootstrap.css" rel="stylesheet">
-  <link href="../css/DT_bootstrap.css" rel="stylesheet">
   
-  <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 	<title>InstantVet | Lista de Clientes</title>
 <script type="text/javascript" >
 	function confirmar(){
@@ -140,7 +136,12 @@
 		
 		<jsp:include page="script.jsp"></jsp:include>
 		
+<script type="text/javascript">
+function vermascotas(){
+	window.open("verpaciente?idcliente="+ document.getElementById("hiddencliente").value,"","width=600,height=400");
+}
 
+</script>
 		
 		
 		

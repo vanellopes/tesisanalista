@@ -18,7 +18,7 @@
 	 }
 	 
 	 if(document.getElementById("txtCodigoPaciente").value=="") {
-		 msg=msg +"Ingrese Codigo del Paciente!!! \n"; 
+		 msg=msg +"Ingrese Codigo del Mascota!!! \n"; 
 		 bol=false;
 	 }
 	 
@@ -90,8 +90,17 @@
        <div class="invoice p-3 mb-3">
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
-	      <div class="hero-unit" >
-			<h3>Registro de Turnos</h3>
+	     <div class="hero-unit" >
+		<div class="card card-primary">
+		 <div class="card-header">
+              <h3 class="card-title">Registro Turno</h3>
+
+              <div class="card-tools">
+<!--                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"> -->
+<!--                   <i class="fas fa-minus"></i></button> -->
+              </div>
+            </div>
+            <div class="card-body">
 			<form name="input" action="registrarTurno" method="post">			
 			
 				<div style="width:200px">&nbsp;</div>
@@ -119,7 +128,7 @@
     			
     			<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:120px">Tipo Turno</label>
+		          <label class="control-label" for="input01" style="float:left;width:120px">Area Turno</label>
 		          <div class="controls">
 						<input type="radio" name="rbTipoTurno" value="V" checked> Veterinaria<br>
 						<input type="radio" name="rbTipoTurno" value="P"> Peluqueria<br>
@@ -129,7 +138,7 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:120px">Observaciones</label>
 		          <div class="controls">
-		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion"></textarea>
+		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion"  maxlength="200"></textarea>
 		      
 		          </div>
     			</div>
@@ -152,12 +161,16 @@
     			<div class="form-group">
 					  <!-- Button -->
 			          <div class="controls">
+			          <a href="main.jsp" class="btn btn-danger">Cancelar</a>
 			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >
-			            <a href="main.jsp" class="btn btn-danger">Cancelar</a>
+			            
 			          </div>
         		</div>
 			
 			</form>
+			 </div>
+          <!-- /.card -->
+        </div>
 		 </div>
 		 </div>
 		 </div>

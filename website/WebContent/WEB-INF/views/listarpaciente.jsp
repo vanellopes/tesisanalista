@@ -8,37 +8,40 @@
  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  
   <jsp:include page="head.jsp"></jsp:include>
-  <!-- Le styles -->
-  <link href="../css/bootstrap.css" rel="stylesheet">
-  <link href="../css/DT_bootstrap.css" rel="stylesheet">
   
-  <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
-
-<link href="css/style.css" rel="stylesheet" />
-<script src="js/jquery-1.7.2.min.js" type="text/javascript"
-  charset="utf-8"></script>
-<link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
-<script src="js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"
-  charset="utf-8"></script>
-    
 	<title>InstantVet | Lista de Pacientes</title>
 </head>
 	<body> 
 	
-      <jsp:include page="menu2.jsp"></jsp:include>
-	<!-- Content Wrapper. Contains page content -->
+    <jsp:include page="menu2.jsp"></jsp:include>
+     <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-	
-	   <div class="container" style="width: 1076px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <form action="#" method="get">
+				<input type="submit" name="btnNuevo" id="btnNuevo" value="Nueva Mascota"   class="btn btn-success" />
+				<a href="main.jsp" class="btn btn-success">Regresar al Inicio</a>
+			</form>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h2>Pacientes</h2> <p>
-		<form action="verRegistroPaciente.jsp" method="get">
-			<input type="submit" name="btnNuevo" id="btnNuevo" value="Nuevo Paciente" class="btn btn-primary btn-larg" />
-		</form>
-		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+    <!-- Main content -->
+    <section class="content">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Lista de Mascotas</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
 			<thead>	
 				<tr>
 					<th>Cliente</th>
@@ -51,24 +54,32 @@
 			<tbody>
 				<c:forEach items="${model.pacientes}" var="prod" varStatus="i">
 				<tr>
-					<td width="180">${prod.nombreCliente}</td>
+					<td width="250px">${prod.nombreCliente}</td>
 					<td>${prod.nombre}</td>
-					<td>${prod.fechaNacimiento}</td>
+					<td width="150">
+					<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${prod.fechaNacimiento}" pattern="dd/MM/yyyy, HH:mm"/></td>
 					<td>${prod.especie}</td>
-					<td>${prod.genero}</td>
+					<td>${prod.genero=='H' ? 'Hembra' : 'Macho'}</td>
 				</tr>
 				</c:forEach>
 			</tbody>
-		</table>
+			</table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
       </div>
-
-      <footer>
-        <p>&copy;  InstantVet </p>
+      <!-- /.container-fluid -->
+    </section>
+     <footer>
+        <p>&copy; InstantVet</p>
       </footer>
-
-    </div> 
-    </div>
-    
+    <!-- /.content -->
+  </div>
     <jsp:include page="script.jsp"></jsp:include>
     		
 		    <!-- Le javascript

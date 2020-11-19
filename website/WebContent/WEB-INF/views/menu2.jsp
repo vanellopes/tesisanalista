@@ -101,6 +101,43 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
+       <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <img src="../dist/img/user5-128x128.jpg" class="user-image img-circle elevation-2" alt="User Image">
+          <span class="d-none d-md-inline">Rocio </span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- User image -->
+          <li class="user-header bg-primary">
+            <img src="../dist/img/user5-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+
+            <p>
+              Rocio Miranda - Recepcionista
+              <small>Member since Nov. 2012</small>
+            </p>
+          </li>
+          <!-- Menu Body -->
+<!--           <li class="user-body"> -->
+<!--             <div class="row"> -->
+<!--               <div class="col-4 text-center"> -->
+<!--                 <a href="#">Followers</a> -->
+<!--               </div> -->
+<!--               <div class="col-4 text-center"> -->
+<!--                 <a href="#">Sales</a> -->
+<!--               </div> -->
+<!--               <div class="col-4 text-center"> -->
+<!--                 <a href="#">Friends</a> -->
+<!--               </div> -->
+<!--             </div> -->
+<!--             /.row -->
+<!--           </li> -->
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <a href="#" class="btn btn-default btn-flat">Perfil</a>
+            <a href="Login" class="btn btn-default btn-flat float-right">Sign out</a>
+          </li>
+        </ul>
+      </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
@@ -113,7 +150,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="../images/logos/logo6.jpg"
+      <img src="../images/logos/2.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -122,14 +159,13 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../dist/img/user5-128x128.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Recepcionista ${sessionScope.name}</a>
-        </div>
+<!--         <div class="image">  -->
+<!--          <img src="../dist/img/user5-128x128.jpg" class="img-circle elevation-2" alt="User Image">   -->
+<!--       </div>   -->
+<!--        <div class="info">  -->
+<%--         <a href="#" class="d-block">Recepcionista ${sessionScope.name}</a>  --%>
+<!--         </div> -->
       </div>
 
       <!-- Sidebar Menu -->
@@ -170,6 +206,18 @@
                   <p>Listar Turnos Peluqueria</p>
                 </a>
               </li>
+<!--               <li class="nav-item"> -->
+<!--                 <a href="listarTurnosPeluqueria" class="nav-link"> -->
+<!--                   <i class="far fa-circle nav-icon"></i> -->
+<!--                   <p>Listar Turnos Atendidos</p> -->
+<!--                 </a> -->
+<!--               </li> -->
+<!--               <li class="nav-item"> -->
+<!--                 <a href="listarTurnosPeluqueria" class="nav-link"> -->
+<!--                   <i class="far fa-circle nav-icon"></i> -->
+<!--                   <p>Listar Turnos Cancelados</p> -->
+<!--                 </a> -->
+<!--               </li> -->
             </ul>
           </li>
         
@@ -198,7 +246,7 @@
              </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="registroPaciente" class="nav-link">
               <i class="nav-icon fas fa-paw"></i>
               <p>
                 Mascotas
@@ -208,7 +256,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="verRegistroPaciente" class="nav-link">
+                <a href="registroPaciente" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Registrar Mascota</p>
                 </a>

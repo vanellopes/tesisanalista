@@ -40,7 +40,7 @@
     	<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	<div class="center_content">
-	<h3>Mantenimiento de Pacientes</h3>
+	<h3>Mantenimiento de Mascotas</h3>
 	<form action="registrarPaciente.html" method="post">
 		<table  border="1">
 			<thead>

@@ -5,18 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>InstantVet | Modificar Turno</title>
     
     <jsp:include page="head.jsp"></jsp:include>
     
-     <!-- Le styles -->
-  <link href="../css/bootstrap.css" rel="stylesheet">
-  <link href="../css/DT_bootstrap.css" rel="stylesheet">
-  
-  <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet">
-    
+ 
     
     <style type="text/css" media="screen">
             .slides_container {
@@ -87,30 +80,48 @@
 </SCRIPT>
 
 </head>
-<body>
-	  <jsp:include page="menu2.jsp"></jsp:include>
-	  	<!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<body onload="window_onload()">
+ 	<jsp:include page="menu2.jsp"></jsp:include>
+     <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+           
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-    <div class="container" style="width: 1076px;">
+    <section class="content">
+      <div class="container" style="width: 1076px;">
+
+
+            <!-- Main content -->
+       <div class="invoice p-3 mb-3">
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
-	      <div class="hero-unit">
+	      <div class="hero-unit" >
 			<h3>Modificar Turno</h3>
-			<form name="input" action="listarTurnos" method="post">			
+			<form name="input" action="modificarTurno" method="post">			
 			
 				<div style="width:200px">&nbsp;</div>
-				<div class="control-group" hidden>
+				<div class="form-group" hidden>
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">IdTurno</label>
+		          <label class="control-label" for="input01" style="float:left;width:140px">IdTurno</label>
 		          <div class="controls" >
 		            <input name ="idTurno" id="idTurno" value="${requestScope.model.codigoTurno}" readonly="readonly" >
 		          </div>
     			</div>
     			
-    			<div class="control-group">
+    			<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Cliente</label>
+		          <label class="control-label" for="input01" style="float:left;width:140px">Cliente</label>
 		          <div class="controls">
 		            <input name ="txtCodigoCliente" id="txtCodigoCliente" value="${requestScope.model.nombreCliente}" readonly="readonly" >
 		            <input type="hidden" id="hiddencliente" name="hiddencliente" value="${requestScope.model.cliente}">
@@ -118,9 +129,9 @@
     			</div>
     			
     			
-    			<div class="control-group">
+    			<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Paciente</label>
+		          <label class="control-label" for="input01" style="float:left;width:140px">Mascota</label>
 		          <div class="controls">
 		              <input type="text" class="input-xlarge" name ="txtpaciente" id="txtpaciente" value="${requestScope.model.nombrePaciente}"readonly="readonly">
 		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarpaciente();" >
@@ -128,48 +139,54 @@
 		          </div>
     			</div>
     			
-    			<div class="control-group">
+    			<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Observaciones</label>
+		          <label class="control-label" for="input01" style="float:left;width:140px">Observaciones</label>
 		          <div class="controls">
-		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion" value="${requestScope.model.observaciones}"></textarea>
-		      
+		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion"  maxlength="200" value="${requestScope.model.observaciones}"></textarea>		      
 		          </div>
     			</div>
 			
-				<div class="control-group">
+				<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno</label>
+		          <label class="control-label" for="input01" style="float:left;width:140px">Fecha Turno</label>
 		          <div class="controls">	
 		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha" value="${requestScope.model.fechaTurno}" required>	
 		          </div>
     			</div>
     			
-    			<div class="control-group">
-		          <label class="control-label" for="input01" style="float:left;width:100px">Hora Turno</label>
+    			<div class="form-group">
+		          <label class="control-label" for="input01" style="float:left;width:140px">Hora Turno</label>
 		          <div class="controls">	
-		          	<input type="time" class="input-xlarge" name ="hora" id="hora" required>
+		          	<input type="time" class="input-xlarge" name ="hora" id="hora"  value="${requestScope.model.hora}" required>
 		          </div>
     			</div>
     			
     			
-    			<div class="control-group">
+	    <div class="form-group">
 					  <!-- Button -->
 			          <div class="controls">
 			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >
-			            <a href="main.jsp"><input type="submit" value="Cancelar" class="btn btn-danger"  ></a>
+			            <a href="listarTurnos" class="btn btn-danger">Cancelar</a>
 			          </div>
-        		</div>			
-			
-			</form>
+        		</div>
+		    
+<!-- 		    <div class="form-group"> -->
+<!-- 				  Button -->
+<!-- 		          <div class="controls"> -->
+<!-- 		            <input type="submit" value="Ingresar" class="btn btn-success" > -->
+<%-- 		            <input type="hidden" id="_error" value="${requestScope.model.error}" /> --%>
+<!-- 		          </div> -->
+<!--         	</div> -->
+		
+		</form>
+ 			</div>
+		 </div>
+		 </div>
+		  </section>
 		 </div>
 		 
-		 <footer>
-        		<p>&copy; InstantVet</p>
-      	  </footer>
-		 
-    </div>
-    </div>
+
     <jsp:include page="script.jsp"></jsp:include>
     	    <!-- Le javascript
     ================================================== -->

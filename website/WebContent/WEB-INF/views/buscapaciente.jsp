@@ -78,6 +78,14 @@
 			</tbody>
 			
 		</table>
+		
+<!-- 		<div class="form-group"> -->
+<!-- 		  Button -->
+<!--           <div class="controls"> -->
+<!--             <input type="submit" value="Agregar Mascota" class="btn btn-success" href="nuevoPaciente" > -->
+            
+<!--           </div> -->
+<!--         </div> -->
 		</div>
 </body>
 </html>

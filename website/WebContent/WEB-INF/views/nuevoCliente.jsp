@@ -62,8 +62,17 @@ function window_onload(){
        <div class="invoice p-3 mb-3">
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
-	      <div class="hero-unit" >
-      <h3>Registro de Cliente</h3>
+	<div class="hero-unit" >
+		<div class="card card-primary">
+		 <div class="card-header">
+              <h3 class="card-title">Registro Cliente</h3>
+
+              <div class="card-tools">
+<!--                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"> -->
+<!--                   <i class="fas fa-minus"></i></button> -->
+              </div>
+            </div>
+            <div class="card-body">
 			<form id="frmIngreso" name="input" action="registrarCliente" method="post">
 			<div style="width:200px">&nbsp;</div>
     		
@@ -71,7 +80,7 @@ function window_onload(){
 	          <!-- Text input-->
 	          <label class="control-label" for="input01" style="float:left;width:140px">Num Documento</label>	          
 	          <div class="controls">
-	            <input type="number" class="input-xlarge" id="txtDNI" name="txtDNI"  max="99999999" required>
+	            <input type="number" class="input-xlarge" id="txtDNI" name="txtDNI"  max="99999999" min="1" required>
 	           </div>
     		</div>
     
@@ -79,7 +88,7 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Nombre</label>
 		          <div class="controls">
-		            <input type="text" class="input-xlarge" name="txtNombre" id="txtNombre" required>
+		            <input type="text" class="input-xlarge" name="txtNombre" id="txtNombre" maxlength="30" required>
 		          </div>
 		    </div>
 		    
@@ -87,7 +96,7 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Apellido</label>
 		          <div class="controls">
-		            <input type="text"  class="input-xlarge" value="${requestScope.model.apellido}" name="txtApellido" id="txtApellido" required>
+		            <input type="text"  class="input-xlarge"  name="txtApellido" id="txtApellido" maxlength="30" required>
 		          </div>
 		    </div>
 		    
@@ -103,7 +112,7 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Telefono</label>
 		          <div class="controls">
-		            <input type="number" class="input-xlarge" name ="txtTelefono" required>
+		            <input type="number" class="input-xlarge" name ="txtTelefono" min="1" max="99999999" required>
 		          </div>
 		    </div>
 		    
@@ -111,7 +120,7 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Direccion</label>
 		          <div class="controls">
-		            <input type="text" class="input-xlarge" name ="txtDireccion">
+		            <input type="text" class="input-xlarge" name ="txtDireccion" maxlength="200">
 		          </div>
 		    </div>
 		    
@@ -119,27 +128,32 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Email</label>
 		          <div class="controls">
-		            <input type="email" class="input-xlarge" name ="txtEmail">
+		            <input type="email" class="input-xlarge" name ="txtEmail" maxlength="50">
 		          </div>
 		    </div>
+		    
+		     <div class="form-group">
+				
+		          <div class="controls">
+		            <input type="submit" value="Agregar Mascota" class="btn btn-success" href="nuevoPaciente" >
+		            
+		          </div>
+		        </div>
 		    
 		    <div class="form-group">
 					  <!-- Button -->
 			          <div class="controls">
-			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >
-			            <a href="main.jsp" class="btn btn-danger">Cancelar</a>
+			          	<a href="main.jsp" class="btn btn-danger">Cancelar</a>
+			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >			            
 			          </div>
         		</div>
-		    
-<!-- 		    <div class="form-group"> -->
-<!-- 				  Button -->
-<!-- 		          <div class="controls"> -->
-<!-- 		            <input type="submit" value="Ingresar" class="btn btn-success" > -->
-<%-- 		            <input type="hidden" id="_error" value="${requestScope.model.error}" /> --%>
-<!-- 		          </div> -->
-<!--         	</div> -->
+		   
+
 		
 		</form>
+		 </div>
+          <!-- /.card -->
+        </div>
  			</div>
 		 </div>
 		 </div>
