@@ -10,7 +10,7 @@
         <a href="main.jsp" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contacto</a>
+        <a href="#" class="nav-link">Quienes somos</a>
       </li>
     </ul>
 
@@ -112,8 +112,8 @@
     <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../index3.html" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png"
+    <a href="#" class="brand-link">
+      <img src="../images/logos/logo6.jpg"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -128,7 +128,7 @@
           <img src="../dist/img/user5-128x128.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Recepcionista ${sessionScope.nombre}</a>
+          <a href="#" class="d-block">Recepcionista ${sessionScope.name}</a>
         </div>
       </div>
 
@@ -243,8 +243,7 @@
                 </a>
               </li>
             </ul>
-          </li>
-          
+          </li>          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

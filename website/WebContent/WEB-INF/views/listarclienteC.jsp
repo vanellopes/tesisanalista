@@ -11,12 +11,7 @@
   <!-- Le styles -->
   <link href="../css/bootstrap.css" rel="stylesheet">
   <link href="../css/DT_bootstrap.css" rel="stylesheet">
-  <style type="text/css">
-	body {
-	  padding-top: 60px;
-	  padding-bottom: 40px;
-	}
-  </style>
+  
   <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 	<title>InstantVet | Lista de Clientes</title>
 <script type="text/javascript" >
@@ -70,28 +65,37 @@
 </style>
 </head>
 	<body>
-		   
-      <jsp:include page="menu2.jsp"></jsp:include>
-	
-	<div>
-			<H1><% if(request.getAttribute("mensaje")!=null){ %>
-				<%= request.getAttribute("mensaje")%>
-		<%	} %>
-			</H1>
-	</div>
-	
-	
-	<div class="container" style="width: 1076px;">
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h2>Clientes</h2>
-		<form action="verRegistroCliente.jsp" method="get">
-			<a href="Menu.jsp">Menu</a>
-			<div style="display:none"><a class="btn btn-primary btn-larg" data-toggle="modal" href="#myModal"  id="btnNew">Nuevo</a></div>
-		</form>
-		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
-		<thead>
+    <jsp:include page="menu2.jsp"></jsp:include>
+     <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <form action="registroTurno" method="get">
+				<input type="submit" name="btnNuevo" id="btnNuevo" value="Nuevo Turno"   class="btn btn-success" />
+				<a href="main.jsp" class="btn btn-success">Regresar al Inicio</a>
+			</form>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Lista de Clientes</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+				<thead>
 		    	<tr>
 		        	<th>Nombres y Apellido</th>		            
 		            <th>Num Documento</th>
@@ -99,68 +103,44 @@
 					<th>Telefono</th>
 					<th>Email</th>
 					<th>Ver Mascotas</th>
-<!-- 					<th>Editar</th> -->
 		        </tr>
 	    	</thead>
 	    	<tbody>
 			<c:forEach items="${model.clientes}" var="prod" varStatus="i">
 			<tr>
-				<td width="150">${prod.apellido}, ${prod.nombre}</td>				
+				<td width="180">${prod.apellido}, ${prod.nombre}</td>				
 				<td>${prod.numDocumento}</td>
 				<td>${prod.direccion}</td>
 				<td>${prod.telefono}</td>
 				<td>${prod.email}</td>
 				<td align="center"><a
-						href="verpaciente?idcliente=${prod.codigo}"><img
-							src="<%=request.getContextPath()%>/images/delete.gif" alt="" title="" border="0" onclick="return confirmar();" /></a>
-				</td>
-<!-- 				<td align="center"><a -->
-<%-- 						href="editarClienteC.jsp?id=${prod.codigo}"> <img --%>
-<%-- 							src="<%=request.getContextPath()%>/images/editar.jpg" alt="" title="" border="0" onclick="return confirmar();" /> --%>
-<!-- 					</a></td> -->
-				
+						href="verpaciente?idcliente=${prod.codigo}"><i class="fas fa-paw" src="<%=request.getContextPath()%>"></i></a>
+				</td>				
 			</tr>
 			</c:forEach>
 			</tbody>
 		</table>
-		</div>
-		
-		<footer>
-        <p>&copy; InstantVet </p>
-       </footer>
-		
-		
-	<div class="modal hide" id="myModal">
-	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal">�</button>
-	    <h3>Modificar cliente/h3>
-	  </div>
-	  <div class="modal-body">
-	    <p>Loading...</p>
-	  </div>
-	  <div class="modal-footer">
-	    <!-- 
-	    <a href="#" class="btn" data-dismiss="modal">Close</a>
-	    <a href="#" class="btn btn-primary">Save changes</a>
-	     -->
-	  </div>
-		
-		
-		
-		</div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+     <footer>
+        <p>&copy; InstantVet</p>
+      </footer>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 		
 		<jsp:include page="script.jsp"></jsp:include>
 		
-		    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" charset="utf-8" language="javascript" src="../js/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf-8" language="javascript" src="../js/DT_bootstrap.js"></script>
-    <script src="../js/bootstrap.js"></script>
-     <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/jas-script.js"></script>
+
 		
 		
 		

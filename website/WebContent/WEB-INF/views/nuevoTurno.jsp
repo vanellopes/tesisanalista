@@ -3,14 +3,7 @@
  <head>
  
   <jsp:include page="head.jsp"></jsp:include>
-  <!-- Le styles -->
-  <link href="../css/bootstrap.css" rel="stylesheet">
-  <link href="../css/DT_bootstrap.css" rel="stylesheet">
-  
-  <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet">
 
- 
 <title>InstantVet | Nuevo Turno</title>
 
 <SCRIPT type="text/javascript">
@@ -72,19 +65,40 @@
 </head>
 <body>
 	<jsp:include page="menu2.jsp"></jsp:include>
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+           
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-    <div class="container" style="width: 1076px;">
+    <section class="content">
+      <div class="container" style="width: 1076px;">
+
+
+            <!-- Main content -->
+       <div class="invoice p-3 mb-3">
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
-	      <div class="hero-unit">
+	      <div class="hero-unit" >
 			<h3>Registro de Turnos</h3>
 			<form name="input" action="registrarTurno" method="post">			
 			
 				<div style="width:200px">&nbsp;</div>
     			
-    			<div class="control-group">
+    			<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Cliente</label>
+		          <label class="control-label" for="input01" style="float:left;width:120px">Cliente</label>
 		          <div class="controls">
 		            <input type="text" class="input-xlarge" name =txtCliente id="txtCliente" readonly="readonly" >
 		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarcliente();" >
@@ -92,9 +106,9 @@
 		          </div>
     			</div>
     			
-    			<div class="control-group">
+    			<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Paciente</label>
+		          <label class="control-label" for="input01" style="float:left;width:120px">Paciente</label>
 		          <div class="controls">
 		              <input type="text" class="input-xlarge" name ="txtpaciente" id="txtpaciente" readonly="readonly">
 		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarpaciente();" >
@@ -103,55 +117,60 @@
     			</div>
     			
     			
-    			<div class="control-group">
+    			<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Tipo Turno</label>
+		          <label class="control-label" for="input01" style="float:left;width:120px">Tipo Turno</label>
 		          <div class="controls">
 						<input type="radio" name="rbTipoTurno" value="V" checked> Veterinaria<br>
 						<input type="radio" name="rbTipoTurno" value="P"> Peluqueria<br>
 		          </div>
     			</div>
-    			<div class="control-group">
+    			<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Observaciones</label>
+		          <label class="control-label" for="input01" style="float:left;width:120px">Observaciones</label>
 		          <div class="controls">
 		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion"></textarea>
 		      
 		          </div>
     			</div>
 			
-				<div class="control-group">
+				<div class="form-group">
 		          <!-- Text input-->
-		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno</label>
+		          <label class="control-label" for="input01" style="float:left;width:120px">Fecha Turno</label>
 		          <div class="controls">	
 		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha">	
 		          </div>
     			</div>
     			
-    			<div class="control-group">
-		          <label class="control-label" for="input01" style="float:left;width:100px">Hora Turno</label>
+    			<div class="form-group">
+		          <label class="control-label" for="input01" style="float:left;width:120px">Hora Turno</label>
 		          <div class="controls">	
 		          	<input type="time" class="input-xlarge" name ="hora" id="hora">
 		          </div>
     			</div>
     			
-    			<div class="control-group">
+    			<div class="form-group">
 					  <!-- Button -->
 			          <div class="controls">
-			            <input type="submit" value="Crear Turno" class="btn btn-success" onclick="return validar();" >
+			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >
 			            <a href="main.jsp" class="btn btn-danger">Cancelar</a>
 			          </div>
         		</div>
 			
-			
 			</form>
 		 </div>
+		 </div>
+		 </div>
+		  </section>
+		 </div>
 		 
+		
+
 		 <footer>
         		<p>&copy; InstantVet</p>
       	  </footer>
 		 
-    </div>
+   	 
     <jsp:include page="script.jsp"></jsp:include>
     	    <!-- Le javascript
     ================================================== -->

@@ -9,19 +9,13 @@
     <title>InstantVet | Modificar Turno</title>
     
     <jsp:include page="head.jsp"></jsp:include>
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
     
+     <!-- Le styles -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/DT_bootstrap.css" rel="stylesheet">
+  
+  <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet">
     
     
     <style type="text/css" media="screen">
@@ -95,15 +89,24 @@
 </head>
 <body>
 	  <jsp:include page="menu2.jsp"></jsp:include>
+	  	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
 
     <div class="container" style="width: 1076px;">
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
 	      <div class="hero-unit">
 			<h3>Modificar Turno</h3>
-			<form name="input" action="modificarTurno" method="post">			
+			<form name="input" action="listarTurnos" method="post">			
 			
 				<div style="width:200px">&nbsp;</div>
+				<div class="control-group" hidden>
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:100px">IdTurno</label>
+		          <div class="controls" >
+		            <input name ="idTurno" id="idTurno" value="${requestScope.model.codigoTurno}" readonly="readonly" >
+		          </div>
+    			</div>
     			
     			<div class="control-group">
 		          <!-- Text input-->
@@ -114,21 +117,12 @@
 		          </div>
     			</div>
     			
-<!--     			<div class="control-group"> -->
-<!-- 		          Text input -->
-<!-- 		          <label class="control-label" for="input01" style="float:left;width:100px">Cliente</label> -->
-<!-- 		          <div class="controls"> -->
-<!-- 		            <input type="text" class="input-xlarge" name =txtCliente id="txtCliente" readonly="readonly" > -->
-<!-- 		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarcliente();" > -->
-<!-- 		            <input type="hidden" id="hiddencliente" name="hiddencliente" value="0"> -->
-<!-- 		          </div> -->
-<!--     			</div> -->
     			
     			<div class="control-group">
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Paciente</label>
 		          <div class="controls">
-		              <input type="text" class="input-xlarge" name ="txtpaciente" id="txtpaciente" readonly="readonly">
+		              <input type="text" class="input-xlarge" name ="txtpaciente" id="txtpaciente" value="${requestScope.model.nombrePaciente}"readonly="readonly">
 		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarpaciente();" >
 		            <input type="hidden" id="hiddenpaciente" name="hiddenpaciente">
 		          </div>
@@ -138,7 +132,7 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Observaciones</label>
 		          <div class="controls">
-		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion"></textarea>
+		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion" value="${requestScope.model.observaciones}"></textarea>
 		      
 		          </div>
     			</div>
@@ -147,14 +141,14 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:100px">Fecha Turno</label>
 		          <div class="controls">	
-		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha">	
+		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha" value="${requestScope.model.fechaTurno}" required>	
 		          </div>
     			</div>
     			
     			<div class="control-group">
 		          <label class="control-label" for="input01" style="float:left;width:100px">Hora Turno</label>
 		          <div class="controls">	
-		          	<input type="time" class="input-xlarge" name ="hora" id="hora">
+		          	<input type="time" class="input-xlarge" name ="hora" id="hora" required>
 		          </div>
     			</div>
     			
@@ -174,6 +168,7 @@
         		<p>&copy; InstantVet</p>
       	  </footer>
 		 
+    </div>
     </div>
     <jsp:include page="script.jsp"></jsp:include>
     	    <!-- Le javascript

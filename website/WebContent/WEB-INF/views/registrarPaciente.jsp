@@ -20,12 +20,7 @@
 
  <!-- Le styles -->
     <link href="../css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
+    
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -42,7 +37,8 @@
 </head>
 <body>
 
-    
+    	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
 	<div class="center_content">
 	<h3>Mantenimiento de Pacientes</h3>
 	<form action="registrarPaciente.html" method="post">
@@ -160,7 +156,7 @@
       </footer>
 
     </div> 
-    
+   </div> 
 
     <jsp:include page="script.jsp"></jsp:include>
     

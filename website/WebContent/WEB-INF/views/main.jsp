@@ -21,7 +21,8 @@
   <body>
     <div><jsp:include page="menu2.jsp"/> </div>
   
-       
+     	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">  
     
     <div class="container" style="width: 1076px;">
 
@@ -42,10 +43,6 @@
                 </div>
             </div>
         </div>
-        
-        
-        
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
       </div>
 
       <footer>
@@ -57,6 +54,7 @@
 	  </aside>
 	  <!-- /.control-sidebar -->
     </div> 
+    </div>
     <jsp:include page="script.jsp"></jsp:include>
 
     <!-- Le javascript

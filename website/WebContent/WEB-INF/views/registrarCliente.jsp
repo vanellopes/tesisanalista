@@ -22,6 +22,8 @@
 </head>
 <body>
     <jsp:include page="menu2.jsp"></jsp:include>
+    	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
 	<div class="center_content">
 	<h3>Mantenimiento de Clientes</h3>
 	<form action="registrarCliente" method="post">
@@ -59,7 +61,7 @@
 		</table>
 	</form>
 	</div>
-	
+	</div>
 	<jsp:include page="script.jsp"></jsp:include>
 </body>
 </html>

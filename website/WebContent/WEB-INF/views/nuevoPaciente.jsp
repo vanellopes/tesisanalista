@@ -53,6 +53,8 @@
 </head>
 <body>
     <jsp:include page="menu2.jsp"></jsp:include>
+    	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
 	<div class="center_content">
 		<h3>Ingresar nuevo Paciente</h3>
 			<form name="input" action="registrarPersonal.html" method="get">
@@ -104,6 +106,6 @@
 		</table>
 	</form>
 	</div>
-
+</div>
 </body>
 </html>

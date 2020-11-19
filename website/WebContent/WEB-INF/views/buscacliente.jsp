@@ -6,8 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>InstantVet | Busqueda de Clientes</title>
-<link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/DT_bootstrap.css" rel="stylesheet">
+ <jsp:include page="head.jsp"></jsp:include>
     <style type="text/css">
       body {
         padding-top: 60px;

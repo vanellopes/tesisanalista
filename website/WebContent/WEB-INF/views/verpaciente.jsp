@@ -6,12 +6,7 @@
 <head>
 <jsp:include page="head.jsp"></jsp:include>
 <title>InstantVet | Pacientes</title>
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
+    
 </head>
 <body>
 	<div >
@@ -46,7 +41,7 @@
 			</c:forEach>
 			</tbody>			
 		</table>
-		<a href="listarClienteC.jsp" class="btn btn-success">Volver</a>
+		<a href="listarcliente" class="btn btn-success">Volver</a>
 	</div>
 	</div>
 	<jsp:include page="script.jsp"></jsp:include>

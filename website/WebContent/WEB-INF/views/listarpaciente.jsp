@@ -27,7 +27,8 @@
 	<body> 
 	
       <jsp:include page="menu2.jsp"></jsp:include>
-
+	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
 	
 	   <div class="container" style="width: 1076px;">
 
@@ -66,6 +67,7 @@
       </footer>
 
     </div> 
+    </div>
     
     <jsp:include page="script.jsp"></jsp:include>
     		

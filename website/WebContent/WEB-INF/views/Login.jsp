@@ -22,7 +22,8 @@
       <p class="login-box-msg">Iniciar sesion</p>
 
       <form id="loginForm" name="loginForm" action="editarLogin" method="post">
-      <img class="mb-4" src="../images/SV/logo.png" alt="" width="72" height="72">
+      <div align="center"><img class="mb-4" src="../images/SV/logo.png" alt="" width="72" height="72"></div>
+      
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Usuario" id="usernameField" type="text" name="Usuario">
           <div class="input-group-append">
