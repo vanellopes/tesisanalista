@@ -62,21 +62,14 @@ public class LoginController {
 		
 		try {
 			oModelLogin = gestionLogin.ObtenerCredenciales(oModelLogin);
-					
-			if(oModelLogin.getAdministrador()==null)
-			{
-				return new ModelAndView("Login", "model", oModelLogin);
-			}
-			
-			
-			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			return new ModelAndView("/error", "mensaje", e.getMessage());
+			//return new ModelAndView("/error", "mensaje", e.getMessage());Login
+			return new ModelAndView("Login");
 		}
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("username", oModelLogin.getUsuario());
+		session.setAttribute("nombre", oModelLogin.getNombre());
 	
 		return new ModelAndView("main", "model", oModelLogin);
 	}

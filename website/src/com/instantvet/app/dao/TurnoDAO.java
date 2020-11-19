@@ -94,12 +94,13 @@ public class TurnoDAO extends BaseDAO
 		{	
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, objTurno.getPaciente());
-			stmt.setString(2, objTurno.getTipoTurno());
+			stmt.setInt(1,Integer.parseInt(objTurno.getPaciente()));
+			stmt.setString(2, "V" );///objTurno.getTipoTurno()
 			stmt.setString(3, objTurno.getObservaciones());
 			stmt.setInt(4, objTurno.getEstadoTurnoId());			
 			java.sql.Timestamp sqlDate =new java.sql.Timestamp(objTurno.getFechaTurno().getTime());
-			stmt.setTimestamp(1, sqlDate);
+			stmt.setTimestamp(5, sqlDate);
+			stmt.setInt(6, objTurno.getCodigoTurno());
 			int i = stmt.executeUpdate();
 			if (i != 1) 
 			  throw new SQLException("No se pudo actualizar la Turno");
@@ -176,7 +177,31 @@ public class TurnoDAO extends BaseDAO
 		               "JOIN Paciente p on (p.pacienteId = t.pacienteId) " +
 		               "JOIN Cliente cl on (cl.clienteId = t.clienteId) " +
 		               "join estadoturno et on (et.estadoTurnoId = t.estadoTurnoId) " + 
-		               "WHERE t.tipo_Turno in ('V', 'P') " +
+		               "WHERE t.tipo_Turno in ('V', 'P') and t.estadoTurnoId in(1,2)" +
+		               "ORDER BY t.fecha_Turno";
+		List<Turno> lista = new ArrayList<Turno>();
+		try 
+		{
+			lista = obtenerListTurno(query, null);
+		} 
+		catch(Exception e) 
+		{
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} 
+		System.out.println(lista.size());
+		return lista;
+	}
+	
+	public List<Turno> listarTurnosCanceladosAnulados(Integer estadoTurno) throws DAOExcepcion
+	{
+		String query = "SELECT t.turnoId, t.fecha_turno, t.clienteId, t.pacienteId, t.tipo_turno , et.nombre as estadoTurno, t.observaciones, " +		               
+		               "CONCAT(cl.nombres ,' ', cl.apellido) as nombreCliente, cl.telefono, p.nombre nombrePaciente " + 
+		               "FROM Turno t " +
+		               "JOIN Paciente p on (p.pacienteId = t.pacienteId) " +
+		               "JOIN Cliente cl on (cl.clienteId = t.clienteId) " +
+		               "join estadoturno et on (et.estadoTurnoId = t.estadoTurnoId) " + 
+		               "WHERE t.tipo_Turno in ('V', 'P') and t.estadoTurnoId = ?" +
 		               "ORDER BY t.fecha_Turno";
 		List<Turno> lista = new ArrayList<Turno>();
 		try 
@@ -266,7 +291,7 @@ public class TurnoDAO extends BaseDAO
 				objTurno.setTipoTurno(rs.getString("tipo_Turno"));
 				objTurno.setEstadoTurno(rs.getString("estadoTurno"));
 				objTurno.setObservaciones(rs.getString("observaciones"));
-				//objTurno.setFechaTurno(rs.getDate("fecha_turno"));
+				objTurno.setFechaTurno(rs.getDate("fecha_turno"));
 				objTurno.setNombreCliente(rs.getString("nombreCliente"));
 				objTurno.setNombrePaciente(rs.getString("nombrePaciente"));
 				objTurno.setTelefono(rs.getString("telefono"));

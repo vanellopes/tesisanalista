@@ -53,10 +53,10 @@ public class ClienteController {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 		
-		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
-        mav.addObject("mensaje",new String ("Cliente registrado!!!"));
-        return mav;
-		//return new ModelAndView("redirect:listarcliente.jsp");
+//		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
+//        mav.addObject("mensaje",new String ("Cliente registrado!!!"));
+
+		return new ModelAndView("redirect:nuevoCliente");
 	}
 
 	@RequestMapping(value="/listarcliente")

@@ -8,12 +8,14 @@ public class Paciente {
 	int codigoCliente; 
 	String nombreCliente;
 	String especie;
+	Integer estecieId;
 	String nombre;
 	String genero;
 	String esterilizado; 
 	String peso;
 	Date fechaNacimiento;
 	String observaciones;
+	Integer estado;
 	
 	
 	public Paciente() {
@@ -63,6 +65,16 @@ public class Paciente {
 
 	public void setEspecie(String especie) {
 		this.especie = especie;
+	}
+
+
+	public Integer getEstecieId() {
+		return estecieId;
+	}
+
+
+	public void setEstecieId(Integer estecieId) {
+		this.estecieId = estecieId;
 	}
 
 
@@ -133,6 +145,16 @@ public class Paciente {
 
 	public void setNombreCliente(String nombreCliente) {
 		this.nombreCliente = nombreCliente;
+	}
+
+
+	public Integer getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(Integer estado) {
+		this.estado = estado;
 	}
 	
 	

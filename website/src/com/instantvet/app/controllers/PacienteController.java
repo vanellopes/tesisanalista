@@ -46,30 +46,10 @@ public class PacienteController {
 
     }
 	
-	@RequestMapping(value = "/verRegistroPaciente", method = RequestMethod.GET)
+	@RequestMapping(value = "/registroPaciente", method = RequestMethod.GET)
 	public ModelAndView ingresar(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-
-		//return new ModelAndView("nuevoPaciente");
-		
-		List<Control> ListaEspecie = gestionCombo.GetDataCombo("ESPECIE");
-		List<Control> ListaRaza = gestionCombo.GetDataCombo("RAZA");
-		List<Control> ListaGenero = gestionCombo.GetDataCombo("GENERO");
-		List<Control> ListaTipoSangre = gestionCombo.GetDataCombo("TIPOSANGRE");
-		List<Control> ListaTamano = gestionCombo.GetDataCombo("TAMANO");
-		List<Control> ListaActividad = gestionCombo.GetDataCombo("ACTIVIDAD");
-		
-		
-		HttpSession session = request.getSession();
-
-		session.setAttribute("ESPECIE", ListaEspecie);
-		session.setAttribute("RAZA", ListaRaza);
-		session.setAttribute("GENERO", ListaGenero);
-		session.setAttribute("TIPOSANGRE", ListaTipoSangre);
-		session.setAttribute("TAMANO", ListaTamano);
-		session.setAttribute("ACTIVIDAD", ListaActividad);
-		
-		return new ModelAndView("registrarPaciente");
+			HttpServletResponse response) throws Exception {		
+		return new ModelAndView("nuevoPaciente");
 	}
 	
 	@RequestMapping(value = "/registrarPaciente", method = RequestMethod.POST)
@@ -78,17 +58,13 @@ public class PacienteController {
 		System.out.println("registrarPaciente");
 		
 		Paciente oModelPaciente = new Paciente();
-//		//oModelPaciente.setCodigoDueno(Integer.parseInt(request.getParameter("hiddencliente")));
-//		oModelPaciente.setCodigoPaciente(0);
-//		oModelPaciente.setespecieid(Integer.parseInt(request.getParameter("cboEspecie")));
-//		oModelPaciente.setgeneroid(Integer.parseInt(request.getParameter("cboGenero")));
-//		oModelPaciente.setEsterilizado(request.getParameter("cboEsterilizado"));
-//		oModelPaciente.settamanoid(Integer.parseInt(request.getParameter("cboTamano")));
-//		oModelPaciente.setactividadid(Integer.parseInt(request.getParameter("cboActividad")));
-//		oModelPaciente.setPeso(request.getParameter("txtPeso"));
-//		oModelPaciente.setFechaNacimiento(request.getParameter("txtFechaNacimiento"));
-//		oModelPaciente.setNotasMedicas(request.getParameter("txtNotasMedicas"));
-//		oModelPaciente.setCondicionesEspeciales(request.getParameter("txtCondicionesEspeciales"));
+		oModelPaciente.setCodigoCliente(Integer.parseInt(request.getParameter("hiddencliente")));
+		oModelPaciente.setEspecie(request.getParameter("cboEspecie"));
+		oModelPaciente.setGenero(request.getParameter("cboGenero"));
+		oModelPaciente.setEsterilizado(request.getParameter("cboEsterilizado"));
+		oModelPaciente.setPeso(request.getParameter("txtPeso"));
+		//oModelPaciente.setFechaNacimiento(request.getParameter("txtFechaNacimiento"));
+		oModelPaciente.setNombre("txtNombre");
 		
 		try {
 			paciente.insertarPaciente(oModelPaciente);

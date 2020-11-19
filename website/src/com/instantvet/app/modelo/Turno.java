@@ -3,6 +3,7 @@ package com.instantvet.app.modelo;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -19,6 +20,7 @@ public class Turno {
 	private String nombrePaciente;
 	private String estadoTurno;
 	private String telefono;
+	private String hora;
 	
 
 	public Turno() {
@@ -26,7 +28,7 @@ public class Turno {
 	}	
 	public void getFechaHora() {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-    String dateInString = "2014-10-05T15:23:01Z";
+		String dateInString = "2014-10-05T15:23:01Z";
 
     try {
 
@@ -36,11 +38,19 @@ public class Turno {
         System.out.println("time zone : " + TimeZone.getDefault().getID());
         System.out.println(formatter.format(date));
 
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
+	    } catch (ParseException e) {
+	        e.printStackTrace();
+	    }
 	}
 
+	public String getHora() {		
+		return hora;
+	}
+	
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+	
 	public Integer getCodigoTurno() {
 		return codigoTurno;
 	}
@@ -60,22 +70,6 @@ public class Turno {
 		this.fechaTurno = fechaTurno;
 	}
 	
-	public void convertFechaTurno(String fechaHora) {
-		Date date = null;
-		try {
-			DateFormat fechaHoraFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			date = fechaHoraFormat.parse(fechaHora);
-			System.out.println(date); 
-			
-		} catch (ParseException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-		
-		
-		this.fechaTurno = date;
-	}
-
-
 	public String getCliente() {
 		return cliente;
 	}
@@ -161,6 +155,33 @@ public class Turno {
 
 	public void setEstadoTurno(String estadoTurno) {
 		this.estadoTurno = estadoTurno;
+	}
+	
+	public void convertFechaTurno(String fechaHora) {
+		Date date = null;
+		try {
+			DateFormat fechaHoraFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			date = fechaHoraFormat.parse(fechaHora);
+			System.out.println(date); 
+			
+		} catch (ParseException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		
+		this.fechaTurno = date;
+	}
+	
+	public void convertHoraTurno() {
+		
+		SimpleDateFormat localDateFormat = new SimpleDateFormat("HH:mm");
+        String hora = localDateFormat.format(this.fechaTurno);
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+//		String hora = time.format(formatter);
+		System.out.println(hora); 
+			
+		
+		this.hora = hora;
 	}
 
 }

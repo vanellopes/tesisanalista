@@ -107,14 +107,14 @@ public class TurnoController
 		
 		Turno oModelTurno = new Turno();
 		Integer codigo = Integer.parseInt(request.getParameter("idTurno"));
-		oModelTurno = turno.obtenerTurno(codigo);
+		oModelTurno = turno.obtenerTurno(codigo);		
 		return new ModelAndView("editarTurno", "model", oModelTurno);
 	}
 
 	@RequestMapping(value = "/modificarTurno", method = RequestMethod.POST)
 	public ModelAndView modificarTurno(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		System.out.println("registrarTarea");
+		System.out.println("registrarTurno");
 		
 		Turno oModelTurno = new Turno();
 		oModelTurno.setCodigoTurno( Integer.parseInt(request.getParameter("idTurno")));
@@ -133,13 +133,12 @@ public class TurnoController
 		{
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
-
-		List<Turno> turnos = this.turno.ListarTurnos();	
 		
+		List<Turno> turnos = this.turno.ListarTurnos();
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("turnos",turnos);
-
-		return new ModelAndView("listarTurnos", "model", myModel);
+       
+        return new ModelAndView("listarTurnos", "model", myModel);
 	}
 	
 

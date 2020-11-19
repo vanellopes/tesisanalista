@@ -68,9 +68,10 @@ public class GestionTurnosImpl implements GestionTurnos  {
 	@Override
 	public Turno obtenerTurno(Integer codigoTurno) throws DAOExcepcion {
 		TurnoDAO objTurnoDAO=new TurnoDAO();
+		Turno oModelTurno = objTurnoDAO.obtenerTurno(codigoTurno);
+		oModelTurno.convertHoraTurno();
 		
-		
-		return objTurnoDAO.obtenerTurno(codigoTurno);
+		return oModelTurno;
 		
 	}
 }
