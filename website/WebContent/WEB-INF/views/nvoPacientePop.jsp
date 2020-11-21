@@ -52,7 +52,6 @@
 </SCRIPT>
 </head>
 <body onload="window_onload()">
- 	<jsp:include page="menu2.jsp"></jsp:include>
      <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

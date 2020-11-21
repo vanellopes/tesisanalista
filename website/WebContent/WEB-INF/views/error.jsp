@@ -35,11 +35,11 @@
         <h2 class="headline text-warning"> 404</h2>
 
         <div class="error-content">
-          <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
-			<H1>Hay un error</H1>${requestScope.mensaje}
+          <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Pagina no encontrada.</h3>
+			<H1>Algo salió mal </H1>${requestScope.mensaje}
           <p>
-            We could not find the page you were looking for.
-            Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
+           No pudimos encontrar la pagina que estas buscando.
+            Puedes <a href="main.jsp">volver a la pagina principal</a>.
           </p>
 
           <form class="search-form">

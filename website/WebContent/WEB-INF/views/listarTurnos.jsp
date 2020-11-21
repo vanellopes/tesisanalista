@@ -6,12 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<jsp:include page="head.jsp"></jsp:include>    
+	<jsp:include page="head.jsp"></jsp:include>  
+	  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">  
 	   
 	<title>InstantVet | Lista de Turnos</title>
 </head>
 <body> 
-
+<div class="wrapper">
     <jsp:include page="menu2.jsp"></jsp:include>
      <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -40,7 +43,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>Fecha y hora </th>
@@ -50,10 +53,7 @@
 					<th>Telefono de contacto</th>	
 					<th>Estado</th>			
 					<th>Observaciones</th>
-					<td>Confirmar</td>
-					<td>Finalizar</td>
-					<td>Cancelar</td>
-					<td>Modificar</td>
+					<th></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -67,20 +67,28 @@
 							<td>${tur.telefono}</td>
 							<td>${tur.estadoTurno}</td>
 							<td>${tur.observaciones}</td>	
-							<td align="center"><a
-									href="confirmarTurno?idTurno=${tur.codigoTurno}">
-									<img src="../images/bootstrapIcons/check-circle-fill.svg" onclick="return confirmar();" alt="" title="" border="0" />
-									</a></td>
-							<td align="center"><a
-									href="finalizarAtencionTurno?idTurno=${tur.codigoTurno}">
-									<img src="../images/bootstrapIcons/check-circle-fill.svg" onclick="return confirmar();" alt="" title="" border="0"/>
-									</a></td>
-							<td align="center"><a
-									href="cancelarTurno?idTurno=${tur.codigoTurno}">
-									<img src="../images/bootstrapIcons/x-circle-fill.svg" onclick="return confirmar();" alt="" title="" border="0" /></a></td>
-							<td align="center"><a
-									href="editarTurno?idTurno=${tur.codigoTurno}"> 
-									<img src="../images/bootstrapIcons/pencil-fill.svg" alt="" title="" border="0" /></a></td>						
+							<td ><a data-toggle="tooltip" data-placement="right" title="Confirmar"
+								href="confirmarTurno?idTurno=${tur.codigoTurno}">
+								<span style="color: blue;">
+								 	 <i class="far fa-check-circle"  onclick="return confirmar();"></i>
+								</span>
+								</a>
+								<a data-toggle="tooltip" data-placement="right" title="Finalizar"
+								href="finalizarAtencionTurno?idTurno=${tur.codigoTurno}">
+								<span style="color: green;">
+								 	 <i class="fas fa-check-circle"  onclick="return confirmar();"></i>
+								</span>
+								</a>
+								<a data-placement="right" title="Cancelar"
+								href="cancelarTurno?idTurno=${tur.codigoTurno}">
+								<span style="color: red;">
+								 	 <i class="fas fa-times-circle"  onclick="return confirmar();"></i>
+								</span></a>
+								<a data-placement="right" title="Modificar"
+								href="editarTurno?idTurno=${tur.codigoTurno}"> 
+								<span style="color: gray;">
+								 	 <i class="fas fa-pencil-alt"  onclick="return confirmar();"></i>
+								</span></a></td>
 						</tr>
 						</c:forEach>                  
                     
@@ -104,9 +112,39 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
- 
-		
-<jsp:include page="script.jsp"></jsp:include>
+ </div>
+	 <!-- jQuery -->
+	<script src="../plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- DataTables -->
+	<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dist/js/demo.js"></script>
+	<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
 	<script type="text/javascript" >
 			function confirmar(){
 				if(confirm("Esta Seguro que quiere realizar la accion seleccionada ?")){

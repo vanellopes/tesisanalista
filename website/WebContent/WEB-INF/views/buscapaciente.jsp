@@ -4,62 +4,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>InstantVet | Busqueda de Mascotas</title>
-<script type="text/javascript" language="javascript">
-	function seleccionarpaciente(codigo,nombre){
-		window.opener.document.getElementById("hiddenpaciente").value=codigo;
-		window.opener.document.getElementById("txtpaciente").value=nombre;
-		window.close();
-	}
-</script>
-<style type="text/css">
-#gradient-style
-{
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
-	margin: 45px;
-	width: 480px;
-	text-align: left;
-	border-collapse: collapse;
-}
-#gradient-style th
-{
-	font-size: 13px;
-	font-weight: normal;
-	padding: 8px;
-	background: #b9c9fe url('table-images/gradhead.png') repeat-x;
-	border-top: 2px solid #d3ddff;
-	border-bottom: 1px solid #fff;
-	color: #039;
-}
-#gradient-style td
-{
-	padding: 8px; 
-	border-bottom: 1px solid #fff;
-	color: #669;
-	border-top: 1px solid #fff;
-	background: #e8edff url('table-images/gradback.png') repeat-x;
-}
-#gradient-style tfoot tr td
-{
-	background: #e8edff;
-	font-size: 12px;
-	color: #99c;
-}
-#gradient-style tbody tr:hover td
-{
-	background: #d0dafd url('table-images/gradhover.png') repeat-x;
-	color: #339;
-}
-</style>
+<jsp:include page="head.jsp"></jsp:include>  
+	  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">  
+	<title>InstantVet | Busqueda de Mascotas</title>
+	<style type="text/css">
+	      body {
+	        padding-top: 60px;
+	        padding-bottom: 40px;
+	      }
+    </style>
+
 </head>
 <body>
-<div class="center_content">
+<div class="wrapper">
 		<h1>Listado de Mascotas</h1> <p>
 		<form action="" method="get">
 		</form>
-		<table id="gradient-style" summary="Meeting Results">
+		<table id="example2" class="table table-bordered table-striped">
 			<thead>
 		    	<tr>
 		            <th scope="col">Nombre</th>		            
@@ -87,5 +50,44 @@
 <!--           </div> -->
 <!--         </div> -->
 		</div>
+	  <!-- /.content-wrapper -->
+	 <!-- jQuery -->
+	<script src="../plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- DataTables -->
+	<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dist/js/demo.js"></script>
+	<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+	<script type="text/javascript" language="javascript">
+		function seleccionarpaciente(codigo,nombre){
+			window.opener.document.getElementById("hiddenpaciente").value=codigo;
+			window.opener.document.getElementById("txtpaciente").value=nombre;
+			window.close();
+		}
+	</script>		
 </body>
 </html>

@@ -6,7 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>InstantVet | Busqueda de Clientes</title>
- <jsp:include page="head.jsp"></jsp:include>
+   <jsp:include page="head.jsp"></jsp:include>  
+	  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">  
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -23,11 +26,11 @@
 </script>
 </head>
 <body>
-	<div >
+<div class="wrapper">
 		<h1>Listado de Clientes</h1> <p>
 		<form action="" method="get">
 		</form>
-		<table  cellpadding="0" cellspacing="0" border="0"  class="table table-striped table-bordered">
+		<table id="example2" class="table table-bordered table-striped">
 			<thead>
 		    	<tr>
 		            <th scope="col">Nombre y Apellido</th>
@@ -49,6 +52,37 @@
 			
 		</table>
 	</div>
-	
+	  <!-- /.content-wrapper -->
+	 <!-- jQuery -->
+	<script src="../plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- DataTables -->
+	<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dist/js/demo.js"></script>
+	<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
 </html>

@@ -135,7 +135,7 @@ function window_onload(){
 		     <div class="form-group">
 				
 		          <div class="controls">
-		            <input type="submit" value="Agregar Mascota" class="btn btn-success" href="nuevoPaciente" >
+		            <input type="submit" value="Agregar Mascota" class="btn btn-success"  >
 		            
 		          </div>
 		        </div>
@@ -144,7 +144,7 @@ function window_onload(){
 					  <!-- Button -->
 			          <div class="controls">
 			          	<a href="main.jsp" class="btn btn-danger">Cancelar</a>
-			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >			            
+			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="agregarpaciente();" >			            
 			          </div>
         		</div>
 		   
@@ -159,6 +159,11 @@ function window_onload(){
 		 </div>
 		  </section>
 		 </div>
+	<SCRIPT type="text/javascript">
+		function agregarpaciente(){
+			window.open("nvoPacientePop?idcliente="+ document.getElementById("hiddencliente").value,"","toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
+		}
+	</SCRIPT>
 		 
 
 	<jsp:include page="script.jsp"></jsp:include>

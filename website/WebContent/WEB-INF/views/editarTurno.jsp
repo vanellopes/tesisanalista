@@ -75,7 +75,7 @@
  }
 
  function buscarpaciente(){
-		window.open("buscapaciente?idcliente="+ document.getElementById("hiddencliente").value,"","width=600,height=400");
+		window.open("buscapaciente?idcliente="+ document.getElementById("hiddencliente").value,"","toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
 	}
 </SCRIPT>
 
@@ -134,7 +134,8 @@
 		          <label class="control-label" for="input01" style="float:left;width:140px">Mascota</label>
 		          <div class="controls">
 		              <input type="text" class="input-xlarge" name ="txtpaciente" id="txtpaciente" value="${requestScope.model.nombrePaciente}"readonly="readonly">
-		            <input type="button" id="imgcliente" name="imgcliente" onclick="buscarpaciente();" >
+		            <a class="btn btn-primary btn-sm" onclick="buscarpaciente();" data-toggle="tooltip" data-placement="right" title="Buscar mascota">
+                              <i class="fa fa-search-plus"></i> </a>
 		            <input type="hidden" id="hiddenpaciente" name="hiddenpaciente">
 		          </div>
     			</div>

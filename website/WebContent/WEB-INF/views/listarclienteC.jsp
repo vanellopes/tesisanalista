@@ -7,7 +7,10 @@
  <head>
  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  
-  <jsp:include page="head.jsp"></jsp:include>
+  <jsp:include page="head.jsp"></jsp:include>  
+	  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">  
   
 	<title>InstantVet | Lista de Clientes</title>
 <script type="text/javascript" >
@@ -90,7 +93,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example2" class="table table-bordered table-striped">
 				<thead>
 		    	<tr>
 		        	<th>Nombres y Apellido</th>		            
@@ -133,12 +136,41 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-		
-		<jsp:include page="script.jsp"></jsp:include>
+	 <!-- jQuery -->
+	<script src="../plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- DataTables -->
+	<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dist/js/demo.js"></script>
+	<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 		
 <script type="text/javascript">
 function vermascotas(){
-	window.open("verpaciente?idcliente="+ document.getElementById("hiddencliente").value,"","width=600,height=400");
+	window.open("verpaciente?idcliente="+ document.getElementById("hiddencliente").value,"","toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=300");
 }
 
 </script>
