@@ -41,7 +41,7 @@ public class TurnoController {
 		} else {
 			oModelTurno.setCliente(request.getParameter("hiddencliente"));
 		}
-		if (request.getParameter("hiddencliente").isEmpty()) {
+		if (request.getParameter("hiddenpaciente").isEmpty()) {
 			return new ModelAndView("/error", "mensaje", "Campo paciente es obligatorio");
 		} else {
 			oModelTurno.setPaciente(request.getParameter("hiddenpaciente"));
