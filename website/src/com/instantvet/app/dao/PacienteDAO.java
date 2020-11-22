@@ -32,7 +32,7 @@ public class PacienteDAO extends BaseDAO {
 			java.sql.Timestamp sqlDate = new java.sql.Timestamp(objPaciente.getFechaNacimiento().getTime());
 			stmt.setTimestamp(7, sqlDate);
 			stmt.setString(8, objPaciente.getObservaciones());
-			stmt.setInt(9, 0);
+			stmt.setInt(9, 1);
 
 			int i = stmt.executeUpdate();
 			if (i != 1) {
@@ -175,6 +175,10 @@ public class PacienteDAO extends BaseDAO {
 				oPaciente.setEspecie(rs.getString("Especie"));
 				oPaciente.setGenero(rs.getString("Genero"));
 				oPaciente.setNombreCliente(rs.getString("nombreCliente"));
+				oPaciente.setEsterilizado(rs.getString("Esterilizado"));
+				oPaciente.setPeso(rs.getString("peso"));
+				oPaciente.setFechaNacimiento(rs.getTimestamp("fechaNacimiento"));
+				oPaciente.setObservaciones(rs.getString("observaciones"));
 				lista.add(oPaciente);
 			}
 

@@ -1,42 +1,11 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html >
 <html>
 <head>
 <jsp:include page="head.jsp"></jsp:include>
-<!--  <!-- Le styles -->
-<!--   <link href="../css/bootstrap.css" rel="stylesheet"> -->
-<!--   <link href="../css/DT_bootstrap.css" rel="stylesheet"> -->
-  
-<!--   <link href="../css/bootstrap-responsive.css" rel="stylesheet"> -->
-<!--   <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet"> -->
-    
 <title>InstantVet | Nuevo Cliente</title>
 
-<SCRIPT type="text/javascript">
-
-function verificarRegistroCliente(){	
-	document.getElementById("frmValidar").src = "consultarServicioReniec?txtDNI=" + document.getElementById("txtDNI").value;
-	document.getElementById("frmValidar").reload();
-	document.getElementById("frmValidar").contentWindow.navigate("consultarServicioReniec");	
-	
-}
-
-function window_onload(){
-	
-	if(document.getElementById("_error").value == "0"){
-		alert("EL DNI no existe!!!");
-	}
-	
-}
-
-</SCRIPT>
-
 </head>
-<body onload="window_onload()">
+<body>
  	<jsp:include page="menu2.jsp"></jsp:include>
      <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -81,6 +50,7 @@ function window_onload(){
 	          <label class="control-label" for="input01" style="float:left;width:140px">Num Documento</label>	          
 	          <div class="controls">
 	            <input type="number" class="input-xlarge" id="txtDNI" name="txtDNI"  max="99999999" min="1" required>
+	            <input type="hidden" id="hiddencliente" name="hiddencliente" value="0">
 	           </div>
     		</div>
     
@@ -104,7 +74,7 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Fecha Nac</label>
 		          <div class="controls">	
-		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha" required>		      
+		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha" >		      
 		          </div>
     		</div>
 		    
@@ -112,7 +82,7 @@ function window_onload(){
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Telefono</label>
 		          <div class="controls">
-		            <input type="number" class="input-xlarge" name ="txtTelefono" min="1" max="99999999" required>
+		            <input type="number" class="input-xlarge" name ="txtTelefono" min="1" max="9999999999" required >
 		          </div>
 		    </div>
 		    
@@ -131,26 +101,34 @@ function window_onload(){
 		            <input type="email" class="input-xlarge" name ="txtEmail" maxlength="50">
 		          </div>
 		    </div>
-		    
-		     <div class="form-group">
-				
+<!-- 		    <div class="form-group"> -->
+<!-- 	          <label class="control-label" for="input01" style="float:left;width:140px">Agregar Mascota</label> -->
+<!-- 	          <div class="controls"> -->
+<!-- 	            <input type="submit" value="+" class="btn btn-info" name =txtmascota id="txtmascota" readonly="readonly" > -->
+                     
+<!-- 	            <input type="hidden" id="hiddenmascota" name="hiddenMnombre"> -->
+<!-- 	          </div> -->
+<!--    			</div> -->
+   			
+		    <div class="form-group">
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:140px">Agregar Mascota</label>
 		          <div class="controls">
-		            <input type="submit" value="Agregar Mascota" class="btn btn-success"  >
-		            
+						<input type="radio" name="rbAgregarMascota" value="S" checked> Si<br>
+						<input type="radio" name="rbAgregarMascota" value="N"> No<br>
 		          </div>
-		        </div>
+    			</div>
 		    
 		    <div class="form-group">
 					  <!-- Button -->
 			          <div class="controls">
 			          	<a href="main.jsp" class="btn btn-danger">Cancelar</a>
-			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="agregarpaciente();" >			            
+			            <input type="submit" value="Confirmar" class="btn btn-success">			            
 			          </div>
         		</div>
-		   
-
-		
 		</form>
+		
+		
 		 </div>
           <!-- /.card -->
         </div>
@@ -158,14 +136,29 @@ function window_onload(){
 		 </div>
 		 </div>
 		  </section>
+		   <aside class="control-sidebar control-sidebar-dark">
+	    <!-- Control sidebar content goes here -->
+	  </aside>
+		  	 
 		 </div>
+		 <!-- Control Sidebar -->
+	 
+	  <!-- /.control-sidebar -->
 	<SCRIPT type="text/javascript">
+	function buscarcliente(){
+		window.open("buscacliente","","toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
+	}
 		function agregarpaciente(){
-			window.open("nvoPacientePop?idcliente="+ document.getElementById("hiddencliente").value,"","toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
+			window.open("agregarmascota","","toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
 		}
+		
 	</SCRIPT>
-		 
-
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/jas-script.js"></script>
 	<jsp:include page="script.jsp"></jsp:include>
 </body>
 </html>

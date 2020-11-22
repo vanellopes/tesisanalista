@@ -13,6 +13,8 @@ public interface GestionTurnos {
 
 	List<Turno> listarTurnoxArea(String area) throws DAOExcepcion;
 
+	List<Turno> listarCanceladosAtendidos(Integer estado) throws DAOExcepcion;
+
 	List<Turno> ListarTurnos() throws DAOExcepcion;
 
 	void cambiarEstadoTurno(Integer codigoTurno, int estado) throws DAOExcepcion;

@@ -207,13 +207,13 @@
                 </a>
               </li>
 <!--               <li class="nav-item"> -->
-<!--                 <a href="listarTurnosPeluqueria" class="nav-link"> -->
+<!--                 <a href="listarAtendidos" class="nav-link"> -->
 <!--                   <i class="far fa-circle nav-icon"></i> -->
 <!--                   <p>Listar Turnos Atendidos</p> -->
 <!--                 </a> -->
 <!--               </li> -->
 <!--               <li class="nav-item"> -->
-<!--                 <a href="listarTurnosPeluqueria" class="nav-link"> -->
+<!--                 <a href="listarCancelados" class="nav-link"> -->
 <!--                   <i class="far fa-circle nav-icon"></i> -->
 <!--                   <p>Listar Turnos Cancelados</p> -->
 <!--                 </a> -->

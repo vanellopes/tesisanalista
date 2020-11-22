@@ -100,6 +100,28 @@ public class TurnoController {
 		return new ModelAndView("listarTurnos", "model", myModel);
 	}
 
+	@RequestMapping(value = "/listarCancelados")
+	public ModelAndView listarTurnosCancelados(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, DAOExcepcion {
+
+		List<Turno> turnos = this.turno.listarCanceladosAtendidos(3);
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("turnos", turnos);
+
+		return new ModelAndView("listarCanAten", "model", myModel);
+	}
+
+	@RequestMapping(value = "/listarAtendidos")
+	public ModelAndView listarTurnosAtendidos(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, DAOExcepcion {
+
+		List<Turno> turnos = this.turno.listarCanceladosAtendidos(4);
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("turnos", turnos);
+
+		return new ModelAndView("listarCanAten", "model", myModel);
+	}
+
 	@RequestMapping(value = "/editarTurno", method = RequestMethod.GET)
 	public ModelAndView editarTarea(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("trno " + request.getParameter("idTurno"));
@@ -116,8 +138,14 @@ public class TurnoController {
 
 		Turno oModelTurno = new Turno();
 		oModelTurno.setCodigoTurno(Integer.parseInt(request.getParameter("idTurno")));
+		oModelTurno.setCliente(request.getParameter("hiddencliente"));
 		oModelTurno.setTipoTurno(request.getParameter("rbTipoTurno"));
 		oModelTurno.setPaciente(request.getParameter("hiddenpaciente"));
+		oModelTurno.setTipoTurno(request.getParameter("rbTipoTurno"));
+		if (oModelTurno.getTipoTurno() == null) {
+			oModelTurno.setTipoTurno(request.getParameter("hiddenarea"));
+		}
+
 		oModelTurno.setObservaciones(request.getParameter("txtDescripcion"));
 		oModelTurno.setEstadoTurnoId(1);
 		String fecha = (request.getParameter("fecha") + " " + request.getParameter("hora"));

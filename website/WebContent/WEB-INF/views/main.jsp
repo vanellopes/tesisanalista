@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -44,9 +47,6 @@
         </div>
       </div>
 
-      <footer>
-        <p>&copy; InstantVet</p>
-      </footer>
 	 <!-- Control Sidebar -->
 	  <aside class="control-sidebar control-sidebar-dark">
 	    <!-- Control sidebar content goes here -->
@@ -54,6 +54,13 @@
 	  <!-- /.control-sidebar -->
     </div> 
     </div>
+    
+      <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0
+    </div>
+    <strong>Copyright &copy; InstantVet .</strong> 
+  </footer>
     <jsp:include page="script.jsp"></jsp:include>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="../js/slides.min.jquery.js"></script>

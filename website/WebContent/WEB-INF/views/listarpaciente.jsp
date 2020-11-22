@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
   
   <!DOCTYPE html >
  <html>
  <head>
- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- 
-  <jsp:include page="head.jsp"></jsp:include>
+ <jsp:include page="head.jsp"></jsp:include>  
+	  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">  
   
 	<title>InstantVet | Lista de Pacientes</title>
 </head>
@@ -21,8 +24,8 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="#" method="get">
-				<input type="submit" name="btnNuevo" id="btnNuevo" value="Nueva Mascota"   class="btn btn-success" />
+            <form action="registroPaciente" method="get">
+				<input type="submit" name="btnNuevo" id="btnNuevo" value="Nueva Mascota"  class="btn btn-success" />
 				<a href="main.jsp" class="btn btn-success">Regresar al Inicio</a>
 			</form>
           </div>
@@ -42,27 +45,28 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
-			<thead>	
-				<tr>
-					<th>Cliente</th>
-					<th>Nombre</th>
-					<th>Fecha Nac</th>
-					<th>Especie</th>
-					<th>Genero</th>	
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${model.pacientes}" var="prod" varStatus="i">
-				<tr>
-					<td width="250px">${prod.nombreCliente}</td>
-					<td>${prod.nombre}</td>
-					<td width="150">
-					<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${prod.fechaNacimiento}" pattern="dd/MM/yyyy, HH:mm"/></td>
-					<td>${prod.especie}</td>
-					<td>${prod.genero=='H' ? 'Hembra' : 'Macho'}</td>
-				</tr>
-				</c:forEach>
-			</tbody>
+				<thead>	
+					<tr>
+						<th>Cliente</th>
+						<th>Nombre</th>
+						<th>Fecha Nacimiento</th>
+						<th>Especie</th>
+						<th>Genero</th>	
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${model.pacientes}" var="prod" varStatus="i">
+					<tr>
+						<td width="250px">${prod.nombreCliente}</td>
+						<td>${prod.nombre}</td>
+<%-- 						<td>${prod.fechaNacimiento}</td> --%>
+						<td width="180">
+						<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${prod.fechaNacimiento}" pattern="dd/MM/yyyy"/></td>
+						<td>${prod.especie}</td>
+						<td>${prod.genero=='H' ? 'Hembra' : 'Macho'}</td>
+					</tr>
+					</c:forEach>
+				</tbody>
 			</table>
               </div>
               <!-- /.card-body -->
@@ -75,23 +79,46 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-     <footer>
-        <p>&copy; InstantVet</p>
-      </footer>
+    
     <!-- /.content -->
   </div>
-    <jsp:include page="script.jsp"></jsp:include>
-    		
-		    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" charset="utf-8" language="javascript" src="../js/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf-8" language="javascript" src="../js/DT_bootstrap.js"></script>
-    <script src="../js/bootstrap.js"></script>
-     <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/jas-script.js"></script>
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0
+    </div>
+    <strong>Copyright &copy; InstantVet .</strong> 
+  </footer>
+   <!-- jQuery -->
+	<script src="../plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- DataTables -->
+	<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dist/js/demo.js"></script>
+	<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 
 	
 	</body>

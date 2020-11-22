@@ -59,9 +59,12 @@
   </div>
 </div>
 <!-- /.login-box -->
-      <footer>
-        <p>&copy; InstantVet</p>
-   		</footer>
+     <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0
+    </div>
+    <strong>Copyright &copy; InstantVet .</strong> 
+  </footer>
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>

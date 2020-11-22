@@ -116,6 +116,12 @@ public class GestionTurnosImpl implements GestionTurnos {
 	}
 
 	@Override
+	public List<Turno> listarCanceladosAtendidos(Integer estado) throws DAOExcepcion {
+		TurnoDAO objTurnoDAO = new TurnoDAO();
+		return objTurnoDAO.listarTurnosCanceladosAnulados(estado);
+	}
+
+	@Override
 	public List<Turno> ListarTurnos() throws DAOExcepcion {
 		TurnoDAO objTurnoDAO = new TurnoDAO();
 		return objTurnoDAO.listarTurnos();

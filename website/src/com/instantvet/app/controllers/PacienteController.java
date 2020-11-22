@@ -1,8 +1,9 @@
 package com.instantvet.app.controllers;
 
 import com.instantvet.app.excepcion.DAOExcepcion;
+import com.instantvet.app.modelo.Cliente;
 import com.instantvet.app.modelo.Paciente;
-import com.instantvet.app.service.GestionCombo;
+import com.instantvet.app.service.GestionCliente;
 import com.instantvet.app.service.GestionPaciente;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class PacienteController {
 	@Autowired
 	private GestionPaciente paciente;
 	@Autowired
-	private GestionCombo gestionCombo;
+	private GestionCliente clienteservice;
 
 	@RequestMapping(value = "/listarpaciente.jsp")
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
@@ -71,7 +72,7 @@ public class PacienteController {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-		return new ModelAndView("mascotas/nuevoPaciente");
+		return new ModelAndView("/exito", "mensaje", "Nueva mascota registrada");
 	}
 
 	@RequestMapping(value = "/buscapaciente")
@@ -89,6 +90,49 @@ public class PacienteController {
 		myModel.put("pacientes", pacientes);
 
 		return new ModelAndView("buscapaciente", "model", myModel);
+
+	}
+
+	@RequestMapping(value = "/agregarmascota", method = RequestMethod.GET)
+	public ModelAndView agregarMascota(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, DAOExcepcion {
+		String codigo = request.getParameter("codigo");
+
+		Cliente cliente = null;
+		try {
+			cliente = clienteservice.ObtenerClientexDni(Integer.parseInt(codigo));
+		} catch (Exception e) {
+			return new ModelAndView("/error", "mensaje", e.getMessage());
+		}
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("pacientes", cliente);
+
+		return new ModelAndView("nvoPacientePop", "model", cliente);
+	}
+
+	@RequestMapping(value = "/agregarmascota", method = RequestMethod.POST)
+	public ModelAndView agregarPaciente(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("registrarPaciente");
+
+		Paciente oModelPaciente = new Paciente();
+		oModelPaciente.setCodigoCliente(Integer.parseInt(request.getParameter("txtClienteid")));
+
+		oModelPaciente.setNombre(request.getParameter("txtNombre"));
+		String fecha = (request.getParameter("fecha"));
+		oModelPaciente.convertFechaTurno(fecha);
+		oModelPaciente.setEspecieId(Integer.parseInt(request.getParameter("cboEspecie")));
+		oModelPaciente.setGenero(request.getParameter("rbGenero"));
+		oModelPaciente.setEsterilizado(request.getParameter("rbEsterilizado"));
+		oModelPaciente.setPeso(request.getParameter("nbrPeso"));
+		oModelPaciente.setObservaciones(request.getParameter("txtObservaciones"));
+
+		try {
+			paciente.insertarPaciente(oModelPaciente);
+		} catch (Exception e) {
+			return new ModelAndView("/error", "mensaje", e.getMessage());
+		}
+
+		return new ModelAndView("/exito", "mensaje", "Nuevo cliente y mascota registrados");
 
 	}
 

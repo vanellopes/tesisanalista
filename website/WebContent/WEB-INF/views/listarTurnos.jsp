@@ -43,7 +43,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>Fecha y hora </th>
@@ -59,6 +59,7 @@
                   <tbody>
 					<c:forEach items="${model.turnos}" var="tur" varStatus="i">
 						<tr>
+<%-- 						<td>${tur.fechaTurno}</td> --%>
 						<td width="150">
 						 <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${tur.fechaTurno}" pattern="dd/MM/yyyy, HH:mm"/></td>
 							<td>${tur.tipoTurno=='V' ? 'Veterinaria' : 'Peluqueria'}</td>
@@ -106,13 +107,21 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-     <footer>
-        <p>&copy; InstantVet</p>
-      </footer>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
  </div>
+ <!-- Control Sidebar -->
+	  <aside class="control-sidebar control-sidebar-dark">
+	    <!-- Control sidebar content goes here -->
+	  </aside>
+	  <!-- /.control-sidebar -->
+ <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0
+    </div>
+    <strong>Copyright &copy; InstantVet .</strong> 
+  </footer>
 	 <!-- jQuery -->
 	<script src="../plugins/jquery/jquery.min.js"></script>
 	<!-- Bootstrap 4 -->

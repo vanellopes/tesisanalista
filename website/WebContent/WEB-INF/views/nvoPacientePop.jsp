@@ -52,6 +52,7 @@
 </SCRIPT>
 </head>
 <body onload="window_onload()">
+<jsp:include page="menu2.jsp"></jsp:include>
      <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -87,34 +88,37 @@
               </div>
             </div>
             <div class="card-body">
-			<form id="frmIngreso" name="input" action="registrarPaciente.html"  method="post">
+			<form id="frmIngreso" name="input" action="agregarmascota"  method="post">
 			<div style="width:200px">&nbsp;</div>
-			<div class="form-group">
+			<div class="form-group" hidden=true>
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:140px">ClienteID</label>
+		          <div class="controls">
+		            <input type="text" class="input-xlarge" name =txtClienteid id="txtClienteid" readonly="readonly" value="${requestScope.model.codigo}">
+		            
+		          </div>
+    			</div>
+	   		 <div class="form-group" >
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Cliente</label>
 		          <div class="controls">
-		            <input type="text" class="input-xlarge" name =txtCliente id="txtCliente" readonly="readonly" required>
-		            <a class="btn btn-primary btn-sm" onclick="buscarcliente();" data-toggle="tooltip" data-placement="right" title="Buscar cliente">
-                              <i class="fa fa-search-plus"></i> </a>
-		            <input type="hidden" id="hiddencliente" name="hiddencliente">
+		            <input type="text" class="input-xlarge" name =txtCliente id="txtCliente" readonly="readonly" value="${requestScope.model.nombre}, ${requestScope.model.apellido}">
+		            
 		          </div>
     			</div>
-
-    		   
 		    <div class="form-group">
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Nombre Mascota</label>
 		          <div class="controls">
 		            <input type="text" class="input-xlarge" name="txtNombre" id="txtNombre" maxlength="30" required>
 		          </div>
-		    </div>
-		    
+		    </div>  
 		    
 		    
 		    <div class="form-group">
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Fecha Nac</label>
-		          <div class="controls">	
+		           <div class="controls">	
 		          	<input type="date" class="input-xlarge" name ="fecha" id="fecha" required>		      
 		          </div>
     		</div>
@@ -165,24 +169,18 @@
 		            <input type="text" class="input-xlarge" name ="txtObservaciones" maxlength="200">
 		          </div>
 		    </div>
-		    
-		    	    
 		    <div class="form-group">
-					  <!-- Button -->
 			          <div class="controls">
-			          <a href="main.jsp" class="btn btn-danger">Cancelar</a>
-			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >			          
-			           </div>
+			            <input type="submit" value="Confirmar" class="btn btn-success">			            
+			          </div>
         		</div>
-		    
+		    	    
 <!-- 		    <div class="form-group"> -->
-<!-- 				  Button -->
-<!-- 		          <div class="controls"> -->
-<!-- 		            <input type="submit" value="Ingresar" class="btn btn-success" > -->
-<%-- 		            <input type="hidden" id="_error" value="${requestScope.model.error}" /> --%>
-<!-- 		          </div> -->
-<!--         	</div> -->
-		
+					 
+<!-- 			          <div class="controls"> -->
+<!-- 			          <a href="#" class="btn btn-primary btn-sm" onclick="agregarmascota();" > </a>	           -->
+<!-- 			           </div> -->
+<!--         		</div> -->
 		</form>
 		 </div>
           <!-- /.card -->
@@ -194,11 +192,13 @@
 		 </div>	 
 
 	<jsp:include page="script.jsp"></jsp:include>
-	<SCRIPT type="text/javascript">	
-		function buscarcliente(){
-			window.open("buscacliente","","toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
+	<SCRIPT type="text/javascript">			
+		function agregarmascota(){
+			
+			
+			window.close();
 		}
-	</SCRIPT>	
+	</script>
 	
 </body>
 </html>

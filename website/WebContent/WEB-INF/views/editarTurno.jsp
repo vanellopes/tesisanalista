@@ -107,11 +107,20 @@
 	
 	      <!-- Main hero unit for a primary marketing message or call to action -->
 	      <div class="hero-unit" >
-			<h3>Modificar Turno</h3>
+	      <div class="card card-primary">
+		 <div class="card-header">
+              <h3 class="card-title">Modificar Turno</h3>
+
+              <div class="card-tools">
+<!--                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"> -->
+<!--                   <i class="fas fa-minus"></i></button> -->
+              </div>
+            </div>
+            <div class="card-body">
 			<form name="input" action="modificarTurno" method="post">			
 			
 				<div style="width:200px">&nbsp;</div>
-				<div class="form-group" hidden>
+				<div class="form-group" hidden=true>
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">IdTurno</label>
 		          <div class="controls" >
@@ -136,15 +145,30 @@
 		              <input type="text" class="input-xlarge" name ="txtpaciente" id="txtpaciente" value="${requestScope.model.nombrePaciente}"readonly="readonly">
 		            <a class="btn btn-primary btn-sm" onclick="buscarpaciente();" data-toggle="tooltip" data-placement="right" title="Buscar mascota">
                               <i class="fa fa-search-plus"></i> </a>
-		            <input type="hidden" id="hiddenpaciente" name="hiddenpaciente">
+		            <input type="hidden" id="hiddenpaciente" name="hiddenpaciente" value="${requestScope.model.paciente}">
 		          </div>
     			</div>
+    			
+    			
+    			    			
+    			<div class="form-group">
+		          <!-- Text input-->
+		          <label class="control-label" for="input01" style="float:left;width:140px">Area Turno</label>
+		          <div class="controls">
+		            <select  id="rbTipoTurno" name="rbTipoTurno" required >
+	                  <option selected disabled >${requestScope.model.tipoTurno=='V' ? 'Veterinaria' : 'Peluqueria'}</option>
+	                  <option value="V">Veterinaria</option>
+	                  <option value="P">Peluqueria</option>	                  
+	                </select>
+	                <input type="hidden" id="hiddenarea" name="hiddenarea" value="${requestScope.model.tipoTurno}">
+		          </div>
+		    	</div>
     			
     			<div class="form-group">
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:140px">Observaciones</label>
 		          <div class="controls">
-		            <textarea class="input-xlarge"  rows="3" cols="20" name="txtDescripcion" id="txtDescripcion"  maxlength="200" value="${requestScope.model.observaciones}"></textarea>		      
+		          <input type="text" class="input-xlarge" name ="txtpaciente" id="txtDescripcion" value="${requestScope.model.observaciones}">
 		          </div>
     			</div>
 			
@@ -167,8 +191,9 @@
 	    <div class="form-group">
 					  <!-- Button -->
 			          <div class="controls">
+			          <a href="listarTurnos" class="btn btn-danger">Cancelar</a>
 			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >
-			            <a href="listarTurnos" class="btn btn-danger">Cancelar</a>
+			            
 			          </div>
         		</div>
 		    
@@ -181,12 +206,20 @@
 <!--         	</div> -->
 		
 		</form>
- 			</div>
-		 </div>
-		 </div>
+	 </div>
+          <!-- /.card -->
+        </div>
+	</div>
+	 </div>
+	</div>
 		  </section>
 		 </div>
-		 
+	<footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0
+    </div>
+    <strong>Copyright &copy; InstantVet .</strong> 
+  </footer>	 
 
     <jsp:include page="script.jsp"></jsp:include>
     	    <!-- Le javascript

@@ -17,12 +17,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>404 Error Page</h1>
+            <h1></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="main.jsp">Inicio</a></li>
-              <li class="breadcrumb-item active">404 Error Page</li>
+              <li class="breadcrumb-item active"></li>
             </ol>
           </div>
         </div>
@@ -32,27 +32,27 @@
     <!-- Main content -->
     <section class="content">
       <div class="error-page">
-        <h2 class="headline text-warning"> 404</h2>
+        <h2 class="headline text-warning"></h2>
 
         <div class="error-content">
-          <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Pagina no encontrada.</h3>
-			<H1>Algo salió mal </H1>${requestScope.mensaje}
+          <h3><i class="fas fa-exclamation text-warning"></i> Oops! Algo saliï¿½ mal.</h3>
+			<H1>${requestScope.mensaje}</H1>
           <p>
            No pudimos encontrar la pagina que estas buscando.
-            Puedes <a href="main.jsp">volver a la pagina principal</a>.
+           <a href="main.jsp">Volver a la pagina principal</a>.
           </p>
 
-          <form class="search-form">
-            <div class="input-group">
-              <input type="text" name="search" class="form-control" placeholder="Search">
+<!--           <form class="search-form"> -->
+<!--             <div class="input-group"> -->
+<!--               <input type="text" name="search" class="form-control" placeholder="Search"> -->
 
-              <div class="input-group-append">
-                <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>
-                </button>
-              </div>
-            </div>
-            <!-- /.input-group -->
-          </form>
+<!--               <div class="input-group-append"> -->
+<!--                 <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i> -->
+<!--                 </button> -->
+<!--               </div> -->
+<!--             </div> -->
+<!--             /.input-group -->
+<!--           </form> -->
         </div>
         <!-- /.error-content -->
       </div>
@@ -63,7 +63,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.5
+      <b>Version</b> 1.0
     </div>
     <strong>Copyright &copy; InstantVet .</strong> 
   </footer>

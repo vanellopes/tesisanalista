@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TurnoDAO extends BaseDAO {
 	public int existeTurno(String tipoTurno, String fechaDesde, String fechaHasta) throws DAOExcepcion {
-		String query = "SELECT COUNT(*) AS CONTADOR FROM Turno where fecha_turno BETWEEN ? AND ? and tipo_turno = ?";
+		String query = "SELECT COUNT(*) AS CONTADOR FROM Turno where fecha_turno BETWEEN ? AND ? and tipo_turno = ? and estadoTurnoId in(1,2)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -79,7 +79,7 @@ public class TurnoDAO extends BaseDAO {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, Integer.parseInt(objTurno.getPaciente()));
-			stmt.setString(2, "V");/// objTurno.getTipoTurno()
+			stmt.setString(2, objTurno.getTipoTurno());
 			stmt.setString(3, objTurno.getObservaciones());
 			stmt.setInt(4, objTurno.getEstadoTurnoId());
 			java.sql.Timestamp sqlDate = new java.sql.Timestamp(objTurno.getFechaTurno().getTime());
@@ -129,7 +129,7 @@ public class TurnoDAO extends BaseDAO {
 				+ "ORDER BY t.fecha_Turno";
 		List<Turno> lista = new ArrayList<Turno>();
 		try {
-			lista = obtenerListTurno(query, area);
+			lista = obtenerListTurno(query, area, null);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
@@ -148,7 +148,7 @@ public class TurnoDAO extends BaseDAO {
 				+ "WHERE t.tipo_Turno in ('V', 'P') and t.estadoTurnoId in(1,2)" + "ORDER BY t.fecha_Turno";
 		List<Turno> lista = new ArrayList<Turno>();
 		try {
-			lista = obtenerListTurno(query, null);
+			lista = obtenerListTurno(query, null, null);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
@@ -163,10 +163,10 @@ public class TurnoDAO extends BaseDAO {
 				+ "FROM Turno t " + "JOIN Paciente p on (p.pacienteId = t.pacienteId) "
 				+ "JOIN Cliente cl on (cl.clienteId = t.clienteId) "
 				+ "join estadoturno et on (et.estadoTurnoId = t.estadoTurnoId) "
-				+ "WHERE t.tipo_Turno in ('V', 'P') and t.estadoTurnoId = ?" + "ORDER BY t.fecha_Turno";
+				+ "WHERE t.tipo_Turno in ('V', 'P') and t.estadoTurnoId =?";
 		List<Turno> lista = new ArrayList<Turno>();
 		try {
-			lista = obtenerListTurno(query, null);
+			lista = obtenerListTurno(query, null, estadoTurno);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
@@ -175,7 +175,7 @@ public class TurnoDAO extends BaseDAO {
 		return lista;
 	}
 
-	private List<Turno> obtenerListTurno(String query, String tipoTurno) throws DAOExcepcion {
+	private List<Turno> obtenerListTurno(String query, String tipoTurno, Integer estadoTurno) throws DAOExcepcion {
 		List<Turno> listaTurnos = new ArrayList<Turno>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -185,6 +185,8 @@ public class TurnoDAO extends BaseDAO {
 			stmt = con.prepareStatement(query);
 			if (tipoTurno != null) {
 				stmt.setString(1, tipoTurno);
+			} else if (estadoTurno != null) {
+				stmt.setLong(1, estadoTurno);
 			}
 			rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -255,7 +257,7 @@ public class TurnoDAO extends BaseDAO {
 
 	public Boolean solapaTurno(String mascota, String tipoTurno, String fechaDesde, String fechaHasta)
 			throws DAOExcepcion {
-		String query = "SELECT COUNT(*) AS CONTADOR FROM Turno where fecha_turno BETWEEN ? AND ? and tipo_turno = ? and pacienteId=?";
+		String query = "SELECT COUNT(*) AS CONTADOR FROM Turno where fecha_turno BETWEEN ? AND ? and tipo_turno = ? and pacienteId=? and estadoTurnoId in(1,2)";
 		Connection con = null;
 		Boolean disponible = true;
 		PreparedStatement stmt = null;

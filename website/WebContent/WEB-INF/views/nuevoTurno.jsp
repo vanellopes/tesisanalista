@@ -6,8 +6,6 @@
 
 <title>InstantVet | Nuevo Turno</title>
 
-
-
 </head>
 <body>
 	<jsp:include page="menu2.jsp"></jsp:include>
@@ -55,7 +53,7 @@
 		          <!-- Text input-->
 		          <label class="control-label" for="input01" style="float:left;width:120px">Cliente</label>
 		          <div class="controls">
-		            <input type="text" class="input-xlarge" name =txtCliente id="txtCliente" readonly="readonly" required>
+		            <input type="text" class="input-xlarge" name =txtCliente id="txtCliente" readonly="readonly">
 		            <a class="btn btn-primary btn-sm" onclick="buscarcliente();" data-toggle="tooltip" data-placement="right" title="Buscar cliente">
                               <i class="fa fa-search-plus"></i> </a>
 		            <input type="hidden" id="hiddencliente" name="hiddencliente" value="0">
@@ -127,10 +125,11 @@
 		 
 		
 
-		 <footer>
-        		<p>&copy; InstantVet</p>
-      	  </footer>
-		 
+	<!-- Control Sidebar -->
+	  <aside class="control-sidebar control-sidebar-dark">
+	    <!-- Control sidebar content goes here -->
+	  </aside>
+	  <!-- /.control-sidebar -->
    	 
     <jsp:include page="script.jsp"></jsp:include>
     	    <!-- Le javascript
@@ -147,12 +146,12 @@
 	 var msg="";
 	 var bol=true;
 	 
-	 if(document.getElementById("txtCodigoCliente").value=="") {
+	 if(document.getElementById("txtCliente").value=="") {
 		 msg=msg +"Ingrese Codigo del Cliente!!! \n"; 
 		 bol=false;
 	 }
 	 
-	 if(document.getElementById("txtCodigoPaciente").value=="") {
+	 if(document.getElementById("txtpaciente").value=="") {
 		 msg=msg +"Ingrese Codigo del Mascota!!! \n"; 
 		 bol=false;
 	 }

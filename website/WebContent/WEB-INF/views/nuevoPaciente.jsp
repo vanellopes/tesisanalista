@@ -88,7 +88,7 @@
               </div>
             </div>
             <div class="card-body">
-			<form id="frmIngreso" name="input" action="registrarPaciente.html"  method="post">
+			<form id="frmIngreso" name="input" action="registrarPaciente"  method="post">
 			<div style="width:200px">&nbsp;</div>
 			<div class="form-group">
 		          <!-- Text input-->
@@ -172,7 +172,7 @@
 					  <!-- Button -->
 			          <div class="controls">
 			          <a href="main.jsp" class="btn btn-danger">Cancelar</a>
-			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="return validar();" >			          
+			            <input type="submit" value="Confirmar" class="btn btn-success" onclick="validar();" >			          
 			           </div>
         		</div>
 		    
@@ -193,13 +193,21 @@
 		 </div>
 		  </section>
 		 </div>	 
-
+		 
+<!-- Control Sidebar -->
+	  <aside class="control-sidebar control-sidebar-dark">
+	    <!-- Control sidebar content goes here -->
+	  </aside>
+	  
+	  <!-- /.control-sidebar -->
+	  <% String message = (String)request.getAttribute("alertMsg");%>
 	<jsp:include page="script.jsp"></jsp:include>
 	<SCRIPT type="text/javascript">	
 		function buscarcliente(){
 			window.open("buscacliente","","toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
 		}
 	</SCRIPT>	
+	
 	
 </body>
 </html>

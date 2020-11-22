@@ -34,6 +34,8 @@ public class ClienteController {
 	@RequestMapping(value = "/registrarCliente", method = RequestMethod.POST)
 	public ModelAndView registroCliente(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("registrarCliente");
+		String agregar = null;
+		Cliente nvoCliente = null;
 
 		Cliente oModelCliente = new Cliente();
 		oModelCliente.setNombre(request.getParameter("txtNombre"));
@@ -42,18 +44,21 @@ public class ClienteController {
 		oModelCliente.setTelefono(request.getParameter("txtTelefono"));
 		oModelCliente.setDireccion(request.getParameter("txtDireccion"));
 		oModelCliente.setEmail(request.getParameter("txtEmail"));
+		agregar = request.getParameter("rbAgregarMascota");
 
 		try {
 			Cliente.registrarCliente(oModelCliente);
+			if (agregar.equals("S")) {
+				nvoCliente = Cliente.ObtenerClientexDni(oModelCliente.getNumDocumento());
+				String codigo = nvoCliente.getCodigo();
+				return new ModelAndView("redirect:agregarmascota?codigo=" + oModelCliente.getNumDocumento());
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
 
-//		ModelAndView mav = new ModelAndView("redirect:listarcliente.jsp");
-//        mav.addObject("mensaje",new String ("Cliente registrado!!!"));
-
-		return new ModelAndView("nuevoCliente");
+		return new ModelAndView("/exito", "mensaje", "Nuevo cliente registrado");
 	}
 
 	@RequestMapping(value = "/listarcliente")
